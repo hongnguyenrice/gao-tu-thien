@@ -1,0 +1,114 @@
+import type { Metadata } from 'next';
+import React from 'react';
+import { RICE_PRODUCTS } from '@/data/mockData';
+import {
+  CONTACT_LABEL,
+  DELIVERY,
+  DELIVERY_AREAS,
+  ORDER_STEPS,
+  PHONE_DISPLAY,
+  PRICE_UPDATED,
+  SITE_URL,
+  mapsSearchUrl,
+} from '@/data/site';
+import {
+  CTABox,
+  DeliveryAreas,
+  FAQSection,
+  OrderSteps,
+  PageHeader,
+  PriceTable,
+  Section,
+} from '@/components/content';
+import { FastQuoteForm } from '@/components/FastQuoteForm';
+
+const CANONICAL = `${SITE_URL}/bao-gia-gao-tu-thien/`;
+
+export const metadata: Metadata = {
+  title: 'Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng',
+  description:
+    'Bảng báo giá gạo từ thiện mới nhất: Gạo 504, Lài Sữa, Đài Thơm 8, ST25, Gạo tấm. Giá sỉ giảm theo nấc 100kg, 500kg, 1 tấn. Đóng túi 5kg-10kg miễn phí, giao tận nơi, xuất hóa đơn VAT.',
+  alternates: {
+    canonical: CANONICAL,
+  },
+  openGraph: {
+    title: 'Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng',
+    description:
+      'Bảng giá sỉ gạo từ thiện tận xưởng Đồng Tháp và 4 chi nhánh kho. Đóng bao 5kg, 10kg, giao tận nơi, hóa đơn VAT 5%.',
+    url: CANONICAL,
+    type: 'article',
+  },
+};
+
+const faqs = [
+  {
+    q: 'Bảng giá gạo từ thiện áp dụng cho đơn hàng số lượng bao nhiêu?',
+    a: 'Chúng tôi áp dụng bảng giá sỉ theo từng nấc khối lượng: dưới 100kg (cho đơn thử mẫu), từ 100kg - 499kg, từ 500kg - 999kg và từ 1.000kg (1 tấn) trở lên. Với các chương trình cứu trợ quy mô lớn từ 5 tấn trở lên, kho áp dụng chính sách giá xuất xưởng trực tiếp từ nhà máy Đồng Tháp.',
+  },
+  {
+    q: 'Báo giá đã bao gồm chi phí đóng bao 5kg, 10kg chưa?',
+    a: 'Chi phí đóng bao nhỏ 5kg, 10kg (bao bì in sẵn chữ Gạo Từ Thiện hoặc bao dệt may miệng chắc chắn) được tài trợ hoàn toàn miễn phí cho Quý đoàn thiện nguyện.',
+  },
+  {
+    q: 'Doanh nghiệp mua gạo từ thiện có được xuất hóa đơn VAT không?',
+    a: 'Có đầy đủ. Chúng tôi xuất hóa đơn điện tử VAT (thuế suất 5% cho mặt hàng gạo sơ chế) kèm hợp đồng mua bán và giấy chứng nhận ATVSTP để doanh nghiệp quyết toán chi phí công đoàn minh bạch.',
+  },
+  {
+    q: 'Thời gian nhận bảng báo giá chính thức mất bao lâu?',
+    a: 'Sau khi Quý đoàn điền form bên dưới hoặc nhắn Zalo/gọi hotline, chuyên viên gạo sẽ gửi bảng báo giá có dấu mộc công ty và ảnh mẫu gạo thực tế trong vòng 5 - 15 phút.',
+  },
+];
+
+export default function BaoGiaPage() {
+  return (
+    <>
+      <PageHeader
+        title="Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc"
+        path="/bao-gia-gao-tu-thien/"
+        crumb="Báo giá gạo từ thiện"
+        intro={
+          <>
+            <p>
+              Bảng báo giá gạo từ thiện sỉ tận gốc cập nhật ngày {PRICE_UPDATED} của <strong>Vựa Gạo Sóc Trăng</strong>.
+              Đơn giá được tối ưu riêng cho các chương trình phát quà hộ nghèo, cúng dường tự viện, bếp cơm tình thương
+              và cứu trợ bão lũ.
+            </p>
+            <p>
+              Hỗ trợ đóng bao 5kg, 10kg miễn phí, giao hàng bằng xe tải chuyên dụng đến tận chùa, mái ấm, bếp ăn
+              và xuất hóa đơn điện tử VAT 5% đầy đủ.
+            </p>
+          </>
+        }
+      />
+
+      {/* Bảng giá gạo sỉ bậc thang */}
+      <Section id="bang-gia" title="Bảng Giá Sỉ Các Loại Gạo Từ Thiện Hôm Nay">
+        <p className="text-sm text-gray-600 mb-4">
+          Bảng giá chi tiết theo từng nấc số lượng. Bấm vào từng loại gạo hoặc điền form bên dưới để nhận bảng dự toán chính xác theo địa điểm giao.
+        </p>
+        <PriceTable products={RICE_PRODUCTS} anchors />
+      </Section>
+
+      {/* Form nhận báo giá nhanh */}
+      <div id="form-bao-gia" className="scroll-mt-24">
+        <FastQuoteForm />
+      </div>
+
+      {/* Quy trình đặt hàng */}
+      <Section title="Quy Trình Nhận Báo Giá & Đặt Hàng Gạo Từ Thiện" muted>
+        <OrderSteps />
+      </Section>
+
+      {/* Khu vực và thời gian giao hàng */}
+      <Section title="Khu Vực Giao Hàng & Hệ Thống 4 Chi Nhánh Kho">
+        <DeliveryAreas />
+      </Section>
+
+      {/* FAQ Báo giá */}
+      <FAQSection faqs={faqs} title="Câu Hỏi Thường Gặp Về Báo Giá Gạo Từ Thiện" />
+
+      {/* CTA Box */}
+      <CTABox currentPath="/bao-gia-gao-tu-thien/" />
+    </>
+  );
+}

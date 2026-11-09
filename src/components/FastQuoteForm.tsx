@@ -9,6 +9,7 @@ export const FastQuoteForm: React.FC = () => {
   const [volumeKg, setVolumeKg] = useState<number>(500);
   const [packagingType, setPackagingType] = useState<string>('Bao 10kg');
   const [deliveryLocation, setDeliveryLocation] = useState<string>('TP. Hồ Chí Minh');
+  const [deliveryDate, setDeliveryDate] = useState<string>('');
   const [customerName, setCustomerName] = useState<string>('');
   const [customerPhone, setCustomerPhone] = useState<string>('');
   const [customerOrg, setCustomerOrg] = useState<string>('');
@@ -246,6 +247,19 @@ export const FastQuoteForm: React.FC = () => {
                         value={customerPhone}
                         onChange={(e) => setCustomerPhone(e.target.value)}
                         placeholder="Số điện thoại nhận báo giá Zalo"
+                        className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-amber-200 font-semibold mb-1">
+                        Thời gian cần hàng dự kiến:
+                      </label>
+                      <input
+                        type="text"
+                        value={deliveryDate}
+                        onChange={(e) => setDeliveryDate(e.target.value)}
+                        placeholder="Ví dụ: Ngày 15 âm lịch, ngày mai, hoặc cuối tuần..."
                         className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm"
                       />
                     </div>
