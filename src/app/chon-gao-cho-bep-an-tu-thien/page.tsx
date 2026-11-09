@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
-import { getProducts, QUOTE_FORM_URL, SITE_URL } from '@/data/site';
+import {
+  QUOTE_FORM_URL,
+  SITE_URL,
+  getProducts,
+} from '@/data/site';
 import {
   CTABox,
   DeliveryAreas,
@@ -17,7 +21,7 @@ const CANONICAL = `${SITE_URL}/chon-gao-cho-bep-an-tu-thien/`;
 export const metadata: Metadata = {
   title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện, Quán Cơm 0 Đồng',
   description:
-    'Kinh nghiệm chọn gạo cho bếp ăn từ thiện bệnh viện, quán cơm 0 đồng, bếp chùa nấu hàng trăm suất. Gạo IR50404 nở xốp dôi cơm; Gạo tấm thơm nấu cháo dinh dưỡng sánh bùi, giá sỉ tốt nhất.',
+    'Cẩm nang chọn gạo cho bếp ăn từ thiện bệnh viện, quán cơm 0 đồng, bếp chùa nấu hàng trăm suất. Gạo IR50404 nở xốp dôi cơm; Gạo tấm thơm nấu cháo dinh dưỡng sánh bùi, giá sỉ tốt nhất.',
   alternates: {
     canonical: CANONICAL,
   },
@@ -35,11 +39,15 @@ const kitchenProducts = getProducts(['gao-504', 'gao-tam-thom', 'gao-lai-sua']);
 const faqs = [
   {
     q: 'Tại sao các bếp ăn từ thiện lớn và quán cơm 0 đồng lại ưu tiên chọn Gạo 504?',
-    a: 'Gạo IR50404 có đặc tính hạt nở xốp rất nhiều, khô ráo và không bị dính bết. Khi nấu bằng tủ cơm công nghiệp hoặc nồi quân dụng lớn, 1kg gạo 504 cho ra số lượng bát cơm nhiều hơn khoảng 20% - 30% so với gạo dẻo. Đặc biệt, người lao động nghèo ăn cơm kèm nhiều nước canh hoặc đồ xào, hạt cơm nở ráo hút canh rất ngon và không bị nhão.',
+    a: 'Gạo IR50404 có đặc tính hạt nở xốp cực lớn, khô ráo và không bị dính bết. Khi nấu bằng tủ cơm công nghiệp hoặc nồi quân dụng lớn, 1kg gạo 504 cho ra số lượng bát cơm nhiều hơn khoảng 25% - 30% so với gạo dẻo. Đặc biệt, người lao động nghèo ăn cơm kèm nhiều nước canh hoặc đồ xào, hạt cơm nở ráo hút canh rất ngon và chắc dạ, không bị ngấy.',
+  },
+  {
+    q: 'Bí quyết trộn gạo nào giúp cơm bếp từ thiện vừa dôi nhiều suất vừa mềm ngon?',
+    a: 'Công thức trộn vàng của các bếp ăn kinh nghiệm là: 70% Gạo IR50404 (tạo độ nở xốp, dôi cơm tối đa) phối trộn cùng 30% Gạo Lài Sữa hoặc Gạo Thơm Lài (tạo độ kết dính nhẹ, làm hạt cơm thơm ngọt và bóng bẩy). Tỷ lệ này giúp tối ưu chi phí mà bà con ăn vẫn khen cơm ngon như cơm nhà.',
   },
   {
     q: 'Nấu cháo từ thiện tại các bệnh viện nên dùng loại gạo nào tốt nhất?',
-    a: 'Nên dùng Gạo Tấm Thơm (hạt tấm vỡ nguyên mầm phôi). Gạo tấm nấu cháo nhanh nhừ hơn gạo nguyên hạt, tiết kiệm 40% thời gian đun nấu và nhiên liệu gas/điện. Khi nhừ, hạt tấm nở bung sánh mịn, nước cháo ngọt hậu và thơm lành tự nhiên, rất thích hợp cho bệnh nhân tiêu hóa dễ dàng.',
+    a: 'Nên dùng Gạo Tấm Thơm (hạt tấm vỡ nguyên mầm phôi của giống lúa thơm). Gạo tấm nấu cháo nhanh nhừ hơn gạo nguyên hạt, tiết kiệm 40% thời gian đun nấu và nhiên liệu gas/điện. Khi nhừ, hạt tấm nở bung sánh mịn, nước cháo ngọt hậu và thơm lành tự nhiên, rất thích hợp cho bệnh nhân tiêu hóa dễ dàng.',
   },
   {
     q: 'Kho gạo có chính sách giữ giá ổn định theo tháng/quý cho bếp ăn từ thiện không?',
@@ -74,10 +82,10 @@ export default function ChonGaoBepAnPage() {
 
       {/* So sánh 2 loại gạo chủ lực cho bếp ăn */}
       <Section title="2 Dòng Gạo Chủ Lực Tiết Kiệm Chi Phí Nhất Cho Bếp Ăn Thiện Nguyện">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
           
           {/* Gạo 504 */}
-          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-emerald-200 shadow-sm space-y-4">
+          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-emerald-200 shadow-sm space-y-4 hover:border-emerald-300 transition-colors">
             <span className="bg-emerald-100 text-emerald-900 text-xs font-bold px-3 py-1 rounded-full uppercase">
               Vua Lợi Cơm Cho Quán Cơm & Bếp Ăn
             </span>
@@ -91,7 +99,7 @@ export default function ChonGaoBepAnPage() {
           </div>
 
           {/* Gạo Tấm Thơm */}
-          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-blue-200 shadow-sm space-y-4">
+          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-blue-200 shadow-sm space-y-4 hover:border-blue-300 transition-colors">
             <span className="bg-blue-100 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase">
               Chuyên Dụng Cho Nồi Cháo Tình Thương
             </span>
@@ -105,13 +113,22 @@ export default function ChonGaoBepAnPage() {
           </div>
 
         </div>
+
+        {/* Mẹo nấu tủ cơm công nghiệp */}
+        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 text-sm text-gray-700">
+          <h4 className="font-bold text-gray-900 text-base mb-2">💡 Kinh Nghiệm Canh Nước Chuẩn Khi Nấu Tủ Cơm Công Nghiệp Lớn:</h4>
+          <p className="leading-relaxed mb-2">
+            Với dòng gạo <strong>IR50404</strong>, tỷ lệ nước lý tưởng là <strong>1 gạo : 1.15 đến 1.25 nước</strong>. Gạo hút nước rất khỏe nên cần đong đủ nước để hạt nở căng tròn mà không sượng.
+            Nên ngâm gạo khoảng 10 – 15 phút trước khi đẩy khay vào tủ hấp, hạt cơm sau khi chín 50 phút sẽ nở bông xốp, tơi xốp đều từ khay trên đến khay dưới.
+          </p>
+        </div>
       </Section>
 
       {/* Bảng so sánh hiệu suất & chi phí */}
       <Section title="Bảng So Sánh Hiệu Suất Nấu Cơm Giữa Các Phân Khúc Gạo" muted>
-        <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white">
+        <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
           <table className="w-full text-sm">
-            <thead className="bg-amber-50 text-amber-950 font-bold">
+            <thead className="bg-amber-50 text-amber-950 font-bold border-b border-amber-200">
               <tr>
                 <th className="p-3 text-left">Loại gạo</th>
                 <th className="p-3 text-center">Đặc tính cơm</th>
@@ -121,21 +138,21 @@ export default function ChonGaoBepAnPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 text-gray-700">
-              <tr>
+              <tr className="hover:bg-gray-50/50">
                 <td className="p-3 font-bold text-gray-900">Gạo IR50404</td>
                 <td className="p-3 text-center">Nở xốp nhiều, ráo hạt</td>
                 <td className="p-3 text-center font-bold text-emerald-800">4.5 - 5 suất</td>
                 <td className="p-3 text-right font-bold text-emerald-800">12.000 đ/kg</td>
                 <td className="p-3 text-emerald-700 font-semibold">Tối ưu chi phí nhất (Số 1 bếp ăn)</td>
               </tr>
-              <tr>
+              <tr className="hover:bg-gray-50/50">
                 <td className="p-3 font-bold text-gray-900">Gạo Tấm Thơm</td>
                 <td className="p-3 text-center">Nấu cháo sánh, mau nhừ</td>
                 <td className="p-3 text-center font-bold text-blue-800">7 - 8 bát cháo</td>
                 <td className="p-3 text-right font-bold text-blue-800">12.800 đ/kg</td>
                 <td className="p-3 text-blue-700 font-semibold">Chuyên dụng nồi cháo bệnh viện</td>
               </tr>
-              <tr>
+              <tr className="hover:bg-gray-50/50">
                 <td className="p-3 font-bold text-gray-900">Gạo Lài Sữa</td>
                 <td className="p-3 text-center">Dẻo vừa, mềm ngọt</td>
                 <td className="p-3 text-center">3.5 - 4 suất</td>
@@ -145,6 +162,20 @@ export default function ChonGaoBepAnPage() {
             </tbody>
           </table>
         </div>
+
+        {/* Liên kết nội bộ */}
+        <div className="mt-6 flex flex-wrap gap-3 text-xs sm:text-sm">
+          <span className="text-gray-500 font-medium">Cẩm nang liên quan:</span>
+          <Link href="/bao-gia-gao-tu-thien/" className="text-emerald-700 hover:underline font-semibold">
+            Bảng giá sỉ toàn bộ sản phẩm &rarr;
+          </Link>
+          <Link href="/quy-cach-dong-bao-va-giao-hang/" className="text-emerald-700 hover:underline font-semibold">
+            Quy cách bao 25kg, 50kg cho bếp ăn &rarr;
+          </Link>
+          <Link href="/gao-phat-qua-tu-thien/" className="text-emerald-700 hover:underline font-semibold">
+            Gạo phát quà hộ nghèo &rarr;
+          </Link>
+        </div>
       </Section>
 
       {/* Bảng giá gạo bếp ăn */}
@@ -152,7 +183,7 @@ export default function ChonGaoBepAnPage() {
         <p className="text-sm text-gray-600 mb-4">
           Giá sỉ xuất xưởng áp dụng cho các bếp cơm thiện nguyện.{' '}
           <Link href={QUOTE_FORM_URL} className="text-emerald-700 font-semibold underline">
-            Nhận báo giá dự toán theo tháng
+            Nhận báo giá dự toán theo tháng &rarr;
           </Link>
         </p>
         <PriceTable products={kitchenProducts} />

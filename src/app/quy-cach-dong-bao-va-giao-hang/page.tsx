@@ -163,6 +163,23 @@ export default function QuyCachDongBaoPage() {
               </p>
             </div>
           </div>
+
+          {/* Contextual links */}
+          <div className="pt-4 border-t border-gray-100 flex flex-wrap gap-3 text-xs sm:text-sm">
+            <span className="text-gray-500 font-medium">Tham khảo thêm:</span>
+            <Link href="/bao-gia-gao-tu-thien/" className="text-emerald-700 hover:underline font-semibold">
+              Bảng báo giá gạo từ thiện theo nấc sản lượng &rarr;
+            </Link>
+            <Link href="/gao-phat-qua-tu-thien/" className="text-emerald-700 hover:underline font-semibold">
+              Kinh nghiệm chọn gạo phát quà hộ nghèo &rarr;
+            </Link>
+            <Link href="/gao-cung-duong-chua/" className="text-emerald-700 hover:underline font-semibold">
+              Gạo ST25 cúng dường chùa &rarr;
+            </Link>
+            <Link href="/chon-gao-cho-bep-an-tu-thien/" className="text-emerald-700 hover:underline font-semibold">
+              Gạo lợi cơm cho quán cơm 0 đồng &rarr;
+            </Link>
+          </div>
         </div>
       </Section>
 

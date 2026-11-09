@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import React from 'react';
+import Link from 'next/link';
 import { RICE_PRODUCTS } from '@/data/mockData';
 import {
   CONTACT_LABEL,
@@ -87,6 +88,25 @@ export default function BaoGiaPage() {
           Bảng giá chi tiết theo từng nấc số lượng. Bấm vào từng loại gạo hoặc điền form bên dưới để nhận bảng dự toán chính xác theo địa điểm giao.
         </p>
         <PriceTable products={RICE_PRODUCTS} anchors />
+
+        {/* Cẩm nang liên kết nội bộ */}
+        <div className="mt-8 bg-emerald-50/70 border border-emerald-200/80 rounded-2xl p-5">
+          <h4 className="text-sm font-bold text-emerald-950 mb-3">Xem Hướng Dẫn Chọn Gạo Chuyên Biệt Theo Từng Mục Đích:</h4>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs sm:text-sm">
+            <Link href="/gao-phat-qua-tu-thien/" className="bg-white p-3 rounded-xl border border-emerald-100 font-semibold text-emerald-900 hover:text-emerald-700 hover:border-emerald-300 transition-colors block">
+              🎁 Gạo phát quà hộ nghèo (túi 5kg - 10kg) &rarr;
+            </Link>
+            <Link href="/gao-cung-duong-chua/" className="bg-white p-3 rounded-xl border border-emerald-100 font-semibold text-emerald-900 hover:text-emerald-700 hover:border-emerald-300 transition-colors block">
+              🪷 Gạo ST25 cúng dường chùa &rarr;
+            </Link>
+            <Link href="/chon-gao-cho-bep-an-tu-thien/" className="bg-white p-3 rounded-xl border border-emerald-100 font-semibold text-emerald-900 hover:text-emerald-700 hover:border-emerald-300 transition-colors block">
+              🍲 Gạo lợi cơm cho quán cơm 0 đồng &rarr;
+            </Link>
+            <Link href="/quy-cach-dong-bao-va-giao-hang/" className="bg-white p-3 rounded-xl border border-emerald-100 font-semibold text-emerald-900 hover:text-emerald-700 hover:border-emerald-300 transition-colors block">
+              🚚 Quy cách đóng bao & giao xe tải &rarr;
+            </Link>
+          </div>
+        </div>
       </Section>
 
       {/* Form nhận báo giá nhanh */}

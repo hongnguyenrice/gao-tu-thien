@@ -71,82 +71,110 @@ export const CharityGuideAndFAQ: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           
           {/* Card 1: Hộ nghèo & Người già */}
-          <div className="bg-amber-50/50 rounded-2xl p-6 border border-amber-200 hover:shadow-md transition">
-            <div className="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
-              <Heart className="w-5 h-5 fill-white" />
+          <div className="bg-amber-50/50 rounded-2xl p-6 border border-amber-200 hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+                <Heart className="w-5 h-5 fill-white" />
+              </div>
+              <span className="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-md uppercase">
+                Phát Quà Gia Đình
+              </span>
+              <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
+                Gạo Lài Sữa / Đài Thơm 8
+              </h3>
+              <p className="text-xs text-gray-600 leading-relaxed mb-4">
+                Cơm dẻo vừa, mềm ngọt, để nguội không bị cứng. Rất phù hợp khẩu vị số đông, người cao tuổi và các em nhỏ dễ ăn.
+              </p>
             </div>
-            <span className="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-md uppercase">
-              Phát Quà Gia Đình
-            </span>
-            <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
-              Gạo Lài Sữa / Đài Thơm 8
-            </h3>
-            <p className="text-xs text-gray-600 leading-relaxed mb-4">
-              Cơm dẻo vừa, mềm ngọt, để nguội không bị cứng. Rất phù hợp khẩu vị số đông, người cao tuổi và các em nhỏ dễ ăn.
-            </p>
-            <div className="text-xs text-emerald-800 font-bold border-t border-amber-200/80 pt-3 flex justify-between items-center">
-              <span>Đóng bao đề xuất:</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-amber-300">5kg - 10kg</span>
+            <div>
+              <div className="text-xs text-emerald-800 font-bold border-t border-amber-200/80 pt-3 flex justify-between items-center mb-3">
+                <span>Đóng bao:</span>
+                <span className="bg-white px-2 py-0.5 rounded border border-amber-300">5kg - 10kg</span>
+              </div>
+              <Link href="/gao-phat-qua-tu-thien/" className="text-xs font-bold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
+                Cẩm nang chọn gạo phát quà <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </div>
 
           {/* Card 2: Bếp ăn 0 đồng */}
-          <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-200 hover:shadow-md transition">
-            <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
-              <Flame className="w-5 h-5" />
+          <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-200 hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+                <Flame className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-md uppercase">
+                Bếp Ăn & Quán Cơm
+              </span>
+              <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
+                Gạo IR50404 Nở Xốp
+              </h3>
+              <p className="text-xs text-gray-600 leading-relaxed mb-4">
+                Đặc tính nở nhiều, rất dôi cơm, hạt cơm khô ráo chan canh không nhão. Tối đa hóa số suất cơm trên từng bao gạo với chi phí rẻ nhất.
+              </p>
             </div>
-            <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-md uppercase">
-              Bếp Ăn & Quán Cơm
-            </span>
-            <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
-              Gạo IR50404 Nở Xốp
-            </h3>
-            <p className="text-xs text-gray-600 leading-relaxed mb-4">
-              Đặc tính nở nhiều, rất dôi cơm, hạt cơm khô ráo chan canh không nhão. Tối đa hóa số suất cơm trên từng bao gạo với chi phí rẻ nhất.
-            </p>
-            <div className="text-xs text-emerald-800 font-bold border-t border-emerald-200/80 pt-3 flex justify-between items-center">
-              <span>Đóng bao đề xuất:</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-emerald-300">25kg - 50kg</span>
+            <div>
+              <div className="text-xs text-emerald-800 font-bold border-t border-emerald-200/80 pt-3 flex justify-between items-center mb-3">
+                <span>Đóng bao:</span>
+                <span className="bg-white px-2 py-0.5 rounded border border-emerald-300">25kg - 50kg</span>
+              </div>
+              <Link href="/chon-gao-cho-bep-an-tu-thien/" className="text-xs font-bold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
+                Bí quyết nấu dôi cơm 0 đồng <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </div>
 
           {/* Card 3: Nấu cháo dinh dưỡng */}
-          <div className="bg-blue-50/50 rounded-2xl p-6 border border-blue-200 hover:shadow-md transition">
-            <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
-              <Users className="w-5 h-5" />
+          <div className="bg-blue-50/50 rounded-2xl p-6 border border-blue-200 hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+                <Users className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-bold text-blue-800 bg-blue-100 px-2.5 py-1 rounded-md uppercase">
+                Nồi Cháo Bệnh Viện
+              </span>
+              <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
+                Gạo Tấm Thơm Sạch
+              </h3>
+              <p className="text-xs text-gray-600 leading-relaxed mb-4">
+                Hạt tấm nguyên phôi dinh dưỡng, nấu nhanh nhừ, nước cháo sánh mịn và ngọt thơm tự nhiên. Tiết kiệm thời gian ninh hầm cho tình nguyện viên.
+              </p>
             </div>
-            <span className="text-xs font-bold text-blue-800 bg-blue-100 px-2.5 py-1 rounded-md uppercase">
-              Nồi Cháo Bệnh Viện
-            </span>
-            <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
-              Gạo Tấm Thơm Sạch
-            </h3>
-            <p className="text-xs text-gray-600 leading-relaxed mb-4">
-              Hạt tấm nguyên phôi dinh dưỡng, nấu nhanh nhừ, nước cháo sánh mịn và ngọt thơm tự nhiên. Tiết kiệm thời gian ninh hầm cho tình nguyện viên.
-            </p>
-            <div className="text-xs text-blue-800 font-bold border-t border-blue-200/80 pt-3 flex justify-between items-center">
-              <span>Đóng bao đề xuất:</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-blue-300">10kg - 25kg</span>
+            <div>
+              <div className="text-xs text-blue-800 font-bold border-t border-blue-200/80 pt-3 flex justify-between items-center mb-3">
+                <span>Đóng bao:</span>
+                <span className="bg-white px-2 py-0.5 rounded border border-blue-300">10kg - 25kg</span>
+              </div>
+              <Link href="/chon-gao-cho-bep-an-tu-thien/#bang-gia-bep-an" className="text-xs font-bold text-blue-800 hover:text-blue-950 flex items-center gap-1 group">
+                Xem bảng giá tấm nấu cháo <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </div>
 
           {/* Card 4: Cúng dường cao cấp */}
-          <div className="bg-purple-50/50 rounded-2xl p-6 border border-purple-200 hover:shadow-md transition">
-            <div className="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
-              <CheckCircle2 className="w-5 h-5" />
+          <div className="bg-purple-50/50 rounded-2xl p-6 border border-purple-200 hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+                <CheckCircle2 className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-bold text-purple-800 bg-purple-100 px-2.5 py-1 rounded-md uppercase">
+                Cúng Dường & Biếu Tặng
+              </span>
+              <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
+                Gạo ST25 / Jasmine 85
+              </h3>
+              <p className="text-xs text-gray-600 leading-relaxed mb-4">
+                Hạt gạo dài bóng ngọc, vị cơm dẻo mềm hảo hạng thơm mùi lá dứa tự nhiên. Thể hiện trọn vẹn lòng thành kính khi dâng cúng Tam Bảo.
+              </p>
             </div>
-            <span className="text-xs font-bold text-purple-800 bg-purple-100 px-2.5 py-1 rounded-md uppercase">
-              Cúng Dường & Biếu Tặng
-            </span>
-            <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
-              Gạo ST25 / Jasmine 85
-            </h3>
-            <p className="text-xs text-gray-600 leading-relaxed mb-4">
-              Hạt gạo dài bóng ngọc, vị cơm dẻo mềm hảo hạng thơm mùi lá dứa tự nhiên. Thể hiện trọn vẹn lòng thành kính khi dâng cúng Tam Bảo.
-            </p>
-            <div className="text-xs text-purple-800 font-bold border-t border-purple-200/80 pt-3 flex justify-between items-center">
-              <span>Đóng bao đề xuất:</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-purple-300">Hút chân không 5kg</span>
+            <div>
+              <div className="text-xs text-purple-800 font-bold border-t border-purple-200/80 pt-3 flex justify-between items-center mb-3">
+                <span>Đóng bao:</span>
+                <span className="bg-white px-2 py-0.5 rounded border border-purple-300">5kg - 25kg</span>
+              </div>
+              <Link href="/gao-cung-duong-chua/" className="text-xs font-bold text-purple-800 hover:text-purple-950 flex items-center gap-1 group">
+                Gạo ST25 cúng dường chùa <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </div>
 
