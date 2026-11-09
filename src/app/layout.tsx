@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://tuthien.gaosoctrang.com'),
   title: "Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng - Đóng Bao 5kg 10kg Miễn Phí",
   description: "Tổng kho chuyên cung cấp gạo từ thiện giá sỉ xuất xưởng tại TP.HCM, Bình Dương, Tây Ninh & Đồng Tháp. Gạo 504 nở xốp, Gạo Lài Sữa dẻo thơm, ST25. Hỗ trợ đóng bao 5kg-10kg miễn phí, giao tận chùa/bếp ăn, xuất hóa đơn VAT.",
+  alternates: {
+    canonical: 'https://tuthien.gaosoctrang.com',
+  },
   keywords: [
     "gạo từ thiện",
     "gạo từ thiện giá sỉ",
@@ -32,6 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gạo Từ Thiện Giá Sỉ Tận Gốc - Vựa Gạo Sóc Trăng",
     description: "Nhà máy Đồng Tháp & 4 chi nhánh TP.HCM, Bình Dương, Tây Ninh. Đóng bao 5kg-10kg miễn phí, giao xe tải tận nơi, xuất hóa đơn VAT.",
+    url: "https://tuthien.gaosoctrang.com",
     type: "website",
     locale: "vi_VN",
     siteName: "Vựa Gạo Sóc Trăng - Gạo Từ Thiện",
@@ -52,6 +57,8 @@ export const metadata: Metadata = {
 const jsonLdLocalBusiness = {
   "@context": "https://schema.org",
   "@type": "WholesaleStore",
+  "@id": "https://tuthien.gaosoctrang.com/#organization",
+  "url": "https://tuthien.gaosoctrang.com",
   "name": "Vựa Gạo Sóc Trăng - Kho Cung Cấp Gạo Từ Thiện Giá Sỉ",
   "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=1200&q=80",
   "telephone": "0762234135",

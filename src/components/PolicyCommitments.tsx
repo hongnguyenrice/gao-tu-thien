@@ -53,7 +53,7 @@ export const PolicyCommitments: React.FC = () => {
             </p>
           </div>
           <a
-            href="https://zalo.me/0909123456"
+            href="https://zalo.me/0762234135"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 bg-white text-amber-900 hover:bg-amber-50 font-bold px-6 py-3.5 rounded-xl shadow-md transition"

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tuthien.gaosoctrang.com/sitemap.xml
