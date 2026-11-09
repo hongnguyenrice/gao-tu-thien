@@ -15,14 +15,14 @@ import {
 const CANONICAL = `${SITE_URL}/chon-gao-cho-bep-an-tu-thien/`;
 
 export const metadata: Metadata = {
-  title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện, Quán Cơm 0 Đồng | Tiết Kiệm & Lợi Cơm',
+  title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện, Quán Cơm 0 Đồng',
   description:
     'Kinh nghiệm chọn gạo cho bếp ăn từ thiện bệnh viện, quán cơm 0 đồng, bếp chùa nấu hàng trăm suất. Gạo IR50404 nở xốp dôi cơm; Gạo tấm thơm nấu cháo dinh dưỡng sánh bùi, giá sỉ tốt nhất.',
   alternates: {
     canonical: CANONICAL,
   },
   openGraph: {
-    title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện & Quán Cơm 0 Đồng – Lợi Cơm & Tiết Kiệm Chi Phí',
+    title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện, Quán Cơm 0 Đồng | Vựa Gạo Sóc Trăng',
     description:
       'Gạo IR50404 và Gạo Tấm Thơm sỉ tận gốc cho bếp ăn tình thương, quán cơm chay miễn phí. Giao hàng xe tải định kỳ, đóng bao 25kg, 50kg.',
     url: CANONICAL,

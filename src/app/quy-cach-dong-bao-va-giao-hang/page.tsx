@@ -14,14 +14,14 @@ import {
 const CANONICAL = `${SITE_URL}/quy-cach-dong-bao-va-giao-hang/`;
 
 export const metadata: Metadata = {
-  title: 'Quy Cách Đóng Bao & Giao Hàng Gạo Từ Thiện | Vựa Gạo Sóc Trăng',
+  title: 'Quy Cách Đóng Bao & Giao Hàng Gạo Từ Thiện',
   description:
     'Chi tiết quy cách đóng bao 5kg, 10kg, 25kg, 50kg và dịch vụ vận chuyển gạo từ thiện tận nơi của Vựa Gạo Sóc Trăng. Xe tải giao tận chùa, mái ấm tại TP.HCM, Bình Dương, Tây Ninh; hỗ trợ bốc xếp.',
   alternates: {
     canonical: CANONICAL,
   },
   openGraph: {
-    title: 'Quy Cách Đóng Bao & Dịch Vụ Giao Gạo Từ Thiện Tận Nơi',
+    title: 'Quy Cách Đóng Bao & Giao Hàng Gạo Từ Thiện | Vựa Gạo Sóc Trăng',
     description:
       'Hỗ trợ đóng bao 5kg, 10kg in chữ Từ Thiện miễn phí. Đội xe tải giao hàng tận sảnh chùa, bếp ăn, hỗ trợ khuân vác chu đáo.',
     url: CANONICAL,

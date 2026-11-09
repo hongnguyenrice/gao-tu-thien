@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng",
-    template: `%s | ${SITE_NAME}`,
+    template: "%s | Vựa Gạo Sóc Trăng",
   },
   description:
     "Tổng kho chuyên cung cấp gạo từ thiện giá sỉ xuất xưởng tại TP.HCM, Bình Dương, Tây Ninh & Đồng Tháp. Gạo 504 nở xốp, Gạo Lài Sữa dẻo thơm, ST25. Hỗ trợ đóng bao 5kg-10kg miễn phí, giao tận chùa/bếp ăn, xuất hóa đơn VAT.",

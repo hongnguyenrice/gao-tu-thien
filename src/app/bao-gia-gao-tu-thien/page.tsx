@@ -25,7 +25,7 @@ import { FastQuoteForm } from '@/components/FastQuoteForm';
 const CANONICAL = `${SITE_URL}/bao-gia-gao-tu-thien/`;
 
 export const metadata: Metadata = {
-  title: 'Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng',
+  title: 'Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc',
   description:
     'Bảng báo giá gạo từ thiện mới nhất: Gạo 504, Lài Sữa, Đài Thơm 8, ST25, Gạo tấm. Giá sỉ giảm theo nấc 100kg, 500kg, 1 tấn. Đóng túi 5kg-10kg miễn phí, giao tận nơi, xuất hóa đơn VAT.',
   alternates: {

@@ -15,14 +15,14 @@ import {
 const CANONICAL = `${SITE_URL}/gao-phat-qua-tu-thien/`;
 
 export const metadata: Metadata = {
-  title: 'Gạo Phát Quà Từ Thiện – Gạo Dẻo Mềm Đóng Bao 5kg, 10kg | Vựa Gạo Sóc Trăng',
+  title: 'Gạo Phát Quà Từ Thiện – Gạo Dẻo Mềm Đóng Bao 5kg, 10kg',
   description:
     'Tư vấn chọn gạo phát quà từ thiện cho hộ nghèo, người già neo đơn, trẻ em mái ấm. Gạo Lài Sữa, Jasmine, ST25 dẻo ngọt, dễ ăn, để nguội không cứng. Đóng bao 5kg, 10kg miễn phí, giao tận nơi.',
   alternates: {
     canonical: CANONICAL,
   },
   openGraph: {
-    title: 'Gạo Phát Quà Từ Thiện – Gạo Dẻo Mềm Đóng Bao 5kg, 10kg',
+    title: 'Gạo Phát Quà Từ Thiện – Gạo Dẻo Mềm Đóng Bao 5kg, 10kg | Vựa Gạo Sóc Trăng',
     description:
       'Gạo Lài Sữa, Đài Thơm 8, ST25 chuyên dụng chia phần phát quà tận tay bà con nghèo. Hỗ trợ đóng bao 5kg, 10kg, xe tải giao tận nơi.',
     url: CANONICAL,
