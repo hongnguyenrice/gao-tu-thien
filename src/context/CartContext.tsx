@@ -141,14 +141,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
     }
 
-    // Quy tắc bao 5kg:
-    // - Dưới 1.000kg: +300đ/kg tiền vỏ in & may chỉ
-    // - Từ 1.000kg (1 tấn) trở lên: Miễn phí 100% tài trợ đoàn thiện nguyện
-    const is5kg = Boolean(packagingChoice && packagingChoice.includes('5kg'));
-    if (is5kg && quantityKg < 1000) {
-      price += 300;
-    }
-
+    // Giá chuẩn quy cách bao 25kg. Miễn phí đóng gói 100% mọi quy cách (túi 5kg, bao 10kg, 25kg, 50kg)
     return price;
   };
 

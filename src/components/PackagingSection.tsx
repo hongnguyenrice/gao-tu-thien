@@ -155,13 +155,13 @@ export const PackagingSection: React.FC<PackagingSectionProps> = ({ mode = 'feat
         <div className="mt-8 bg-gradient-to-r from-amber-900 via-amber-800 to-amber-950 text-white rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-md">
           <div className="space-y-1.5 text-center md:text-left">
             <div className="inline-flex items-center gap-1.5 text-amber-300 text-xs font-bold bg-white/10 px-2.5 py-0.5 rounded-full">
-              <CheckCircle2 className="w-3.5 h-3.5" /> Miễn Phí Đóng Gói
+              <CheckCircle2 className="w-3.5 h-3.5" /> Miễn Phí Đóng Gói 100%
             </div>
             <h3 className="text-base sm:text-lg font-black">
-              Đơn từ 1 tấn: Tài trợ 100% vỏ bao 5kg may chỉ & in màu
+              Hỗ trợ đóng bao miễn phí: Túi 5kg, bao 10kg, 25kg, 50kg
             </h3>
             <p className="text-xs text-amber-100 max-w-2xl leading-relaxed">
-              Bao 10kg, 25kg, 50kg luôn miễn phí 100%. Quý đoàn cần in tên đoàn riêng hoặc dán tem decal lời chúc, kho đều hỗ trợ chu đáo.
+              Giá niêm yết chuẩn theo quy cách bao 25kg. Quý đoàn cần chia túi nhỏ 5kg có quai xách hay dán tem decal tên đoàn, xưởng đều hỗ trợ miễn phí 100%.
             </p>
           </div>
 
