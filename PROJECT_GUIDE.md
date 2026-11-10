@@ -14,7 +14,7 @@
 | **Thư mục build tĩnh** | `/Users/leutdu/.gemini/antigravity/scratch/gao-tu-thien/out` | Thư mục sinh ra sau khi chạy `npm run build` |
 | **Repo GitHub gốc** | `https://github.com/leutdu156-a11y/gao-tu-thien` | Nhánh `main` (code dev), nhánh `deploy` (bản tĩnh) |
 | **Repo GitHub Hostinger** | `https://github.com/hongnguyenrice/gao-tu-thien` | Đang kết nối trực tiếp với Hostinger (nhánh `deploy`) |
-| **File zip xuất bản mới nhất** | `/Users/leutdu/.gemini/antigravity/scratch/hostinger-gaotuthien-20261110-0809.zip` | Đóng gói theo chuẩn `YYYYMMDD-HHMM` |
+| **File zip xuất bản mới nhất** | `/Users/leutdu/.gemini/antigravity/scratch/hostinger-gaotuthien-20261110-0842.zip` | Đóng gói theo chuẩn `YYYYMMDD-HHMM` |
 
 ---
 
