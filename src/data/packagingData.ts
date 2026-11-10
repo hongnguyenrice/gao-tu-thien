@@ -15,7 +15,7 @@ export const PACKAGING_MODELS: PackagingModel[] = [
     id: 'pack-5kg-trong-suot-huong-lai',
     name: 'Túi 5kg Trong Suốt Hương Lài',
     weightCategory: '5kg',
-    image: '/bao-bi/bao-5kg-trong-suot-huong-lai.jpg',
+    image: '/bao-bi/bao-5kg-trong-suot-huong-lai.jpg?v=2',
     tag: 'Thấy Rõ Hạt Gạo',
     description: 'Bao bì PP dệt trong suốt nhìn thấy rõ 100% hạt gạo trắng sạch, hạt đều không lẫn tấm.',
     suitableFor: 'Phát quà hộ nghèo, giúp bà con thấy gạo ngon minh bạch',
