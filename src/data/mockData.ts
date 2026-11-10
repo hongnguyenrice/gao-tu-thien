@@ -227,6 +227,8 @@ export interface PolicySupport {
   title: string;
   desc: string;
   icon: string;
+  tag?: string;
+  keyPoint?: string;
 }
 
 export interface BranchLocation {
@@ -303,32 +305,44 @@ export const BRAND_INFO = {
 export const CHARITY_COMMITMENTS: PolicySupport[] = [
   {
     title: 'Giá Sỉ Tận Gốc Cho Từ Thiện',
-    desc: 'Cam kết chia sẻ một phần lợi nhuận cho thiện nguyện, giá luôn ưu đãi nhất thị trường, không tăng giá các dịp cao điểm rằm/lễ Tết.',
-    icon: 'BadgePercent'
+    desc: 'Cam kết chia sẻ một phần lợi nhuận cho thiện nguyện, giá luôn ưu đãi tận kho nhà máy. Tuyệt đối không tăng giá hay ép giá vào các dịp cao điểm Vu Lan, Tết, Phật Đản.',
+    icon: 'BadgePercent',
+    tag: 'Bình ổn giá dịp Rằm & Tết',
+    keyPoint: 'Tiết kiệm tối đa ngân sách đoàn'
   },
   {
     title: 'Hỗ Trợ Đóng Gói Túi 5kg - 10kg Miễn Phí',
-    desc: 'Có sẵn bao bì in chữ "Gạo Từ Thiện / Gạo Nghĩa Tình" trang trọng, sạch đẹp, may miệng bao chắc chắn để thuận tiện phát tận tay bà con.',
-    icon: 'PackageCheck'
+    desc: 'Tài trợ 100% công đóng túi 5kg quai xách và bao dệt 10kg, 25kg, 50kg. Bao bì sạch đẹp, may chỉ chắc chắn, in sẵn chữ "Gạo Từ Thiện / Gạo Nghĩa Tình" trang trọng.',
+    icon: 'PackageCheck',
+    tag: '0đ phụ thu bao bì',
+    keyPoint: 'Miễn phí bao bì & nhân công'
   },
   {
     title: 'Vận Chuyển Tận Nơi & Bốc Xếp Vào Kho',
-    desc: 'Hệ thống xe tải chi nhánh giao hàng tận các điểm chùa, mái ấm, viện dưỡng lão nội thành và liên tỉnh; phụ trách khuân vác vào kho gọn gàng chu đáo.',
-    icon: 'Truck'
+    desc: 'Hệ thống xe tải giao tận cửa Chùa, Mái ấm, Viện dưỡng lão nội thành và liên tỉnh. Tài xế và phụ xe bốc vác, xếp vào kho ngăn nắp, cam kết đúng giờ đoàn tổ chức.',
+    icon: 'Truck',
+    tag: 'Giao đúng giờ hẹn làm lễ',
+    keyPoint: 'Xe tải giao & bốc vác tận nơi'
   },
   {
-    title: 'Đầy Đủ Hóa Đơn VAT & Giấy VSATTP',
-    desc: 'Cung cấp hóa đơn đỏ (VAT), giấy chứng nhận nguồn gốc xuất xứ, kiểm nghiệm an toàn thực phẩm để quý đoàn dễ dàng quyết toán tài chính minh bạch.',
-    icon: 'FileText'
+    title: 'Đầy Đủ Hóa Đơn VAT 5% & VSATTP',
+    desc: 'Xuất hóa đơn điện tử VAT 5% chuẩn ngành nông sản, cung cấp hợp đồng kinh tế và giấy chứng nhận VSATTP để doanh nghiệp và quỹ từ thiện dễ dàng quyết toán tài chính minh bạch.',
+    icon: 'FileText',
+    tag: 'Minh bạch quyết toán tài chính',
+    keyPoint: 'Hóa đơn VAT 5% & VSATTP'
   },
   {
     title: 'Chụp Ảnh & Quay Video Bàn Giao',
-    desc: 'Nếu Mạnh Thường Quân ở xa hoặc ở nước ngoài gửi tặng, chúng tôi hỗ trợ chụp ảnh, quay video cân ký và ký biên nhận tại cơ sở tiếp nhận.',
-    icon: 'Camera'
+    desc: 'Dành riêng cho Mạnh Thường Quân ở xa hoặc kiều bào tài trợ: Vựa hỗ trợ quay clip cân ký thực tế, chụp ảnh trao tận nơi và gửi biên bản ký nhận từ cơ sở tiếp nhận.',
+    icon: 'Camera',
+    tag: 'Kiều bào & người ở xa an tâm',
+    keyPoint: 'Báo cáo hình ảnh & biên nhận'
   },
   {
-    title: 'Đổi Trả 100% Nếu Không Đạt Chất Lượng',
-    desc: 'Bảo đảm tuyệt đối gạo mới, không pha trộn, không chất bảo quản hay hương liệu tạo mùi, không mối mọt.',
-    icon: 'ShieldCheck'
+    title: 'Bảo Hành Gạo Mới – Đổi Trả Trong 24H',
+    desc: 'Bảo đảm 100% gạo mùa mới gặt, hạt khô ráo thơm lành, không pha trộn, không chất bảo quản. Sẵn sàng 1 đổi 1 hoặc hoàn tiền 100% nếu phát hiện gạo ẩm mốc hay không đúng mẫu.',
+    icon: 'ShieldCheck',
+    tag: '1 đổi 1 hoặc hoàn tiền 100%',
+    keyPoint: 'Cam kết 100% gạo mới sạch'
   }
 ];
