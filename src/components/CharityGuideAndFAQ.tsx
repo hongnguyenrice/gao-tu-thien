@@ -6,7 +6,6 @@ import {
   BookOpen, 
   HelpCircle, 
   ChevronDown, 
-  Calculator, 
   Users, 
   CheckCircle2, 
   ArrowRight, 
@@ -180,99 +179,8 @@ export const CharityGuideAndFAQ: React.FC = () => {
 
         </div>
 
-        {/* 2. Bảng Dự Toán Ngân Sách Mẫu */}
-        <div className="mb-16 bg-gradient-to-br from-amber-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-amber-800/80">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 text-xs font-bold px-3 py-1 rounded-full uppercase mb-2">
-                <Calculator className="w-4 h-4" /> Bảng Tham Khảo Dự Toán
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                Bảng Tính Ngân Sách Phát Quà Từ Thiện Mẫu
-              </h3>
-              <p className="text-xs sm:text-sm text-amber-200/80 mt-1">
-                Đã bao gồm: Gạo mới + Miễn phí bao bì in chữ Từ Thiện + Vận chuyển xe tải tận nơi.
-              </p>
-            </div>
-            <a
-              href={`https://zalo.me/${BRAND_INFO.zalo}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-amber-950 font-black px-6 py-3 rounded-xl shadow-md transition shrink-0 text-sm"
-            >
-              Nhận Báo Giá Dự Toán Riêng (Zalo)
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-8">
-            
-            {/* Quy mô 100 suất */}
-            <div className="bg-white/10 backdrop-blur-xs rounded-2xl p-5 border border-white/10 hover:border-amber-400/50 transition">
-              <span className="text-xs font-bold text-amber-300 uppercase">Quy mô 100 suất</span>
-              <div className="text-2xl font-black text-white mt-1 mb-2">500 kg</div>
-              <p className="text-xs text-amber-200/70 mb-3">Mỗi phần 1 bao 5kg</p>
-              <div className="space-y-1.5 text-xs border-t border-white/10 pt-3">
-                <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo Sẻ Chia:</span>
-                  <span className="font-bold text-amber-300">~7.000.000 đ</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo Nghĩa Tình:</span>
-                  <span className="font-bold text-emerald-300">~7.350.000 đ</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Quy mô 200 suất */}
-            <div className="bg-white/10 backdrop-blur-xs rounded-2xl p-5 border border-white/10 hover:border-amber-400/50 transition">
-              <span className="text-xs font-bold text-amber-300 uppercase">Quy mô 200 suất</span>
-              <div className="text-2xl font-black text-white mt-1 mb-2">1.000 kg (1 Tấn)</div>
-              <p className="text-xs text-amber-200/70 mb-3">Mỗi phần 1 bao 5kg</p>
-              <div className="space-y-1.5 text-xs border-t border-white/10 pt-3">
-                <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo Sẻ Chia:</span>
-                  <span className="font-bold text-amber-300">~13.500.000 đ</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo Nghĩa Tình:</span>
-                  <span className="font-bold text-emerald-300">~14.200.000 đ</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Quy mô 300 suất (10kg) */}
-            <div className="bg-white/10 backdrop-blur-xs rounded-2xl p-5 border border-white/10 hover:border-amber-400/50 transition">
-              <span className="text-xs font-bold text-amber-300 uppercase">Quy mô 300 suất</span>
-              <div className="text-2xl font-black text-white mt-1 mb-2">3.000 kg (3 Tấn)</div>
-              <p className="text-xs text-amber-200/70 mb-3">Mỗi phần 1 bao 10kg</p>
-              <div className="space-y-1.5 text-xs border-t border-white/10 pt-3">
-                <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo Sẻ Chia:</span>
-                  <span className="font-bold text-amber-300">Chiết khấu xe tải</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo Nghĩa Tình:</span>
-                  <span className="font-bold text-emerald-300">Giá xưởng tốt nhất</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Quy mô lớn từ 5 tấn */}
-            <div className="bg-white/10 backdrop-blur-xs rounded-2xl p-5 border border-amber-400/40 bg-amber-400/10">
-              <span className="text-xs font-bold text-amber-300 uppercase">Chương Trình Lớn</span>
-              <div className="text-2xl font-black text-amber-300 mt-1 mb-2">Từ 5 Tấn Trở Lên</div>
-              <p className="text-xs text-amber-200/70 mb-3">Chuyến xe trực tiếp từ nhà máy</p>
-              <div className="text-xs border-t border-white/10 pt-3 text-amber-100 leading-relaxed">
-                Áp dụng bảng giá xuất xưởng trực tiếp Đồng Tháp, hỗ trợ chia theo từng điểm giao liên tỉnh.
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        {/* 3. Phần Hỏi - Đáp Thường Gặp (FAQ Accordion - Thân thiện với AI Trích Dẫn) */}
-        <div className="max-w-4xl mx-auto">
+        {/* 2. Phần Hỏi - Đáp Thường Gặp (FAQ Accordion - Thân thiện với AI Trích Dẫn) */}
+        <div className="max-w-4xl mx-auto mt-12 sm:mt-16">
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-1.5 text-emerald-800 bg-emerald-100 text-xs font-bold px-3 py-1 rounded-full uppercase mb-2">
               <HelpCircle className="w-4 h-4" /> Thắc Mắc Thường Gặp
