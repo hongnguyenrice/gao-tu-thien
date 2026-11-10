@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Camera, ExternalLink, MessageCircle, Heart, CheckCircle2, Video, Play } from 'lucide-react';
+import { Camera, ExternalLink, MessageCircle, Heart, CheckCircle2, Video, Play, Sparkles } from 'lucide-react';
 import { FACEBOOK_PAGE_URL, MESSENGER_URL, ZALO_URL } from '@/data/site';
 
 interface ActivityItem {
@@ -15,33 +15,33 @@ interface ActivityItem {
 
 const ACTIVITIES: ActivityItem[] = [
   {
-    id: 'phat-qua-mien-trung',
-    image: '/hoat-dong/phat-qua-mien-trung.jpg',
-    title: 'Hồng Nguyên Sẻ Chia Cùng Bà Con',
-    location: 'Sân khấu chương trình từ thiện',
-    desc: 'Hàng trăm bao gạo 5kg cao cấp được đóng túi cẩn thận, xếp trang trọng cùng các phần quà nhu yếu phẩm.',
-    tag: 'Sẻ Chia Yêu Thương'
+    id: 'trao-gao-tan-tay',
+    image: '/hoat-dong/trao-gao-tan-tay.jpg',
+    title: 'Trao Gạo Tận Tay Người Dân Khó Khăn',
+    location: 'Chương trình phát quà dân sinh',
+    desc: 'Từng túi gạo trắng sạch được trao tận tay bà con đi xe đạp, người lao động nghèo trên phố.',
+    tag: 'Phát Quà Tận Tay'
   },
   {
-    id: 'hoi-truong-phat-qua',
-    image: '/hoat-dong/hoi-truong-phat-qua.jpg',
-    title: 'Hội Trường Trao Quà Thiện Nguyện',
-    location: 'Hội trường tiếp nhận quà',
-    desc: 'Đông đảo bà con tập trung nhận từng suất quà nghĩa tình, tiếp sức cho các hộ gia đình vượt qua khó khăn.',
-    tag: 'Đồng Hành Cùng Đoàn'
+    id: 'chuyen-xe-trao-tang',
+    image: '/hoat-dong/chuyen-xe-trao-tang.jpg',
+    title: 'Tiếp Sức Các Cô Chú Lớn Tuổi',
+    location: 'Khu dân cư & Mái ấm bảo trợ',
+    desc: 'Các bao gạo nghĩa tình được chở đến tận nơi, trao cho các bác lớn tuổi và người neo đơn.',
+    tag: 'Tiếp Sức Người Già'
   },
   {
-    id: 'kiem-tra-gao',
-    image: '/hoat-dong/kiem-tra-gao-tu-thien.jpg',
-    title: 'Kiểm Kê Số Lượng & Nghiệm Thu',
-    location: 'Khu tập kết phẩm vật',
-    desc: 'Trưởng đoàn và tình nguyện viên kiểm tra kỹ lưỡng từng bao gạo, bảo đảm hạt mới, thơm ngon, cân ký đủ 100%.',
-    tag: 'Minh Bạch Số Lượng'
+    id: 'chong-bao-huong-lai-10kg',
+    image: '/hoat-dong/chong-bao-huong-lai-10kg.jpg',
+    title: 'Gạo Hương Lài 10kg Đóng Bao Sạch Đẹp',
+    location: 'Kho thành phẩm Vựa Gạo Sóc Trăng',
+    desc: 'Các hàng bao gạo dẻo thơm được may chỉ chắc chắn, xếp pallet khô ráo sẵn sàng xuất xưởng.',
+    tag: 'Bao Bì Trang Trọng'
   },
   {
     id: 'kho-gao-xuat-hang',
     image: '/hoat-dong/kho-gao-xuat-hang.jpg',
-    title: 'Kho Gạo Lớn – Xuất Hàng Nhanh',
+    title: 'Kho Bãi Lớn – Xuất Hàng Nhanh Chóng',
     location: 'Hệ thống kho Vựa Gạo Sóc Trăng',
     desc: 'Kho bãi quy mô lớn, nhân viên bốc xếp tận tâm, sẵn sàng điều xe tải xuất hàng từ vài trăm ký đến hàng chục tấn.',
     tag: 'Giá Sỉ Tận Gốc'
@@ -49,18 +49,10 @@ const ACTIVITIES: ActivityItem[] = [
   {
     id: 'chuan-bi-bao-gao',
     image: '/hoat-dong/chuan-bi-bao-gao-5kg.jpg',
-    title: 'Đóng Bao Gạo Nghĩa Tình Chắc Chắn',
-    location: 'Khu vực thành phẩm',
-    desc: 'Từng bao gạo may chỉ đôi dày dặn, bao bì sạch sẽ, xếp pallet gọn gàng bảo đảm không rách hay ẩm mốc.',
-    tag: 'Quy Cách 5kg – 10kg'
-  },
-  {
-    id: 'ban-phat-qua',
-    image: '/hoat-dong/ban-phat-qua-nhu-yeu-pham.jpg',
-    title: 'Chu Đáo Từng Suất Quà Trao Tay',
-    location: 'Bàn bàn giao quà tặng',
-    desc: 'Đồng hành cùng Quý đoàn mang bữa cơm ấm no và sự sẻ chia chân thành nhất đến với bà con nghèo.',
-    tag: 'Tận Tâm Phục Vụ'
+    title: 'Xếp Ngay Ngắn Trước Giờ Trao Tặng',
+    location: 'Điểm tập kết trước giờ trao quà',
+    desc: 'Từng phần gạo được sắp xếp ngăn nắp, bảo đảm đủ ký 100%, hạt gạo khô ráo và nguyên vẹn.',
+    tag: 'Chu Đáo Tận Tâm'
   }
 ];
 
@@ -78,19 +70,81 @@ export const CharityActivityGallery: React.FC = () => {
             Hình Ảnh Hoạt Động & Giao Hàng Thực Tế
           </h2>
           <p className="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed">
-            Mỗi chuyến xe là một nhân duyên thiện lành. Vựa Gạo Sóc Trăng (Nông Sản Hồng Nguyên) trân trọng từng đơn hàng của Quý mạnh thường quân, 
-            cam kết giao đúng hẹn, hỗ trợ bốc vác chu đáo và gửi hình ảnh nghiệm thu tận tình.
+            Mỗi chuyến xe là một nhân duyên thiện lành. Vựa Gạo Sóc Trăng trân trọng từng đơn hàng của Quý mạnh thường quân, 
+            cam kết giao đúng hẹn, hỗ trợ bốc vác chu đáo và đồng hành cùng các chương trình thiện nguyện trao tặng bà con.
           </p>
         </div>
 
-        {/* Lưới hình ảnh thực tế chuẩn tỉ lệ gốc 4:3 không bị crop */}
+        {/* TẤM HÌNH CHỦ ĐẠO LỚN: Tết Sẻ Chia Tại Cái Bè */}
+        <div className="mb-10 bg-white rounded-3xl overflow-hidden border-2 border-amber-300 shadow-xl grid lg:grid-cols-12 items-center">
+          <div className="lg:col-span-7 relative bg-gray-950 overflow-hidden aspect-[4/3] lg:aspect-[16/11]">
+            <img
+              src="/hoat-dong/tet-se-chia-cai-be.jpg"
+              alt="Chương trình Tết Sẻ Chia trao gạo từ thiện tại Cái Bè"
+              className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute top-4 left-4">
+              <span className="inline-flex items-center gap-1.5 bg-amber-500 text-amber-950 font-black text-xs px-3.5 py-1.5 rounded-full shadow-md">
+                <Sparkles className="w-4 h-4 fill-amber-950" /> Hoạt Động Tiêu Biểu
+              </span>
+            </div>
+            <div className="absolute bottom-3 left-4 right-4 text-white drop-shadow-md">
+              <span className="text-xs text-amber-200 font-bold block">📍 Xã Đông Hoà Hiệp, Huyện Cái Bè, Tỉnh Tiền Giang</span>
+              <p className="font-extrabold text-base sm:text-lg">Chương Trình Tết Sẻ Chia – Trao Tặng Gạo Nghĩa Tình</p>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 p-6 sm:p-8 space-y-4">
+            <div className="inline-block bg-emerald-100 text-emerald-900 font-bold text-xs px-3 py-1 rounded-lg">
+              🌾 Đồng Hành Cùng Đoàn Thiện Nguyện
+            </div>
+
+            <h3 className="text-xl sm:text-2xl font-black text-gray-900 leading-snug">
+              Bữa Cơm Nghĩa Tình Đến Tận Tay Từng Hộ Gia Đình Khó Khăn
+            </h3>
+
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+              Hình ảnh thực tế trong chương trình <strong>Tết Sẻ Chia</strong>. Vựa Gạo Sóc Trăng đóng gói từng bao gạo 5kg dẻo thơm, 
+              cùng Quý mạnh thường quân trao tận tay các hộ nghèo, người già neo đơn và trẻ em có hoàn cảnh khó khăn.
+            </p>
+
+            <div className="space-y-2 pt-1 text-xs text-gray-700">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Gạo mới mùa gặt, hạt đều, không pha trộn</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Đóng túi 5kg may chắc chắn, thuận tiện trao tặng</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Hỗ trợ chở xe tải và bốc dỡ tận nơi tổ chức</span>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <a
+                href={ZALO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md transition text-xs sm:text-sm active:scale-95"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Nhắn Zalo Nhận Tư Vấn Đóng Bao Quà
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Lưới 5 hình ảnh hoạt động thực tế khác (chuẩn tỷ lệ, không bị cắt) */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-12">
           {ACTIVITIES.map((act) => (
             <div
               key={act.id}
               className="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 flex flex-col"
             >
-              {/* Hình ảnh chuẩn tỷ lệ 4:3 tự nhiên */}
+              {/* Hình ảnh */}
               <div className="relative aspect-[4/3] bg-gray-900 overflow-hidden">
                 <img
                   src={act.image}
@@ -116,7 +170,7 @@ export const CharityActivityGallery: React.FC = () => {
                   {act.desc}
                 </p>
                 <div className="pt-2.5 border-t border-gray-100 flex items-center justify-between text-[11px] font-semibold text-emerald-800">
-                  <span>Nông Sản Hồng Nguyên – Vựa Gạo Sóc Trăng</span>
+                  <span>Vựa Gạo Sóc Trăng</span>
                   <span className="text-gray-400">Hình thật 100%</span>
                 </div>
               </div>
@@ -178,7 +232,7 @@ export const CharityActivityGallery: React.FC = () => {
                   controls
                   playsInline
                   preload="metadata"
-                  poster="/hoat-dong/phat-qua-mien-trung.jpg"
+                  poster="/hoat-dong/tet-se-chia-cai-be.jpg"
                   className="w-full h-auto object-cover aspect-[9/16]"
                 >
                   Trình duyệt không hỗ trợ xem video.
