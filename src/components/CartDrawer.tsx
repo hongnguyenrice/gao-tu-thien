@@ -422,15 +422,15 @@ export const CartDrawer: React.FC = () => {
                   href="https://zalo.me/0762234135"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-sm transition"
+                  className="w-full py-3.5 px-4 bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-700 hover:to-blue-800 text-white font-black rounded-xl text-xs flex items-center justify-center gap-2 shadow-md shadow-blue-600/20 transition active:scale-95"
                 >
                   <MessageCircle className="w-4 h-4" /> Nhắn Zalo Kho (0762 234 135) Xác Nhận Ngay
                 </a>
                 <a
                   href="tel:0762234135"
-                  className="w-full py-2.5 px-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition"
+                  className="w-full py-3 px-4 bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition"
                 >
-                  <PhoneCall className="w-4 h-4 text-emerald-600" /> Gọi Hotline Trực Tiếp: 0762 234 135
+                  <PhoneCall className="w-4 h-4 text-emerald-700" /> Gọi Hotline Trực Tiếp: 0762 234 135
                 </a>
               </div>
 
@@ -439,7 +439,7 @@ export const CartDrawer: React.FC = () => {
                   setStep('cart');
                   setIsCartOpen(false);
                 }}
-                className="mt-4 px-6 py-2 text-gray-500 hover:text-gray-800 font-semibold text-xs"
+                className="mt-4 px-6 py-2 text-stone-500 hover:text-stone-800 font-bold text-xs"
               >
                 Đóng và tiếp tục xem thêm
               </button>
@@ -449,29 +449,29 @@ export const CartDrawer: React.FC = () => {
 
         {/* Footer: Tính tiền & Button Chuyển bước */}
         {cart.length > 0 && step !== 'success' && (
-          <div className="p-4 sm:p-6 border-t border-gray-200 bg-gray-50/80 space-y-3">
-            <div className="space-y-1.5 text-xs text-gray-600">
+          <div className="p-4 sm:p-6 border-t border-stone-200 bg-stone-50/90 space-y-3">
+            <div className="space-y-1.5 text-xs text-stone-600">
               <div className="flex justify-between">
                 <span>Tổng khối lượng gạo:</span>
-                <span className="font-bold text-gray-900">{totalKg.toLocaleString('vi-VN')} kg</span>
+                <span className="font-bold text-stone-900">{totalKg.toLocaleString('vi-VN')} kg</span>
               </div>
               <div className="flex justify-between">
                 <span>Tiền gạo (giá sỉ thiện nguyện):</span>
-                <span className="font-bold text-gray-900">{subtotal.toLocaleString('vi-VN')} đ</span>
+                <span className="font-bold text-stone-900">{subtotal.toLocaleString('vi-VN')} đ</span>
               </div>
               {orderDetails.needVAT && (
                 <div className="flex justify-between">
                   <span>Thuế VAT 5%:</span>
-                  <span className="font-bold text-gray-900">{vatAmount.toLocaleString('vi-VN')} đ</span>
+                  <span className="font-bold text-stone-900">{vatAmount.toLocaleString('vi-VN')} đ</span>
                 </div>
               )}
               <div className="flex justify-between">
                 <span>Phí đóng gói bao 5kg/10kg:</span>
                 <span className="font-bold text-emerald-700">Miễn phí (0đ)</span>
               </div>
-              <div className="pt-2 border-t border-gray-200 flex justify-between items-baseline text-sm">
-                <span className="font-bold text-gray-900">Tổng Thanh Toán:</span>
-                <span className="text-lg font-black text-amber-800">
+              <div className="pt-2 border-t border-stone-200 flex justify-between items-baseline text-sm">
+                <span className="font-black text-stone-900">Tổng Thanh Toán:</span>
+                <span className="text-xl font-black text-amber-900">
                   {totalPayment.toLocaleString('vi-VN')} đ
                 </span>
               </div>
@@ -480,7 +480,7 @@ export const CartDrawer: React.FC = () => {
             {step === 'cart' ? (
               <button
                 onClick={() => setStep('checkout')}
-                className="w-full py-3.5 bg-amber-700 hover:bg-amber-800 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-sm shadow-md transition"
+                className="w-full py-3.5 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-amber-900 text-white font-black rounded-xl flex items-center justify-center gap-2 text-sm shadow-md shadow-amber-700/25 transition active:scale-95 border border-amber-500/30"
               >
                 Tiến Hành Đặt Hàng & Giao Nhận <ArrowRight className="w-4 h-4" />
               </button>
@@ -489,7 +489,7 @@ export const CartDrawer: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setStep('cart')}
-                  className="px-4 py-3 bg-white border border-gray-300 hover:bg-gray-100 font-bold rounded-xl text-xs"
+                  className="px-4 py-3 bg-white border border-stone-300 hover:bg-stone-100 font-bold rounded-xl text-xs"
                 >
                   Quay lại
                 </button>
@@ -497,7 +497,7 @@ export const CartDrawer: React.FC = () => {
                   form="checkout-form"
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm shadow-md transition flex items-center justify-center gap-2"
+                  className="flex-1 py-3.5 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-800 hover:from-emerald-700 hover:to-teal-900 text-white font-black rounded-xl text-sm shadow-md shadow-emerald-700/25 transition flex items-center justify-center gap-2 active:scale-95 border border-emerald-500/30"
                 >
                   {isSubmitting ? 'Đang gửi thông tin...' : 'Xác Nhận Đặt Gạo Từ Thiện'}
                 </button>

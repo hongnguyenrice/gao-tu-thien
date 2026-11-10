@@ -193,30 +193,39 @@ export const FAQSection: React.FC<{ faqs: { q: string; a: string }[]; title?: st
 
 /* ---------- CTA cuối trang + liên kết nội bộ ---------- */
 export const CTABox: React.FC<{ currentPath: string }> = ({ currentPath }) => (
-  <section className="py-10">
+  <section className="py-12 sm:py-16">
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="rounded-3xl bg-emerald-900 text-white p-6 sm:p-8">
-        <h2 className="text-2xl font-extrabold">Nhận báo giá gạo từ thiện</h2>
-        <p className="text-emerald-100 text-sm mt-2">
+      <div className="rounded-3xl bg-gradient-to-br from-[#063323] via-[#094330] to-[#04281c] text-white p-7 sm:p-10 border-2 border-emerald-400/40 shadow-2xl relative overflow-hidden">
+        <div className="inline-block bg-white/15 text-amber-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+          🌾 Phục Vụ Tận Tâm
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">Nhận Báo Giá Gạo Từ Thiện Tận Gốc</h2>
+        <p className="text-emerald-100 text-sm sm:text-base mt-2.5 font-normal max-w-2xl leading-relaxed">
           Gửi loại gạo, số lượng, địa điểm và ngày cần hàng — kho báo giá theo đúng chương trình của Quý đoàn.
           {' '}{CONTACT_LABEL}.
         </p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <a href={ZALO_URL} target="_blank" rel="noopener noreferrer" className="btn-zalo">Nhận báo giá qua Zalo</a>
-          <a href={`tel:${PHONE_TEL}`} className="btn-call">Gọi tư vấn</a>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a href={ZALO_URL} target="_blank" rel="noopener noreferrer" className="btn-zalo">
+            Nhận báo giá qua Zalo
+          </a>
+          <a href={`tel:${PHONE_TEL}`} className="btn-call">
+            Gọi tư vấn {PHONE_DISPLAY}
+          </a>
           {currentPath !== QUOTE_PATH && (
-            <Link href={QUOTE_PATH} className="btn-outline-light">Xem trang báo giá gạo từ thiện</Link>
+            <Link href={QUOTE_PATH} className="btn-gold">
+              Xem trang báo giá gạo từ thiện
+            </Link>
           )}
         </div>
       </div>
-      <nav aria-label="Trang liên quan" className="mt-6">
-        <h2 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Xem thêm</h2>
-        <ul className="flex flex-wrap gap-2">
+      <nav aria-label="Trang liên quan" className="mt-8">
+        <h2 className="text-xs font-black text-stone-500 uppercase tracking-wider mb-3">Chuyên Mục Quan Tâm Khác:</h2>
+        <ul className="flex flex-wrap gap-2.5">
           {PAGES.filter((p) => p.path !== currentPath && p.path !== '/').map((p) => (
             <li key={p.path}>
               <Link
                 href={p.path}
-                className="inline-block text-sm bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 font-semibold px-3 py-1.5 rounded-xl"
+                className="inline-block text-xs sm:text-sm bg-white hover:bg-amber-50 border border-stone-200 hover:border-amber-300 text-stone-800 hover:text-amber-950 font-bold px-3.5 py-2 rounded-xl shadow-2xs hover:shadow-xs transition"
               >
                 {p.path === QUOTE_PATH ? 'Báo giá gạo từ thiện' : p.label}
               </Link>

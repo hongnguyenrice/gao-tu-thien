@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfbf7;
+  --foreground: #1c1917;
+  --emerald-primary: #047857;
+  --emerald-deep: #064e3b;
+  --amber-gold: #d97706;
+  --amber-warm: #b45309;
 }
 
 html {
@@ -20,26 +24,54 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Luxury card shadow & glow */
+.shadow-luxury {
+  box-shadow: 0 10px 30px -5px rgba(28, 25, 23, 0.05), 0 0 1px 1px rgba(28, 25, 23, 0.04);
+}
+
+.shadow-luxury-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.shadow-luxury-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 35px -8px rgba(28, 25, 23, 0.09), 0 0 1px 1px rgba(28, 25, 23, 0.06);
+}
+
+.shadow-gold-glow {
+  box-shadow: 0 8px 24px -4px rgba(217, 119, 6, 0.25);
+}
+
+.shadow-emerald-glow {
+  box-shadow: 0 8px 24px -4px rgba(5, 150, 105, 0.25);
+}
+
+/* Refined buttons */
 .btn-zalo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: #0284c7;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
   color: #ffffff;
   font-weight: 700;
   font-size: 0.875rem;
   padding: 0.625rem 1.25rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  transition: all 0.2s;
+  border-radius: 0.875rem;
+  box-shadow: 0 4px 14px -2px rgba(2, 132, 199, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .btn-zalo:hover {
-  background-color: #0369a1;
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -2px rgba(2, 132, 199, 0.45);
 }
 
 .btn-call {
@@ -47,18 +79,43 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: #047857;
+  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
   color: #ffffff;
   font-weight: 700;
   font-size: 0.875rem;
   padding: 0.625rem 1.25rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  transition: all 0.2s;
+  border-radius: 0.875rem;
+  box-shadow: 0 4px 14px -2px rgba(4, 120, 87, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .btn-call:hover {
-  background-color: #065f46;
+  background: linear-gradient(135deg, #065f46 0%, #064e3b 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -2px rgba(4, 120, 87, 0.45);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #451a03;
+  font-weight: 800;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.875rem;
+  box-shadow: 0 4px 14px -2px rgba(217, 119, 6, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #fbbf24 0%, #b45309 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -2px rgba(217, 119, 6, 0.45);
 }
 
 .btn-outline {
@@ -67,18 +124,20 @@ body {
   justify-content: center;
   gap: 0.5rem;
   background-color: #ffffff;
-  color: #1f2937;
-  border: 1.5px solid #d1d5db;
+  color: #1c1917;
+  border: 1.5px solid #e7e5e4;
   font-weight: 700;
   font-size: 0.875rem;
   padding: 0.625rem 1.25rem;
-  border-radius: 0.75rem;
-  transition: all 0.2s;
+  border-radius: 0.875rem;
+  box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
 .btn-outline:hover {
-  background-color: #f9fafb;
-  border-color: #9ca3af;
+  background-color: #fafaf9;
+  border-color: #d6d3d1;
+  transform: translateY(-1px);
 }
 
 .btn-outline-light {
@@ -86,28 +145,32 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   font-weight: 700;
   font-size: 0.875rem;
   padding: 0.625rem 1.25rem;
-  border-radius: 0.75rem;
-  transition: all 0.2s;
+  border-radius: 0.875rem;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
 .btn-outline-light:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
 }
 
 .prose-vn {
-  color: #374151;
+  color: #44403c;
   line-height: 1.75;
 }
 .prose-vn p {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-top: 0.875rem;
+  margin-bottom: 0.875rem;
 }
 .prose-vn strong {
-  color: #111827;
+  color: #1c1917;
+  font-weight: 700;
 }

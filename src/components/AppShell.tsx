@@ -5,13 +5,13 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { CartDrawer } from '@/components/CartDrawer';
 import { CartProvider } from '@/context/CartContext';
-import { Phone, MessageCircle, PhoneCall } from 'lucide-react';
+import { Phone, MessageCircle, PhoneCall, Sparkles } from 'lucide-react';
 import { PHONE_DISPLAY, PHONE_TEL, ZALO_URL } from '@/data/site';
 
 export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <CartProvider>
-      <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans selection:bg-emerald-200 selection:text-emerald-900">
+      <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-stone-900 font-sans selection:bg-amber-200 selection:text-amber-950">
         <Navbar />
 
         {/* Thêm pb-20 trên mobile để nội dung cuối trang không bị thanh dính đáy che khuất */}
@@ -20,30 +20,30 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
         <Footer />
         <CartDrawer />
 
-        {/* 1. THANH LIÊN HỆ DÍNH ĐÁY CHO ĐIỆN THOẠI (Mobile Sticky Bottom Bar - chuẩn tối ưu ngón tay) */}
+        {/* 1. THANH LIÊN HỆ DÍNH ĐÁY CHO ĐIỆN THOẠI (Mobile Sticky Bottom Dock - Chuẩn app hiện đại) */}
         <aside
           aria-label="Thanh liên hệ nhanh trên điện thoại"
-          className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] flex items-center gap-2.5 shadow-2xl"
+          className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/92 backdrop-blur-xl border-t border-amber-200/60 px-3.5 py-2.5 pb-[max(0.6rem,env(safe-area-inset-bottom))] flex items-center gap-2.5 shadow-[0_-8px_30px_rgba(0,0,0,0.08)]"
         >
           {/* Nút Chat Zalo */}
           <a
             href={ZALO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 h-11 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2 font-bold text-xs shadow-sm transition active:scale-95"
+            className="flex-1 h-11 px-3 rounded-xl bg-gradient-to-r from-sky-600 via-sky-600 to-blue-700 hover:from-sky-700 hover:to-blue-800 text-white flex items-center justify-center gap-2 font-black text-xs shadow-md shadow-blue-600/20 border border-white/20 transition active:scale-95"
             aria-label="Nhận báo giá qua Zalo: 0762 234 135"
           >
-            <MessageCircle className="w-4 h-4 shrink-0" />
+            <MessageCircle className="w-4 h-4 shrink-0 fill-white/20" />
             <span className="truncate">Báo Giá Qua Zalo</span>
           </a>
 
           {/* Nút Gọi Điện Hotline */}
           <a
             href={`tel:${PHONE_TEL}`}
-            className="flex-1 h-11 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white flex items-center justify-center gap-2 font-bold text-xs shadow-sm transition active:scale-95"
+            className="flex-1 h-11 px-3 rounded-xl bg-gradient-to-r from-emerald-700 via-emerald-800 to-teal-900 hover:from-emerald-800 hover:to-teal-950 text-white flex items-center justify-center gap-2 font-black text-xs shadow-md shadow-emerald-800/20 border border-emerald-600/30 transition active:scale-95"
             aria-label="Gọi hotline tư vấn: 0762 234 135"
           >
-            <PhoneCall className="w-4 h-4 shrink-0" />
+            <PhoneCall className="w-4 h-4 shrink-0 text-amber-300" />
             <span className="truncate">Gọi {PHONE_DISPLAY}</span>
           </a>
         </aside>
@@ -58,11 +58,11 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
             href={ZALO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="h-12 px-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2 shadow-lg hover:scale-105 transition transform group"
+            className="h-12 px-4 rounded-full bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-700 hover:to-blue-800 text-white flex items-center gap-2 shadow-xl shadow-blue-600/25 hover:scale-105 transition transform group border border-white/30 ring-2 ring-blue-500/20"
             aria-label="Nhận báo giá qua Zalo: 0762 234 135"
           >
             <MessageCircle className="w-5 h-5 shrink-0" />
-            <span className="text-xs font-bold whitespace-nowrap">
+            <span className="text-xs font-black whitespace-nowrap">
               Báo giá Zalo: {PHONE_DISPLAY}
             </span>
           </a>
@@ -70,11 +70,11 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
           {/* Nút Gọi tư vấn */}
           <a
             href={`tel:${PHONE_TEL}`}
-            className="h-12 px-4 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white flex items-center gap-2 shadow-lg hover:scale-105 transition transform group animate-bounce"
+            className="h-12 px-4 rounded-full bg-gradient-to-r from-emerald-700 via-emerald-800 to-teal-900 hover:from-emerald-800 hover:to-teal-950 text-white flex items-center gap-2 shadow-xl shadow-emerald-800/25 hover:scale-105 transition transform group border border-emerald-500/40 ring-2 ring-emerald-500/20"
             aria-label="Gọi tư vấn: 0762 234 135"
           >
-            <Phone className="w-5 h-5 shrink-0" />
-            <span className="text-xs font-bold whitespace-nowrap">
+            <Phone className="w-5 h-5 shrink-0 text-amber-300 animate-pulse" />
+            <span className="text-xs font-black whitespace-nowrap">
               Gọi tư vấn: {PHONE_DISPLAY}
             </span>
           </a>

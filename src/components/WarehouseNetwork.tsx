@@ -48,30 +48,27 @@ export const WarehouseNetwork: React.FC = () => {
   };
 
   return (
-    <section id="he-thong-kho" className="py-10 sm:py-16 bg-gradient-to-b from-white via-amber-50/40 to-white border-b border-gray-200">
+    <section id="he-thong-kho" className="py-12 sm:py-18 bg-gradient-to-b from-stone-50/50 via-white to-stone-50/40 border-b border-stone-200/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* 1. Tiêu đề mục & Trạng thái mở cửa toàn hệ thống */}
-        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
-          <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-950 text-xs font-semibold px-3.5 py-1 rounded-full mb-2.5 shadow-xs">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-950 text-xs font-bold px-4 py-1.5 rounded-full mb-3 shadow-xs border border-emerald-300/60 backdrop-blur-md">
             <Clock className="w-3.5 h-3.5 text-emerald-700" />
             <span>Mở cửa toàn hệ thống: <strong>07:00 – 20:00</strong> (Cả CN & Lễ)</span>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse ml-1" />
-            <span className="text-[11px] font-bold text-emerald-800">{isOpen ? 'Đang mở' : 'Zalo 24/7'}</span>
+            <span className="text-[11px] font-black text-emerald-800 bg-emerald-100/80 px-2 py-0.2 rounded-full">{isOpen ? 'Đang mở' : 'Zalo 24/7'}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-black text-stone-900 tracking-tight">
             Hệ Thống Chi Nhánh & Nhà Máy
           </h2>
-          <p className="mt-2 text-gray-600 text-xs sm:text-base">
-            <strong>{BRAND_INFO.name}</strong> điều xe tải trực tiếp từ kho gần nhất để Quý đoàn nhận gạo nhanh và tiết kiệm cước phí nhất.
+          <p className="mt-2 text-stone-600 text-xs sm:text-base font-normal">
+            <strong className="text-stone-900 font-bold">{BRAND_INFO.name}</strong> điều xe tải trực tiếp từ kho gần nhất để Quý đoàn nhận gạo nhanh và tiết kiệm cước phí nhất.
           </p>
         </div>
 
-        {/* 2. DANH SÁCH 4 CHI NHÁNH & 1 NHÀ MÁY (ƯU TIÊN LÊN TRÊN HÀNG ĐẦU)
-            - Mobile: Snap Carousel mượt mà, chiều cao tối ưu ~200px
-            - Tablet/Desktop: Grid 5 cột rõ ràng, trực quan
-        */}
+        {/* 2. DANH SÁCH 4 CHI NHÁNH & 1 NHÀ MÁY */}
         <div
           ref={carouselRef}
           onScroll={handleScroll}
@@ -81,27 +78,27 @@ export const WarehouseNetwork: React.FC = () => {
           {BRAND_INFO.branches.map((b) => (
             <div
               key={b.id}
-              className="w-[84vw] max-w-[310px] sm:w-auto shrink-0 snap-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-200 hover:border-emerald-500 hover:shadow-lg transition-all flex flex-col justify-between"
+              className="w-[84vw] max-w-[310px] sm:w-auto shrink-0 snap-center bg-white rounded-2xl p-4 sm:p-5 border border-stone-200/80 hover:border-emerald-500 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Header card: Icon cửa hàng + Badge khu vực ngắn gọn */}
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-100">
+                <div className="flex items-center justify-between gap-2 mb-2.5">
+                  <span className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-200/80">
                     <Store className="w-4 h-4 text-emerald-700" />
                   </span>
-                  <span className="text-[11px] sm:text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full truncate">
+                  <span className="text-[11px] sm:text-xs font-extrabold text-emerald-900 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full truncate">
                     {b.area}
                   </span>
                 </div>
 
-                <h3 className="font-extrabold text-gray-900 text-sm sm:text-base mb-1.5 leading-snug">{b.name}</h3>
+                <h3 className="font-extrabold text-stone-900 text-sm sm:text-base mb-1.5 leading-snug">{b.name}</h3>
 
-                {/* Địa chỉ bấm được mở Google Maps - Thiết kế phẳng, không gạch chân nham nhở */}
+                {/* Địa chỉ bấm được mở Google Maps */}
                 <a
                   href={mapsSearchUrl(b.address)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-start gap-1.5 text-xs sm:text-sm text-gray-700 hover:text-emerald-700 leading-snug mb-3 transition"
+                  className="group flex items-start gap-1.5 text-xs sm:text-sm text-stone-600 hover:text-emerald-700 leading-snug mb-3.5 transition"
                   title="Bấm để mở bản đồ chỉ đường Google Maps"
                 >
                   <MapPin className="w-3.5 h-3.5 text-rose-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
@@ -111,13 +108,13 @@ export const WarehouseNetwork: React.FC = () => {
                 </a>
               </div>
 
-              {/* Hàng nút tương tác chuẩn mobile: [ Chỉ đường ] [ Zalo ] [ 📞 ] */}
-              <div className="pt-2.5 border-t border-gray-100 flex items-center gap-1.5 sm:gap-2">
+              {/* Hàng nút tương tác chuẩn: [ Chỉ đường ] [ Zalo ] [ 📞 ] */}
+              <div className="pt-3 border-t border-stone-100 flex items-center gap-1.5 sm:gap-2">
                 <a
                   href={mapsSearchUrl(b.address)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-2 px-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition shadow-xs active:scale-95 whitespace-nowrap"
+                  className="flex-1 py-2 px-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition shadow-2xs active:scale-95 whitespace-nowrap"
                   title={`Chỉ đường Google Maps đến ${b.name}`}
                 >
                   <Navigation className="w-3.5 h-3.5 shrink-0" />
@@ -127,7 +124,7 @@ export const WarehouseNetwork: React.FC = () => {
                   href={ZALO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2 px-2.5 sm:px-3 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition border border-blue-200 active:scale-95 shrink-0 whitespace-nowrap"
+                  className="py-2 px-2.5 sm:px-3 bg-blue-50 hover:bg-blue-100 text-blue-800 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition border border-blue-200 active:scale-95 shrink-0 whitespace-nowrap"
                   title="Nhắn tin Zalo điều xe tải"
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" />
@@ -146,13 +143,13 @@ export const WarehouseNetwork: React.FC = () => {
           ))}
 
           {/* 1 Nhà máy xay xát Đồng Tháp */}
-          <div className="w-[84vw] max-w-[310px] sm:w-auto shrink-0 snap-center bg-gradient-to-br from-amber-800 to-amber-950 text-white rounded-2xl p-4 sm:p-5 shadow-md flex flex-col justify-between sm:col-span-2 lg:col-span-1 border border-amber-700/50 hover:shadow-xl transition-all">
+          <div className="w-[84vw] max-w-[310px] sm:w-auto shrink-0 snap-center bg-gradient-to-br from-[#451a03] via-[#78350f] to-[#291102] text-white rounded-2xl p-4 sm:p-5 shadow-lg flex flex-col justify-between sm:col-span-2 lg:col-span-1 border border-amber-500/40 hover:shadow-2xl hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300">
             <div>
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white/20 text-white flex items-center justify-center shrink-0">
-                  <Factory className="w-4 h-4 text-amber-200" />
+              <div className="flex items-center justify-between gap-2 mb-2.5">
+                <span className="w-8 h-8 rounded-xl bg-white/20 text-white flex items-center justify-center shrink-0 border border-white/20">
+                  <Factory className="w-4 h-4 text-amber-300" />
                 </span>
-                <span className="text-[11px] sm:text-xs font-bold text-amber-200 bg-white/10 px-2.5 py-0.5 rounded-full truncate border border-white/10">
+                <span className="text-[11px] sm:text-xs font-black text-amber-300 bg-white/10 px-2.5 py-0.5 rounded-full truncate border border-white/20">
                   {BRAND_INFO.factory.area}
                 </span>
               </div>
@@ -163,10 +160,10 @@ export const WarehouseNetwork: React.FC = () => {
                 href={mapsSearchUrl(BRAND_INFO.factory.address)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-1.5 text-xs sm:text-sm text-amber-100 hover:text-white leading-snug mb-3 transition"
+                className="group flex items-start gap-1.5 text-xs sm:text-sm text-amber-100 hover:text-white leading-snug mb-3.5 transition"
                 title="Bấm để mở bản đồ chỉ đường Google Maps"
               >
-                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <MapPin className="w-3.5 h-3.5 text-amber-300 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                 <span className="font-medium group-hover:text-white line-clamp-2 sm:line-clamp-none">
                   {BRAND_INFO.factory.address}
                 </span>
@@ -174,12 +171,12 @@ export const WarehouseNetwork: React.FC = () => {
             </div>
 
             {/* 3 nút hành động của xưởng */}
-            <div className="pt-2.5 border-t border-white/10 flex items-center gap-1.5 sm:gap-2">
+            <div className="pt-3 border-t border-white/15 flex items-center gap-1.5 sm:gap-2">
               <a
                 href={mapsSearchUrl(BRAND_INFO.factory.address)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 py-2 px-2 bg-amber-500 hover:bg-amber-400 text-amber-950 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition shadow-xs active:scale-95 whitespace-nowrap"
+                className="flex-1 py-2 px-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-amber-950 rounded-xl font-black text-xs flex items-center justify-center gap-1 transition shadow-xs active:scale-95 whitespace-nowrap"
                 title="Xem chỉ đường Google Maps đến Nhà máy Đồng Tháp"
               >
                 <Navigation className="w-3.5 h-3.5 shrink-0" />

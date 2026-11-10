@@ -11,7 +11,8 @@ import {
   ArrowRight, 
   Flame, 
   Heart,
-  PhoneCall
+  PhoneCall,
+  Sparkles
 } from 'lucide-react';
 import { BRAND_INFO } from '@/data/mockData';
 
@@ -50,128 +51,128 @@ export const CharityGuideAndFAQ: React.FC = () => {
   ];
 
   return (
-    <section id="kinh-nghiem-tu-thien" className="py-16 bg-white border-b border-gray-200">
+    <section id="kinh-nghiem-tu-thien" className="py-16 sm:py-20 bg-white border-b border-stone-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 bg-amber-100/90 text-amber-950 border border-amber-300/80 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 shadow-2xs">
             <BookOpen className="w-4 h-4 text-amber-700" /> Cẩm Nang & Kinh Nghiệm Mua Gạo Từ Thiện
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight">
             Cách Chọn Đúng Loại Gạo & Dự Toán Chi Phí
           </h2>
-          <p className="mt-3 text-gray-600 text-base sm:text-lg">
+          <p className="mt-3 text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
             Kinh nghiệm đúc kết sau hơn 10 năm đồng hành cùng hàng nghìn chương trình thiện nguyện, bếp cơm 0 đồng và chùa viện trên toàn quốc.
           </p>
         </div>
 
-        {/* 1. Hướng Dẫn Chọn Gạo Theo Mục Đích */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* 1. Hướng Dẫn Chọn Gạo Theo Mục Đích - 4 Thẻ Sang Trọng */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-16">
           
           {/* Card 1: Hộ nghèo & Người già */}
-          <div className="bg-amber-50/50 rounded-2xl p-6 border border-amber-200 hover:shadow-md transition flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-amber-50/70 via-white to-amber-50/30 rounded-3xl p-6 border-2 border-amber-200/90 hover:border-amber-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+              <div className="w-11 h-11 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-amber-600/20">
                 <Heart className="w-5 h-5 fill-white" />
               </div>
-              <span className="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-md uppercase">
+              <span className="text-xs font-extrabold text-amber-900 bg-amber-100/90 border border-amber-200 px-2.5 py-1 rounded-lg uppercase">
                 Phát Quà Gia Đình
               </span>
-              <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
+              <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
                 Gạo Nghĩa Tình / Thiện Lành
               </h3>
-              <p className="text-xs text-gray-600 leading-relaxed mb-4">
+              <p className="text-xs text-stone-600 leading-relaxed mb-4">
                 Cơm dẻo vừa, mềm ngọt, để nguội không bị cứng. Rất phù hợp khẩu vị số đông, người cao tuổi và các em nhỏ dễ ăn.
               </p>
             </div>
             <div>
-              <div className="text-xs text-emerald-800 font-bold border-t border-amber-200/80 pt-3 flex justify-between items-center mb-3">
+              <div className="text-xs text-emerald-900 font-bold border-t border-amber-200/80 pt-3 flex justify-between items-center mb-3">
                 <span>Đóng bao:</span>
-                <span className="bg-white px-2 py-0.5 rounded border border-amber-300">5kg - 10kg</span>
+                <span className="bg-white px-2.5 py-0.5 rounded-md border border-amber-300 font-extrabold">5kg - 10kg</span>
               </div>
-              <Link href="/gao-phat-qua-tu-thien/" className="text-xs font-bold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
+              <Link href="/gao-phat-qua-tu-thien/" className="text-xs font-extrabold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
                 Cẩm nang chọn gạo phát quà <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
 
           {/* Card 2: Bếp ăn 0 đồng */}
-          <div className="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-200 hover:shadow-md transition flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-emerald-50/70 via-white to-emerald-50/30 rounded-3xl p-6 border-2 border-emerald-200/90 hover:border-emerald-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-emerald-600/20">
                 <Flame className="w-5 h-5" />
               </div>
-              <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-md uppercase">
+              <span className="text-xs font-extrabold text-emerald-900 bg-emerald-100/90 border border-emerald-200 px-2.5 py-1 rounded-lg uppercase">
                 Bếp Ăn & Quán Cơm
               </span>
-              <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
+              <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
                 Gạo Sẻ Chia (Nở Xốp)
               </h3>
-              <p className="text-xs text-gray-600 leading-relaxed mb-4">
+              <p className="text-xs text-stone-600 leading-relaxed mb-4">
                 Đặc tính nở nhiều, rất dôi cơm, hạt cơm khô ráo chan canh không nhão. Tối đa hóa số suất cơm trên từng bao gạo với chi phí rẻ nhất.
               </p>
             </div>
             <div>
-              <div className="text-xs text-emerald-800 font-bold border-t border-emerald-200/80 pt-3 flex justify-between items-center mb-3">
+              <div className="text-xs text-emerald-900 font-bold border-t border-emerald-200/80 pt-3 flex justify-between items-center mb-3">
                 <span>Đóng bao:</span>
-                <span className="bg-white px-2 py-0.5 rounded border border-emerald-300">25kg - 50kg</span>
+                <span className="bg-white px-2.5 py-0.5 rounded-md border border-emerald-300 font-extrabold">25kg - 50kg</span>
               </div>
-              <Link href="/chon-gao-cho-bep-an-tu-thien/" className="text-xs font-bold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
+              <Link href="/chon-gao-cho-bep-an-tu-thien/" className="text-xs font-extrabold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
                 Bí quyết nấu dôi cơm 0 đồng <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
 
           {/* Card 3: Nấu cháo dinh dưỡng */}
-          <div className="bg-blue-50/50 rounded-2xl p-6 border border-blue-200 hover:shadow-md transition flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-teal-50/70 via-white to-teal-50/30 rounded-3xl p-6 border-2 border-teal-200/90 hover:border-teal-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+              <div className="w-11 h-11 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-teal-600/20">
                 <Users className="w-5 h-5" />
               </div>
-              <span className="text-xs font-bold text-blue-800 bg-blue-100 px-2.5 py-1 rounded-md uppercase">
+              <span className="text-xs font-extrabold text-teal-900 bg-teal-100/90 border border-teal-200 px-2.5 py-1 rounded-lg uppercase">
                 Nồi Cháo Bệnh Viện
               </span>
-              <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
+              <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
                 Gạo Tấm Tình Thương
               </h3>
-              <p className="text-xs text-gray-600 leading-relaxed mb-4">
+              <p className="text-xs text-stone-600 leading-relaxed mb-4">
                 Hạt tấm nguyên phôi dinh dưỡng, nấu nhanh nhừ, nước cháo sánh mịn và ngọt thơm tự nhiên. Tiết kiệm thời gian ninh hầm cho tình nguyện viên.
               </p>
             </div>
             <div>
-              <div className="text-xs text-blue-800 font-bold border-t border-blue-200/80 pt-3 flex justify-between items-center mb-3">
+              <div className="text-xs text-teal-900 font-bold border-t border-teal-200/80 pt-3 flex justify-between items-center mb-3">
                 <span>Đóng bao:</span>
-                <span className="bg-white px-2 py-0.5 rounded border border-blue-300">10kg - 25kg</span>
+                <span className="bg-white px-2.5 py-0.5 rounded-md border border-teal-300 font-extrabold">10kg - 25kg</span>
               </div>
-              <Link href="/chon-gao-cho-bep-an-tu-thien/#bang-gia-bep-an" className="text-xs font-bold text-blue-800 hover:text-blue-950 flex items-center gap-1 group">
+              <Link href="/chon-gao-cho-bep-an-tu-thien/#bang-gia-bep-an" className="text-xs font-extrabold text-teal-800 hover:text-teal-950 flex items-center gap-1 group">
                 Xem bảng giá tấm nấu cháo <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
 
           {/* Card 4: Cúng dường cao cấp */}
-          <div className="bg-purple-50/50 rounded-2xl p-6 border border-purple-200 hover:shadow-md transition flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-purple-50/70 via-white to-purple-50/30 rounded-3xl p-6 border-2 border-purple-200/90 hover:border-purple-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+              <div className="w-11 h-11 rounded-2xl bg-purple-600 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-purple-600/20">
                 <CheckCircle2 className="w-5 h-5" />
               </div>
-              <span className="text-xs font-bold text-purple-800 bg-purple-100 px-2.5 py-1 rounded-md uppercase">
+              <span className="text-xs font-extrabold text-purple-900 bg-purple-100/90 border border-purple-200 px-2.5 py-1 rounded-lg uppercase">
                 Cúng Dường & Biếu Tặng
               </span>
-              <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
+              <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
                 Gạo ST25 Thượng Hạng
               </h3>
-              <p className="text-xs text-gray-600 leading-relaxed mb-4">
+              <p className="text-xs text-stone-600 leading-relaxed mb-4">
                 Hạt gạo dài bóng ngọc, vị cơm dẻo mềm hảo hạng thơm mùi lá dứa tự nhiên. Thể hiện trọn vẹn lòng thành kính khi dâng cúng Tam Bảo.
               </p>
             </div>
             <div>
-              <div className="text-xs text-purple-800 font-bold border-t border-purple-200/80 pt-3 flex justify-between items-center mb-3">
+              <div className="text-xs text-purple-900 font-bold border-t border-purple-200/80 pt-3 flex justify-between items-center mb-3">
                 <span>Đóng bao:</span>
-                <span className="bg-white px-2 py-0.5 rounded border border-purple-300">5kg - 25kg</span>
+                <span className="bg-white px-2.5 py-0.5 rounded-md border border-purple-300 font-extrabold">5kg - 25kg</span>
               </div>
-              <Link href="/gao-cung-duong-chua/" className="text-xs font-bold text-purple-800 hover:text-purple-950 flex items-center gap-1 group">
+              <Link href="/gao-cung-duong-chua/" className="text-xs font-extrabold text-purple-800 hover:text-purple-950 flex items-center gap-1 group">
                 Gạo ST25 cúng dường chùa <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -179,13 +180,13 @@ export const CharityGuideAndFAQ: React.FC = () => {
 
         </div>
 
-        {/* 2. Phần Hỏi - Đáp Thường Gặp (FAQ Accordion - Thân thiện với AI Trích Dẫn) */}
+        {/* 2. Phần Hỏi - Đáp Thường Gặp (FAQ Accordion) */}
         <div className="max-w-4xl mx-auto mt-12 sm:mt-16">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-1.5 text-emerald-800 bg-emerald-100 text-xs font-bold px-3 py-1 rounded-full uppercase mb-2">
-              <HelpCircle className="w-4 h-4" /> Thắc Mắc Thường Gặp
+            <div className="inline-flex items-center gap-1.5 text-emerald-950 bg-emerald-100/90 border border-emerald-300/80 text-xs font-black px-3.5 py-1 rounded-full uppercase mb-2 shadow-2xs">
+              <HelpCircle className="w-4 h-4 text-emerald-700" /> Thắc Mắc Thường Gặp
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+            <h3 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight">
               Câu Hỏi Về Dịch Vụ Cung Cấp Gạo Từ Thiện
             </h3>
           </div>
@@ -194,26 +195,26 @@ export const CharityGuideAndFAQ: React.FC = () => {
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="border border-gray-200 rounded-2xl overflow-hidden transition-colors bg-white hover:border-amber-300"
+                className="border border-stone-200/90 rounded-2xl overflow-hidden transition-all bg-white hover:border-amber-400 hover:shadow-sm"
               >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between p-5 text-left font-bold text-gray-900 hover:text-emerald-800 transition"
+                  className="w-full flex items-center justify-between p-5 text-left font-bold text-stone-900 hover:text-emerald-800 transition"
                 >
                   <span className="flex items-center gap-3 pr-4 text-sm sm:text-base">
-                    <span className="w-6 h-6 rounded-full bg-amber-100 text-amber-800 text-xs flex items-center justify-center shrink-0">
+                    <span className="w-6 h-6 rounded-full bg-amber-100 text-amber-900 text-xs font-black flex items-center justify-center shrink-0 border border-amber-300/80">
                       {idx + 1}
                     </span>
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-gray-500 shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-stone-500 shrink-0 transition-transform duration-300 ${
                       openFaqIndex === idx ? 'rotate-180 text-emerald-700' : ''
                     }`}
                   />
                 </button>
                 {openFaqIndex === idx && (
-                  <div className="px-5 pb-5 text-xs sm:text-sm text-gray-600 border-t border-gray-100 pt-3 leading-relaxed">
+                  <div className="px-5 pb-5 text-xs sm:text-sm text-stone-600 border-t border-stone-100 pt-3.5 leading-relaxed font-normal">
                     {faq.a}
                   </div>
                 )}
@@ -222,20 +223,20 @@ export const CharityGuideAndFAQ: React.FC = () => {
           </div>
 
           {/* Quick contact CTA */}
-          <div className="mt-10 p-6 rounded-2xl bg-amber-50 border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-10 p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-amber-50 via-white to-amber-50/60 border-2 border-amber-300/80 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <h4 className="font-bold text-gray-900 text-sm sm:text-base">
+              <h4 className="font-black text-stone-900 text-sm sm:text-base">
                 Quý đoàn cần hỗ trợ thêm thông tin hoặc mẫu gạo thực tế?
               </h4>
-              <p className="text-xs text-gray-600 mt-0.5">
+              <p className="text-xs text-stone-600 mt-1">
                 Chúng tôi gửi mẫu gạo tận nơi miễn phí để Quý vị kiểm tra phẩm chất trước khi đặt.
               </p>
             </div>
             <a
               href={`tel:${BRAND_INFO.hotline.replace(/\s+/g, '')}`}
-              className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-2.5 rounded-xl shadow-sm text-sm shrink-0 transition"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-700 to-emerald-800 hover:from-emerald-800 hover:to-emerald-900 text-white font-black px-6 py-3 rounded-xl shadow-md shadow-emerald-700/20 text-xs sm:text-sm shrink-0 transition active:scale-95"
             >
-              <PhoneCall className="w-4 h-4" />
+              <PhoneCall className="w-4 h-4 text-amber-300" />
               Gọi Ngay: {BRAND_INFO.hotlineDisplay}
             </a>
           </div>

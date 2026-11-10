@@ -8,7 +8,7 @@ import { CONTACT_LABEL, PHONE_DISPLAY, PHONE_TEL, ZALO_URL, FACEBOOK_PAGE_URL, m
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-amber-950 text-amber-100/80 pt-16 pb-12 border-t border-amber-900">
+    <footer className="bg-[#181109] text-amber-100/80 pt-16 pb-12 border-t border-amber-900/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-amber-900/60">
           

@@ -67,18 +67,18 @@ const COMMITMENT_THEMES: Record<string, CommitmentVisual> = {
 
 export const PolicyCommitments: React.FC = () => {
   return (
-    <section id="chinh-sach" className="py-14 sm:py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50/50 border-b border-gray-200">
+    <section id="chinh-sach" className="py-16 sm:py-20 bg-gradient-to-b from-stone-50 via-white to-stone-50/60 border-b border-stone-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header khối */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider mb-2.5">
+          <div className="inline-flex items-center gap-2 bg-amber-100/90 text-amber-950 border border-amber-300/80 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-amber-700 fill-amber-700" /> Đồng Hành Thiện Nguyện
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-stone-900 leading-tight tracking-tight">
             Chính Sách Hỗ Trợ Đặc Biệt Dành Cho Đoàn Từ Thiện
           </h2>
-          <p className="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed">
+          <p className="mt-3 text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
             Chúng tôi xem mỗi hạt gạo gửi đi là một phần phước lành. Cam kết phục vụ chu đáo từ khâu chọn gạo, đóng bao, giao hàng cho đến chứng từ tài chính minh bạch.
           </p>
         </div>
@@ -136,7 +136,7 @@ export const PolicyCommitments: React.FC = () => {
         </div>
 
         {/* Banner hỗ trợ in bao bì */}
-        <div className="mt-10 sm:mt-14 bg-gradient-to-r from-amber-700 via-amber-800 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+        <div className="mt-10 sm:mt-14 bg-gradient-to-r from-[#451a03] via-[#78350f] to-[#1c0c03] text-white rounded-3xl p-6 sm:p-10 shadow-2xl border-2 border-amber-400/40 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
           <div className="space-y-2 text-center md:text-left relative z-10">
             <span className="inline-block bg-white/20 text-amber-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-1">
               🌾 Dịch Vụ Độc Quyền Cho Mạnh Thường Quân
@@ -144,7 +144,7 @@ export const PolicyCommitments: React.FC = () => {
             <h3 className="text-xl sm:text-2xl font-black text-white">
               Cần In Ấn Decal / Tên Đoàn Lên Từng Túi Gạo?
             </h3>
-            <p className="text-amber-100 text-xs sm:text-sm max-w-xl leading-relaxed">
+            <p className="text-amber-100 text-xs sm:text-sm max-w-xl leading-relaxed font-normal">
               Hỗ trợ thiết kế maquette và in ấn thông điệp từ thiện, tên Mạnh Thường Quân hoặc logo Doanh nghiệp dán trên từng bao 5kg – 10kg để buổi phát quà thêm trang trọng và ý nghĩa.
             </p>
           </div>
@@ -152,7 +152,7 @@ export const PolicyCommitments: React.FC = () => {
             href="https://zalo.me/0762234135?text=%C4%90o%C3%A0n%20c%E1%BA%A7n%20nh%E1%BA%ADn%20m%E1%BA%ABu%20thi%E1%BA%BFt%20k%E1%BA%BF%20Decal%20in%20t%C3%AAn%20%C4%91o%C3%A0n%20d%C3%A1n%20l%C3%AAn%20bao%20g%E1%BA%A1o%20t%E1%BB%AB%20thi%E1%BB%87n"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 bg-amber-400 hover:bg-amber-300 text-amber-950 font-black px-6 py-3.5 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 active:scale-95 text-xs sm:text-sm flex items-center gap-2 relative z-10"
+            className="shrink-0 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-amber-950 font-black px-6 py-3.5 rounded-xl shadow-lg shadow-amber-500/25 transition transform hover:-translate-y-0.5 active:scale-95 text-xs sm:text-sm flex items-center gap-2 relative z-10 border border-amber-300/40"
           >
             <MessageCircle className="w-4 h-4 fill-amber-950" />
             <span>Nhắn Zalo Nhận Thiết Kế Mẫu Miễn Phí</span>

@@ -56,17 +56,17 @@ export const ProductList: React.FC = () => {
   };
 
   return (
-    <section id="san-pham" className="py-16 bg-gray-50/70 border-b border-gray-200">
+    <section id="san-pham" className="py-16 sm:py-20 bg-stone-100/60 border-b border-stone-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
-            <Sparkles className="w-3.5 h-3.5" /> Bảng Giá Sỉ Tận Gốc Cho Đoàn Từ Thiện
+          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-950 border border-emerald-300/80 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider mb-2.5 shadow-2xs backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-600" /> Bảng Giá Sỉ Tận Gốc Cho Đoàn Từ Thiện
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight">
             Các Loại Gạo Chuyên Dụng Từ Thiện
           </h2>
-          <p className="mt-3 text-gray-700 text-sm sm:text-base leading-relaxed">
-            Bảng giá sỉ áp dụng chuẩn theo quy cách <strong>bao 25kg</strong>. <strong className="text-emerald-800">Miễn phí 100% chi phí đóng gói mọi quy cách</strong> (túi 5kg quai xách, bao 10kg, 25kg, 50kg). Giá thực tế linh hoạt đàm phán theo số lượng và tuyến xe giao hàng.
+          <p className="mt-3 text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
+            Bảng giá sỉ áp dụng chuẩn theo quy cách <strong>bao 25kg</strong>. <strong className="text-emerald-900 font-bold">Miễn phí 100% chi phí đóng gói mọi quy cách</strong> (túi 5kg quai xách, bao 10kg, 25kg, 50kg). Giá thực tế linh hoạt đàm phán theo số lượng và tuyến xe giao hàng.
           </p>
 
           {/* Dòng link nhỏ ở đầu lưới sản phẩm */}
@@ -90,10 +90,10 @@ export const ProductList: React.FC = () => {
                   setActiveSlide(0);
                   if (scrollRef.current) scrollRef.current.scrollTo({ left: 0 });
                 }}
-                className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                   selectedCategory === cat.id
-                    ? 'bg-amber-700 text-white shadow-md'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    ? 'bg-gradient-to-r from-emerald-800 via-emerald-800 to-teal-900 text-white shadow-md shadow-emerald-900/20 ring-1 ring-emerald-600/30'
+                    : 'bg-white/90 text-stone-700 hover:bg-stone-50 border border-stone-200/80 shadow-2xs'
                 }`}
               >
                 {cat.name}
@@ -646,10 +646,10 @@ const ProductCard: React.FC<{
             <button
               type="button"
               onClick={handleAddToCart}
-              className={`col-span-7 py-2.5 px-2 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition transform active:scale-95 shadow-sm ${
+              className={`col-span-7 py-2.5 px-2 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition transform active:scale-95 shadow-md ${
                 addedSuccess
-                  ? 'bg-emerald-600 text-white'
-                  : 'bg-amber-700 hover:bg-amber-800 text-white shadow-amber-700/20'
+                  ? 'bg-emerald-600 text-white shadow-emerald-600/20'
+                  : 'bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-amber-900 text-white shadow-amber-700/25 border border-amber-500/30'
               }`}
             >
               {addedSuccess ? (
@@ -658,7 +658,7 @@ const ProductCard: React.FC<{
                 </>
               ) : (
                 <>
-                  <ShoppingCart className="w-4 h-4" /> Thêm Vào Đơn
+                  <ShoppingCart className="w-4 h-4 text-amber-200" /> Thêm Vào Đơn
                 </>
               )}
             </button>
@@ -667,7 +667,7 @@ const ProductCard: React.FC<{
               href={zaloNegotiateUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="col-span-5 py-2.5 px-2 bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-200 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition active:scale-95 text-center"
+              className="col-span-5 py-2.5 px-2 bg-gradient-to-r from-sky-50 to-blue-50 hover:from-sky-100 hover:to-blue-100 text-blue-950 border border-blue-200/90 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition active:scale-95 text-center shadow-2xs"
               title="Nhắn Zalo xin mẫu gạo & đàm phán giá tốt nhất"
             >
               <MessageCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" />
@@ -755,47 +755,47 @@ const ZALO_CONSULT_URL = `https://zalo.me/0762234135?text=${encodeURIComponent(Z
 
 const CustomRiceRequestCard: React.FC = () => {
   return (
-    <div className="bg-gradient-to-br from-emerald-900 via-emerald-950 to-teal-950 text-white rounded-2xl border-2 border-emerald-400/40 shadow-sm hover:shadow-xl transition-all duration-300 p-4 sm:p-6 lg:p-7 h-full flex flex-col justify-between relative overflow-hidden">
+    <div className="bg-gradient-to-br from-[#04281a] via-[#063b27] to-[#021d13] text-white rounded-3xl border-2 border-emerald-400/40 shadow-xl p-5 sm:p-7 lg:p-8 h-full flex flex-col justify-between relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center flex-1">
         <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-between h-full">
           <div>
             {/* Chỉ giữ duy nhất 1 badge: Theo yêu cầu */}
-            <div className="mb-2.5">
-              <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-950 text-xs font-black px-2.5 py-1 rounded-full shadow-xs">
+            <div className="mb-3">
+              <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-300 to-amber-400 text-amber-950 text-xs font-black px-3 py-1 rounded-full shadow-xs">
                 <Sparkles className="w-3.5 h-3.5 fill-amber-950" /> Theo yêu cầu
               </span>
             </div>
 
             {/* (1) Tiêu đề chuẩn */}
-            <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-tight">
               Chưa thấy loại phù hợp? Nhờ kho tư vấn
             </h3>
 
             {/* (2) Mô tả một câu: Màu sáng hơn, tối thiểu 14px */}
-            <p className="mt-2 text-sm sm:text-base text-emerald-100 font-medium leading-relaxed">
+            <p className="mt-2.5 text-sm sm:text-base text-emerald-100 font-medium leading-relaxed">
               Cho kho biết ngân sách, số suất và cách dùng, kho đề xuất loại gạo hợp nhất và báo giá trong ngày làm việc
             </p>
 
             {/* (3) Ba gạch đầu dòng: Chữ sáng màu, tối thiểu 14px */}
-            <div className="mt-4 space-y-2.5">
-              <div className="flex items-start gap-2.5 bg-white/10 p-3 rounded-xl border border-white/10">
+            <div className="mt-5 space-y-3">
+              <div className="flex items-start gap-3 bg-white/10 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-white/15 hover:border-amber-400/40 transition-colors">
                 <Check className="w-4 h-4 text-amber-300 shrink-0 mt-0.5" />
                 <div className="text-sm sm:text-[15px] text-emerald-50 leading-relaxed">
-                  <strong className="text-amber-200 font-bold">Chưa biết chọn loại nào:</strong> Phân vân giữa các loại gạo, cần tư vấn phương án tối ưu số suất cơm hoặc hợp khẩu vị theo từng đối tượng người nhận.
+                  <strong className="text-amber-300 font-bold">Chưa biết chọn loại nào:</strong> Phân vân giữa các loại gạo, cần tư vấn phương án tối ưu số suất cơm hoặc hợp khẩu vị theo từng đối tượng người nhận.
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5 bg-white/10 p-3 rounded-xl border border-white/10">
+              <div className="flex items-start gap-3 bg-white/10 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-white/15 hover:border-amber-400/40 transition-colors">
                 <Check className="w-4 h-4 text-amber-300 shrink-0 mt-0.5" />
                 <div className="text-sm sm:text-[15px] text-emerald-50 leading-relaxed">
-                  <strong className="text-amber-200 font-bold">Cần loại khác:</strong> Sẵn sàng cung cấp Nếp cúng dường, Gạo Lứt, Đài Thơm 8, Nàng Hoa 9, Thơm Thái... theo yêu cầu riêng của đoàn.
+                  <strong className="text-amber-300 font-bold">Cần loại khác:</strong> Sẵn sàng cung cấp Nếp cúng dường, Gạo Lứt, Đài Thơm 8, Nàng Hoa 9, Thơm Thái... theo yêu cầu riêng của đoàn.
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5 bg-white/10 p-3 rounded-xl border border-white/10">
+              <div className="flex items-start gap-3 bg-white/10 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-white/15 hover:border-amber-400/40 transition-colors">
                 <Check className="w-4 h-4 text-amber-300 shrink-0 mt-0.5" />
                 <div className="text-sm sm:text-[15px] text-emerald-50 leading-relaxed">
-                  <strong className="text-amber-200 font-bold">Quy cách riêng:</strong> Đóng túi 2kg 3kg, in tên đoàn, giao nhiều điểm (phối trộn chỉ thực hiện khi đoàn có yêu cầu riêng).
+                  <strong className="text-amber-300 font-bold">Quy cách riêng:</strong> Đóng túi 2kg 3kg, in tên đoàn, giao nhiều điểm (phối trộn chỉ thực hiện khi đoàn có yêu cầu riêng).
                 </div>
               </div>
             </div>
@@ -804,13 +804,13 @@ const CustomRiceRequestCard: React.FC = () => {
 
         {/* Cụm nút hành động & Dòng giờ làm việc */}
         <div className="lg:col-span-5 xl:col-span-4 flex flex-col justify-center h-full pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-white/15 lg:pl-6 space-y-3">
-          <div className="bg-white/5 p-4 rounded-2xl border border-white/10 space-y-3">
+          <div className="bg-white/5 backdrop-blur-md p-5 rounded-3xl border border-white/15 space-y-3.5 shadow-inner">
             {/* (5) Nút Zalo với mẫu tin nhắn soạn sẵn */}
             <a
               href={ZALO_CONSULT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 px-4 bg-amber-400 hover:bg-amber-300 text-amber-950 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 shadow-md transition transform active:scale-95 text-center"
+              className="w-full py-3.5 px-4 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-amber-950 rounded-xl font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 transition transform active:scale-95 text-center border border-amber-300/40"
             >
               <MessageCircle className="w-4 h-4 fill-amber-950 shrink-0" />
               <span>Nhắn Zalo nhờ kho tư vấn</span>
@@ -819,7 +819,7 @@ const CustomRiceRequestCard: React.FC = () => {
             {/* Hotline tư vấn trực tiếp */}
             <a
               href={`tel:${PHONE_TEL}`}
-              className="w-full py-2.5 px-4 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 border border-white/15 transition active:scale-95 text-center"
+              className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 border border-white/20 transition active:scale-95 text-center"
             >
               <Phone className="w-3.5 h-3.5 text-amber-300 shrink-0" />
               <span>Hotline tư vấn kho: {PHONE_DISPLAY}</span>
