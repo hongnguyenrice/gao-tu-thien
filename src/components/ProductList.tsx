@@ -28,7 +28,7 @@ export const ProductList: React.FC = () => {
     ? RICE_PRODUCTS
     : RICE_PRODUCTS.filter((p) => currentCategoryObj.match ? currentCategoryObj.match(p) : true);
 
-  const totalCards = filteredProducts.length + (selectedCategory === 'all' ? 1 : 0);
+  const totalCards = filteredProducts.length;
 
   const handleScroll = () => {
     if (!scrollRef.current) return;
@@ -49,16 +49,10 @@ export const ProductList: React.FC = () => {
   };
 
   const handleScrollToConsultation = () => {
-    setSelectedCategory('all');
-    setTimeout(() => {
-      const el = document.getElementById('tu-van-theo-yeu-cau');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      if (scrollRef.current) {
-        scrollToCard(RICE_PRODUCTS.length);
-      }
-    }, 60);
+    const el = document.getElementById('tu-van-theo-yeu-cau');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
 
   return (
@@ -223,16 +217,6 @@ export const ProductList: React.FC = () => {
                   />
                 </div>
               ))}
-
-              {/* Ô đặc biệt: Đặt theo yêu cầu & tư vấn riêng */}
-              {selectedCategory === 'all' && (
-                <div
-                  id="tu-van-theo-yeu-cau"
-                  className="w-[86vw] sm:w-[380px] md:w-auto shrink-0 md:shrink snap-center flex flex-col h-full col-span-1 md:col-span-2 lg:col-span-3 scroll-mt-24"
-                >
-                  <CustomRiceRequestCard />
-                </div>
-              )}
             </div>
 
             {/* Mobile Carousel Controls & Navigation Dots */}
@@ -275,6 +259,11 @@ export const ProductList: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* Thẻ Theo Yêu Cầu: Đặt bên dưới lưới 6 sản phẩm, không kéo giãn chiều cao các thẻ gạo */}
+        <div id="tu-van-theo-yeu-cau" className="mt-8 sm:mt-12 scroll-mt-24">
+          <CustomRiceRequestCard />
+        </div>
       </div>
 
       {/* Modal chi tiết nếu người dùng bấm xem */}
