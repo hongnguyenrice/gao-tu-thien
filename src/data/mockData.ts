@@ -110,7 +110,7 @@ export const RICE_PRODUCTS: RiceProduct[] = [
       { minKg: 500, pricePerKg: 22500, label: 'Từ 500kg - 999kg' },
       { minKg: 1000, pricePerKg: 21500, label: 'Từ 1.000kg trở lên' },
     ],
-    packaging: ['Túi hút chân không 5kg', 'Bao 10kg', 'Bao 25kg'],
+    packaging: ['Bao 10kg', 'Bao 25kg', 'Bao 5kg'],
     characteristics: {
       softness: 5,
       fragrance: 5,
@@ -284,7 +284,7 @@ export const CHARITY_COMMITMENTS: PolicySupport[] = [
   },
   {
     title: 'Hỗ Trợ Đóng Gói Túi 5kg - 10kg Miễn Phí',
-    desc: 'Có sẵn bao bì in chữ "Gạo Từ Thiện / Gạo Nghĩa Tình" trang trọng, sạch đẹp, hút chân không hoặc may bao chắc chắn để thuận tiện phát tận tay bà con.',
+    desc: 'Có sẵn bao bì in chữ "Gạo Từ Thiện / Gạo Nghĩa Tình" trang trọng, sạch đẹp, may miệng bao chắc chắn để thuận tiện phát tận tay bà con.',
     icon: 'PackageCheck'
   },
   {

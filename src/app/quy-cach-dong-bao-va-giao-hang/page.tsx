@@ -70,9 +70,9 @@ export default function QuyCachDongBaoPage() {
         }
       />
 
-      {/* 4 Quy cách đóng bao */}
-      <Section title="4 Quy Cách Đóng Bao Gạo Từ Thiện Tiêu Chuẩn">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Các Quy cách đóng bao */}
+      <Section title="Các Quy Cách Đóng Bao Gạo Từ Thiện Tiêu Chuẩn">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           
           {/* Bao 5kg */}
           <div className="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm space-y-3">
@@ -113,20 +113,6 @@ export default function QuyCachDongBaoPage() {
             </p>
             <div className="text-xs font-semibold text-blue-800 border-t border-gray-100 pt-2">
               Phù hợp: Quán cơm 0 đồng, nồi cháo bệnh viện, viện dưỡng lão.
-            </div>
-          </div>
-
-          {/* Hút chân không 5kg */}
-          <div className="bg-white p-6 rounded-2xl border border-purple-200 shadow-sm space-y-3">
-            <span className="text-xs font-bold text-purple-800 bg-purple-100 px-2.5 py-1 rounded-md uppercase">
-              Túi 5kg Hút Chân Không
-            </span>
-            <h3 className="text-xl font-bold text-gray-900">Cao Cấp Cúng Dường</h3>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              Túi nhựa trong suốt hút chân không định hình vuông vức. Giữ trọn mùi thơm tự nhiên của gạo ST25, bảo quản chống mối mọt tuyệt đối từ 6 - 12 tháng.
-            </p>
-            <div className="text-xs font-semibold text-purple-800 border-t border-gray-100 pt-2">
-              Phù hợp: Cúng dường Tam Bảo, quà biếu tặng tri ân đặc biệt.
             </div>
           </div>
 
