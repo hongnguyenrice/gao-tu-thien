@@ -48,7 +48,7 @@ export const RICE_PRODUCTS: RiceProduct[] = [
       { minKg: 500, pricePerKg: 12500, label: 'Từ 500kg - 999kg (Nửa tấn)' },
       { minKg: 1000, pricePerKg: 12000, label: 'Từ 1.000kg trở lên (Từ 1 tấn)' },
     ],
-    packaging: ['Bao 10kg', 'Bao 25kg', 'Bao 50kg'],
+    packaging: ['Bao 10kg', 'Bao 25kg', 'Bao 50kg', 'Túi 5kg (chia phần quà)'],
     characteristics: {
       softness: 2,
       fragrance: 2,
@@ -130,7 +130,7 @@ export const RICE_PRODUCTS: RiceProduct[] = [
       { minKg: 500, pricePerKg: 13400, label: 'Từ 500kg - 999kg' },
       { minKg: 1000, pricePerKg: 12800, label: 'Từ 1.000kg trở lên' },
     ],
-    packaging: ['Bao 10kg', 'Bao 25kg', 'Bao 50kg'],
+    packaging: ['Bao 10kg', 'Bao 25kg', 'Bao 50kg', 'Túi 5kg (chia phần quà)'],
     characteristics: {
       softness: 4,
       fragrance: 3,

@@ -117,9 +117,20 @@ export const CartDrawer: React.FC = () => {
                               {item.product.category}
                             </span>
                             <h4 className="font-bold text-gray-900 text-sm mt-1">{item.product.name}</h4>
-                            <span className="text-xs text-gray-500 font-medium">
+                            <span className="text-xs text-gray-500 font-medium block">
                               Quy cách: {item.packagingChoice}
                             </span>
+                            {item.packagingChoice && item.packagingChoice.includes('5kg') && (
+                              item.quantityKg >= 1000 ? (
+                                <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md inline-block mt-1 border border-emerald-200">
+                                  🎁 Miễn phí 100% vỏ bao 5kg (Đơn từ 1 tấn)
+                                </span>
+                              ) : (
+                                <span className="text-[10px] text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md inline-block mt-1 border border-amber-200">
+                                  💡 Đã gồm tiền vỏ bao 5kg (+300đ/kg)
+                                </span>
+                              )
+                            )}
                           </div>
                           <button
                             onClick={() => removeFromCart(item.product.id)}

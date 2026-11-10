@@ -31,8 +31,8 @@ export const ProductList: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
             Các Loại Gạo Chuyên Dụng Từ Thiện
           </h2>
-          <p className="mt-3 text-gray-600 text-base sm:text-lg">
-            Đơn giá tự động giảm theo từng nấc khối lượng (từ 100kg, 500kg, và từ 1 tấn). Miễn phí đóng gói bao bì 5kg, 10kg, 25kg, 50kg theo yêu cầu.
+          <p className="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed">
+            Đơn giá tự động giảm theo từng nấc khối lượng (từ 100kg, 500kg, và từ 1 tấn). Miễn phí đóng gói bao bì 10kg, 25kg, 50kg; <strong className="text-emerald-800">tài trợ miễn phí 100% vỏ bao 5kg cho đơn từ 1 tấn</strong>.
           </p>
 
           {/* Category Filter */}
@@ -85,8 +85,8 @@ const ProductCard: React.FC<{
   const [selectedPackaging, setSelectedPackaging] = useState<string>(product.packaging[0] || 'Bao 10kg');
   const [addedSuccess, setAddedSuccess] = useState(false);
 
-  // Tính giá hiện tại dựa vào selectedKg
-  const getApplicablePrice = (kg: number) => {
+  // Tính giá gạo cơ bản dựa vào selectedKg
+  const getBasePricePerKg = (kg: number) => {
     let p = product.pricePerKg;
     const sorted = [...product.tiers].sort((a, b) => b.minKg - a.minKg);
     for (const t of sorted) {
@@ -98,7 +98,11 @@ const ProductCard: React.FC<{
     return p;
   };
 
-  const currentPrice = getApplicablePrice(selectedKg);
+  const is5kgPackaging = selectedPackaging.includes('5kg');
+  // Phụ phí bao 5kg: +300đ/kg nếu < 1000kg. Từ 1 tấn (1000kg) trở lên tài trợ miễn phí 100%.
+  const packagingSurcharge = is5kgPackaging ? (selectedKg >= 1000 ? 0 : 300) : 0;
+  const basePrice = getBasePricePerKg(selectedKg);
+  const currentPrice = basePrice + packagingSurcharge;
 
   const handleAddToCart = () => {
     addToCart(product, selectedKg, selectedPackaging);
@@ -199,9 +203,16 @@ const ProductCard: React.FC<{
 
           {/* Lựa chọn cách đóng gói bao bì */}
           <div className="mt-3">
-            <label className="block text-xs font-bold text-gray-700 mb-1">
-              Đóng gói túi / bao:
-            </label>
+            <div className="flex justify-between items-center mb-1">
+              <label className="block text-xs font-bold text-gray-700">
+                Đóng gói túi / bao:
+              </label>
+              {is5kgPackaging && selectedKg >= 1000 && (
+                <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
+                  🎁 Tài trợ bao 5kg: 0đ
+                </span>
+              )}
+            </div>
             <select
               value={selectedPackaging}
               onChange={(e) => setSelectedPackaging(e.target.value)}
@@ -211,18 +222,52 @@ const ProductCard: React.FC<{
                 <option key={pack} value={pack}>{pack}</option>
               ))}
             </select>
+
+            {/* Thông báo chính sách bao bì minh bạch */}
+            {is5kgPackaging ? (
+              selectedKg >= 1000 ? (
+                <div className="mt-1.5 p-2 rounded-xl bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-950 flex items-start gap-1.5">
+                  <span className="text-sm">🎁</span>
+                  <div>
+                    <strong className="text-emerald-800">Đơn từ 1 tấn:</strong> Vựa Gạo Sóc Trăng <strong>tài trợ miễn phí 100%</strong> toàn bộ vỏ bao 5kg in chữ Từ Thiện & công may!
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-1.5 p-2 rounded-xl bg-amber-50 border border-amber-200 text-[11px] text-amber-950 flex items-start gap-1.5">
+                  <span className="text-sm">💡</span>
+                  <div>
+                    Túi 5kg phụ thu tiền vỏ in & may chỉ: <strong>+300đ/kg</strong> (+1.500đ/túi). 
+                    <span className="text-emerald-700 font-bold block sm:inline sm:ml-1">Đơn từ 1 tấn được TÀI TRỢ MIỄN PHÍ.</span>
+                  </div>
+                </div>
+              )
+            ) : (
+              <div className="mt-1.5 text-[11px] text-gray-500 flex items-center gap-1 font-medium">
+                <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span>Bao 10kg, 25kg, 50kg: <strong>Miễn phí đóng gói 100%</strong></span>
+              </div>
+            )}
           </div>
         </div>
 
         {/* Tổng tiền tạm tính & nút thêm giỏ */}
         <div className="pt-4 border-t border-gray-100">
           <div className="flex justify-between items-baseline mb-3">
-            <span className="text-xs text-gray-500">Tạm tính ({selectedKg}kg):</span>
+            <div>
+              <span className="text-xs text-gray-500 block">Tạm tính ({selectedKg}kg):</span>
+              {is5kgPackaging && (
+                <span className="text-[10px] text-gray-500">
+                  {selectedKg >= 1000
+                    ? `Gạo ${basePrice.toLocaleString('vi-VN')}đ + Bao 5kg: 0đ`
+                    : `Gạo ${basePrice.toLocaleString('vi-VN')}đ + Bao 5kg: 300đ`}
+                </span>
+              )}
+            </div>
             <div className="text-right">
               <span className="text-lg font-black text-amber-700">
                 {(currentPrice * selectedKg).toLocaleString('vi-VN')} đ
               </span>
-              <div className="text-[11px] text-gray-400">
+              <div className="text-[11px] text-gray-500 font-semibold">
                 ({currentPrice.toLocaleString('vi-VN')} đ/kg)
               </div>
             </div>

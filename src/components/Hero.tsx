@@ -36,7 +36,7 @@ export const Hero: React.FC = () => {
             {/* Đoạn mô tả: Súc tích, làm bật các cam kết đắt giá nhất */}
             <p className="text-sm sm:text-base text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               <strong>Vựa Gạo Sóc Trăng</strong> chuyên cung cấp gạo chuẩn cho chùa, bếp ăn 0 đồng và các đoàn thiện nguyện. 
-              <strong> Giá xuất xưởng không trung gian</strong>, hỗ trợ chia bao 5kg – 10kg miễn phí, giao xe tải tận nơi từ kho gần nhất và đầy đủ hóa đơn VAT.
+              <strong> Giá xuất xưởng không trung gian</strong>, đóng bao 10kg – 25kg miễn phí (tài trợ 100% vỏ bao 5kg từ 1 tấn), giao xe tải tận nơi và đầy đủ hóa đơn VAT.
             </p>
 
             {/* 4 Thẻ chỉ số tin cậy - Căn chỉnh chuẩn địa bàn và tiết kiệm chiều cao */}
@@ -52,8 +52,8 @@ export const Hero: React.FC = () => {
               </div>
 
               <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-emerald-100 shadow-xs hover:border-emerald-300 transition text-center">
-                <div className="text-lg sm:text-xl font-black text-emerald-700">0đ Phí</div>
-                <div className="text-[11px] sm:text-xs text-gray-600 font-medium">Chia bao 5kg & 10kg</div>
+                <div className="text-lg sm:text-xl font-black text-emerald-700">Bao Bì 0đ</div>
+                <div className="text-[11px] sm:text-xs text-gray-600 font-medium">Bao 10-25kg & đơn 1 tấn</div>
               </div>
 
               <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-amber-100 shadow-xs hover:border-amber-300 transition text-center">

@@ -127,9 +127,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return cart.reduce((sum, item) => sum + item.quantityKg, 0);
   };
 
-  // Tính đơn giá cho từng sản phẩm dựa trên tổng số lượng của loại đó hoặc nấc chiết khấu
+  // Tính đơn giá cho từng sản phẩm: nấc giá sỉ + chính sách bao bì 5kg
   const getItemPricePerKg = (item: CartItem) => {
-    const { product, quantityKg } = item;
+    const { product, quantityKg, packagingChoice } = item;
     let price = product.pricePerKg;
 
     // Sắp xếp các nấc giảm dần theo minKg
@@ -140,6 +140,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         break;
       }
     }
+
+    // Quy tắc bao 5kg:
+    // - Dưới 1.000kg: +300đ/kg tiền vỏ in & may chỉ
+    // - Từ 1.000kg (1 tấn) trở lên: Miễn phí 100% tài trợ đoàn thiện nguyện
+    const is5kg = Boolean(packagingChoice && packagingChoice.includes('5kg'));
+    if (is5kg && quantityKg < 1000) {
+      price += 300;
+    }
+
     return price;
   };
 
