@@ -53,6 +53,14 @@ const ACTIVITIES: ActivityItem[] = [
     location: 'Điểm tập kết trước giờ trao quà',
     desc: 'Từng phần gạo được sắp xếp ngăn nắp, bảo đảm đủ ký 100%, hạt gạo khô ráo và nguyên vẹn.',
     tag: 'Chu Đáo Tận Tâm'
+  },
+  {
+    id: 'dong-goi-tui-5kg-pallet',
+    image: '/hoat-dong/dong-goi-tui-5kg-pallet.jpg',
+    title: 'Xếp Pallet Túi 5kg Sẵn Sàng Xuất Kho',
+    location: 'Khu vực đóng gói & chuẩn bị xuất xưởng',
+    desc: 'Túi gạo 5kg tiện lợi được may chắc chắn, xếp pallet khô ráo sẵn sàng điều xe tải chở đến Quý đoàn.',
+    tag: 'Đóng Túi 5kg Miễn Phí'
   }
 ];
 
@@ -137,7 +145,7 @@ export const CharityActivityGallery: React.FC = () => {
           </div>
         </div>
 
-        {/* Lưới 5 hình ảnh hoạt động thực tế khác (chuẩn tỷ lệ, không bị cắt) */}
+        {/* Lưới 6 hình ảnh hoạt động thực tế (chuẩn 2 hàng x 3 cột cân đối) */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-12">
           {ACTIVITIES.map((act) => (
             <div
