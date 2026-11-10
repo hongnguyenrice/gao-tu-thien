@@ -2,6 +2,7 @@ import React from 'react';
 import { Hero } from '@/components/Hero';
 import { WarehouseNetwork } from '@/components/WarehouseNetwork';
 import { ProductList } from '@/components/ProductList';
+import { PackagingSection } from '@/components/PackagingSection';
 import { CharityActivityGallery } from '@/components/CharityActivityGallery';
 import { PolicyCommitments } from '@/components/PolicyCommitments';
 import { CharityGuideAndFAQ } from '@/components/CharityGuideAndFAQ';
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <WarehouseNetwork />
       <ProductList />
+      <PackagingSection />
       <CharityActivityGallery />
       <PolicyCommitments />
       <CharityGuideAndFAQ />

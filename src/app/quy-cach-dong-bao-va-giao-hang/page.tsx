@@ -10,6 +10,7 @@ import {
   PageHeader,
   Section,
 } from '@/components/content';
+import { PackagingSection } from '@/components/PackagingSection';
 
 const CANONICAL = `${SITE_URL}/quy-cach-dong-bao-va-giao-hang/`;
 
@@ -182,6 +183,9 @@ export default function QuyCachDongBaoPage() {
           </div>
         </div>
       </Section>
+
+      {/* Danh sách 16 mẫu bao bì thực tế */}
+      <PackagingSection />
 
       {/* Quy trình đặt hàng */}
       <Section title="Quy Trình Đặt Đóng Bao & Giao Hàng">

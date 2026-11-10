@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import { RICE_PRODUCTS, RiceProduct } from '@/data/mockData';
 import { useCart } from '@/context/CartContext';
-import { Check, Info, ShoppingCart, Sparkles, Star, MessageCircle, Phone } from 'lucide-react';
+import { Check, Info, ShoppingCart, Sparkles, Star, MessageCircle, Phone, Package, Image as ImageIcon } from 'lucide-react';
 import { ZALO_URL, PHONE_TEL, PHONE_DISPLAY } from '@/data/site';
+import { PackagingModal } from '@/components/PackagingModal';
+import { PackagingModel } from '@/data/packagingData';
 
 export const ProductList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -89,6 +91,8 @@ const ProductCard: React.FC<{
   const { addToCart } = useCart();
   const [selectedKg, setSelectedKg] = useState<number>(100);
   const [selectedPackaging, setSelectedPackaging] = useState<string>(product.packaging[0] || 'Bao 10kg');
+  const [isPackagingModalOpen, setIsPackagingModalOpen] = useState(false);
+  const [chosenPackagingModel, setChosenPackagingModel] = useState<PackagingModel | null>(null);
   const [addedSuccess, setAddedSuccess] = useState(false);
 
   // Tính giá gạo cơ bản dựa vào selectedKg
@@ -229,6 +233,25 @@ const ProductCard: React.FC<{
               ))}
             </select>
 
+            {/* Nút xem ảnh & chọn mẫu bao bì thực tế */}
+            <button
+              type="button"
+              onClick={() => setIsPackagingModalOpen(true)}
+              className="mt-2 w-full py-1.5 px-2.5 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 rounded-xl text-xs font-bold flex items-center justify-between transition group/btn"
+            >
+              <span className="flex items-center gap-1.5 truncate">
+                <Package className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                <span className="truncate">
+                  {chosenPackagingModel
+                    ? `Mẫu: ${chosenPackagingModel.name}`
+                    : 'Xem ảnh & chọn mẫu bao bì (16 mẫu có sẵn)'}
+                </span>
+              </span>
+              <span className="text-[10px] text-amber-700 underline font-semibold shrink-0 group-hover/btn:text-amber-900">
+                {chosenPackagingModel ? 'Đổi mẫu' : 'Xem mẫu ➔'}
+              </span>
+            </button>
+
             {/* Thông báo chính sách bao bì minh bạch */}
             {is5kgPackaging ? (
               selectedKg >= 1000 ? (
@@ -308,6 +331,19 @@ const ProductCard: React.FC<{
           </div>
         </div>
       </div>
+
+      {/* Modal chọn mẫu bao bì thực tế */}
+      <PackagingModal
+        isOpen={isPackagingModalOpen}
+        onClose={() => setIsPackagingModalOpen(false)}
+        selectedCategoryFilter={is5kgPackaging ? '5kg' : (selectedPackaging.includes('10kg') ? '10kg' : 'all')}
+        currentSelectedModelId={chosenPackagingModel?.id}
+        onSelectModel={(model) => {
+          setChosenPackagingModel(model);
+          const baseWeight = model.weightCategory === '5kg' ? 'Bao 5kg' : 'Bao 10kg';
+          setSelectedPackaging(`${baseWeight} (${model.name})`);
+        }}
+      />
     </div>
   );
 };
