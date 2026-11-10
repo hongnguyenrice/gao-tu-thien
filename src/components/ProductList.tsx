@@ -541,7 +541,6 @@ const ProductCard: React.FC<{
                 { kg: 300, label: '300kg' },
                 { kg: 500, label: '500kg' },
                 { kg: 1000, label: '1 Tấn' },
-                { kg: 2000, label: '2 Tấn' },
               ].map((btn) => (
                 <button
                   key={btn.kg}
