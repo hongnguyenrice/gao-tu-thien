@@ -9,7 +9,6 @@ import {
   PhoneCall,
   ShieldCheck,
   Heart,
-  ExternalLink,
   Menu,
   X,
   FileText,
@@ -19,7 +18,7 @@ import {
   MapPin,
   Sparkles,
 } from 'lucide-react';
-import { MAIN_SITE_URL, PHONE_DISPLAY, ZALO_URL } from '@/data/site';
+import { PHONE_DISPLAY, ZALO_URL } from '@/data/site';
 
 export const Navbar: React.FC = () => {
   const { cart, setIsCartOpen, getTotalKg } = useCart();
@@ -38,7 +37,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-100 shadow-xs">
-      {/* Top bar thông tin liên hệ và liên kết web mẹ gaosoctrang.com */}
+      {/* Top bar thông tin liên hệ & cam kết dịch vụ */}
       <div className="bg-gradient-to-r from-amber-800 via-amber-700 to-emerald-800 text-white text-xs py-1.5 px-3 sm:px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center gap-2">
           <div className="flex items-center gap-2 sm:gap-3 truncate">
@@ -47,14 +46,10 @@ export const Navbar: React.FC = () => {
               <span className="truncate">Chuyên gạo từ thiện – Giá sỉ xưởng Đồng Tháp & 4 kho</span>
             </span>
             <span className="hidden lg:inline text-amber-200">|</span>
-            <a
-              href={MAIN_SITE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center gap-1 text-amber-100 hover:text-white underline font-semibold shrink-0 whitespace-nowrap"
-            >
-              Trang chủ gaosoctrang.com <ExternalLink className="w-3 h-3" />
-            </a>
+            <span className="hidden lg:inline-flex items-center gap-1.5 text-amber-100 font-medium shrink-0 whitespace-nowrap">
+              <Truck className="w-3.5 h-3.5 text-amber-300" />
+              <span>Giao xe tải tận chùa, bếp ăn & điểm phát quà</span>
+            </span>
           </div>
 
           <div className="flex items-center gap-3 shrink-0 whitespace-nowrap">
@@ -189,14 +184,6 @@ export const Navbar: React.FC = () => {
             >
               📝 Nhận Dự Toán Báo Giá Nhanh
             </Link>
-            <a
-              href={MAIN_SITE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 py-2 text-xs text-gray-500 hover:text-gray-800 font-medium"
-            >
-              Về website chính gaosoctrang.com <ExternalLink className="w-3 h-3" />
-            </a>
           </div>
         </div>
       )}

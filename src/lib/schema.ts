@@ -1,5 +1,5 @@
 import { BRAND_INFO, RICE_PRODUCTS, RiceProduct } from '@/data/mockData';
-import { MAIN_SITE_URL, PHONE_E164, QUOTE_PATH, SITE_NAME, SITE_URL } from '@/data/site';
+import { FACEBOOK_PAGE_URL, PHONE_E164, QUOTE_PATH, SITE_NAME, SITE_URL } from '@/data/site';
 
 export const ORG_ID = `${SITE_URL}/#organization`;
 const IMAGE = `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`;
@@ -65,7 +65,7 @@ export function organizationSchema() {
         description:
           'Cung cấp gạo từ thiện giá sỉ cho chùa, bếp ăn từ thiện, mái ấm, đoàn thiện nguyện và doanh nghiệp: đóng bao 5kg-10kg, giao tận nơi, xuất hóa đơn VAT.',
         url: `${SITE_URL}/`,
-        sameAs: [`${MAIN_SITE_URL}/`],
+        sameAs: [FACEBOOK_PAGE_URL],
         image: IMAGE,
         telephone: PHONE_E164,
         priceRange: PRICE_RANGE,

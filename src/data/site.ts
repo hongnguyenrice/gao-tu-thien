@@ -5,7 +5,6 @@ import { BRAND_INFO, RICE_PRODUCTS, RiceProduct } from './mockData';
  * để nội dung, CTA, Zalo và schema luôn đồng bộ — KHÔNG gõ cứng số điện thoại ở nơi khác.
  */
 export const SITE_URL = 'https://tuthien.gaosoctrang.com';
-export const MAIN_SITE_URL = 'https://gaosoctrang.com';
 export const SITE_NAME = 'Gạo Từ Thiện – Vựa Gạo Sóc Trăng';
 
 export const PHONE_DISPLAY = BRAND_INFO.hotlineDisplay;

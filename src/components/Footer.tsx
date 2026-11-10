@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { HeartHandshake, Phone, MapPin, ShieldCheck, Heart, ExternalLink } from 'lucide-react';
 import { BRAND_INFO } from '@/data/mockData';
-import { CONTACT_LABEL, MAIN_SITE_URL, PHONE_DISPLAY, PHONE_TEL, ZALO_URL, FACEBOOK_PAGE_URL, mapsSearchUrl } from '@/data/site';
+import { CONTACT_LABEL, PHONE_DISPLAY, PHONE_TEL, ZALO_URL, FACEBOOK_PAGE_URL, mapsSearchUrl } from '@/data/site';
 
 export const Footer: React.FC = () => {
   return (
@@ -29,15 +29,7 @@ export const Footer: React.FC = () => {
               <div className="text-emerald-400 font-semibold flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 shrink-0" /> Xuất hóa đơn VAT 5% đầy đủ cho doanh nghiệp / quỹ
               </div>
-              <a
-                href={MAIN_SITE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-amber-300 hover:text-white underline font-semibold"
-              >
-                Trang bán lẻ: gaosoctrang.com <ExternalLink className="w-3 h-3" />
-              </a>
-              <div className="pt-2">
+              <div className="pt-1">
                 <a
                   href={FACEBOOK_PAGE_URL}
                   target="_blank"
