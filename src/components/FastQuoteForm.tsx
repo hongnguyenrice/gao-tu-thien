@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import { RICE_PRODUCTS } from '@/data/mockData';
-import { Calculator, CheckCircle2, Send, PhoneCall } from 'lucide-react';
+import { Calculator, CheckCircle2, Send, PhoneCall, MessageCircle, Loader2 } from 'lucide-react';
+import { sendQuoteToTelegram } from '@/lib/telegram';
 
 export const FastQuoteForm: React.FC = () => {
   const [selectedRiceId, setSelectedRiceId] = useState<string>(RICE_PRODUCTS[0].id);
@@ -14,6 +15,7 @@ export const FastQuoteForm: React.FC = () => {
   const [customerPhone, setCustomerPhone] = useState<string>('');
   const [customerOrg, setCustomerOrg] = useState<string>('');
   const [needVat, setNeedVat] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const selectedProduct = RICE_PRODUCTS.find((p) => p.id === selectedRiceId) || RICE_PRODUCTS[0];
@@ -36,13 +38,34 @@ export const FastQuoteForm: React.FC = () => {
   const vatAmount = needVat ? subtotal * 0.05 : 0; // VAT gạo thông thường 5%
   const totalEstimated = subtotal + vatAmount;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!customerPhone) {
       alert('Vui lòng nhập số điện thoại để nhận bảng dự toán qua Zalo/SMS.');
       return;
     }
-    setIsSubmitted(true);
+
+    setIsSubmitting(true);
+    try {
+      await sendQuoteToTelegram({
+        customerName: customerName || 'Khách hỏi báo giá',
+        customerPhone,
+        customerOrg,
+        riceName: selectedProduct.name,
+        volumeKg,
+        packagingType,
+        unitPrice,
+        totalEstimated,
+        needVat,
+        deliveryLocation,
+        deliveryDate,
+      });
+    } catch (err) {
+      console.error('Lỗi khi gửi báo giá qua Telegram:', err);
+    } finally {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }
   };
 
   return (
@@ -208,17 +231,33 @@ export const FastQuoteForm: React.FC = () => {
                 </p>
 
                 {isSubmitted ? (
-                  <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center space-y-3">
+                  <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center space-y-4">
                     <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
-                    <h4 className="font-bold text-lg text-white">Đã Nhận Yêu Cầu Thành Công!</h4>
-                    <p className="text-xs text-amber-100">
-                      Cảm ơn Quý đoàn <strong>{customerOrg || customerName}</strong>. Chúng tôi sẽ kết nối Zalo qua số <strong>{customerPhone}</strong> để gửi bảng báo giá kèm hình ảnh mẫu gạo thực tế.
+                    <h4 className="font-bold text-lg text-white">Đã Gửi Báo Giá Đến Kho Thành Công!</h4>
+                    <p className="text-xs text-amber-100 leading-relaxed">
+                      Thông tin yêu cầu của Quý đoàn <strong>{customerOrg || customerName}</strong> ({volumeKg.toLocaleString('vi-VN')} kg {selectedProduct.name}) đã được chuyển thẳng tới Telegram ban quản lý kho.
                     </p>
+
+                    <div className="bg-black/20 p-3 rounded-xl text-left text-xs space-y-1 border border-white/10">
+                      <div><strong>Người nhận báo giá:</strong> {customerName} - {customerPhone}</div>
+                      <div><strong>Dự toán sơ bộ:</strong> {totalEstimated.toLocaleString('vi-VN')} đ ({packagingType})</div>
+                      <div><strong>Khu vực giao:</strong> {deliveryLocation}</div>
+                    </div>
+
+                    <a
+                      href="https://zalo.me/0762234135"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-md transition"
+                    >
+                      <MessageCircle className="w-4 h-4" /> Nhắn Zalo Kho (0762 234 135) Lấy File Báo Giá Dấu Mộc
+                    </a>
+
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="mt-4 text-xs underline text-amber-200 hover:text-white"
+                      className="text-xs underline text-amber-200 hover:text-white pt-1 block mx-auto"
                     >
-                      Tạo yêu cầu báo giá khác
+                      Tạo dự toán cho loại gạo khác
                     </button>
                   </div>
                 ) : (
@@ -279,10 +318,20 @@ export const FastQuoteForm: React.FC = () => {
 
                     <button
                       type="submit"
-                      className="w-full py-3.5 px-4 bg-emerald-500 hover:bg-emerald-600 text-white font-black rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm mt-6"
+                      disabled={isSubmitting}
+                      className="w-full py-3.5 px-4 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-60 text-white font-black rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm mt-6"
                     >
-                      <Send className="w-4 h-4" />
-                      Gửi Nhận Báo Giá Đóng Mộc Ngay
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Đang gửi thông tin...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4" />
+                          Gửi Nhận Báo Giá Đóng Mộc Ngay
+                        </>
+                      )}
                     </button>
                   </form>
                 )}

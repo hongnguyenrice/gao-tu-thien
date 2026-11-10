@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import { useCart } from '@/context/CartContext';
 import { CHARITY_PARTNERS } from '@/data/mockData';
-import { X, Trash2, Heart, CheckCircle2, ShoppingBag, ArrowRight } from 'lucide-react';
+import { X, Trash2, Heart, CheckCircle2, ShoppingBag, ArrowRight, MessageCircle, PhoneCall, Loader2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { sendOrderToTelegram } from '@/lib/telegram';
 
 export const CartDrawer: React.FC = () => {
   const {
@@ -23,6 +24,14 @@ export const CartDrawer: React.FC = () => {
 
   const [step, setStep] = useState<'cart' | 'checkout' | 'success'>('cart');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [lastSubmittedSummary, setLastSubmittedSummary] = useState<{
+    customerName: string;
+    customerPhone: string;
+    deliveryAddress: string;
+    totalKg: number;
+    totalPayment: number;
+    partnerName?: string;
+  } | null>(null);
 
   const totalKg = getTotalKg();
   const subtotal = getTotalAmount();
@@ -31,7 +40,7 @@ export const CartDrawer: React.FC = () => {
 
   if (!isCartOpen) return null;
 
-  const handleCheckoutSubmit = (e: React.FormEvent) => {
+  const handleCheckoutSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!orderDetails.customerPhone || !orderDetails.customerName) {
       alert('Vui lòng điền họ tên và số điện thoại liên hệ');
@@ -39,7 +48,54 @@ export const CartDrawer: React.FC = () => {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    const itemsData = cart.map((item) => {
+      const price = getItemPricePerKg(item);
+      return {
+        name: item.product.name,
+        quantityKg: item.quantityKg,
+        packaging: item.packagingChoice || 'Bao 50kg',
+        unitPrice: price,
+        total: price * item.quantityKg,
+      };
+    });
+
+    const currentTotalKg = totalKg;
+    const currentSubtotal = subtotal;
+    const currentVatAmount = vatAmount;
+    const currentTotalPayment = totalPayment;
+    const currentAddress = orderDetails.recipient.recipientAddress || 'Giao tại kho / Thoả thuận sau';
+
+    setLastSubmittedSummary({
+      customerName: orderDetails.customerName,
+      customerPhone: orderDetails.customerPhone,
+      deliveryAddress: currentAddress,
+      totalKg: currentTotalKg,
+      totalPayment: currentTotalPayment,
+      partnerName: orderDetails.recipient.isCharityPartner ? orderDetails.recipient.partnerName : undefined,
+    });
+
+    try {
+      await sendOrderToTelegram({
+        customerName: orderDetails.customerName,
+        customerPhone: orderDetails.customerPhone,
+        items: itemsData,
+        totalKg: currentTotalKg,
+        subtotal: currentSubtotal,
+        vatAmount: currentVatAmount,
+        totalPayment: currentTotalPayment,
+        needVAT: orderDetails.needVAT,
+        vatTaxCode: orderDetails.vatTaxCode,
+        vatCompanyName: orderDetails.vatCompanyName,
+        deliveryAddress: currentAddress,
+        recipientName: orderDetails.recipient.recipientName,
+        recipientPhone: orderDetails.recipient.recipientPhone,
+        isCharityPartner: orderDetails.recipient.isCharityPartner,
+        partnerName: orderDetails.recipient.partnerName,
+      });
+    } catch (err) {
+      console.error('Lỗi khi gửi thông báo đơn hàng Telegram:', err);
+    } finally {
       setIsSubmitting(false);
       setStep('success');
       confetti({
@@ -48,7 +104,7 @@ export const CartDrawer: React.FC = () => {
         origin: { y: 0.6 }
       });
       clearCart();
-    }, 1200);
+    }
   };
 
   return (
@@ -344,31 +400,59 @@ export const CartDrawer: React.FC = () => {
           )}
 
           {step === 'success' && (
-            <div className="text-center py-10 space-y-4">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+            <div className="text-center py-8 space-y-4">
+              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <h4 className="text-xl font-black text-gray-900">Hoan Hỷ! Đơn Đặt Gạo Đã Được Ghi Nhận</h4>
               <p className="text-xs text-gray-600 leading-relaxed max-w-sm mx-auto">
-                Cảm ơn tấm lòng vàng của Quý vị. Đội ngũ kho gạo sẽ liên hệ qua số điện thoại để xác nhận lịch vận chuyển, hỗ trợ bốc xếp và gửi hình ảnh bàn giao thực tế.
+                Hệ thống đã tự động gửi thông báo đơn hàng đến ban quản lý kho <strong>Vựa Gạo Sóc Trăng</strong>. Chúng tôi sẽ gọi lại ngay để xác nhận xe giao và mẫu gạo.
               </p>
-              <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-left text-xs space-y-1.5">
-                <div><strong>Người liên hệ:</strong> {orderDetails.customerName} ({orderDetails.customerPhone})</div>
-                <div><strong>Điểm giao:</strong> {orderDetails.recipient.recipientAddress}</div>
-                {orderDetails.recipient.isCharityPartner && (
-                  <div className="text-emerald-700 font-bold">
-                    ✓ Hỗ trợ gửi ảnh & video trao tặng tại {orderDetails.recipient.partnerName}
+
+              {lastSubmittedSummary && (
+                <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-left text-xs space-y-2">
+                  <div className="font-bold text-amber-900 border-b border-amber-200 pb-1.5 flex justify-between items-center">
+                    <span>Thông Tin Đơn Vừa Đặt</span>
+                    <span className="text-[11px] text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full font-semibold">Đã gửi Telegram kho</span>
                   </div>
-                )}
+                  <div><strong>Người liên hệ:</strong> {lastSubmittedSummary.customerName} ({lastSubmittedSummary.customerPhone})</div>
+                  <div><strong>Tổng khối lượng:</strong> {lastSubmittedSummary.totalKg.toLocaleString('vi-VN')} kg</div>
+                  <div><strong>Tổng thanh toán dự kiến:</strong> <span className="font-bold text-amber-800">{lastSubmittedSummary.totalPayment.toLocaleString('vi-VN')} đ</span></div>
+                  <div><strong>Địa chỉ giao:</strong> {lastSubmittedSummary.deliveryAddress}</div>
+                  {lastSubmittedSummary.partnerName && (
+                    <div className="text-emerald-700 font-bold">
+                      ✓ Điểm đối tác thiện nguyện: {lastSubmittedSummary.partnerName}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Tùy chọn chốt nhanh qua Zalo / Hotline */}
+              <div className="pt-2 space-y-2">
+                <a
+                  href="https://zalo.me/0762234135"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-sm transition"
+                >
+                  <MessageCircle className="w-4 h-4" /> Nhắn Zalo Kho (0762 234 135) Xác Nhận Ngay
+                </a>
+                <a
+                  href="tel:0762234135"
+                  className="w-full py-2.5 px-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition"
+                >
+                  <PhoneCall className="w-4 h-4 text-emerald-600" /> Gọi Hotline Trực Tiếp: 0762 234 135
+                </a>
               </div>
+
               <button
                 onClick={() => {
                   setStep('cart');
                   setIsCartOpen(false);
                 }}
-                className="mt-4 px-6 py-2.5 bg-amber-700 hover:bg-amber-800 text-white font-bold rounded-xl text-xs"
+                className="mt-4 px-6 py-2 text-gray-500 hover:text-gray-800 font-semibold text-xs"
               >
-                Tiếp Tục Xem Thêm
+                Đóng và tiếp tục xem thêm
               </button>
             </div>
           )}
