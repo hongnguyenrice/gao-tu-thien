@@ -94,6 +94,7 @@ const ProductCard: React.FC<{
   const [isPackagingModalOpen, setIsPackagingModalOpen] = useState(false);
   const [chosenPackagingModel, setChosenPackagingModel] = useState<PackagingModel | null>(null);
   const [addedSuccess, setAddedSuccess] = useState(false);
+  const [showTiersDetail, setShowTiersDetail] = useState(false);
 
   // Tính giá gạo cơ bản dựa vào selectedKg
   const getBasePricePerKg = (kg: number) => {
@@ -113,6 +114,7 @@ const ProductCard: React.FC<{
   const packagingSurcharge = is5kgPackaging ? (selectedKg >= 1000 ? 0 : 300) : 0;
   const basePrice = getBasePricePerKg(selectedKg);
   const currentPrice = basePrice + packagingSurcharge;
+  const minTierPrice = product.tiers[product.tiers.length - 1].pricePerKg;
 
   const handleAddToCart = () => {
     addToCart(product, selectedKg, selectedPackaging);
@@ -123,21 +125,21 @@ const ProductCard: React.FC<{
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden relative group">
       {product.isPopular && (
-        <div className="absolute top-3 right-3 bg-rose-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10 flex items-center gap-1">
-          <Star className="w-3 h-3 fill-white" /> Được đoàn chọn nhiều
+        <div className="absolute top-3 right-3 bg-rose-600 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm z-10 flex items-center gap-1">
+          <Star className="w-3 h-3 fill-white" /> Đoàn chọn nhiều
         </div>
       )}
 
-      {/* Header card */}
-      <div className="p-6 border-b border-gray-100 bg-gradient-to-br from-amber-50/40 to-white">
-        <span className="text-xs font-bold text-amber-700 bg-amber-100/80 px-2.5 py-0.5 rounded-md">
+      {/* Header card gọn gàng */}
+      <div className="p-4 sm:p-5 border-b border-gray-100 bg-gradient-to-br from-amber-50/30 to-white">
+        <span className="text-[11px] font-bold text-amber-800 bg-amber-100/90 px-2 py-0.5 rounded-md">
           {product.category}
         </span>
-        <h3 className="text-xl font-bold text-gray-900 mt-2 line-clamp-1">{product.name}</h3>
-        <p className="text-sm text-gray-600 mt-1 line-clamp-2 min-h-[40px]">{product.shortDesc}</p>
+        <h3 className="text-lg font-bold text-gray-900 mt-1.5 line-clamp-1">{product.name}</h3>
+        <p className="text-xs text-gray-600 mt-1 line-clamp-2">{product.shortDesc}</p>
 
-        {/* Đặc tính hạt cơm */}
-        <div className="mt-4 flex items-center justify-between text-xs text-gray-600 bg-white p-2.5 rounded-xl border border-gray-100">
+        {/* Đặc tính hạt cơm 1 dòng */}
+        <div className="mt-2.5 flex items-center justify-between text-[11px] text-gray-600 bg-white p-2 rounded-xl border border-gray-100">
           <div>
             <span className="text-gray-400">Độ dẻo: </span>
             <span className="font-semibold text-amber-700">{'★'.repeat(product.characteristics.softness)}{'☆'.repeat(5 - product.characteristics.softness)}</span>
@@ -149,46 +151,66 @@ const ProductCard: React.FC<{
         </div>
       </div>
 
-      {/* Bảng nấc giá theo số lượng */}
-      <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+      {/* Thân card tinh gọn - Tối ưu trọn vẹn màn hình điện thoại */}
+      <div className="p-4 sm:p-5 space-y-3.5 flex-1 flex flex-col justify-between">
         <div>
-          <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
-            Bảng giá sỉ bậc thang:
-          </div>
-          <div className="space-y-1.5 text-xs">
-            <div className={`flex justify-between items-center p-1.5 rounded-lg ${selectedKg < 100 ? 'bg-amber-50 font-bold text-amber-900' : 'text-gray-600'}`}>
-              <span>Dưới 100kg (lẻ thử mẫu)</span>
-              <span className="font-bold">{product.pricePerKg.toLocaleString('vi-VN')} đ/kg</span>
+          {/* Nấc giá sỉ: 1 dòng tóm tắt + nút toggle xem 4 nấc */}
+          <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-xl p-2.5 flex items-center justify-between">
+            <div>
+              <span className="text-[10px] text-gray-500 font-medium block">Giá sỉ theo số lượng:</span>
+              <span className="text-sm font-black text-emerald-800">
+                {minTierPrice.toLocaleString('vi-VN')} đ – {product.pricePerKg.toLocaleString('vi-VN')} đ<span className="text-[11px] font-normal text-gray-600">/kg</span>
+              </span>
             </div>
-            {product.tiers.map((t) => (
-              <div
-                key={t.minKg}
-                className={`flex justify-between items-center p-1.5 rounded-lg transition-colors ${
-                  selectedKg >= t.minKg && (!product.tiers.find(next => next.minKg > t.minKg && selectedKg >= next.minKg))
-                    ? 'bg-emerald-50 border border-emerald-200 font-bold text-emerald-900'
-                    : 'text-gray-600'
-                }`}
-              >
-                <span>{t.label}</span>
-                <span className="font-bold text-emerald-700">{t.pricePerKg.toLocaleString('vi-VN')} đ/kg</span>
-              </div>
-            ))}
+            <button
+              type="button"
+              onClick={() => setShowTiersDetail(!showTiersDetail)}
+              className="text-[11px] font-bold text-emerald-700 hover:text-emerald-900 underline flex items-center gap-0.5 py-1"
+            >
+              <span>{showTiersDetail ? 'Ẩn nấc giá ▲' : 'Xem 4 nấc giá ▼'}</span>
+            </button>
           </div>
 
-          {/* Lựa chọn số lượng kg nhanh */}
-          <div className="mt-4">
-            <label className="block text-xs font-bold text-gray-700 mb-1.5">
-              Chọn số lượng dự kiến:
-            </label>
-            <div className="grid grid-cols-4 gap-1.5 mb-2">
+          {/* Bảng nấc giá chi tiết khi người dùng bấm mở */}
+          {showTiersDetail && (
+            <div className="mt-2 space-y-1 text-xs bg-gray-50 p-2.5 rounded-xl border border-gray-200 animate-in fade-in duration-150">
+              <div className="flex justify-between items-center text-gray-600">
+                <span>Dưới 100kg (lẻ thử mẫu):</span>
+                <span className="font-bold">{product.pricePerKg.toLocaleString('vi-VN')} đ/kg</span>
+              </div>
+              {product.tiers.map((t) => (
+                <div
+                  key={t.minKg}
+                  className={`flex justify-between items-center ${
+                    selectedKg >= t.minKg && (!product.tiers.find(next => next.minKg > t.minKg && selectedKg >= next.minKg))
+                      ? 'text-emerald-800 font-bold'
+                      : 'text-gray-600'
+                  }`}
+                >
+                  <span>{t.label}:</span>
+                  <span className="font-bold text-emerald-700">{t.pricePerKg.toLocaleString('vi-VN')} đ/kg</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Chọn số lượng kg nhanh */}
+          <div className="mt-3">
+            <div className="flex justify-between items-center mb-1">
+              <label className="text-xs font-bold text-gray-700">Số lượng cần:</label>
+              <span className="text-[11px] font-bold text-amber-800">
+                Áp dụng: {basePrice.toLocaleString('vi-VN')} đ/kg
+              </span>
+            </div>
+            <div className="grid grid-cols-4 gap-1.5 mb-1.5">
               {[50, 100, 500, 1000].map((kg) => (
                 <button
                   key={kg}
                   type="button"
                   onClick={() => setSelectedKg(kg)}
-                  className={`py-1.5 text-xs font-bold rounded-lg border transition ${
+                  className={`py-1 text-xs font-bold rounded-lg border transition ${
                     selectedKg === kg
-                      ? 'bg-amber-700 text-white border-amber-700'
+                      ? 'bg-amber-700 text-white border-amber-700 shadow-xs'
                       : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
@@ -204,7 +226,7 @@ const ProductCard: React.FC<{
                 step="10"
                 value={selectedKg}
                 onChange={(e) => setSelectedKg(Math.max(1, Number(e.target.value)))}
-                className="w-full text-sm font-bold border border-gray-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full text-xs font-bold border border-gray-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                 placeholder="Nhập số kg tùy ý"
               />
               <span className="text-xs font-semibold text-gray-500 shrink-0">kg</span>
@@ -214,18 +236,23 @@ const ProductCard: React.FC<{
           {/* Lựa chọn cách đóng gói bao bì */}
           <div className="mt-3">
             <div className="flex justify-between items-center mb-1">
-              <label className="block text-xs font-bold text-gray-700">
-                Đóng gói túi / bao:
-              </label>
-              {is5kgPackaging && selectedKg >= 1000 && (
-                <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
-                  🎁 Tài trợ bao 5kg: 0đ
-                </span>
-              )}
+              <label className="text-xs font-bold text-gray-700">Quy cách bao:</label>
+              <button
+                type="button"
+                onClick={() => setIsPackagingModalOpen(true)}
+                className="text-[11px] font-bold text-amber-800 hover:text-amber-950 underline flex items-center gap-1"
+              >
+                <Package className="w-3.5 h-3.5 text-amber-700" />
+                <span>{chosenPackagingModel ? chosenPackagingModel.name : 'Xem 16 mẫu bao bì ➔'}</span>
+              </button>
             </div>
+
             <select
               value={selectedPackaging}
-              onChange={(e) => setSelectedPackaging(e.target.value)}
+              onChange={(e) => {
+                setSelectedPackaging(e.target.value);
+                setChosenPackagingModel(null);
+              }}
               className="w-full text-xs font-medium border border-gray-300 rounded-lg px-2.5 py-1.5 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500"
             >
               {product.packaging.map((pack) => (
@@ -233,94 +260,58 @@ const ProductCard: React.FC<{
               ))}
             </select>
 
-            {/* Nút xem ảnh & chọn mẫu bao bì thực tế */}
-            <button
-              type="button"
-              onClick={() => setIsPackagingModalOpen(true)}
-              className="mt-2 w-full py-1.5 px-2.5 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 rounded-xl text-xs font-bold flex items-center justify-between transition group/btn"
-            >
-              <span className="flex items-center gap-1.5 truncate">
-                <Package className="w-3.5 h-3.5 text-amber-700 shrink-0" />
-                <span className="truncate">
-                  {chosenPackagingModel
-                    ? `Mẫu: ${chosenPackagingModel.name}`
-                    : 'Xem ảnh & chọn mẫu bao bì (16 mẫu có sẵn)'}
-                </span>
-              </span>
-              <span className="text-[10px] text-amber-700 underline font-semibold shrink-0 group-hover/btn:text-amber-900">
-                {chosenPackagingModel ? 'Đổi mẫu' : 'Xem mẫu ➔'}
-              </span>
-            </button>
-
-            {/* Thông báo chính sách bao bì minh bạch */}
-            {is5kgPackaging ? (
+            {/* Thông báo bao 5kg (chỉ hiện khi chọn bao 5kg) */}
+            {is5kgPackaging && (
               selectedKg >= 1000 ? (
-                <div className="mt-1.5 p-2 rounded-xl bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-950 flex items-start gap-1.5">
-                  <span className="text-sm">🎁</span>
-                  <div>
-                    <strong className="text-emerald-800">Đơn từ 1 tấn:</strong> Vựa Gạo Sóc Trăng <strong>tài trợ miễn phí 100%</strong> toàn bộ vỏ bao 5kg in chữ Từ Thiện & công may!
-                  </div>
+                <div className="mt-1 text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md flex items-center gap-1">
+                  <span>🎁</span>
+                  <span>Đơn từ 1 tấn: Miễn phí 100% vỏ bao 5kg</span>
                 </div>
               ) : (
-                <div className="mt-1.5 p-2 rounded-xl bg-amber-50 border border-amber-200 text-[11px] text-amber-950 flex items-start gap-1.5">
-                  <span className="text-sm">💡</span>
-                  <div>
-                    Túi 5kg phụ thu tiền vỏ in & may chỉ: <strong>+300đ/kg</strong> (+1.500đ/túi). 
-                    <span className="text-emerald-700 font-bold block sm:inline sm:ml-1">Đơn từ 1 tấn được TÀI TRỢ MIỄN PHÍ.</span>
-                  </div>
+                <div className="mt-1 text-[10px] text-amber-900 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-md flex items-center gap-1">
+                  <span>💡</span>
+                  <span>Túi 5kg phụ thu: +300đ/kg (Đơn từ 1 tấn miễn phí)</span>
                 </div>
               )
-            ) : (
-              <div className="mt-1.5 text-[11px] text-gray-500 flex items-center gap-1 font-medium">
-                <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Bao 10kg, 25kg, 50kg: <strong>Miễn phí đóng gói 100%</strong></span>
-              </div>
             )}
           </div>
         </div>
 
-        {/* Tổng tiền tạm tính & nút thêm giỏ */}
-        <div className="pt-4 border-t border-gray-100">
-          <div className="flex justify-between items-baseline mb-3">
+        {/* Tổng tiền tạm tính & nút thêm giỏ (nổi bật ngay trong tầm nhìn) */}
+        <div className="pt-3 border-t border-gray-100">
+          <div className="flex justify-between items-baseline mb-2.5">
             <div>
               <span className="text-xs text-gray-500 block">Tạm tính ({selectedKg}kg):</span>
-              {is5kgPackaging && (
-                <span className="text-[10px] text-gray-500">
-                  {selectedKg >= 1000
-                    ? `Gạo ${basePrice.toLocaleString('vi-VN')}đ + Bao 5kg: 0đ`
-                    : `Gạo ${basePrice.toLocaleString('vi-VN')}đ + Bao 5kg: 300đ`}
-                </span>
-              )}
             </div>
             <div className="text-right">
-              <span className="text-lg font-black text-amber-700">
+              <span className="text-lg font-black text-amber-800">
                 {(currentPrice * selectedKg).toLocaleString('vi-VN')} đ
               </span>
-              <div className="text-[11px] text-gray-500 font-semibold">
+              <span className="text-[10px] text-gray-500 font-semibold block">
                 ({currentPrice.toLocaleString('vi-VN')} đ/kg)
-              </div>
+              </span>
             </div>
           </div>
 
           <div className="flex gap-2">
             <button
               onClick={onOpenDetails}
-              className="p-2.5 text-gray-500 hover:text-amber-700 hover:bg-amber-50 border border-gray-200 rounded-xl transition"
-              title="Xem thông tin chi tiết"
+              className="p-2 text-gray-500 hover:text-amber-800 hover:bg-amber-50 border border-gray-200 rounded-xl transition shrink-0"
+              title="Xem thông tin chi tiết hạt gạo"
             >
-              <Info className="w-5 h-5" />
+              <Info className="w-4 h-4" />
             </button>
             <button
               onClick={handleAddToCart}
-              className={`flex-1 py-2.5 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition transform active:scale-95 shadow-sm ${
+              className={`flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition transform active:scale-95 shadow-sm ${
                 addedSuccess
                   ? 'bg-emerald-600 text-white'
-                  : 'bg-amber-600 hover:bg-amber-700 text-white shadow-amber-600/20'
+                  : 'bg-amber-700 hover:bg-amber-800 text-white shadow-amber-700/20'
               }`}
             >
               {addedSuccess ? (
                 <>
-                  <Check className="w-4 h-4" /> Đã thêm vào đơn
+                  <Check className="w-4 h-4" /> Đã Thêm Vào Đơn
                 </>
               ) : (
                 <>
@@ -403,8 +394,8 @@ const ProductDetailModal: React.FC<{
 
 const CustomRiceRequestCard: React.FC = () => {
   return (
-    <div className="bg-gradient-to-br from-emerald-900 via-emerald-950 to-teal-950 text-white rounded-2xl border-2 border-emerald-400/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative p-6">
-      <div className="absolute top-3 right-3 bg-amber-400 text-amber-950 text-xs font-black px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+    <div className="bg-gradient-to-br from-emerald-900 via-emerald-950 to-teal-950 text-white rounded-2xl border-2 border-emerald-400/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative p-4 sm:p-5">
+      <div className="absolute top-3 right-3 bg-amber-400 text-amber-950 text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-sm flex items-center gap-1">
         <Sparkles className="w-3.5 h-3.5 fill-amber-950" /> Theo Yêu Cầu
       </div>
 
