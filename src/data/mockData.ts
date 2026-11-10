@@ -213,6 +213,7 @@ export interface BranchLocation {
   address: string;
   area: string;
   phone: string;
+  hours?: string;
 }
 
 export const BRAND_INFO = {
@@ -228,27 +229,30 @@ export const BRAND_INFO = {
       type: 'branch' as const,
       index: 1,
       name: 'Chi Nhánh 1 (Lái Thiêu)',
-      address: 'Số 11, Lô 2, Đường Lái Thiêu 9, P. Lái Thiêu, TP.HCM',
-      area: 'TP.HCM / Bình Dương',
-      phone: '0762 234 135'
+      address: 'Số 11, Lô 2, Đường Lái Thiêu 9, P. Lái Thiêu, TP. Thuận An, Bình Dương',
+      area: 'Lái Thiêu',
+      phone: '0762 234 135',
+      hours: '07:00 – 20:00'
     },
     {
       id: 'cn-2',
       type: 'branch' as const,
       index: 2,
       name: 'Chi Nhánh 2 (Phước Long)',
-      address: '44 Đường Số 7, P. Phước Long, TP.HCM',
-      area: 'TP. Thủ Đức / TP.HCM',
-      phone: '0762 234 135'
+      address: '44 Đường Số 7, P. Phước Long, TP. Thủ Đức, TP.HCM',
+      area: 'Thủ Đức',
+      phone: '0762 234 135',
+      hours: '07:00 – 20:00'
     },
     {
       id: 'cn-3',
       type: 'branch' as const,
       index: 3,
-      name: 'Chi Nhánh 3 (Tân Kiểng - Quận 7)',
+      name: 'Chi Nhánh 3 (Tân Kiểng)',
       address: '120 Đường Số 1, P. Tân Kiểng, Q.7, TP.HCM',
-      area: 'Quận 7 / TP.HCM',
-      phone: '0762 234 135'
+      area: 'Quận 7',
+      phone: '0762 234 135',
+      hours: '07:00 – 20:00'
     },
     {
       id: 'cn-4',
@@ -256,17 +260,19 @@ export const BRAND_INFO = {
       index: 4,
       name: 'Chi Nhánh 4 (Hậu Nghĩa)',
       address: 'Ấp Khiêm Cương, Hậu Nghĩa, Tây Ninh',
-      area: 'Tây Ninh / Long An',
-      phone: '0762 234 135'
+      area: 'Hậu Nghĩa',
+      phone: '0762 234 135',
+      hours: '07:00 – 20:00'
     }
   ],
   factory: {
     id: 'factory-1',
     type: 'factory' as const,
-    name: 'Nhà Máy Xay Xát & Chế Biến Gạo',
+    name: 'Nhà Máy Xay Xát Đồng Tháp',
     address: 'Ấp An Thái, Xã Hội Cư, Tỉnh Đồng Tháp',
-    area: 'Đồng Tháp (Vựa Lúa Miền Tây)',
-    phone: '0762 234 135'
+    area: 'Đồng Tháp',
+    phone: '0762 234 135',
+    hours: '06:00 – 21:00'
   }
 };
 
