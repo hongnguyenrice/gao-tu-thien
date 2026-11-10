@@ -70,13 +70,13 @@ export default function GaoPhatQuaPage() {
           <>
             <p>
               Đối với các chương trình trao quà tận tay bà con hộ nghèo, người già neo đơn, người khuyết tật và các mái ấm,
-              việc chọn đúng hạt gạo ngon lành, dẻo mềm, để nguội không khô cứng là cách thể hiện sự thấu hiểu và trân trọng
-              nhất đối với người nhận.
+              kinh nghiệm mua gạo làm từ thiện quan trọng nhất là chọn đúng hạt gạo ngon lành, dẻo mềm, để nguội không khô cứng.
+              Đây là cách thể hiện sự thấu hiểu và trân trọng nhất đối với người nhận.
             </p>
             <p>
-              <strong>Vựa Gạo Sóc Trăng</strong> tự hào đồng hành cùng hàng trăm đoàn từ thiện, doanh nghiệp và nhà hảo tâm
-              với nguồn gạo mới xay xát trực tiếp từ xưởng Đồng Tháp, cam kết không pha trộn gạo cũ, hỗ trợ đóng bao 5kg, 10kg
-              miễn phí và chở xe tải giao tận điểm phát quà.
+              Nếu Quý đoàn đang tìm nơi <strong>mua gạo làm từ thiện</strong> giá sỉ tận gốc, <strong>Vựa Gạo Sóc Trăng</strong> tự hào
+              đồng hành cùng hàng trăm đoàn từ thiện, doanh nghiệp và nhà hảo tâm với nguồn gạo mới xay xát trực tiếp từ xưởng Đồng Tháp,
+              cam kết không pha trộn gạo cũ, hỗ trợ đóng bao 5kg, 10kg miễn phí và chở xe tải giao tận điểm phát quà.
             </p>
           </>
         }
