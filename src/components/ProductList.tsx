@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { RICE_PRODUCTS, RiceProduct } from '@/data/mockData';
 import { useCart } from '@/context/CartContext';
-import { Check, Info, ShoppingCart, Sparkles, Star, MessageCircle, Phone, Package, Image as ImageIcon } from 'lucide-react';
+import { Check, Info, ShoppingCart, Sparkles, Star, MessageCircle, Phone, Package, Image as ImageIcon, ChevronLeft, ChevronRight, LayoutGrid, TableProperties } from 'lucide-react';
 import { ZALO_URL, PHONE_TEL, PHONE_DISPLAY } from '@/data/site';
 import { PackagingModal } from '@/components/PackagingModal';
 import { PackagingModel } from '@/data/packagingData';
@@ -11,6 +11,9 @@ import { PackagingModel } from '@/data/packagingData';
 export const ProductList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedProductForModal, setSelectedProductForModal] = useState<RiceProduct | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [mobileViewMode, setMobileViewMode] = useState<'carousel' | 'table'>('carousel');
 
   const categories = [
     { id: 'all', name: 'Tất Cả Loại Gạo' },
@@ -24,10 +27,30 @@ export const ProductList: React.FC = () => {
     ? RICE_PRODUCTS
     : RICE_PRODUCTS.filter((p) => p.category === selectedCategory);
 
+  const totalCards = filteredProducts.length + (selectedCategory === 'all' ? 1 : 0);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, clientWidth } = scrollRef.current;
+    const cardWidth = clientWidth * 0.86;
+    const index = Math.round(scrollLeft / cardWidth);
+    setActiveSlide(Math.min(totalCards - 1, Math.max(0, index)));
+  };
+
+  const scrollToCard = (index: number) => {
+    if (!scrollRef.current) return;
+    const cardWidth = scrollRef.current.clientWidth * 0.86;
+    scrollRef.current.scrollTo({
+      left: index * cardWidth,
+      behavior: 'smooth',
+    });
+    setActiveSlide(index);
+  };
+
   return (
     <section id="san-pham" className="py-16 bg-gray-50/70 border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
             <Sparkles className="w-3.5 h-3.5" /> Bảng Giá Sỉ Tận Gốc Cho Đoàn Từ Thiện
           </div>
@@ -39,12 +62,16 @@ export const ProductList: React.FC = () => {
           </p>
 
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2 mt-8">
+          <div className="flex flex-wrap justify-center gap-2 mt-6 sm:mt-8">
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+                onClick={() => {
+                  setSelectedCategory(cat.id);
+                  setActiveSlide(0);
+                  if (scrollRef.current) scrollRef.current.scrollTo({ left: 0 });
+                }}
+                className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                   selectedCategory === cat.id
                     ? 'bg-amber-700 text-white shadow-md'
                     : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
@@ -54,23 +81,172 @@ export const ProductList: React.FC = () => {
               </button>
             ))}
           </div>
+
+          {/* Mobile view switch & counter */}
+          <div className="flex md:hidden items-center justify-between mt-6 bg-white p-1.5 rounded-2xl border border-gray-200 shadow-xs">
+            <div className="flex gap-1">
+              <button
+                type="button"
+                onClick={() => setMobileViewMode('carousel')}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition ${
+                  mobileViewMode === 'carousel'
+                    ? 'bg-amber-700 text-white shadow-xs'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                <LayoutGrid className="w-3.5 h-3.5" /> Thẻ Vuốt Ngang
+              </button>
+              <button
+                type="button"
+                onClick={() => setMobileViewMode('table')}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition ${
+                  mobileViewMode === 'table'
+                    ? 'bg-amber-700 text-white shadow-xs'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                <TableProperties className="w-3.5 h-3.5" /> Bảng So Sánh Giá
+              </button>
+            </div>
+
+            {mobileViewMode === 'carousel' && (
+              <div className="flex items-center gap-1 pr-2 text-xs font-black text-amber-800">
+                <span>{activeSlide + 1}</span>
+                <span className="text-gray-400 font-normal">/</span>
+                <span className="text-gray-500 font-normal">{totalCards}</span>
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Product Grid - 6 ô hoàn hảo (2 hàng x 3 cột) */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onOpenDetails={() => setSelectedProductForModal(product)}
-            />
-          ))}
+        {/* Nội dung danh sách sản phẩm: Mobile thông minh + Desktop lưới 2x3 */}
+        {mobileViewMode === 'table' ? (
+          /* Bảng so sánh giá nhanh dạng danh sách trên Mobile */
+          <div className="md:hidden bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden p-4 space-y-3 animate-in fade-in duration-200">
+            <div className="flex items-center justify-between text-xs pb-2 border-b border-gray-100">
+              <span className="font-bold text-gray-800">So sánh 5 loại gạo từ thiện:</span>
+              <span className="text-[11px] text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-md">
+                Giá sỉ tự giảm theo số kg
+              </span>
+            </div>
 
-          {/* Ô thứ 6 đặc biệt: Đặt theo yêu cầu & phối trộn riêng cho chùa / bếp ăn */}
-          {selectedCategory === 'all' && (
-            <CustomRiceRequestCard />
-          )}
-        </div>
+            <div className="space-y-2.5">
+              {RICE_PRODUCTS.map((p, idx) => {
+                const minPrice = p.tiers[p.tiers.length - 1].pricePerKg;
+                const maxPrice = p.pricePerKg;
+                return (
+                  <div
+                    key={p.id}
+                    className="p-3 rounded-2xl border border-gray-200 bg-gray-50/70 hover:bg-amber-50/50 transition flex items-center justify-between gap-2.5"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-bold text-gray-900 text-xs truncate">{p.name}</span>
+                        {p.isPopular && (
+                          <span className="bg-rose-100 text-rose-700 text-[9px] font-bold px-1.5 py-0.2 rounded-full shrink-0">Hot</span>
+                        )}
+                      </div>
+                      <div className="text-[11px] text-gray-500 mt-0.5 truncate">
+                        Độ dẻo: {'★'.repeat(p.characteristics.softness)}{'☆'.repeat(5 - p.characteristics.softness)} • {p.category}
+                      </div>
+                      <div className="text-xs font-black text-amber-800 mt-1">
+                        Sỉ từ {minPrice.toLocaleString('vi-VN')} đ – {maxPrice.toLocaleString('vi-VN')} đ<span className="text-[10px] font-normal text-gray-500">/kg</span>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMobileViewMode('carousel');
+                        setTimeout(() => scrollToCard(idx), 80);
+                      }}
+                      className="px-3.5 py-2 bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs rounded-xl shadow-xs shrink-0"
+                    >
+                      Chọn Đặt
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="pt-2 text-center">
+              <button
+                type="button"
+                onClick={() => setMobileViewMode('carousel')}
+                className="text-xs font-bold text-amber-800 hover:text-amber-950 underline"
+              >
+                Quay lại dạng thẻ vuốt ngang ➔
+              </button>
+            </div>
+          </div>
+        ) : (
+          /* Mobile Vuốt Ngang (Snap Carousel) + Desktop Grid 2x3 */
+          <div>
+            <div
+              ref={scrollRef}
+              onScroll={handleScroll}
+              className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 scrollbar-none"
+            >
+              {filteredProducts.map((product) => (
+                <div
+                  key={product.id}
+                  className="w-[86vw] sm:w-[380px] md:w-auto shrink-0 md:shrink snap-center flex flex-col"
+                >
+                  <ProductCard
+                    product={product}
+                    onOpenDetails={() => setSelectedProductForModal(product)}
+                  />
+                </div>
+              ))}
+
+              {/* Ô thứ 6 đặc biệt: Đặt theo yêu cầu & phối trộn riêng cho chùa / bếp ăn */}
+              {selectedCategory === 'all' && (
+                <div className="w-[86vw] sm:w-[380px] md:w-auto shrink-0 md:shrink snap-center flex flex-col">
+                  <CustomRiceRequestCard />
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Carousel Controls & Navigation Dots */}
+            <div className="flex md:hidden items-center justify-between pt-3 px-1">
+              <button
+                type="button"
+                onClick={() => scrollToCard(Math.max(0, activeSlide - 1))}
+                disabled={activeSlide === 0}
+                className="p-2.5 rounded-xl border border-gray-200 bg-white text-gray-700 disabled:opacity-30 shadow-xs active:scale-95 transition"
+                aria-label="Xem thẻ gạo trước"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              <div className="flex items-center gap-1.5">
+                {Array.from({ length: totalCards }).map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => scrollToCard(idx)}
+                    className={`h-2 rounded-full transition-all ${
+                      activeSlide === idx
+                        ? 'w-6 bg-amber-700'
+                        : 'w-2 bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Chuyển đến thẻ gạo ${idx + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => scrollToCard(Math.min(totalCards - 1, activeSlide + 1))}
+                disabled={activeSlide >= totalCards - 1}
+                className="p-2.5 rounded-xl border border-gray-200 bg-white text-gray-700 disabled:opacity-30 shadow-xs active:scale-95 transition"
+                aria-label="Xem thẻ gạo tiếp theo"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Modal chi tiết nếu người dùng bấm xem */}
