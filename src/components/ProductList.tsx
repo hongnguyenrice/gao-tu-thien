@@ -286,46 +286,39 @@ const ProductCard: React.FC<{
   };
 
   const currentPrice = getBasePricePerKg(selectedKg);
-  const minTierPrice = product.tiers[product.tiers.length - 1].pricePerKg;
-  const maxTierPrice = product.pricePerKg;
 
   // Xác định nấc giá hiện tại
   const getCurrentTierLabel = () => {
-    if (selectedKg < 100) return 'Dưới 100kg (Đơn lẻ thử mẫu)';
-    if (selectedKg < 500) return 'Nấc sỉ 100kg – 499kg';
-    if (selectedKg < 1000) return 'Nấc sỉ 500kg – 999kg (Nửa tấn)';
-    return 'Từ 1 Tấn trở lên (Sỉ kịch trần)';
+    if (selectedKg < 100) return 'Dưới 100kg (Lẻ thử)';
+    if (selectedKg < 500) return 'Nấc 100–499kg';
+    if (selectedKg < 1000) return 'Nấc 500–999kg';
+    return 'Từ 1 Tấn (Sỉ gốc)';
   };
 
   // Tính gợi ý lên nấc giá (Smart Upsell)
   const getUpsellSuggestion = () => {
     if (selectedKg < 100) {
       const tier100Price = product.tiers[0].pricePerKg;
-      const savingPerKg = product.pricePerKg - tier100Price;
-      const totalSaving = savingPerKg * 100;
+      const saving = (product.pricePerKg - tier100Price) * 100;
       return {
         targetKg: 100,
-        text: `Lên 100kg: chỉ còn ${tier100Price.toLocaleString('vi-VN')} đ/kg (Tiết kiệm ${totalSaving.toLocaleString('vi-VN')} đ)`,
+        text: `Lên 100kg: ${tier100Price.toLocaleString('vi-VN')} đ/kg (Bớt ${(saving / 1000).toFixed(0)}k) ➔`,
       };
     }
     if (selectedKg < 500) {
-      const currentTierPrice = product.tiers[0].pricePerKg;
       const tier500Price = product.tiers[1].pricePerKg;
-      const savingPerKg = currentTierPrice - tier500Price;
-      const totalSaving = savingPerKg * 500;
+      const saving = (product.tiers[0].pricePerKg - tier500Price) * 500;
       return {
         targetKg: 500,
-        text: `Lên 500kg: chỉ còn ${tier500Price.toLocaleString('vi-VN')} đ/kg (Tiết kiệm ${totalSaving.toLocaleString('vi-VN')} đ)`,
+        text: `Lên 500kg: ${tier500Price.toLocaleString('vi-VN')} đ/kg (Bớt ${(saving / 1000).toFixed(0)}k) ➔`,
       };
     }
     if (selectedKg < 1000) {
-      const currentTierPrice = product.tiers[1].pricePerKg;
-      const tier1000Price = product.tiers[2].pricePerKg;
-      const savingPerKg = currentTierPrice - tier1000Price;
-      const totalSaving = savingPerKg * 1000;
+      const tier100Price = product.tiers[2].pricePerKg;
+      const saving = (product.tiers[1].pricePerKg - tier100Price) * 1000;
       return {
         targetKg: 1000,
-        text: `Lên 1 Tấn: chỉ còn ${tier1000Price.toLocaleString('vi-VN')} đ/kg (Tiết kiệm ${totalSaving.toLocaleString('vi-VN')} đ)`,
+        text: `Lên 1 Tấn: ${tier100Price.toLocaleString('vi-VN')} đ/kg (Bớt ${(saving / 1000).toFixed(0)}k) ➔`,
       };
     }
     return null;
@@ -346,15 +339,15 @@ const ProductCard: React.FC<{
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative group h-full">
       {product.isPopular && (
-        <div className="absolute top-3 right-3 bg-rose-600 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm z-10 flex items-center gap-1">
+        <div className="absolute top-2.5 right-2.5 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-xs z-10 flex items-center gap-1">
           <Star className="w-3 h-3 fill-white" /> Đoàn chọn nhiều
         </div>
       )}
 
-      {/* Header card gọn gàng - chiều cao cố định để các thẻ luôn thẳng hàng */}
-      <div className="p-4 sm:p-5 border-b border-gray-100 bg-gradient-to-br from-amber-50/40 to-white">
+      {/* Header card cực gọn gàng */}
+      <div className="p-3.5 sm:p-4 border-b border-gray-100 bg-gradient-to-br from-amber-50/40 to-white">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold text-amber-800 bg-amber-100/90 px-2.5 py-0.5 rounded-md">
+          <span className="text-[11px] font-bold text-amber-800 bg-amber-100/90 px-2 py-0.5 rounded">
             {product.category}
           </span>
           <button
@@ -362,163 +355,137 @@ const ProductCard: React.FC<{
             onClick={onOpenDetails}
             className="text-xs font-bold text-amber-800 hover:text-amber-950 underline flex items-center gap-0.5"
           >
-            <span>Chi tiết hạt & cơm</span>
+            <span>Chi tiết gạo & cách nấu</span>
             <ChevronRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        <h3 className="text-lg font-extrabold text-gray-900 mt-2 line-clamp-1 h-7 flex items-center">{product.name}</h3>
-        <p className="text-xs text-gray-700 mt-1 line-clamp-2 min-h-[32px] leading-relaxed">{product.shortDesc}</p>
+        <h3 className="text-base sm:text-lg font-black text-gray-900 mt-1 line-clamp-1 h-6 flex items-center">
+          {product.name}
+        </h3>
 
-        {/* Đặc tính hạt cơm rõ ràng, font 13px dễ đọc */}
-        <div className="mt-3 flex items-center justify-between text-xs sm:text-sm text-gray-800 bg-white p-2.5 rounded-xl border border-gray-200">
-          <div>
-            <span className="text-gray-500 font-medium">Độ dẻo: </span>
-            <span className="font-bold text-amber-700">{'★'.repeat(product.characteristics.softness)}{'☆'.repeat(5 - product.characteristics.softness)}</span>
-          </div>
-          <div>
-            <span className="text-gray-500 font-medium">Mùi thơm: </span>
-            <span className="font-bold text-amber-700">{'★'.repeat(product.characteristics.fragrance)}{'☆'.repeat(5 - product.characteristics.fragrance)}</span>
-          </div>
+        {/* 1 DÒNG GỘP ĐẶC TÍNH: Dẻo, Thơm và mô tả ngắn gọn */}
+        <div className="text-xs text-gray-700 mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 min-h-[20px]">
+          <span className="font-semibold text-amber-800">
+            Dẻo: {'★'.repeat(product.characteristics.softness)}{'☆'.repeat(5 - product.characteristics.softness)}
+          </span>
+          <span className="text-gray-300">•</span>
+          <span className="font-semibold text-amber-800">
+            Thơm: {'★'.repeat(product.characteristics.fragrance)}{'☆'.repeat(5 - product.characteristics.fragrance)}
+          </span>
+          <span className="text-gray-300 hidden sm:inline">•</span>
+          <span className="text-gray-500 line-clamp-1 hidden sm:inline">{product.shortDesc}</span>
         </div>
       </div>
 
-      {/* Thân card - Phân cấp giá chuẩn xác & Minh bạch 100% */}
-      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+      {/* Thân card tinh gọn - Tối ưu trọn vẹn màn hình điện thoại */}
+      <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between space-y-2.5">
         <div>
-          {/* PHÂN CẤP GIÁ CHUẨN: Giá đang áp dụng to nhất, nổi bật nhất */}
-          <div className="bg-emerald-50/80 border border-emerald-300/80 rounded-2xl p-3">
-            <div className="flex justify-between items-baseline">
-              <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800 block">
-                  Đơn giá đang áp dụng:
-                </span>
-                <div className="flex items-baseline gap-1.5 mt-0.5">
-                  <span className="text-2xl font-black text-emerald-900">
-                    {currentPrice.toLocaleString('vi-VN')} đ
-                  </span>
-                  <span className="text-xs font-semibold text-gray-600">/kg (chuẩn bao 25kg)</span>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setShowTiersDetail(!showTiersDetail)}
-                className="text-xs font-bold text-emerald-800 hover:text-emerald-950 underline shrink-0 py-1"
-              >
-                {showTiersDetail ? 'Ẩn 4 nấc ▲' : 'Xem 4 nấc giá ▼'}
-              </button>
-            </div>
-
-            {/* Dòng nấc đang áp dụng + khoảng giá tham khảo */}
-            <div className="mt-1.5 pt-1.5 border-t border-emerald-200/60 flex items-center justify-between text-xs">
-              <span className="font-bold text-emerald-800">
+          {/* ĐƠN GIÁ 1 HÀNG DUY NHẤT */}
+          <div className="bg-emerald-50/90 border border-emerald-300/80 rounded-xl px-3 py-2 flex items-center justify-between">
+            <div className="flex items-baseline gap-2">
+              <span className="text-xl sm:text-2xl font-black text-emerald-950">
+                {currentPrice.toLocaleString('vi-VN')} đ<span className="text-xs font-semibold text-gray-600">/kg</span>
+              </span>
+              <span className="text-xs font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded">
                 {getCurrentTierLabel()}
               </span>
-              <span className="text-gray-500">
-                Sỉ từ {minTierPrice.toLocaleString('vi-VN')} – {maxTierPrice.toLocaleString('vi-VN')} đ
-              </span>
             </div>
-
-            {/* Bảng nấc giá chi tiết khi người dùng bấm mở */}
-            {showTiersDetail && (
-              <div className="mt-2.5 pt-2 border-t border-emerald-200 space-y-1.5 text-xs">
-                <div className="flex justify-between items-center text-gray-700">
-                  <span>Dưới 100kg (lẻ thử mẫu):</span>
-                  <span className="font-bold">{product.pricePerKg.toLocaleString('vi-VN')} đ/kg</span>
-                </div>
-                {product.tiers.map((t) => (
-                  <div
-                    key={t.minKg}
-                    className={`flex justify-between items-center ${
-                      selectedKg >= t.minKg && (!product.tiers.find(next => next.minKg > t.minKg && selectedKg >= next.minKg))
-                        ? 'text-emerald-900 font-extrabold bg-emerald-100/70 px-2 py-0.5 rounded'
-                        : 'text-gray-700'
-                    }`}
-                  >
-                    <span>{t.label}:</span>
-                    <span className="font-bold">{t.pricePerKg.toLocaleString('vi-VN')} đ/kg</span>
-                  </div>
-                ))}
-              </div>
-            )}
+            <button
+              type="button"
+              onClick={() => setShowTiersDetail(!showTiersDetail)}
+              className="text-xs font-bold text-emerald-800 hover:text-emerald-950 underline shrink-0"
+            >
+              {showTiersDetail ? 'Ẩn nấc ▲' : 'Bảng giá sỉ ▼'}
+            </button>
           </div>
 
-          {/* Chọn số lượng kg nhanh */}
-          <div className="mt-3.5">
-            <div className="flex justify-between items-center mb-1.5">
-              <label className="text-xs font-bold text-gray-800">Chọn khối lượng dự kiến:</label>
-              <span className="text-xs text-gray-500">Hoặc tự nhập số kg</span>
+          {/* Bảng nấc giá chi tiết khi người dùng bấm mở */}
+          {showTiersDetail && (
+            <div className="mt-2 space-y-1 text-xs bg-gray-50 p-2.5 rounded-xl border border-gray-200 animate-in fade-in duration-150">
+              <div className="flex justify-between items-center text-gray-700">
+                <span>Dưới 100kg (lẻ thử mẫu):</span>
+                <span className="font-bold">{product.pricePerKg.toLocaleString('vi-VN')} đ/kg</span>
+              </div>
+              {product.tiers.map((t) => (
+                <div
+                  key={t.minKg}
+                  className={`flex justify-between items-center ${
+                    selectedKg >= t.minKg && (!product.tiers.find(next => next.minKg > t.minKg && selectedKg >= next.minKg))
+                      ? 'text-emerald-900 font-extrabold bg-emerald-100/70 px-2 py-0.5 rounded'
+                      : 'text-gray-700'
+                  }`}
+                >
+                  <span>{t.label}:</span>
+                  <span className="font-bold">{t.pricePerKg.toLocaleString('vi-VN')} đ/kg</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* CHỌN KHỐI LƯỢNG: 4 Nút + Ô tự nhập trên 1 hàng */}
+          <div className="mt-2.5">
+            <div className="flex justify-between items-center mb-1">
+              <label className="text-xs font-bold text-gray-800">Số lượng cần (kg):</label>
+              {upsell && (
+                <button
+                  type="button"
+                  onClick={() => setSelectedKg(upsell.targetKg)}
+                  className="text-[11px] font-bold text-amber-800 hover:text-amber-950 underline"
+                >
+                  💡 {upsell.text}
+                </button>
+              )}
             </div>
 
-            <div className="grid grid-cols-4 gap-1.5 mb-2">
+            <div className="flex items-center gap-1.5">
               {[
-                { kg: 50, label: '50 kg', sub: 'Lẻ thử' },
-                { kg: 100, label: '100 kg', sub: 'Nấc 1' },
-                { kg: 500, label: '500 kg', sub: 'Nấc 2' },
-                { kg: 1000, label: '1 Tấn', sub: 'Sỉ gốc' },
+                { kg: 50, label: '50kg' },
+                { kg: 100, label: '100kg' },
+                { kg: 500, label: '500kg' },
+                { kg: 1000, label: '1 Tấn' },
               ].map((btn) => (
                 <button
                   key={btn.kg}
                   type="button"
                   onClick={() => setSelectedKg(btn.kg)}
-                  className={`py-1.5 px-1 text-center rounded-xl border transition ${
+                  className={`flex-1 py-1.5 text-xs font-bold rounded-lg border transition ${
                     selectedKg === btn.kg
-                      ? 'bg-amber-700 text-white border-amber-700 shadow-sm'
+                      ? 'bg-amber-700 text-white border-amber-700 shadow-xs'
                       : 'bg-white text-gray-800 border-gray-300 hover:bg-gray-50'
                   }`}
                 >
-                  <div className="text-xs font-bold">{btn.label}</div>
-                  <div className={`text-[10px] ${selectedKg === btn.kg ? 'text-amber-100' : 'text-gray-500'}`}>
-                    {btn.sub}
-                  </div>
+                  {btn.label}
                 </button>
               ))}
-            </div>
-
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                min="10"
-                step="10"
-                value={selectedKg}
-                onChange={(e) => setSelectedKg(Math.max(1, Number(e.target.value)))}
-                className="w-full text-sm font-bold border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
-                placeholder="Nhập số kg tùy ý (VD: 250, 600...)"
-              />
-              <span className="text-xs font-bold text-gray-700 shrink-0">kg</span>
-            </div>
-
-            {/* Gợi ý lên nấc giá (Smart Upsell) */}
-            <div className="min-h-[26px] mt-1.5 flex items-center">
-              {upsell ? (
-                <button
-                  type="button"
-                  onClick={() => setSelectedKg(upsell.targetKg)}
-                  className="w-full text-[11px] font-bold text-amber-900 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-2.5 py-1 rounded-lg flex items-center justify-between text-left transition"
-                >
-                  <span>💡 {upsell.text}</span>
-                  <span className="text-amber-700 font-extrabold underline shrink-0 ml-1">Chọn nấc này ➔</span>
-                </button>
-              ) : (
-                <div className="w-full text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-lg flex items-center gap-1">
-                  <span>🎉</span>
-                  <span>Đơn từ 1 tấn: Đang áp dụng giá sỉ kịch trần tận xưởng!</span>
-                </div>
-              )}
+              <div className="w-20 shrink-0">
+                <input
+                  type="number"
+                  min="10"
+                  step="10"
+                  value={selectedKg}
+                  onChange={(e) => setSelectedKg(Math.max(1, Number(e.target.value)))}
+                  className="w-full text-xs font-bold border border-gray-300 rounded-lg py-1.5 px-1.5 text-center focus:outline-none focus:ring-1 focus:ring-amber-500 bg-white"
+                  placeholder="Khác"
+                  title="Nhập số kg tùy ý"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Lựa chọn cách đóng gói bao bì (Miễn phí 100%) */}
-          <div className="mt-3">
+          {/* QUY CÁCH BAO BÌ: 1 dòng + dropdown (Xóa hộp xanh thừa) */}
+          <div className="mt-2.5">
             <div className="flex justify-between items-center mb-1">
-              <label className="text-xs font-bold text-gray-800">Quy cách đóng gói:</label>
+              <label className="text-xs font-bold text-gray-800">
+                Đóng gói <span className="text-emerald-700 font-extrabold">(Miễn phí 100%)</span>:
+              </label>
               <button
                 type="button"
                 onClick={() => setIsPackagingModalOpen(true)}
                 className="text-xs font-bold text-amber-800 hover:text-amber-950 underline flex items-center gap-1"
               >
                 <Package className="w-3.5 h-3.5 text-amber-700" />
-                <span>{chosenPackagingModel ? chosenPackagingModel.name : 'Xem 16 mẫu bao bì ➔'}</span>
+                <span>{chosenPackagingModel ? chosenPackagingModel.name : 'Xem 16 mẫu ➔'}</span>
               </button>
             </div>
 
@@ -528,47 +495,37 @@ const ProductCard: React.FC<{
                 setSelectedPackaging(e.target.value);
                 setChosenPackagingModel(null);
               }}
-              className="w-full text-xs font-medium border border-gray-300 rounded-xl px-2.5 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full text-xs font-medium border border-gray-300 rounded-lg px-2.5 py-1.5 bg-white focus:outline-none focus:ring-1 focus:ring-amber-500"
             >
               {product.packaging.map((pack) => (
                 <option key={pack} value={pack}>{pack}</option>
               ))}
             </select>
-
-            {/* Dòng cam kết bao bì miễn phí 100% */}
-            <div className="mt-1.5 text-xs text-emerald-800 bg-emerald-50/80 border border-emerald-200 px-2.5 py-1 rounded-lg flex items-center gap-1.5">
-              <Check className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
-              <span>Miễn phí 100% chi phí đóng túi 5kg quai xách, bao 10kg, 25kg, 50kg</span>
-            </div>
           </div>
         </div>
 
-        {/* Tổng tiền tạm tính & 2 nút hành động (Thêm đơn + Zalo đàm phán) */}
-        <div className="pt-3.5 border-t border-gray-200 mt-auto space-y-2.5">
+        {/* TẠM TÍNH & 2 NÚT HÀNH ĐỘNG TRÊN 1 HÀNG DUY NHẤT */}
+        <div className="pt-2.5 border-t border-gray-200 mt-auto space-y-2">
           <div className="flex justify-between items-baseline">
-            <div>
-              <span className="text-xs text-gray-600 block">Tạm tính ({selectedKg}kg):</span>
-            </div>
-            <div className="text-right">
+            <span className="text-xs text-gray-600">
+              Tạm tính ({selectedKg}kg):
+            </span>
+            <div className="text-right flex items-baseline gap-1.5">
               <span className="text-xl font-black text-amber-800">
                 {(currentPrice * selectedKg).toLocaleString('vi-VN')} đ
               </span>
-              <span className="text-xs text-gray-500 block">
+              <span className="text-[11px] text-gray-500">
                 ({currentPrice.toLocaleString('vi-VN')} đ/kg)
               </span>
             </div>
           </div>
 
-          <div className="text-[11px] text-gray-500 leading-tight">
-            * Giá chuẩn bao 25kg tại kho (chưa gồm VAT 5%). Miễn phí giao nội thành từ 500kg.
-          </div>
-
-          {/* 2 nút hành động song song: Đặt hàng + Zalo đàm phán */}
-          <div className="flex flex-col sm:flex-row gap-2">
+          {/* 2 Nút hành động: 65% Đặt hàng + 35% Zalo đàm phán */}
+          <div className="grid grid-cols-12 gap-1.5">
             <button
               type="button"
               onClick={handleAddToCart}
-              className={`flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition transform active:scale-95 shadow-sm ${
+              className={`col-span-7 py-2.5 px-2 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition transform active:scale-95 shadow-sm ${
                 addedSuccess
                   ? 'bg-emerald-600 text-white'
                   : 'bg-amber-700 hover:bg-amber-800 text-white shadow-amber-700/20'
@@ -576,11 +533,11 @@ const ProductCard: React.FC<{
             >
               {addedSuccess ? (
                 <>
-                  <Check className="w-4 h-4" /> Đã Thêm Vào Đơn
+                  <Check className="w-4 h-4" /> Đã Thêm Đơn
                 </>
               ) : (
                 <>
-                  <ShoppingCart className="w-4 h-4" /> Thêm Vào Đơn Hàng
+                  <ShoppingCart className="w-4 h-4" /> Thêm Vào Đơn
                 </>
               )}
             </button>
@@ -589,12 +546,16 @@ const ProductCard: React.FC<{
               href={zaloNegotiateUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-2.5 px-3.5 bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-200 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shrink-0"
+              className="col-span-5 py-2.5 px-2 bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-200 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition active:scale-95 text-center"
               title="Nhắn Zalo xin mẫu gạo & đàm phán giá tốt nhất"
             >
-              <MessageCircle className="w-4 h-4 text-blue-600" />
-              <span>Zalo Đàm Phán / Xin Mẫu</span>
+              <MessageCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+              <span className="truncate">Zalo Báo Giá</span>
             </a>
+          </div>
+
+          <div className="text-[10px] text-gray-500 text-center">
+            * Giá chuẩn bao 25kg tại kho • Hỗ trợ VAT 5% • Miễn phí ship từ 500kg
           </div>
         </div>
       </div>
@@ -670,9 +631,9 @@ const ProductDetailModal: React.FC<{
 
 const CustomRiceRequestCard: React.FC = () => {
   return (
-    <div className="bg-gradient-to-br from-emerald-900 via-emerald-950 to-teal-950 text-white rounded-2xl border-2 border-emerald-400/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative p-4 sm:p-5 h-full">
-      <div className="absolute top-3 right-3 bg-amber-400 text-amber-950 text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-sm flex items-center gap-1 z-10">
-        <Sparkles className="w-3.5 h-3.5 fill-amber-950" /> Theo Yêu Cầu
+    <div className="bg-gradient-to-br from-emerald-900 via-emerald-950 to-teal-950 text-white rounded-2xl border-2 border-emerald-400/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative p-3.5 sm:p-4 h-full">
+      <div className="absolute top-2.5 right-2.5 bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs flex items-center gap-1 z-10">
+        <Sparkles className="w-3 h-3 fill-amber-950" /> Theo Yêu Cầu
       </div>
 
       <div className="flex-1 flex flex-col justify-between">
