@@ -38,7 +38,7 @@ export const CharityGuideAndFAQ: React.FC = () => {
     },
     {
       q: 'Nên chọn loại gạo nào để vừa ngon vừa tiết kiệm ngân sách nhất?',
-      a: 'Nếu phát quà hộ gia đình/người già: Nên chọn Gạo Lài Sữa hoặc Gạo Đài Thơm 8 (hạt dẻo vừa, thơm ngọt, để nguội vẫn mềm cơm, giá chỉ từ 14.700đ - 15.800đ/kg). Nếu tài trợ cho bếp ăn 0 đồng hoặc chùa nấu cơm số lượng lớn: Nên chọn Gạo IR 50404 (nở xốp nhiều, dôi cơm, chan canh không bị nhão, giá tiết kiệm chỉ từ 12.000đ - 13.000đ/kg).'
+      a: 'Nếu phát quà hộ gia đình/người già: Nên chọn Gạo Nghĩa Tình, Gạo Thiện Lành hoặc Gạo Thành Ý (hạt dẻo vừa, thơm ngọt, để nguội vẫn mềm cơm, giá chỉ từ 14.200đ - 16.000đ/kg). Nếu tài trợ cho bếp ăn 0 đồng hoặc chùa nấu cơm số lượng lớn: Nên chọn Gạo Sẻ Chia (nở xốp nhiều, dôi cơm, chan canh không bị nhão, giá tiết kiệm chỉ từ 13.500đ/kg).'
     },
     {
       q: 'Mạnh Thường Quân ở xa hoặc ở nước ngoài, kho có hỗ trợ quay video, chụp ảnh bàn giao không?',
@@ -80,7 +80,7 @@ export const CharityGuideAndFAQ: React.FC = () => {
                 Phát Quà Gia Đình
               </span>
               <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
-                Gạo Lài Sữa / Đài Thơm 8
+                Gạo Nghĩa Tình / Thiện Lành
               </h3>
               <p className="text-xs text-gray-600 leading-relaxed mb-4">
                 Cơm dẻo vừa, mềm ngọt, để nguội không bị cứng. Rất phù hợp khẩu vị số đông, người cao tuổi và các em nhỏ dễ ăn.
@@ -107,7 +107,7 @@ export const CharityGuideAndFAQ: React.FC = () => {
                 Bếp Ăn & Quán Cơm
               </span>
               <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
-                Gạo IR50404 Nở Xốp
+                Gạo Sẻ Chia (Nở Xốp)
               </h3>
               <p className="text-xs text-gray-600 leading-relaxed mb-4">
                 Đặc tính nở nhiều, rất dôi cơm, hạt cơm khô ráo chan canh không nhão. Tối đa hóa số suất cơm trên từng bao gạo với chi phí rẻ nhất.
@@ -134,7 +134,7 @@ export const CharityGuideAndFAQ: React.FC = () => {
                 Nồi Cháo Bệnh Viện
               </span>
               <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
-                Gạo Tấm Thơm Sạch
+                Gạo Tấm Tình Thương
               </h3>
               <p className="text-xs text-gray-600 leading-relaxed mb-4">
                 Hạt tấm nguyên phôi dinh dưỡng, nấu nhanh nhừ, nước cháo sánh mịn và ngọt thơm tự nhiên. Tiết kiệm thời gian ninh hầm cho tình nguyện viên.
@@ -161,7 +161,7 @@ export const CharityGuideAndFAQ: React.FC = () => {
                 Cúng Dường & Biếu Tặng
               </span>
               <h3 className="text-lg font-bold text-gray-900 mt-2 mb-2">
-                Gạo ST25 / Jasmine 85
+                Gạo ST25 Thượng Hạng
               </h3>
               <p className="text-xs text-gray-600 leading-relaxed mb-4">
                 Hạt gạo dài bóng ngọc, vị cơm dẻo mềm hảo hạng thơm mùi lá dứa tự nhiên. Thể hiện trọn vẹn lòng thành kính khi dâng cúng Tam Bảo.
@@ -214,12 +214,12 @@ export const CharityGuideAndFAQ: React.FC = () => {
               <p className="text-xs text-amber-200/70 mb-3">Mỗi phần 1 bao 5kg</p>
               <div className="space-y-1.5 text-xs border-t border-white/10 pt-3">
                 <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo 504:</span>
-                  <span className="font-bold text-amber-300">~6.250.000 đ</span>
+                  <span className="text-amber-200/80">Gạo Sẻ Chia:</span>
+                  <span className="font-bold text-amber-300">~7.000.000 đ</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo Lài Sữa:</span>
-                  <span className="font-bold text-emerald-300">~7.600.000 đ</span>
+                  <span className="text-amber-200/80">Gạo Nghĩa Tình:</span>
+                  <span className="font-bold text-emerald-300">~7.350.000 đ</span>
                 </div>
               </div>
             </div>
@@ -231,12 +231,12 @@ export const CharityGuideAndFAQ: React.FC = () => {
               <p className="text-xs text-amber-200/70 mb-3">Mỗi phần 1 bao 5kg</p>
               <div className="space-y-1.5 text-xs border-t border-white/10 pt-3">
                 <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo 504:</span>
-                  <span className="font-bold text-amber-300">~12.000.000 đ</span>
+                  <span className="text-amber-200/80">Gạo Sẻ Chia:</span>
+                  <span className="font-bold text-amber-300">~13.500.000 đ</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo Lài Sữa:</span>
-                  <span className="font-bold text-emerald-300">~14.700.000 đ</span>
+                  <span className="text-amber-200/80">Gạo Nghĩa Tình:</span>
+                  <span className="font-bold text-emerald-300">~14.200.000 đ</span>
                 </div>
               </div>
             </div>
@@ -248,11 +248,11 @@ export const CharityGuideAndFAQ: React.FC = () => {
               <p className="text-xs text-amber-200/70 mb-3">Mỗi phần 1 bao 10kg</p>
               <div className="space-y-1.5 text-xs border-t border-white/10 pt-3">
                 <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo 504:</span>
+                  <span className="text-amber-200/80">Gạo Sẻ Chia:</span>
                   <span className="font-bold text-amber-300">Chiết khấu xe tải</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-amber-200/80">Gạo Lài Sữa:</span>
+                  <span className="text-amber-200/80">Gạo Nghĩa Tình:</span>
                   <span className="font-bold text-emerald-300">Giá xưởng tốt nhất</span>
                 </div>
               </div>

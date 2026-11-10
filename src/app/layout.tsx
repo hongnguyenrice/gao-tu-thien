@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Vựa Gạo Sóc Trăng",
   },
   description:
-    "Tổng kho chuyên cung cấp gạo từ thiện giá sỉ xuất xưởng tại TP.HCM, Bình Dương, Tây Ninh & Đồng Tháp. Gạo 504 nở xốp, Gạo Lài Sữa dẻo thơm, ST25. Hỗ trợ đóng bao 5kg-10kg miễn phí, giao tận chùa/bếp ăn, xuất hóa đơn VAT.",
+    "Tổng kho chuyên cung cấp 6 dòng gạo từ thiện độc quyền Vựa Gạo Sóc Trăng: Gạo Sẻ Chia, Gạo Nghĩa Tình, Gạo Thiện Lành, Gạo Thành Ý, Gạo ST25 Thượng Hạng, Gạo Tấm Tình Thương. Giá sỉ xuất xưởng, hỗ trợ đóng bao 5kg-10kg miễn phí, giao tận nơi, xuất hóa đơn VAT.",
   alternates: {
     canonical: `${SITE_URL}/`,
   },

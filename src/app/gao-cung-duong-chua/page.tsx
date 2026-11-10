@@ -21,25 +21,25 @@ const CANONICAL = `${SITE_URL}/gao-cung-duong-chua/`;
 export const metadata: Metadata = {
   title: 'Gạo Cúng Dường Chùa & Tự Viện – Gạo Thơm Thuần Khiết',
   description:
-    'Cung cấp gạo cúng dường Tam Bảo, tự viện, tịnh xá dịp lễ Vu Lan, Phật Đản, mùa An Cư Kiết Hạ. Gạo ST25 Sóc Trăng, Jasmine 85 dẻo thơm thuần khiết. Đóng bao 5kg, 10kg, 25kg trang nghiêm, giao tận chùa.',
+    'Cung cấp gạo cúng dường Tam Bảo, tự viện, tịnh xá dịp lễ Vu Lan, Phật Đản, mùa An Cư Kiết Hạ. Gạo ST25 Thượng Hạng, Gạo Thành Ý, Gạo Thiện Lành dẻo thơm thuần khiết. Đóng bao 5kg, 10kg, 25kg trang nghiêm, giao tận chùa.',
   alternates: {
     canonical: CANONICAL,
   },
   openGraph: {
     title: 'Gạo Cúng Dường Chùa & Tự Viện – Gạo Thơm Thuần Khiết | Vựa Gạo Sóc Trăng',
     description:
-      'Gạo ST25 Sóc Trăng, Jasmine hảo hạng dâng cúng chư Tăng Ni, bổn tự. Xe tải chở giao tận sảnh chùa, hỗ trợ khuân vác chu đáo.',
+      'Gạo ST25 Thượng Hạng, Gạo Thành Ý hảo hạng dâng cúng chư Tăng Ni, bổn tự. Xe tải chở giao tận sảnh chùa, hỗ trợ khuân vác chu đáo.',
     url: CANONICAL,
     type: 'article',
   },
 };
 
-const templeProducts = getProducts(['gao-st25-thuong-hang', 'gao-thom-jasmine', 'gao-lai-sua']);
+const templeProducts = getProducts(['gao-st25-thuong-hang', 'gao-thanh-y', 'gao-thien-lanh']);
 
 const faqs = [
   {
     q: 'Cúng dường gạo cho chùa, tịnh xá nên chọn loại gạo nào là trang nghiêm nhất?',
-    a: 'Khi dâng cúng Tam Bảo và nuôi dưỡng Tăng đoàn tu học, hạt gạo tượng trưng cho hạt ngọc thực thuần khiết. Quý Phật tử và đạo tràng thường ưu tiên chọn dòng gạo phẩm chất cao nhất: ST25 Sóc Trăng Thượng Hạng (hạt dài trong bóng, thơm mùi lá dứa tự nhiên, để nguội vẫn dẻo mềm) hoặc Gạo Thơm Jasmine 85 thuần chủng. Hạt gạo trắng sạch, không pha trộn thể hiện trọn vẹn lòng thành kính.',
+    a: 'Khi dâng cúng Tam Bảo và nuôi dưỡng Tăng đoàn tu học, hạt gạo tượng trưng cho hạt ngọc thực thuần khiết. Quý Phật tử và đạo tràng thường ưu tiên chọn dòng gạo phẩm chất cao nhất: ST25 Thượng Hạng (hạt dài trong bóng, thơm mùi lá dứa tự nhiên, để nguội vẫn dẻo mềm) hoặc Gạo Thiện Lành (Thơm Lài 3A) thanh tao thuần khiết. Hạt gạo trắng sạch, không pha trộn thể hiện trọn vẹn lòng thành kính.',
   },
   {
     q: 'Kho gạo có hỗ trợ giao tận nơi và bốc vác vào kho tịnh tài của chùa không?',

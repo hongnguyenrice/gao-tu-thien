@@ -37,106 +37,130 @@ export interface CharityPartner {
 
 export const RICE_PRODUCTS: RiceProduct[] = [
   {
-    id: 'gao-504',
-    name: 'Gạo IR50404 (Gạo Nở Xốp Lợi Cơm)',
-    category: 'Gạo Nở Xốp',
-    shortDesc: 'Hạt gạo to tròn, nở nhiều, dôi cơm, thích hợp nhất cho các bếp ăn từ thiện và quán cơm bình dân.',
-    description: 'Gạo IR 50404 có đặc tính nở xốp, khô ráo, hạt cơm không dính dính bết. Khi nấu cho ra số lượng cơm rất lớn (lợi cơm), cơm chiên hoặc ăn kèm canh súp rất ngon, giúp tiết kiệm tối đa chi phí cho các bếp từ thiện nấu hàng trăm suất ăn mỗi ngày.',
-    pricePerKg: 13500,
+    id: 'gao-se-chia',
+    name: 'Gạo Sẻ Chia (Đoàn chọn nhiều)',
+    category: 'Nở xốp (IR504)',
+    shortDesc: 'Hạt tròn, cơm nở xốp mềm, dôi cơm',
+    description: 'Gạo Sẻ Chia (nguồn gốc giống lúa IR504 tuyển chọn) có đặc tính hạt to tròn, nở xốp nhiều, dôi cơm tối đa. Cơm chín khô ráo, chan canh không bị nhão, hạt cơm tơi xốp dễ ăn, là giải pháp tối ưu chi phí và số lượng suất ăn hàng đầu cho các bếp ăn từ thiện và đoàn cứu trợ vùng sâu vùng xa.',
+    pricePerKg: 15000,
     tiers: [
-      { minKg: 300, pricePerKg: 13000, label: 'Từ 300kg - 499kg' },
-      { minKg: 500, pricePerKg: 12500, label: 'Từ 500kg - 999kg (Nửa tấn)' },
-      { minKg: 1000, pricePerKg: 12000, label: 'Từ 1.000kg trở lên (Từ 1 tấn)' },
+      { minKg: 300, pricePerKg: 14500, label: 'Từ 300kg - 499kg' },
+      { minKg: 500, pricePerKg: 14000, label: 'Từ 500kg - 999kg (Nửa tấn)' },
+      { minKg: 1000, pricePerKg: 13500, label: 'Từ 1.000kg trở lên (Từ 1 tấn)' },
     ],
-    packaging: ['Bao 10kg', 'Bao 25kg', 'Bao 50kg', 'Túi 5kg (chia phần quà)'],
+    packaging: ['Bao 10kg', 'Bao 25kg', 'Bao 50kg', 'Bao 5kg'],
     characteristics: {
       softness: 2,
       fragrance: 2,
-      suitability: 'Bếp ăn từ thiện, chùa nấu cơm từ thiện quy mô lớn, quán cơm 0 đồng'
+      suitability: 'Bếp ăn từ thiện, phát quà vùng cao/lao động'
     },
-    recommendedFor: 'Tối ưu số suất cơm / Tiết kiệm chi phí ngân sách',
+    recommendedFor: 'Bếp ăn từ thiện, phát quà vùng cao/lao động',
     isPopular: true
   },
   {
-    id: 'gao-lai-sua',
-    name: 'Gạo Lài Sữa (Dẻo Vừa - Thơm Nhẹ)',
-    category: 'Gạo Dẻo Thơm Phổ Thông',
-    shortDesc: 'Cơm mềm, ngọt vị, mùi thơm tự nhiên. Lựa chọn số 1 để đóng bao 5kg, 10kg phát quà từ thiện.',
-    description: 'Hạt gạo dài, màu trắng sữa đục. Cơm khi chín mềm dẻo vừa, có độ kết dính nhẹ, để nguội vẫn ngon không bị cứng. Rất thích hợp để chia quà tặng cho bà con hộ nghèo, người già neo đơn dịp lễ Vu Lan, Tết, Phật Đản.',
-    pricePerKg: 16500,
+    id: 'gao-nghia-tinh',
+    name: 'Gạo Nghĩa Tình',
+    category: 'Gạo thơm Liên Hương mới',
+    shortDesc: 'Cơm dẻo vừa, ngọt bùi, dễ ăn',
+    description: 'Gạo Nghĩa Tình (tuyển chọn từ giống lúa thơm Liên Hương mùa mới) cho hạt cơm dẻo mềm vừa vặn, vị ngọt bùi tự nhiên, để nguội vẫn ngon không bị cứng cơm. Lựa chọn ấm áp và chu đáo nhất để chia phần phát quà cho bà con hộ nghèo, người già neo đơn dịp lễ Vu Lan, Tết, Phật Đản.',
+    pricePerKg: 15800,
     tiers: [
-      { minKg: 300, pricePerKg: 15800, label: 'Từ 300kg - 499kg' },
-      { minKg: 500, pricePerKg: 15200, label: 'Từ 500kg - 999kg (Nửa tấn)' },
-      { minKg: 1000, pricePerKg: 14700, label: 'Từ 1.000kg trở lên (Từ 1 tấn)' },
+      { minKg: 300, pricePerKg: 15200, label: 'Từ 300kg - 499kg' },
+      { minKg: 500, pricePerKg: 14700, label: 'Từ 500kg - 999kg (Nửa tấn)' },
+      { minKg: 1000, pricePerKg: 14200, label: 'Từ 1.000kg trở lên (Từ 1 tấn)' },
     ],
-    packaging: ['Bao 5kg (in sẵn chữ Từ Thiện)', 'Bao 10kg', 'Bao 25kg'],
+    packaging: ['Bao 5kg', 'Bao 10kg', 'Bao 25kg'],
     characteristics: {
-      softness: 4,
+      softness: 3,
       fragrance: 3,
-      suitability: 'Phát quà hộ gia đình khó khăn, người già, trẻ em mái ấm'
+      suitability: 'Phát quà hộ nghèo, người già'
     },
-    recommendedFor: 'Được các mạnh thường quân chuộng nhất để phát quà tận tay',
-    isPopular: true
+    recommendedFor: 'Phát quà hộ nghèo, người già',
+    isPopular: false
   },
   {
-    id: 'gao-thom-jasmine',
-    name: 'Gạo Thơm Jasmine 85',
-    category: 'Gạo Thơm Đặc Sản',
-    shortDesc: 'Hạt dài, trong bóng, thơm hoa lài, cơm mềm dẻo thanh tao.',
-    description: 'Giống lúa thơm thuần phẩm chất cao cấp, hạt dài thon trắng trong. Cơm nấu chín thơm ngát, mềm dẻo, ngọt hậu. Thích hợp cho các chương trình cứu trợ chất lượng cao, các cơ sở nuôi dưỡng trẻ mồ côi và người già.',
-    pricePerKg: 17500,
+    id: 'gao-thien-lanh',
+    name: 'Gạo Thiện Lành',
+    category: 'Thơm Lài 3A',
+    shortDesc: 'Dẻo nhiều, thơm lài tự nhiên',
+    description: 'Gạo Thiện Lành (Thơm Lài 3A chính gốc) nổi bật với hương hoa lài thanh tao tự nhiên, hạt cơm dẻo nhiều, mềm mịn và óng ả. Rất thích hợp để cúng dường chư Tăng Ni, các khóa tu Phật tử và gửi tặng các gia đình có hoàn cảnh khó khăn.',
+    pricePerKg: 16800,
     tiers: [
-      { minKg: 300, pricePerKg: 16800, label: 'Từ 300kg - 499kg' },
-      { minKg: 500, pricePerKg: 16200, label: 'Từ 500kg - 999kg' },
-      { minKg: 1000, pricePerKg: 15600, label: 'Từ 1.000kg trở lên' },
+      { minKg: 300, pricePerKg: 16200, label: 'Từ 300kg - 499kg' },
+      { minKg: 500, pricePerKg: 15700, label: 'Từ 500kg - 999kg' },
+      { minKg: 1000, pricePerKg: 15000, label: 'Từ 1.000kg trở lên' },
     ],
     packaging: ['Bao 5kg', 'Bao 10kg', 'Bao 25kg'],
     characteristics: {
       softness: 4,
       fragrance: 4,
-      suitability: 'Mái ấm tình thương, trung tâm bảo trợ xã hội, chùa'
+      suitability: 'Phát quà Phật tử, cúng dường, gia đình'
     },
-    recommendedFor: 'Quà tặng từ thiện chất lượng cao'
+    recommendedFor: 'Phát quà Phật tử, cúng dường, gia đình',
+    isPopular: false
+  },
+  {
+    id: 'gao-thanh-y',
+    name: 'Gạo Thành Ý',
+    category: 'Hạt Ngọc Thái / Đài Thơm',
+    shortDesc: 'Hạt dài, dẻo dai, thơm đậm vị',
+    description: 'Gạo Thành Ý tuyển chọn từ giống lúa Hạt Ngọc Thái và Đài Thơm hạt thon dài trắng trong. Cơm khi nấu chín dẻo dai đậm đà, vị ngọt thanh, tỏa hương ngào ngạt khi mở nắp nồi cơm. Rất trang trọng cho quà biếu gia đình chính sách và thân nhân có công.',
+    pricePerKg: 17800,
+    tiers: [
+      { minKg: 300, pricePerKg: 17200, label: 'Từ 300kg - 499kg' },
+      { minKg: 500, pricePerKg: 16600, label: 'Từ 500kg - 999kg' },
+      { minKg: 1000, pricePerKg: 16000, label: 'Từ 1.000kg trở lên' },
+    ],
+    packaging: ['Bao 5kg', 'Bao 10kg', 'Bao 25kg'],
+    characteristics: {
+      softness: 4,
+      fragrance: 4,
+      suitability: 'Quà biếu trang trọng, gia đình chính sách'
+    },
+    recommendedFor: 'Quà biếu trang trọng, gia đình chính sách',
+    isPopular: false
   },
   {
     id: 'gao-st25-thuong-hang',
-    name: 'Gạo ST25 Sóc Trăng (Thượng Hạng)',
-    category: 'Gạo Ngon Nhất Thế Giới',
-    shortDesc: 'Hạt cơm dai dẻo mềm đặc biệt, thơm hương lá dứa, giàu dinh dưỡng.',
-    description: 'Loại gạo lừng danh dành cho các đơn vị tài trợ muốn mang lại bữa cơm chất lượng cao nhất cho các em nhỏ cơ nhỡ, bệnh nhân viện nhi hoặc viện dưỡng lão.',
-    pricePerKg: 25000,
+    name: 'Gạo ST25 Thượng Hạng (Đặc Sản)',
+    category: 'ST25 Chuẩn Sóc Trăng',
+    shortDesc: 'Dẻo mềm thượng hạng, thơm lá dứa',
+    description: 'Dòng gạo ST25 thượng hạng lừng danh vùng đất Sóc Trăng. Hạt gạo dài trắng trong, cơm dai dẻo mềm đặc biệt, thơm mùi lá dứa tự nhiên. Món quà thực phẩm thanh tịnh, cao quý nhất để dâng cúng Tam Bảo tự viện và biếu tặng các đơn vị bảo trợ cao cấp.',
+    pricePerKg: 25200,
     tiers: [
-      { minKg: 300, pricePerKg: 23500, label: 'Từ 300kg - 499kg' },
-      { minKg: 500, pricePerKg: 22500, label: 'Từ 500kg - 999kg' },
-      { minKg: 1000, pricePerKg: 21500, label: 'Từ 1.000kg trở lên' },
+      { minKg: 300, pricePerKg: 24500, label: 'Từ 300kg - 499kg' },
+      { minKg: 500, pricePerKg: 23800, label: 'Từ 500kg - 999kg' },
+      { minKg: 1000, pricePerKg: 23000, label: 'Từ 1.000kg trở lên' },
     ],
     packaging: ['Bao 10kg', 'Bao 25kg', 'Bao 5kg'],
     characteristics: {
       softness: 5,
       fragrance: 5,
-      suitability: 'Viện dưỡng lão, bếp ăn bệnh viện ung bướu, chùa cao cấp'
+      suitability: 'Cúng dường Chùa, biếu tặng cao cấp'
     },
-    recommendedFor: 'Tài trợ cao cấp & nâng cao dinh dưỡng'
+    recommendedFor: 'Cúng dường Chùa, biếu tặng cao cấp',
+    isPopular: false
   },
   {
-    id: 'gao-tam-thom',
-    name: 'Gạo Tấm Thơm (Nấu Cháo Từ Thiện)',
-    category: 'Gạo Nấu Cháo / Cơm Tấm',
-    shortDesc: 'Mầm phôi nguyên hạt tấm, nấu cháo nhanh nhừ, sánh mịn, ngọt nước canh cháo.',
-    description: 'Chuyên dụng cho các nồi cháo từ thiện bệnh viện (cháo dinh dưỡng sáng phát miễn phí cho thân nhân và bệnh nhân khó khăn). Nấu mau nhừ, mùi thơm lành, rất sánh.',
-    pricePerKg: 14500,
+    id: 'gao-tam-tinh-thuong',
+    name: 'Gạo Tấm Tình Thương',
+    category: 'Tấm thơm xịn',
+    shortDesc: 'Tấm sạch mầm phôi, nấu cháo nhanh nhừ, sánh mịn',
+    description: 'Tấm thơm xịn còn nguyên mầm phôi giàu dưỡng chất, hạt tấm đều sạch sẽ không lẫn tạp chất. Nấu cháo nhanh nhừ, nước cháo sánh mịn ngọt lành, là lựa chọn số 1 cho các nồi cháo từ thiện bệnh viện và quán cơm nghĩa tình.',
+    pricePerKg: 15400,
     tiers: [
-      { minKg: 300, pricePerKg: 13900, label: 'Từ 300kg - 499kg' },
-      { minKg: 500, pricePerKg: 13400, label: 'Từ 500kg - 999kg' },
-      { minKg: 1000, pricePerKg: 12800, label: 'Từ 1.000kg trở lên' },
+      { minKg: 300, pricePerKg: 14800, label: 'Từ 300kg - 499kg' },
+      { minKg: 500, pricePerKg: 14200, label: 'Từ 500kg - 999kg' },
+      { minKg: 1000, pricePerKg: 13600, label: 'Từ 1.000kg trở lên' },
     ],
-    packaging: ['Bao 10kg', 'Bao 25kg', 'Bao 50kg', 'Túi 5kg (chia phần quà)'],
+    packaging: ['Bao 10kg', 'Bao 25kg', 'Bao 50kg', 'Bao 5kg'],
     characteristics: {
       softness: 4,
       fragrance: 3,
-      suitability: 'Nồi cháo tình thương bệnh viện, phát cháo đêm'
+      suitability: 'Nấu cháo từ thiện bệnh viện, quán cơm từ thiện'
     },
-    recommendedFor: 'Chuyên dụng cho các nhóm thiện nguyện nấu cháo'
+    recommendedFor: 'Nấu cháo từ thiện bệnh viện, quán cơm từ thiện',
+    isPopular: false
   }
 ];
 

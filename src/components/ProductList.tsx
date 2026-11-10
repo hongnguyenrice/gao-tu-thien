@@ -15,17 +15,18 @@ export const ProductList: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [mobileViewMode, setMobileViewMode] = useState<'carousel' | 'table'>('carousel');
 
-  const categories = [
-    { id: 'all', name: 'Tất Cả Loại Gạo' },
-    { id: 'Gạo Nở Xốp', name: 'Gạo Nở Xốp Lợi Cơm (Bếp Ăn)' },
-    { id: 'Gạo Dẻo Thơm Phổ Thông', name: 'Gạo Dẻo Thơm (Phát Quà)' },
-    { id: 'Gạo Thơm Đặc Sản', name: 'Gạo Thơm Đặc Sản' },
-    { id: 'Gạo Nấu Cháo / Cơm Tấm', name: 'Gạo Nấu Cháo Tình Thương' },
+  const categories: { id: string; name: string; match?: (p: RiceProduct) => boolean }[] = [
+    { id: 'all', name: 'Tất Cả 6 Loại Gạo' },
+    { id: 'bep-an', name: 'Bếp Ăn & Nở Xốp', match: (p) => p.id === 'gao-se-chia' },
+    { id: 'phat-qua', name: 'Phát Quà Thiện Nguyện', match: (p) => ['gao-nghia-tinh', 'gao-thien-lanh', 'gao-thanh-y'].includes(p.id) },
+    { id: 'cung-duong', name: 'Cúng Dường & Đặc Sản', match: (p) => ['gao-st25-thuong-hang', 'gao-thanh-y', 'gao-thien-lanh'].includes(p.id) },
+    { id: 'nau-chao', name: 'Nấu Cháo Tình Thương', match: (p) => p.id === 'gao-tam-tinh-thuong' },
   ];
 
-  const filteredProducts = selectedCategory === 'all'
+  const currentCategoryObj = categories.find((c) => c.id === selectedCategory);
+  const filteredProducts = !currentCategoryObj || currentCategoryObj.id === 'all'
     ? RICE_PRODUCTS
-    : RICE_PRODUCTS.filter((p) => p.category === selectedCategory);
+    : RICE_PRODUCTS.filter((p) => currentCategoryObj.match ? currentCategoryObj.match(p) : true);
 
   const totalCards = filteredProducts.length + (selectedCategory === 'all' ? 1 : 0);
 
@@ -124,7 +125,7 @@ export const ProductList: React.FC = () => {
           /* Bảng so sánh giá nhanh dạng danh sách trên Mobile */
           <div className="md:hidden bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden p-4 space-y-3 animate-in fade-in duration-200">
             <div className="flex items-center justify-between text-xs pb-2 border-b border-gray-100">
-              <span className="font-bold text-gray-800">So sánh 5 loại gạo từ thiện:</span>
+              <span className="font-bold text-gray-800">So sánh 6 dòng gạo từ thiện thương hiệu:</span>
               <span className="text-[11px] text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-md">
                 Giá sỉ tự giảm theo số kg
               </span>
@@ -199,9 +200,9 @@ export const ProductList: React.FC = () => {
                 </div>
               ))}
 
-              {/* Ô thứ 6 đặc biệt: Đặt theo yêu cầu & phối trộn riêng cho chùa / bếp ăn */}
+              {/* Ô đặc biệt: Đặt theo yêu cầu & phối trộn riêng cho chùa / bếp ăn */}
               {selectedCategory === 'all' && (
-                <div className="w-[86vw] sm:w-[380px] md:w-auto shrink-0 md:shrink snap-center flex flex-col h-full">
+                <div className="w-[86vw] sm:w-[380px] md:w-auto shrink-0 md:shrink snap-center flex flex-col h-full col-span-1 md:col-span-2 lg:col-span-3">
                   <CustomRiceRequestCard />
                 </div>
               )}
@@ -267,26 +268,33 @@ const PRODUCT_THEMES: Record<string, {
   linkText: string;
   starColor: string;
 }> = {
-  'gao-504': {
+  'gao-se-chia': {
     cardBorder: 'border-amber-300 hover:border-amber-500 shadow-amber-900/5',
     headerBg: 'bg-gradient-to-br from-amber-100/70 via-amber-50/40 to-white',
     categoryBadge: 'bg-amber-100 text-amber-900 border border-amber-300/80',
     linkText: 'text-amber-800 hover:text-amber-950',
     starColor: 'text-amber-700',
   },
-  'gao-lai-sua': {
+  'gao-nghia-tinh': {
     cardBorder: 'border-emerald-300 hover:border-emerald-500 shadow-emerald-900/5',
     headerBg: 'bg-gradient-to-br from-emerald-100/70 via-emerald-50/40 to-white',
     categoryBadge: 'bg-emerald-100 text-emerald-900 border border-emerald-300/80',
     linkText: 'text-emerald-800 hover:text-emerald-950',
     starColor: 'text-emerald-700',
   },
-  'gao-thom-jasmine': {
+  'gao-thien-lanh': {
     cardBorder: 'border-sky-300 hover:border-sky-500 shadow-sky-900/5',
     headerBg: 'bg-gradient-to-br from-sky-100/70 via-sky-50/40 to-white',
     categoryBadge: 'bg-sky-100 text-sky-900 border border-sky-300/80',
     linkText: 'text-sky-800 hover:text-sky-950',
     starColor: 'text-sky-700',
+  },
+  'gao-thanh-y': {
+    cardBorder: 'border-rose-300 hover:border-rose-500 shadow-rose-900/5',
+    headerBg: 'bg-gradient-to-br from-rose-100/70 via-rose-50/40 to-white',
+    categoryBadge: 'bg-rose-100 text-rose-900 border border-rose-300/80',
+    linkText: 'text-rose-800 hover:text-rose-950',
+    starColor: 'text-rose-700',
   },
   'gao-st25-thuong-hang': {
     cardBorder: 'border-purple-300 hover:border-purple-500 shadow-purple-900/5',
@@ -295,7 +303,7 @@ const PRODUCT_THEMES: Record<string, {
     linkText: 'text-purple-800 hover:text-purple-950',
     starColor: 'text-purple-700',
   },
-  'gao-tam-thom': {
+  'gao-tam-tinh-thuong': {
     cardBorder: 'border-teal-300 hover:border-teal-500 shadow-teal-900/5',
     headerBg: 'bg-gradient-to-br from-teal-100/70 via-teal-50/40 to-white',
     categoryBadge: 'bg-teal-100 text-teal-900 border border-teal-300/80',
@@ -437,7 +445,7 @@ const ProductCard: React.FC<{
     <div className={`bg-white rounded-2xl border-2 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative group h-full ${theme.cardBorder}`}>
       {/* Header card: Màu nền riêng biệt từng loại gạo, KHÔNG bị che huy hiệu */}
       <div className={`p-3.5 sm:p-4 border-b border-gray-100 ${theme.headerBg}`}>
-        <div className="flex items-center justify-between gap-1.5">
+        <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className={`text-[11px] font-bold px-2 py-0.5 rounded ${theme.categoryBadge}`}>
               {product.category}
@@ -453,12 +461,12 @@ const ProductCard: React.FC<{
             onClick={onOpenDetails}
             className={`text-xs font-bold underline flex items-center gap-0.5 shrink-0 ${theme.linkText}`}
           >
-            <span>Chi tiết & cách nấu</span>
+            <span>Chi tiết hạt & cơm</span>
             <ChevronRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        <h3 className="text-base sm:text-lg font-black text-gray-900 mt-1 line-clamp-1 h-6 flex items-center">
+        <h3 className="text-base sm:text-lg font-black text-gray-900 mt-1 line-clamp-2 min-h-[28px] sm:min-h-[32px] flex items-center">
           {product.name}
         </h3>
 

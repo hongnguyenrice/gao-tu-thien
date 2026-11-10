@@ -21,20 +21,20 @@ const CANONICAL = `${SITE_URL}/gao-phat-qua-tu-thien/`;
 export const metadata: Metadata = {
   title: 'Gạo Phát Quà Từ Thiện – Gạo Dẻo Mềm Đóng Bao 5kg, 10kg',
   description:
-    'Cẩm nang chọn gạo phát quà từ thiện cho hộ nghèo, người già neo đơn, trẻ em mái ấm. Gạo Lài Sữa, Đài Thơm 8, ST25 dẻo ngọt, dễ ăn, để nguội không khô. Đóng bao 5kg, 10kg miễn phí, giao xe tải tận nơi.',
+    'Cẩm nang chọn gạo phát quà từ thiện cho hộ nghèo, người già neo đơn, trẻ em mái ấm. Gạo Nghĩa Tình, Gạo Thiện Lành, Gạo Thành Ý, Gạo ST25 dẻo ngọt, dễ ăn, để nguội không khô. Đóng bao 5kg, 10kg miễn phí, giao xe tải tận nơi.',
   alternates: {
     canonical: CANONICAL,
   },
   openGraph: {
     title: 'Gạo Phát Quà Từ Thiện – Gạo Dẻo Mềm Đóng Bao 5kg, 10kg | Vựa Gạo Sóc Trăng',
     description:
-      'Gạo Lài Sữa, Đài Thơm 8, ST25 chuyên dụng chia phần phát quà tận tay bà con nghèo. Hỗ trợ đóng bao 5kg, 10kg, xe tải giao tận nơi.',
+      'Gạo Nghĩa Tình, Gạo Thiện Lành, Gạo Thành Ý, ST25 chuyên dụng chia phần phát quà tận tay bà con nghèo. Hỗ trợ đóng bao 5kg, 10kg, xe tải giao tận nơi.',
     url: CANONICAL,
     type: 'article',
   },
 };
 
-const giftProducts = getProducts(['gao-lai-sua', 'gao-thom-jasmine', 'gao-st25-thuong-hang']);
+const giftProducts = getProducts(['gao-nghia-tinh', 'gao-thien-lanh', 'gao-thanh-y', 'gao-st25-thuong-hang']);
 
 const faqs = [
   {
@@ -89,7 +89,7 @@ export default function GaoPhatQuaPage() {
             <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg mb-3">1</div>
             <h3 className="font-bold text-gray-900 text-base mb-2">Độ dẻo vừa, vị ngọt đậm</h3>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Tránh chọn gạo quá khô hoặc quá dính nhão. Gạo có độ dẻo mềm cân bằng như <strong>Lài Sữa</strong> hoặc <strong>Đài Thơm 8</strong> giúp
+              Tránh chọn gạo quá khô hoặc quá dính nhão. Gạo có độ dẻo mềm cân bằng như <strong>Gạo Nghĩa Tình</strong> hoặc <strong>Gạo Thiện Lành</strong> giúp
               người già răng yếu hay trẻ nhỏ đều dễ ăn, cơm nở mềm và thơm lành.
             </p>
           </div>
@@ -116,22 +116,22 @@ export default function GaoPhatQuaPage() {
           <h3 className="text-base font-bold text-emerald-950 mb-4">Top 3 Loại Gạo Phát Quà Được Tin Chọn Nhiều Nhất:</h3>
           <div className="grid md:grid-cols-3 gap-5 text-sm">
             <div className="bg-white p-4 rounded-xl border border-emerald-100">
-              <span className="inline-block px-2 py-0.5 bg-amber-100 text-amber-900 text-xs font-bold rounded mb-1">Bán chạy số 1</span>
-              <h4 className="font-bold text-gray-900 text-base mb-1">Gạo Lài Sữa</h4>
-              <p className="text-gray-600 text-xs mb-2">Đặc tính: Hạt trắng sữa, cơm dẻo mềm nhiều, thơm mùi hoa lài dịu nhẹ.</p>
-              <p className="text-emerald-800 font-bold">Giá sỉ: Từ 14.500đ – 15.500đ/kg</p>
+              <span className="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-900 text-xs font-bold rounded mb-1">Dễ ăn & ấm lòng</span>
+              <h4 className="font-bold text-gray-900 text-base mb-1">Gạo Nghĩa Tình</h4>
+              <p className="text-gray-600 text-xs mb-2">Đặc tính: Giống Liên Hương mới, dẻo vừa, ngọt bùi, để nguội vẫn mềm cơm.</p>
+              <p className="text-emerald-800 font-bold">Giá sỉ: Từ 14.200đ – 15.200đ/kg</p>
             </div>
             <div className="bg-white p-4 rounded-xl border border-emerald-100">
-              <span className="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-900 text-xs font-bold rounded mb-1">Dễ ăn nhất</span>
-              <h4 className="font-bold text-gray-900 text-base mb-1">Gạo Thơm Jasmine 85</h4>
-              <p className="text-gray-600 text-xs mb-2">Đặc tính: Hạt dài trong, cơm dẻo vừa, ráo hạt, phù hợp mọi lứa tuổi gia đình.</p>
-              <p className="text-emerald-800 font-bold">Giá sỉ: Từ 15.000đ – 16.000đ/kg</p>
+              <span className="inline-block px-2 py-0.5 bg-sky-100 text-sky-900 text-xs font-bold rounded mb-1">Thơm lài tự nhiên</span>
+              <h4 className="font-bold text-gray-900 text-base mb-1">Gạo Thiện Lành</h4>
+              <p className="text-gray-600 text-xs mb-2">Đặc tính: Thơm Lài 3A chính gốc, dẻo nhiều, thơm dịu, thích hợp cúng dường & phát quà.</p>
+              <p className="text-emerald-800 font-bold">Giá sỉ: Từ 15.000đ – 16.200đ/kg</p>
             </div>
             <div className="bg-white p-4 rounded-xl border border-emerald-100">
-              <span className="inline-block px-2 py-0.5 bg-purple-100 text-purple-900 text-xs font-bold rounded mb-1">Cao cấp tri ân</span>
-              <h4 className="font-bold text-gray-900 text-base mb-1">Gạo ST25 Sóc Trăng</h4>
-              <p className="text-gray-600 text-xs mb-2">Đặc tính: Gạo ngon nhất thế giới, hạt thon dài, dẻo dai đậm đà, mùi lá dứa thơm ngát.</p>
-              <p className="text-emerald-800 font-bold">Giá sỉ: Từ 20.000đ – 22.000đ/kg</p>
+              <span className="inline-block px-2 py-0.5 bg-rose-100 text-rose-900 text-xs font-bold rounded mb-1">Quà biếu trang trọng</span>
+              <h4 className="font-bold text-gray-900 text-base mb-1">Gạo Thành Ý</h4>
+              <p className="text-gray-600 text-xs mb-2">Đặc tính: Hạt Ngọc Thái / Đài Thơm hạt dài, dẻo dai đậm đà, mùi thơm ngát.</p>
+              <p className="text-emerald-800 font-bold">Giá sỉ: Từ 16.000đ – 17.200đ/kg</p>
             </div>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function GaoPhatQuaPage() {
                 <th className="p-3 text-left">Quy mô chương trình</th>
                 <th className="p-3 text-center">Tổng kg (Bao 5kg)</th>
                 <th className="p-3 text-center">Tổng kg (Bao 10kg)</th>
-                <th className="p-3 text-right">Dự toán Gạo Lài Sữa (Bao 5kg)</th>
+                <th className="p-3 text-right">Dự toán Gạo Nghĩa Tình (Bao 5kg)</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 text-gray-700">
@@ -168,7 +168,7 @@ export default function GaoPhatQuaPage() {
                 <td className="p-3 font-bold text-gray-900">100 suất quà</td>
                 <td className="p-3 text-center font-semibold text-emerald-800">500 kg</td>
                 <td className="p-3 text-center font-semibold text-gray-800">1.000 kg (1 tấn)</td>
-                <td className="p-3 text-right font-bold text-amber-800">~ 7.600.000 đ</td>
+                <td className="p-3 text-right font-bold text-amber-800">~ 7.350.000 đ</td>
               </tr>
               <tr className="hover:bg-gray-50/50">
                 <td className="p-3 font-bold text-gray-900">200 suất quà</td>

@@ -21,33 +21,33 @@ const CANONICAL = `${SITE_URL}/chon-gao-cho-bep-an-tu-thien/`;
 export const metadata: Metadata = {
   title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện, Quán Cơm 0 Đồng',
   description:
-    'Cẩm nang chọn gạo cho bếp ăn từ thiện bệnh viện, quán cơm 0 đồng, bếp chùa nấu hàng trăm suất. Gạo IR50404 nở xốp dôi cơm; Gạo tấm thơm nấu cháo dinh dưỡng sánh bùi, giá sỉ tốt nhất.',
+    'Cẩm nang chọn gạo cho bếp ăn từ thiện bệnh viện, quán cơm 0 đồng, bếp chùa nấu hàng trăm suất. Gạo Sẻ Chia (IR504) nở xốp dôi cơm; Gạo Tấm Tình Thương nấu cháo sánh mịn, giá sỉ tốt nhất.',
   alternates: {
     canonical: CANONICAL,
   },
   openGraph: {
     title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện, Quán Cơm 0 Đồng | Vựa Gạo Sóc Trăng',
     description:
-      'Gạo IR50404 và Gạo Tấm Thơm sỉ tận gốc cho bếp ăn tình thương, quán cơm chay miễn phí. Giao hàng xe tải định kỳ, đóng bao 25kg, 50kg.',
+      'Gạo Sẻ Chia và Gạo Tấm Tình Thương sỉ tận gốc cho bếp ăn tình thương, quán cơm chay miễn phí. Giao hàng xe tải định kỳ, đóng bao 25kg, 50kg.',
     url: CANONICAL,
     type: 'article',
   },
 };
 
-const kitchenProducts = getProducts(['gao-504', 'gao-tam-thom', 'gao-lai-sua']);
+const kitchenProducts = getProducts(['gao-se-chia', 'gao-tam-tinh-thuong', 'gao-nghia-tinh']);
 
 const faqs = [
   {
-    q: 'Tại sao các bếp ăn từ thiện lớn và quán cơm 0 đồng lại ưu tiên chọn Gạo 504?',
-    a: 'Gạo IR50404 có đặc tính hạt nở xốp cực lớn, khô ráo và không bị dính bết. Khi nấu bằng tủ cơm công nghiệp hoặc nồi quân dụng lớn, 1kg gạo 504 cho ra số lượng bát cơm nhiều hơn khoảng 25% - 30% so với gạo dẻo. Đặc biệt, người lao động nghèo ăn cơm kèm nhiều nước canh hoặc đồ xào, hạt cơm nở ráo hút canh rất ngon và chắc dạ, không bị ngấy.',
+    q: 'Tại sao các bếp ăn từ thiện lớn và quán cơm 0 đồng lại ưu tiên chọn Gạo Sẻ Chia (giống IR504)?',
+    a: 'Gạo Sẻ Chia (tuyển chọn từ giống lúa IR504) có đặc tính hạt to tròn, nở xốp cực lớn, khô ráo và không bị dính bết. Khi nấu bằng tủ cơm công nghiệp hoặc nồi quân dụng lớn, 1kg gạo cho ra số lượng bát cơm nhiều hơn khoảng 25% - 30% so với gạo dẻo. Đặc biệt, người lao động nghèo ăn cơm kèm nhiều nước canh hoặc đồ xào, hạt cơm nở ráo hút canh rất ngon và chắc dạ, không bị ngấy.',
   },
   {
     q: 'Bí quyết trộn gạo nào giúp cơm bếp từ thiện vừa dôi nhiều suất vừa mềm ngon?',
-    a: 'Công thức trộn vàng của các bếp ăn kinh nghiệm là: 70% Gạo IR50404 (tạo độ nở xốp, dôi cơm tối đa) phối trộn cùng 30% Gạo Lài Sữa hoặc Gạo Thơm Lài (tạo độ kết dính nhẹ, làm hạt cơm thơm ngọt và bóng bẩy). Tỷ lệ này giúp tối ưu chi phí mà bà con ăn vẫn khen cơm ngon như cơm nhà.',
+    a: 'Công thức trộn vàng của các bếp ăn kinh nghiệm là: 70% Gạo Sẻ Chia (tạo độ nở xốp, dôi cơm tối đa) phối trộn cùng 30% Gạo Nghĩa Tình hoặc Gạo Thiện Lành (tạo độ kết dính nhẹ, làm hạt cơm thơm ngọt và bóng bẩy). Tỷ lệ này giúp tối ưu chi phí mà bà con ăn vẫn khen cơm ngon như cơm nhà.',
   },
   {
     q: 'Nấu cháo từ thiện tại các bệnh viện nên dùng loại gạo nào tốt nhất?',
-    a: 'Nên dùng Gạo Tấm Thơm (hạt tấm vỡ nguyên mầm phôi của giống lúa thơm). Gạo tấm nấu cháo nhanh nhừ hơn gạo nguyên hạt, tiết kiệm 40% thời gian đun nấu và nhiên liệu gas/điện. Khi nhừ, hạt tấm nở bung sánh mịn, nước cháo ngọt hậu và thơm lành tự nhiên, rất thích hợp cho bệnh nhân tiêu hóa dễ dàng.',
+    a: 'Nên dùng Gạo Tấm Tình Thương (hạt tấm thơm xịn còn nguyên mầm phôi). Gạo tấm nấu cháo nhanh nhừ hơn gạo nguyên hạt, tiết kiệm 40% thời gian đun nấu và nhiên liệu gas/điện. Khi nhừ, hạt tấm nở bung sánh mịn, nước cháo ngọt hậu và thơm lành tự nhiên, rất thích hợp cho bệnh nhân tiêu hóa dễ dàng.',
   },
   {
     q: 'Kho gạo có chính sách giữ giá ổn định theo tháng/quý cho bếp ăn từ thiện không?',
@@ -89,9 +89,9 @@ export default function ChonGaoBepAnPage() {
             <span className="bg-emerald-100 text-emerald-900 text-xs font-bold px-3 py-1 rounded-full uppercase">
               Vua Lợi Cơm Cho Quán Cơm & Bếp Ăn
             </span>
-            <h3 className="text-2xl font-bold text-gray-900">Gạo IR50404 Nở Xốp Ráo Hạt</h3>
+            <h3 className="text-2xl font-bold text-gray-900">Gạo Sẻ Chia (Nở Xốp Lợi Cơm)</h3>
             <ul className="text-sm text-gray-600 space-y-2.5">
-              <li><strong>Đặc tính:</strong> Hạt gạo tròn to, cơm nở xốp nhiều, hạt khô ráo, không bết dính.</li>
+              <li><strong>Đặc tính:</strong> Chuẩn giống lúa IR504 tuyển chọn, hạt tròn to, cơm nở xốp nhiều, hạt khô ráo, không bết dính.</li>
               <li><strong>Ưu điểm kinh tế:</strong> Độ nở cực lớn, 1kg gạo cho ra 4 – 5 đĩa cơm đầy đặn. Tiết kiệm tối đa ngân sách nguyên liệu.</li>
               <li><strong>Hợp khẩu vị:</strong> Người lao động, phu hồ, bác xe ôm, sinh viên nghèo rất thích vì cơm nở chắc bụng, chan canh súp ăn rất ngon miệng.</li>
               <li><strong>Đóng bao đề xuất:</strong> Bao 25kg hoặc 50kg trút trực tiếp vào tủ cơm công nghiệp.</li>
@@ -103,9 +103,9 @@ export default function ChonGaoBepAnPage() {
             <span className="bg-blue-100 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase">
               Chuyên Dụng Cho Nồi Cháo Tình Thương
             </span>
-            <h3 className="text-2xl font-bold text-gray-900">Gạo Tấm Thơm Sạch Cám</h3>
+            <h3 className="text-2xl font-bold text-gray-900">Gạo Tấm Tình Thương (Tấm Thơm Xịn)</h3>
             <ul className="text-sm text-gray-600 space-y-2.5">
-              <li><strong>Đặc tính:</strong> Hạt tấm vỡ từ gạo thơm nguyên chất, giữ trọn phôi mầm dinh dưỡng của hạt gạo.</li>
+              <li><strong>Đặc tính:</strong> Hạt tấm vỡ từ gạo thơm nguyên chất, sạch cám và giữ trọn phôi mầm dinh dưỡng của hạt gạo.</li>
               <li><strong>Ưu điểm đun nấu:</strong> Hạt tấm nấu cháo cực nhanh nhừ, hạt nở bung đều, sánh mịn, không bị tách nước hay vón cục.</li>
               <li><strong>Phục vụ bệnh viện:</strong> Thích hợp nhất cho các nồi cháo phát sáng miễn phí tại cổng viện K, viện Nhi, viện Ung Bướu; cháo ngọt lành, thơm dịu, dễ nuốt.</li>
               <li><strong>Đóng bao đề xuất:</strong> Bao 25kg hoặc 50kg sạch sẽ, khô ráo.</li>
@@ -118,7 +118,7 @@ export default function ChonGaoBepAnPage() {
         <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 text-sm text-gray-700">
           <h4 className="font-bold text-gray-900 text-base mb-2">💡 Kinh Nghiệm Canh Nước Chuẩn Khi Nấu Tủ Cơm Công Nghiệp Lớn:</h4>
           <p className="leading-relaxed mb-2">
-            Với dòng gạo <strong>IR50404</strong>, tỷ lệ nước lý tưởng là <strong>1 gạo : 1.15 đến 1.25 nước</strong>. Gạo hút nước rất khỏe nên cần đong đủ nước để hạt nở căng tròn mà không sượng.
+            Với dòng <strong>Gạo Sẻ Chia</strong> (giống lúa IR504), tỷ lệ nước lý tưởng là <strong>1 gạo : 1.15 đến 1.25 nước</strong>. Gạo hút nước rất khỏe nên cần đong đủ nước để hạt nở căng tròn mà không sượng.
             Nên ngâm gạo khoảng 10 – 15 phút trước khi đẩy khay vào tủ hấp, hạt cơm sau khi chín 50 phút sẽ nở bông xốp, tơi xốp đều từ khay trên đến khay dưới.
           </p>
         </div>
@@ -139,24 +139,24 @@ export default function ChonGaoBepAnPage() {
             </thead>
             <tbody className="divide-y divide-gray-100 text-gray-700">
               <tr className="hover:bg-gray-50/50">
-                <td className="p-3 font-bold text-gray-900">Gạo IR50404</td>
+                <td className="p-3 font-bold text-gray-900">Gạo Sẻ Chia (Nở xốp IR504)</td>
                 <td className="p-3 text-center">Nở xốp nhiều, ráo hạt</td>
                 <td className="p-3 text-center font-bold text-emerald-800">4.5 - 5 suất</td>
-                <td className="p-3 text-right font-bold text-emerald-800">12.000 đ/kg</td>
+                <td className="p-3 text-right font-bold text-emerald-800">13.500 đ/kg</td>
                 <td className="p-3 text-emerald-700 font-semibold">Tối ưu chi phí nhất (Số 1 bếp ăn)</td>
               </tr>
               <tr className="hover:bg-gray-50/50">
-                <td className="p-3 font-bold text-gray-900">Gạo Tấm Thơm</td>
+                <td className="p-3 font-bold text-gray-900">Gạo Tấm Tình Thương</td>
                 <td className="p-3 text-center">Nấu cháo sánh, mau nhừ</td>
                 <td className="p-3 text-center font-bold text-blue-800">7 - 8 bát cháo</td>
-                <td className="p-3 text-right font-bold text-blue-800">12.800 đ/kg</td>
+                <td className="p-3 text-right font-bold text-blue-800">13.600 đ/kg</td>
                 <td className="p-3 text-blue-700 font-semibold">Chuyên dụng nồi cháo bệnh viện</td>
               </tr>
               <tr className="hover:bg-gray-50/50">
-                <td className="p-3 font-bold text-gray-900">Gạo Lài Sữa</td>
+                <td className="p-3 font-bold text-gray-900">Gạo Nghĩa Tình</td>
                 <td className="p-3 text-center">Dẻo vừa, mềm ngọt</td>
                 <td className="p-3 text-center">3.5 - 4 suất</td>
-                <td className="p-3 text-right">14.700 đ/kg</td>
+                <td className="p-3 text-right">14.200 đ/kg</td>
                 <td className="p-3 text-gray-600">Bếp ăn viện dưỡng lão, mái ấm trẻ em</td>
               </tr>
             </tbody>

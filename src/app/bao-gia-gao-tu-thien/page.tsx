@@ -28,7 +28,7 @@ const CANONICAL = `${SITE_URL}/bao-gia-gao-tu-thien/`;
 export const metadata: Metadata = {
   title: 'Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc',
   description:
-    'Bảng báo giá gạo từ thiện mới nhất: Gạo 504, Lài Sữa, Đài Thơm 8, ST25, Gạo tấm. Giá sỉ giảm theo nấc 300kg, 500kg, 1 tấn. Đóng túi 5kg-10kg miễn phí, giao tận nơi, xuất hóa đơn VAT.',
+    'Bảng báo giá 6 dòng gạo từ thiện độc quyền Vựa Gạo Sóc Trăng: Gạo Sẻ Chia, Gạo Nghĩa Tình, Gạo Thiện Lành, Gạo Thành Ý, Gạo ST25 Thượng Hạng, Gạo Tấm Tình Thương. Giá sỉ giảm theo nấc 300kg, 500kg, 1 tấn. Đóng túi 5kg-10kg miễn phí, giao tận nơi, xuất hóa đơn VAT.',
   alternates: {
     canonical: CANONICAL,
   },
