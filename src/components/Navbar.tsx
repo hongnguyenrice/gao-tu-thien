@@ -27,13 +27,13 @@ export const Navbar: React.FC = () => {
   const totalItemsCount = cart.length;
   const totalKg = getTotalKg();
 
+  // 5 cẩm nang dịch vụ cốt lõi chuẩn SEO & chuyển đổi
   const navLinks = [
-    { href: '/bao-gia-gao-tu-thien/', label: 'Báo Giá Gạo Sỉ', icon: FileText, highlight: true },
+    { href: '/bao-gia-gao-tu-thien/', label: 'Báo Giá Sỉ', icon: FileText, highlight: true },
     { href: '/gao-phat-qua-tu-thien/', label: 'Gạo Phát Quà', icon: Gift },
     { href: '/gao-cung-duong-chua/', label: 'Cúng Dường Chùa', icon: Sparkles },
     { href: '/chon-gao-cho-bep-an-tu-thien/', label: 'Bếp Ăn Từ Thiện', icon: Flame },
     { href: '/quy-cach-dong-bao-va-giao-hang/', label: 'Đóng Bao & Giao Hàng', icon: Truck },
-    { href: '/#he-thong-kho', label: 'Kho Gần Nhất', icon: MapPin },
   ];
 
   return (
@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
       <div className="bg-gradient-to-r from-amber-800 via-amber-700 to-emerald-800 text-white text-xs py-1.5 px-3 sm:px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center gap-2">
           <div className="flex items-center gap-2 sm:gap-3 truncate">
-            <span className="inline-flex items-center gap-1.5 font-medium truncate">
+            <span className="inline-flex items-center gap-1.5 font-medium truncate whitespace-nowrap">
               <Heart className="w-3.5 h-3.5 text-rose-300 fill-rose-300 shrink-0" />
               <span className="truncate">Chuyên gạo từ thiện – Giá sỉ xưởng Đồng Tháp & 4 kho</span>
             </span>
@@ -51,13 +51,13 @@ export const Navbar: React.FC = () => {
               href={MAIN_SITE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center gap-1 text-amber-100 hover:text-white underline font-semibold shrink-0"
+              className="hidden lg:inline-flex items-center gap-1 text-amber-100 hover:text-white underline font-semibold shrink-0 whitespace-nowrap"
             >
               Trang chủ gaosoctrang.com <ExternalLink className="w-3 h-3" />
             </a>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 shrink-0 whitespace-nowrap">
             <span className="hidden sm:inline-flex items-center gap-1 text-emerald-200">
               <ShieldCheck className="w-3.5 h-3.5" /> Xuất VAT 5%
             </span>
@@ -75,30 +75,34 @@ export const Navbar: React.FC = () => {
 
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group" onClick={() => setIsMobileMenuOpen(false)}>
+        <div className="flex justify-between items-center h-16 sm:h-20 gap-3">
+          {/* Logo - Khóa cứng trên 1 dòng tuyệt đối không gãy chữ */}
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
             <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center text-white shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform shrink-0">
               <HeartHandshake className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <div>
-              <div className="font-extrabold text-base sm:text-xl tracking-tight text-emerald-950 flex items-center gap-1.5">
-                VỰA GẠO SÓC TRĂNG
-                <span className="text-[9px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 bg-amber-100 text-amber-800 rounded-full border border-amber-200">
+            <div className="shrink-0">
+              <div className="font-extrabold text-base sm:text-lg xl:text-xl tracking-tight text-emerald-950 flex items-center gap-1.5 whitespace-nowrap">
+                <span>VỰA GẠO SÓC TRĂNG</span>
+                <span className="text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 bg-amber-100 text-amber-800 rounded-full border border-amber-200 shrink-0">
                   Từ Thiện
                 </span>
               </div>
-              <p className="text-[10px] sm:text-[11px] text-emerald-700 font-medium">Gạo ngon – Giá tốt – Giao tận nơi</p>
+              <p className="text-[10px] sm:text-[11px] text-emerald-700 font-medium whitespace-nowrap">Gạo ngon – Giá tốt – Giao tận nơi</p>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-5 font-semibold text-xs xl:text-sm text-gray-700">
+          {/* Desktop Navigation Links - Đảm bảo whitespace-nowrap không gãy chữ */}
+          <nav className="hidden lg:flex items-center space-x-3.5 xl:space-x-5 2xl:space-x-6 font-semibold text-xs xl:text-sm text-gray-700 whitespace-nowrap">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition ${link.highlight ? 'text-amber-800 font-bold hover:text-amber-900' : 'hover:text-emerald-700'}`}
+                className={`whitespace-nowrap transition py-1 ${
+                  link.highlight
+                    ? 'text-amber-800 font-bold hover:text-amber-900 border-b-2 border-amber-500'
+                    : 'hover:text-emerald-700'
+                }`}
               >
                 {link.label}
               </Link>
@@ -106,22 +110,23 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Action Buttons & Mobile Hamburger Button */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Nút Nhận Báo Giá gọn gàng 1 dòng */}
             <Link
               href="/bao-gia-gao-tu-thien/#form-bao-gia"
-              className="hidden md:inline-flex items-center justify-center px-3.5 py-2 text-xs font-bold text-amber-950 bg-amber-200 hover:bg-amber-300 border border-amber-300 rounded-xl transition shadow-xs"
+              className="hidden sm:inline-flex items-center justify-center px-3.5 py-2 text-xs font-bold text-amber-950 bg-amber-200 hover:bg-amber-300 border border-amber-300 rounded-xl transition shadow-xs whitespace-nowrap shrink-0"
             >
-              Nhận Báo Giá Nhanh
+              Nhận Báo Giá
             </Link>
 
             {/* Nút xem giỏ hàng */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-2.5 sm:px-3.5 py-2 rounded-xl shadow-sm transition text-xs"
+              className="relative flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-2.5 sm:px-3.5 py-2 rounded-xl shadow-sm transition text-xs whitespace-nowrap shrink-0"
               aria-label="Xem đơn hàng đã chọn"
             >
-              <ShoppingBag className="w-4 h-4" />
-              <span className="hidden sm:inline">Đơn hàng</span>
+              <ShoppingBag className="w-4 h-4 shrink-0" />
+              <span className="hidden md:inline">Đơn hàng</span>
               {totalItemsCount > 0 && (
                 <span className="bg-amber-300 text-amber-950 font-black text-[11px] px-1.5 py-0.2 rounded-full">
                   {totalKg.toLocaleString('vi-VN')}kg
@@ -132,7 +137,7 @@ export const Navbar: React.FC = () => {
             {/* Nút Hamburger bật/tắt Menu Mobile */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-gray-700 hover:text-emerald-800 hover:bg-emerald-50 transition border border-gray-200"
+              className="lg:hidden p-2 rounded-xl text-gray-700 hover:text-emerald-800 hover:bg-emerald-50 transition border border-gray-200 shrink-0"
               aria-label={isMobileMenuOpen ? 'Đóng menu' : 'Mở menu điều hướng'}
               aria-expanded={isMobileMenuOpen}
             >
@@ -166,6 +171,15 @@ export const Navbar: React.FC = () => {
               </Link>
             );
           })}
+
+          <Link
+            href="/#he-thong-kho"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 hover:bg-emerald-50 hover:text-emerald-900 transition"
+          >
+            <MapPin className="w-4 h-4 text-emerald-700" />
+            <span>Hệ Thống 4 Kho & Nhà Máy</span>
+          </Link>
 
           <div className="pt-3 mt-2 border-t border-gray-100 flex flex-col gap-2">
             <Link
