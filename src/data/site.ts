@@ -12,6 +12,8 @@ export const PHONE_DISPLAY = BRAND_INFO.hotlineDisplay;
 export const PHONE_TEL = BRAND_INFO.hotline.replace(/\s+/g, '');
 export const PHONE_E164 = '+84' + PHONE_TEL.replace(/^0/, '');
 export const ZALO_URL = `https://zalo.me/${BRAND_INFO.zalo}`;
+export const FACEBOOK_PAGE_URL = 'https://www.facebook.com/profile.php?id=100063985415931';
+export const MESSENGER_URL = 'https://m.me/100063985415931';
 /** Hiện chỉ có MỘT số: vừa là hotline chính, vừa là Zalo nhận báo giá. */
 export const CONTACT_LABEL = `Hotline & Zalo báo giá: ${PHONE_DISPLAY}`;
 
