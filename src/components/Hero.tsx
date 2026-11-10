@@ -29,14 +29,13 @@ export const Hero: React.FC = () => {
             <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
               Gạo Từ Thiện Giá Sỉ Tận Gốc
               <span className="block mt-1 sm:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 via-teal-700 to-amber-700">
-                Đóng Bao 5kg – 10kg & Giao Tận Chùa
+                Đóng Bao 5kg – 10kg & Giao Tận Nơi
               </span>
             </h1>
 
             {/* Đoạn mô tả: Súc tích, làm bật các cam kết đắt giá nhất */}
             <p className="text-sm sm:text-base text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              <strong>Vựa Gạo Sóc Trăng</strong> chuyên cung cấp gạo chuẩn cho chùa, bếp ăn 0 đồng và các đoàn thiện nguyện. 
-              <strong> Giá xuất xưởng không trung gian</strong>, đóng bao 10kg – 25kg miễn phí (tài trợ 100% vỏ bao 5kg từ 1 tấn), giao xe tải tận nơi và đầy đủ hóa đơn VAT.
+              <strong>Vựa Gạo Sóc Trăng</strong> chuyên cung cấp gạo Sạch đúng Chất lượng cam kết. Uy tín phục vụ cho Tập thể / cá nhân có lòng hảo tâm làm từ thiện cho bà con, hoặc cúng dường đến Chùa. Cung cấp gạo giá tốt cho bếp ăn. <strong>Giá gạo tận gốc không qua trung gian</strong>, đóng bao theo yêu cầu: 5kg, 10kg, 25kg (hỗ trợ 100% vỏ bao cho đơn hàng từ 1 tấn), giao hàng tận nơi và đầy đủ hóa đơn VAT.
             </p>
 
             {/* 4 Thẻ chỉ số tin cậy - Căn chỉnh chuẩn địa bàn và tiết kiệm chiều cao */}
