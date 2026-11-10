@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import { RICE_PRODUCTS, RiceProduct } from '@/data/mockData';
 import { useCart } from '@/context/CartContext';
-import { Check, Info, ShoppingCart, Sparkles, Star } from 'lucide-react';
+import { Check, Info, ShoppingCart, Sparkles, Star, MessageCircle, Phone } from 'lucide-react';
+import { ZALO_URL, PHONE_TEL, PHONE_DISPLAY } from '@/data/site';
 
 export const ProductList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -53,7 +54,7 @@ export const ProductList: React.FC = () => {
           </div>
         </div>
 
-        {/* Product Grid */}
+        {/* Product Grid - 6 ô hoàn hảo (2 hàng x 3 cột) */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
             <ProductCard
@@ -62,6 +63,11 @@ export const ProductList: React.FC = () => {
               onOpenDetails={() => setSelectedProductForModal(product)}
             />
           ))}
+
+          {/* Ô thứ 6 đặc biệt: Đặt theo yêu cầu & phối trộn riêng cho chùa / bếp ăn */}
+          {selectedCategory === 'all' && (
+            <CustomRiceRequestCard />
+          )}
         </div>
       </div>
 
@@ -354,6 +360,74 @@ const ProductDetailModal: React.FC<{
             Đóng
           </button>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const CustomRiceRequestCard: React.FC = () => {
+  return (
+    <div className="bg-gradient-to-br from-emerald-900 via-emerald-950 to-teal-950 text-white rounded-2xl border-2 border-emerald-400/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative p-6">
+      <div className="absolute top-3 right-3 bg-amber-400 text-amber-950 text-xs font-black px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+        <Sparkles className="w-3.5 h-3.5 fill-amber-950" /> Theo Yêu Cầu
+      </div>
+
+      <div>
+        <div className="inline-block bg-white/15 text-emerald-200 text-xs font-bold px-2.5 py-1 rounded-md mb-2.5 border border-white/10">
+          🌾 Phối Trộn & Đặt Riêng
+        </div>
+
+        <h3 className="text-xl font-black text-white leading-snug">
+          Quý Đoàn Cần Phối Trộn Gạo Hoặc Tìm Loại Gạo Khác?
+        </h3>
+
+        <p className="text-xs text-emerald-100/90 mt-2 leading-relaxed">
+          Kho nhận phối trộn theo công thức riêng của bếp ăn & cung cấp mọi loại gạo đặc thù theo yêu cầu của Quý đoàn:
+        </p>
+
+        <div className="mt-4 space-y-2.5 text-xs text-emerald-50">
+          <div className="flex items-start gap-2 bg-white/10 p-2.5 rounded-xl border border-white/10">
+            <Check className="w-4 h-4 text-amber-300 shrink-0 mt-0.5" />
+            <div>
+              <strong className="text-amber-200">Trộn gạo tỷ lệ riêng:</strong> 70% nở xốp 504 + 30% dẻo thơm (vừa dôi cơm vừa mềm, tối ưu chi phí bếp ăn).
+            </div>
+          </div>
+
+          <div className="flex items-start gap-2 bg-white/10 p-2.5 rounded-xl border border-white/10">
+            <Check className="w-4 h-4 text-amber-300 shrink-0 mt-0.5" />
+            <div>
+              <strong className="text-amber-200">Gạo đặc thù khác:</strong> Nếp cúng dường, Gạo Lứt đỏ, Gạo Đài Thơm 8, Nàng Hoa 9, Thơm Thái...
+            </div>
+          </div>
+
+          <div className="flex items-start gap-2 bg-white/10 p-2.5 rounded-xl border border-white/10">
+            <Check className="w-4 h-4 text-amber-300 shrink-0 mt-0.5" />
+            <div>
+              <strong className="text-amber-200">Quy cách túi riêng:</strong> Đóng túi 2kg, 3kg, in decal hoặc dán tên Đoàn thiện nguyện lên bao bì.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Nút hành động */}
+      <div className="pt-5 border-t border-white/15 mt-5 space-y-2">
+        <a
+          href={ZALO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-2.5 px-4 bg-amber-400 hover:bg-amber-300 text-amber-950 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition transform active:scale-95"
+        >
+          <MessageCircle className="w-4 h-4 fill-amber-950" />
+          <span>Nhắn Zalo Báo Giá Phối Trộn Riêng</span>
+        </a>
+
+        <a
+          href={`tel:${PHONE_TEL}`}
+          className="w-full py-2 px-4 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 border border-white/15 transition active:scale-95"
+        >
+          <Phone className="w-3.5 h-3.5 text-amber-300" />
+          <span>Hotline tư vấn kho: {PHONE_DISPLAY}</span>
+        </a>
       </div>
     </div>
   );
