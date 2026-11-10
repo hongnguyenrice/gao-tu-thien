@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BRAND_INFO } from '@/data/mockData';
 import {
   MapPin,
@@ -11,13 +11,15 @@ import {
   Navigation,
   MessageCircle,
   Clock,
-  ArrowRight,
+  ChevronRight,
 } from 'lucide-react';
 import { mapsSearchUrl, ZALO_URL, PHONE_TEL, PHONE_DISPLAY } from '@/data/site';
 
 export const WarehouseNetwork: React.FC = () => {
   // Trạng thái mở cửa tính an toàn phía Client sau khi mount (tránh Hydration mismatch)
   const [isOpen, setIsOpen] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const currentHour = new Date().getHours();
@@ -25,98 +27,56 @@ export const WarehouseNetwork: React.FC = () => {
     setIsOpen(currentHour >= 7 && currentHour < 20);
   }, []);
 
+  // Lắng nghe scroll để cập nhật chấm định vị (Dots indicator) trên mobile
+  const handleScroll = () => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    const scrollLeft = container.scrollLeft;
+    const cardWidth = container.offsetWidth * 0.84; // 84vw
+    if (cardWidth > 0) {
+      const index = Math.round(scrollLeft / cardWidth);
+      setActiveIndex(Math.min(Math.max(index, 0), 4));
+    }
+  };
+
+  const scrollToCard = (idx: number) => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    const cardWidth = container.offsetWidth * 0.84 + 14; // card width + gap
+    container.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+    setActiveIndex(idx);
+  };
+
   return (
     <section id="he-thong-kho" className="py-10 sm:py-16 bg-gradient-to-b from-white via-amber-50/40 to-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Tiêu đề phần hệ thống chi nhánh */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-950 text-xs font-semibold px-3.5 py-1 rounded-full mb-2.5">
+        {/* 1. Tiêu đề mục & Trạng thái mở cửa toàn hệ thống */}
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
+          <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-950 text-xs font-semibold px-3.5 py-1 rounded-full mb-2.5 shadow-xs">
             <Clock className="w-3.5 h-3.5 text-emerald-700" />
             <span>Mở cửa toàn hệ thống: <strong>07:00 – 20:00</strong> (Cả CN & Lễ)</span>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse ml-1" />
             <span className="text-[11px] font-bold text-emerald-800">{isOpen ? 'Đang mở' : 'Zalo 24/7'}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
             Hệ Thống Chi Nhánh & Nhà Máy
           </h2>
           <p className="mt-2 text-gray-600 text-xs sm:text-base">
-            <strong>{BRAND_INFO.name}</strong> điều xe tải từ kho gần nhất giúp Quý đoàn tiết kiệm tối đa cước phí vận chuyển.
+            <strong>{BRAND_INFO.name}</strong> điều xe tải trực tiếp từ kho gần nhất để Quý đoàn nhận gạo nhanh và tiết kiệm cước phí nhất.
           </p>
         </div>
 
-        {/* Khối Banner Hình Ảnh & Cam Kết */}
-        <div className="mb-8 sm:mb-12 bg-white rounded-3xl border border-amber-200 shadow-md overflow-hidden grid lg:grid-cols-12 items-center">
-          <div className="lg:col-span-5 p-4 sm:p-6 bg-emerald-950 flex items-center justify-center">
-            <div className="relative rounded-2xl overflow-hidden border-2 border-emerald-500/40 shadow-inner max-w-md w-full">
-              <img
-                src="/he-thong-kho-vua-gao-soc-trang.jpg"
-                alt="Hệ thống chi nhánh & nhà máy Vựa Gạo Sóc Trăng"
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
-
-          <div className="lg:col-span-7 p-5 sm:p-10 space-y-4 sm:space-y-5">
-            <div className="inline-block bg-amber-100 text-amber-900 font-bold text-xs px-3 py-1 rounded-lg">
-              🌾 Vựa Gạo Sóc Trăng - Phục Vụ Tận Tâm
-            </div>
-
-            <h3 className="text-xl sm:text-3xl font-black text-gray-900 leading-tight">
-              Nhà Máy Xay Xát Đồng Tháp & 4 Chi Nhánh Kho Điều Xe Tải Giao Nhanh
-            </h3>
-
-            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              Nhờ sở hữu nhà máy xay xát công suất lớn ngay tại vựa lúa miền Tây cùng mạng lưới 4 chi nhánh kho phủ khắp các cửa ngõ TP.HCM, Bình Dương và Tây Ninh, chúng tôi cam kết:
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-2 text-xs text-gray-700">
-              <div className="flex items-center gap-2 p-2 rounded-xl bg-gray-50 border border-gray-100">
-                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Giá xuất xưởng không qua trung gian</span>
-              </div>
-              <div className="flex items-center gap-2 p-2 rounded-xl bg-gray-50 border border-gray-100">
-                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Giao xe tải hỏa tốc từ kho gần nhất</span>
-              </div>
-              <div className="flex items-center gap-2 p-2 rounded-xl bg-gray-50 border border-gray-100">
-                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Chở trực tiếp xe tải từ 500kg - 10 tấn</span>
-              </div>
-              <div className="flex items-center gap-2 p-2 rounded-xl bg-gray-50 border border-gray-100">
-                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Hỗ trợ khuân vác vào sảnh chùa, bếp ăn</span>
-              </div>
-            </div>
-
-            <div className="pt-1 flex flex-wrap gap-2.5 items-center">
-              <a
-                href={`tel:${PHONE_TEL}`}
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 sm:px-5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5 text-xs sm:text-sm"
-              >
-                <Phone className="w-4 h-4" />
-                Hotline: {PHONE_DISPLAY}
-              </a>
-              <a
-                href={ZALO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold px-4 py-2.5 rounded-xl border border-amber-300 transition text-xs sm:text-sm"
-              >
-                <MessageCircle className="w-4 h-4 text-amber-800" />
-                Nhắn Zalo Tìm Kho Gần Bạn
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Danh sách 4 Chi Nhánh + 1 Nhà Máy
-            - Mobile: Snap Carousel vuốt ngang mượt mà (chỉ tốn ~200px chiều cao)
-            - Tablet/Desktop: Grid 5 cột rộng rãi
+        {/* 2. DANH SÁCH 4 CHI NHÁNH & 1 NHÀ MÁY (ƯU TIÊN LÊN TRÊN HÀNG ĐẦU)
+            - Mobile: Snap Carousel mượt mà, chiều cao tối ưu ~200px
+            - Tablet/Desktop: Grid 5 cột rõ ràng, trực quan
         */}
-        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-3 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth no-scrollbar">
-          
+        <div
+          ref={carouselRef}
+          onScroll={handleScroll}
+          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-3 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth no-scrollbar"
+        >
           {/* 4 Chi nhánh kho */}
           {BRAND_INFO.branches.map((b) => (
             <div
@@ -136,22 +96,22 @@ export const WarehouseNetwork: React.FC = () => {
 
                 <h3 className="font-extrabold text-gray-900 text-sm sm:text-base mb-1.5 leading-snug">{b.name}</h3>
 
-                {/* Địa chỉ bấm được link Google Maps */}
+                {/* Địa chỉ bấm được mở Google Maps - Thiết kế phẳng, không gạch chân nham nhở */}
                 <a
                   href={mapsSearchUrl(b.address)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-start gap-1.5 text-xs sm:text-sm text-gray-800 hover:text-emerald-700 leading-snug mb-3 transition"
+                  className="group flex items-start gap-1.5 text-xs sm:text-sm text-gray-700 hover:text-emerald-700 leading-snug mb-3 transition"
                   title="Bấm để mở bản đồ chỉ đường Google Maps"
                 >
                   <MapPin className="w-3.5 h-3.5 text-rose-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium underline decoration-gray-300 underline-offset-2 group-hover:decoration-emerald-600 line-clamp-2 sm:line-clamp-none">
+                  <span className="font-medium group-hover:text-emerald-700 line-clamp-2 sm:line-clamp-none">
                     {b.address}
                   </span>
                 </a>
               </div>
 
-              {/* Hàng nút hành động chuẩn mobile: [ Chỉ đường ] [ Zalo ] [ 📞 ] */}
+              {/* Hàng nút tương tác chuẩn mobile: [ Chỉ đường ] [ Zalo ] [ 📞 ] */}
               <div className="pt-2.5 border-t border-gray-100 flex items-center gap-1.5 sm:gap-2">
                 <a
                   href={mapsSearchUrl(b.address)}
@@ -199,7 +159,6 @@ export const WarehouseNetwork: React.FC = () => {
 
               <h3 className="font-extrabold text-white text-sm sm:text-base mb-1.5 leading-snug">{BRAND_INFO.factory.name}</h3>
 
-              {/* Địa chỉ bấm được */}
               <a
                 href={mapsSearchUrl(BRAND_INFO.factory.address)}
                 target="_blank"
@@ -208,7 +167,7 @@ export const WarehouseNetwork: React.FC = () => {
                 title="Bấm để mở bản đồ chỉ đường Google Maps"
               >
                 <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                <span className="font-medium underline decoration-amber-300/40 underline-offset-2 group-hover:decoration-white line-clamp-2 sm:line-clamp-none">
+                <span className="font-medium group-hover:text-white line-clamp-2 sm:line-clamp-none">
                   {BRAND_INFO.factory.address}
                 </span>
               </a>
@@ -246,28 +205,74 @@ export const WarehouseNetwork: React.FC = () => {
               </a>
             </div>
           </div>
-
         </div>
 
-        {/* Chỉ dẫn vuốt nhẹ nhàng trên mobile */}
-        <div className="flex sm:hidden items-center justify-center gap-1.5 text-xs text-emerald-800 font-semibold mt-2 animate-pulse">
-          <span>👉 Vuốt ngang để xem 4 chi nhánh & nhà máy</span>
+        {/* 3. Chấm định vị Dots Indicator trên Mobile (5 điểm: 4 kho + 1 nhà máy) */}
+        <div className="flex sm:hidden items-center justify-center gap-2 mt-2 mb-6">
+          {[0, 1, 2, 3, 4].map((idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollToCard(idx)}
+              aria-label={`Xem kho hoặc nhà máy vị trí ${idx + 1}`}
+              className={`transition-all duration-300 rounded-full ${
+                activeIndex === idx
+                  ? 'w-6 h-2 bg-emerald-600'
+                  : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
+              }`}
+            />
+          ))}
         </div>
 
-        {/* Hộp ghi chú hỗ trợ bà con */}
-        <div className="mt-6 sm:mt-8 bg-amber-50 rounded-2xl p-4 sm:p-5 border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3 text-xs sm:text-sm text-amber-950 font-medium">
-            <span className="text-xl">🚛</span>
-            <p>
-              <strong>Cam kết điều phối thông minh:</strong> Đoàn thiện nguyện chỉ cần chọn địa điểm trao quà, hệ thống sẽ tự động xuất hàng từ chi nhánh gần nhất để tiết kiệm chi phí và thời gian chở xe tải cho đoàn!
-            </p>
+        {/* 4. Khối Cam Kết Năng Lực Xưởng (Tinh gọn, đặt dưới làm bảo chứng vận hành) */}
+        <div className="mt-4 sm:mt-10 bg-white rounded-3xl border border-amber-200/90 shadow-sm overflow-hidden grid lg:grid-cols-12 items-center">
+          <div className="lg:col-span-4 p-4 sm:p-6 bg-emerald-950 flex items-center justify-center">
+            <div className="relative rounded-2xl overflow-hidden border border-emerald-500/30 shadow-inner max-w-sm w-full">
+              <img
+                src="/he-thong-kho-vua-gao-soc-trang.jpg"
+                alt="Nhà máy xay xát & hệ thống chi nhánh kho Vựa Gạo Sóc Trăng"
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
           </div>
-          <a
-            href={`tel:${PHONE_TEL}`}
-            className="shrink-0 text-xs font-bold text-emerald-800 bg-white px-4 py-2 rounded-xl border border-amber-300 hover:bg-emerald-50 transition"
-          >
-            Hotline: {PHONE_DISPLAY}
-          </a>
+
+          <div className="lg:col-span-8 p-5 sm:p-8 space-y-3.5">
+            <div className="flex items-center gap-2">
+              <span className="bg-amber-100 text-amber-900 font-bold text-xs px-3 py-1 rounded-lg">
+                🌾 Năng Lực Cung Ứng Trực Tiếp
+              </span>
+              <span className="text-xs text-gray-500 hidden sm:inline">
+                Nhà máy Đồng Tháp & 4 chi nhánh cửa ngõ
+              </span>
+            </div>
+
+            <h3 className="text-base sm:text-xl font-extrabold text-gray-900 leading-snug">
+              Cam Kết Điều Phối Xe Tải Thông Minh Cho Các Đoàn Từ Thiện
+            </h3>
+
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+              Quý đoàn chỉ cần chọn địa điểm trao quà (chùa, bếp ăn, điểm phát quà tập trung), hệ thống kho sẽ tự động xuất hàng từ chi nhánh gần nhất để tiết kiệm tối đa cước phí vận chuyển.
+            </p>
+
+            {/* 4 Cam kết dạng icon pill tinh gọn - Không chiếm diện tích */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-xs text-gray-800">
+              <div className="flex items-center gap-1.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-100">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span className="font-medium text-[11px] sm:text-xs">Giá xuất xưởng 0 qua trung gian</span>
+              </div>
+              <div className="flex items-center gap-1.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-100">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span className="font-medium text-[11px] sm:text-xs">Xe tải hỏa tốc từ kho gần nhất</span>
+              </div>
+              <div className="flex items-center gap-1.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-100">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span className="font-medium text-[11px] sm:text-xs">Chở tải từ 500kg – 10 tấn</span>
+              </div>
+              <div className="flex items-center gap-1.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-100">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span className="font-medium text-[11px] sm:text-xs">Hỗ trợ khuân vác vào sảnh chùa</span>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
