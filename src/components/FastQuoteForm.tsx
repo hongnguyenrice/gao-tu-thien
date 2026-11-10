@@ -126,7 +126,7 @@ export const FastQuoteForm: React.FC = () => {
                   />
 
                   <div className="flex gap-2 mt-2">
-                    {[100, 300, 500, 1000, 2000, 5000].map((v) => (
+                    {[300, 500, 1000, 2000, 5000].map((v) => (
                       <button
                         key={v}
                         type="button"

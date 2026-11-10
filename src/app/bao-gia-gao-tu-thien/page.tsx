@@ -28,7 +28,7 @@ const CANONICAL = `${SITE_URL}/bao-gia-gao-tu-thien/`;
 export const metadata: Metadata = {
   title: 'Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc',
   description:
-    'Bảng báo giá gạo từ thiện mới nhất: Gạo 504, Lài Sữa, Đài Thơm 8, ST25, Gạo tấm. Giá sỉ giảm theo nấc 100kg, 500kg, 1 tấn. Đóng túi 5kg-10kg miễn phí, giao tận nơi, xuất hóa đơn VAT.',
+    'Bảng báo giá gạo từ thiện mới nhất: Gạo 504, Lài Sữa, Đài Thơm 8, ST25, Gạo tấm. Giá sỉ giảm theo nấc 300kg, 500kg, 1 tấn. Đóng túi 5kg-10kg miễn phí, giao tận nơi, xuất hóa đơn VAT.',
   alternates: {
     canonical: CANONICAL,
   },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'Bảng giá gạo từ thiện áp dụng cho đơn hàng số lượng bao nhiêu?',
-    a: 'Chúng tôi áp dụng bảng giá sỉ theo từng nấc khối lượng: dưới 100kg (cho đơn thử mẫu), từ 100kg - 499kg, từ 500kg - 999kg và từ 1.000kg (1 tấn) trở lên. Với các chương trình cứu trợ quy mô lớn từ 5 tấn trở lên, kho áp dụng chính sách giá xuất xưởng trực tiếp từ nhà máy Đồng Tháp.',
+    a: 'Chúng tôi áp dụng bảng giá sỉ theo từng nấc khối lượng: dưới 300kg (cho đơn nhỏ / thử mẫu), từ 300kg - 499kg, từ 500kg - 999kg và từ 1.000kg (1 tấn) trở lên. Với các chương trình cứu trợ quy mô lớn từ 5 tấn trở lên, kho áp dụng chính sách giá xuất xưởng trực tiếp từ nhà máy Đồng Tháp.',
   },
   {
     q: 'Báo giá đã bao gồm chi phí đóng bao 5kg, 10kg chưa?',

@@ -90,7 +90,7 @@ export function organizationSchema() {
 export function productSchema(p: RiceProduct) {
   const url = `${SITE_URL}${QUOTE_PATH}#${p.id}`;
   const levels = [
-    { label: 'Dưới 100kg', minKg: 1, maxKg: p.tiers[0] ? p.tiers[0].minKg - 1 : undefined, price: p.pricePerKg },
+    { label: 'Dưới 300kg', minKg: 1, maxKg: p.tiers[0] ? p.tiers[0].minKg - 1 : undefined, price: p.pricePerKg },
     ...p.tiers.map((t, i) => ({
       label: t.label,
       minKg: t.minKg,

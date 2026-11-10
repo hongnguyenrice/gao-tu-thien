@@ -265,7 +265,7 @@ const ProductCard: React.FC<{
   onOpenDetails: () => void;
 }> = ({ product, onOpenDetails }) => {
   const { addToCart } = useCart();
-  const [selectedKg, setSelectedKg] = useState<number>(100);
+  const [selectedKg, setSelectedKg] = useState<number>(500);
   const [selectedPackaging, setSelectedPackaging] = useState<string>(product.packaging[0] || 'Bao 10kg');
   const [isPackagingModalOpen, setIsPackagingModalOpen] = useState(false);
   const [chosenPackagingModel, setChosenPackagingModel] = useState<PackagingModel | null>(null);
@@ -289,20 +289,20 @@ const ProductCard: React.FC<{
 
   // Xác định nấc giá hiện tại
   const getCurrentTierLabel = () => {
-    if (selectedKg < 100) return 'Dưới 100kg (Lẻ thử)';
-    if (selectedKg < 500) return 'Nấc 100–499kg';
+    if (selectedKg < 300) return 'Dưới 300kg (Lẻ)';
+    if (selectedKg < 500) return 'Nấc 300–499kg';
     if (selectedKg < 1000) return 'Nấc 500–999kg';
     return 'Từ 1 Tấn (Sỉ gốc)';
   };
 
   // Tính gợi ý lên nấc giá (Smart Upsell)
   const getUpsellSuggestion = () => {
-    if (selectedKg < 100) {
-      const tier100Price = product.tiers[0].pricePerKg;
-      const saving = (product.pricePerKg - tier100Price) * 100;
+    if (selectedKg < 300) {
+      const tier300Price = product.tiers[0].pricePerKg;
+      const saving = (product.pricePerKg - tier300Price) * 300;
       return {
-        targetKg: 100,
-        text: `Lên 100kg: ${tier100Price.toLocaleString('vi-VN')} đ/kg (Bớt ${(saving / 1000).toFixed(0)}k) ➔`,
+        targetKg: 300,
+        text: `Lên 300kg: ${tier300Price.toLocaleString('vi-VN')} đ/kg (Bớt ${(saving / 1000).toFixed(0)}k) ➔`,
       };
     }
     if (selectedKg < 500) {
@@ -314,11 +314,11 @@ const ProductCard: React.FC<{
       };
     }
     if (selectedKg < 1000) {
-      const tier100Price = product.tiers[2].pricePerKg;
-      const saving = (product.tiers[1].pricePerKg - tier100Price) * 1000;
+      const tier1000Price = product.tiers[2].pricePerKg;
+      const saving = (product.tiers[1].pricePerKg - tier1000Price) * 1000;
       return {
         targetKg: 1000,
-        text: `Lên 1 Tấn: ${tier100Price.toLocaleString('vi-VN')} đ/kg (Bớt ${(saving / 1000).toFixed(0)}k) ➔`,
+        text: `Lên 1 Tấn: ${tier1000Price.toLocaleString('vi-VN')} đ/kg (Bớt ${(saving / 1000).toFixed(0)}k) ➔`,
       };
     }
     return null;
@@ -404,7 +404,7 @@ const ProductCard: React.FC<{
           {showTiersDetail && (
             <div className="mt-2 space-y-1 text-xs bg-gray-50 p-2.5 rounded-xl border border-gray-200 animate-in fade-in duration-150">
               <div className="flex justify-between items-center text-gray-700">
-                <span>Dưới 100kg (lẻ thử mẫu):</span>
+                <span>Dưới 300kg (đơn nhỏ / lẻ):</span>
                 <span className="font-bold">{product.pricePerKg.toLocaleString('vi-VN')} đ/kg</span>
               </div>
               {product.tiers.map((t) => (
@@ -440,10 +440,10 @@ const ProductCard: React.FC<{
 
             <div className="flex items-center gap-1.5">
               {[
-                { kg: 50, label: '50kg' },
-                { kg: 100, label: '100kg' },
+                { kg: 300, label: '300kg' },
                 { kg: 500, label: '500kg' },
                 { kg: 1000, label: '1 Tấn' },
+                { kg: 2000, label: '2 Tấn' },
               ].map((btn) => (
                 <button
                   key={btn.kg}

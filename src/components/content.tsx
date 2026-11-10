@@ -88,7 +88,7 @@ export const PriceTable: React.FC<{ products: RiceProduct[]; anchors?: boolean }
         <thead className="bg-amber-50 text-amber-950">
           <tr>
             <th className="text-left p-3 font-bold">Loại gạo</th>
-            <th className="text-right p-3 font-bold whitespace-nowrap">Dưới 100kg</th>
+            <th className="text-right p-3 font-bold whitespace-nowrap">Dưới 300kg</th>
             {products[0]?.tiers.map((t) => (
               <th key={t.minKg} className="text-right p-3 font-bold whitespace-nowrap">
                 Từ {t.minKg.toLocaleString('vi-VN')}kg

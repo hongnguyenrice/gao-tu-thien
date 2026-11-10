@@ -140,7 +140,7 @@ export default function GaoPhatQuaPage() {
       {/* Bảng giá các loại gạo phát quà */}
       <Section id="bang-gia-phat-qua" title="Bảng Giá Sỉ Các Loại Gạo Phát Quà Tận Gốc" muted>
         <p className="text-sm text-gray-600 mb-4">
-          Giá sỉ xuất xưởng giảm sâu theo nấc sản lượng 100kg, 500kg, 1 tấn. Đã bao gồm hỗ trợ đóng bao 5kg, 10kg miễn phí.{' '}
+          Giá sỉ xuất xưởng giảm sâu theo nấc sản lượng 300kg, 500kg, 1 tấn. Đã bao gồm hỗ trợ đóng bao 5kg, 10kg miễn phí.{' '}
           <Link href={QUOTE_FORM_URL} className="text-emerald-700 font-semibold underline">
             Nhận bảng báo giá chi tiết ngay
           </Link>

@@ -44,7 +44,7 @@ export const RICE_PRODUCTS: RiceProduct[] = [
     description: 'Gạo IR 50404 có đặc tính nở xốp, khô ráo, hạt cơm không dính dính bết. Khi nấu cho ra số lượng cơm rất lớn (lợi cơm), cơm chiên hoặc ăn kèm canh súp rất ngon, giúp tiết kiệm tối đa chi phí cho các bếp từ thiện nấu hàng trăm suất ăn mỗi ngày.',
     pricePerKg: 13500,
     tiers: [
-      { minKg: 100, pricePerKg: 13000, label: 'Từ 100kg - 499kg' },
+      { minKg: 300, pricePerKg: 13000, label: 'Từ 300kg - 499kg' },
       { minKg: 500, pricePerKg: 12500, label: 'Từ 500kg - 999kg (Nửa tấn)' },
       { minKg: 1000, pricePerKg: 12000, label: 'Từ 1.000kg trở lên (Từ 1 tấn)' },
     ],
@@ -65,7 +65,7 @@ export const RICE_PRODUCTS: RiceProduct[] = [
     description: 'Hạt gạo dài, màu trắng sữa đục. Cơm khi chín mềm dẻo vừa, có độ kết dính nhẹ, để nguội vẫn ngon không bị cứng. Rất thích hợp để chia quà tặng cho bà con hộ nghèo, người già neo đơn dịp lễ Vu Lan, Tết, Phật Đản.',
     pricePerKg: 16500,
     tiers: [
-      { minKg: 100, pricePerKg: 15800, label: 'Từ 100kg - 499kg' },
+      { minKg: 300, pricePerKg: 15800, label: 'Từ 300kg - 499kg' },
       { minKg: 500, pricePerKg: 15200, label: 'Từ 500kg - 999kg (Nửa tấn)' },
       { minKg: 1000, pricePerKg: 14700, label: 'Từ 1.000kg trở lên (Từ 1 tấn)' },
     ],
@@ -86,7 +86,7 @@ export const RICE_PRODUCTS: RiceProduct[] = [
     description: 'Giống lúa thơm thuần phẩm chất cao cấp, hạt dài thon trắng trong. Cơm nấu chín thơm ngát, mềm dẻo, ngọt hậu. Thích hợp cho các chương trình cứu trợ chất lượng cao, các cơ sở nuôi dưỡng trẻ mồ côi và người già.',
     pricePerKg: 17500,
     tiers: [
-      { minKg: 100, pricePerKg: 16800, label: 'Từ 100kg - 499kg' },
+      { minKg: 300, pricePerKg: 16800, label: 'Từ 300kg - 499kg' },
       { minKg: 500, pricePerKg: 16200, label: 'Từ 500kg - 999kg' },
       { minKg: 1000, pricePerKg: 15600, label: 'Từ 1.000kg trở lên' },
     ],
@@ -106,7 +106,7 @@ export const RICE_PRODUCTS: RiceProduct[] = [
     description: 'Loại gạo lừng danh dành cho các đơn vị tài trợ muốn mang lại bữa cơm chất lượng cao nhất cho các em nhỏ cơ nhỡ, bệnh nhân viện nhi hoặc viện dưỡng lão.',
     pricePerKg: 25000,
     tiers: [
-      { minKg: 100, pricePerKg: 23500, label: 'Từ 100kg - 499kg' },
+      { minKg: 300, pricePerKg: 23500, label: 'Từ 300kg - 499kg' },
       { minKg: 500, pricePerKg: 22500, label: 'Từ 500kg - 999kg' },
       { minKg: 1000, pricePerKg: 21500, label: 'Từ 1.000kg trở lên' },
     ],
@@ -126,7 +126,7 @@ export const RICE_PRODUCTS: RiceProduct[] = [
     description: 'Chuyên dụng cho các nồi cháo từ thiện bệnh viện (cháo dinh dưỡng sáng phát miễn phí cho thân nhân và bệnh nhân khó khăn). Nấu mau nhừ, mùi thơm lành, rất sánh.',
     pricePerKg: 14500,
     tiers: [
-      { minKg: 100, pricePerKg: 13900, label: 'Từ 100kg - 499kg' },
+      { minKg: 300, pricePerKg: 13900, label: 'Từ 300kg - 499kg' },
       { minKg: 500, pricePerKg: 13400, label: 'Từ 500kg - 999kg' },
       { minKg: 1000, pricePerKg: 12800, label: 'Từ 1.000kg trở lên' },
     ],
