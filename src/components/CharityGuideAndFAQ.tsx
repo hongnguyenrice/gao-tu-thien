@@ -73,13 +73,15 @@ export const CharityGuideAndFAQ: React.FC = () => {
           {/* Card 1: Hộ nghèo & Người già */}
           <div className="bg-gradient-to-br from-amber-50/70 via-white to-amber-50/30 rounded-3xl p-6 border-2 border-amber-200/90 hover:border-amber-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="w-11 h-11 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-amber-600/20">
-                <Heart className="w-5 h-5 fill-white" />
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="w-11 h-11 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold shadow-md shadow-amber-600/20 shrink-0">
+                  <Heart className="w-5 h-5 fill-white" />
+                </div>
+                <span className="text-xs font-extrabold text-amber-900 bg-amber-100/90 border border-amber-200 px-2.5 py-1 rounded-lg uppercase tracking-wide">
+                  Phát Quà Gia Đình
+                </span>
               </div>
-              <span className="text-xs font-extrabold text-amber-900 bg-amber-100/90 border border-amber-200 px-2.5 py-1 rounded-lg uppercase">
-                Phát Quà Gia Đình
-              </span>
-              <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
+              <h3 className="text-lg font-black text-stone-900 mb-2">
                 Gạo Nghĩa Tình / Thiện Lành
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
@@ -91,8 +93,9 @@ export const CharityGuideAndFAQ: React.FC = () => {
                 <span>Đóng bao:</span>
                 <span className="bg-white px-2.5 py-0.5 rounded-md border border-amber-300 font-extrabold">5kg - 10kg</span>
               </div>
-              <Link href="/gao-phat-qua-tu-thien/" className="text-xs sm:text-sm font-extrabold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
-                Cẩm nang chọn gạo phát quà <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <Link href="/gao-phat-qua-tu-thien/" className="text-xs sm:text-sm font-extrabold text-emerald-800 hover:text-emerald-950 flex items-center justify-between w-full group">
+                <span>Cẩm nang chọn gạo phát quà</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
               </Link>
             </div>
           </div>
@@ -100,13 +103,15 @@ export const CharityGuideAndFAQ: React.FC = () => {
           {/* Card 2: Bếp ăn 0 đồng */}
           <div className="bg-gradient-to-br from-emerald-50/70 via-white to-emerald-50/30 rounded-3xl p-6 border-2 border-emerald-200/90 hover:border-emerald-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-emerald-600/20">
-                <Flame className="w-5 h-5" />
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold shadow-md shadow-emerald-600/20 shrink-0">
+                  <Flame className="w-5 h-5" />
+                </div>
+                <span className="text-xs font-extrabold text-emerald-900 bg-emerald-100/90 border border-emerald-200 px-2.5 py-1 rounded-lg uppercase tracking-wide">
+                  Bếp Ăn & Quán Cơm
+                </span>
               </div>
-              <span className="text-xs font-extrabold text-emerald-900 bg-emerald-100/90 border border-emerald-200 px-2.5 py-1 rounded-lg uppercase">
-                Bếp Ăn & Quán Cơm
-              </span>
-              <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
+              <h3 className="text-lg font-black text-stone-900 mb-2">
                 Gạo Sẻ Chia (Nở Xốp)
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
@@ -118,8 +123,9 @@ export const CharityGuideAndFAQ: React.FC = () => {
                 <span>Đóng bao:</span>
                 <span className="bg-white px-2.5 py-0.5 rounded-md border border-emerald-300 font-extrabold">25kg - 50kg</span>
               </div>
-              <Link href="/chon-gao-cho-bep-an-tu-thien/" className="text-xs sm:text-sm font-extrabold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
-                Bí quyết nấu dôi cơm 0 đồng <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <Link href="/chon-gao-cho-bep-an-tu-thien/" className="text-xs sm:text-sm font-extrabold text-emerald-800 hover:text-emerald-950 flex items-center justify-between w-full group">
+                <span>Bí quyết nấu dôi cơm 0 đồng</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
               </Link>
             </div>
           </div>
@@ -127,13 +133,15 @@ export const CharityGuideAndFAQ: React.FC = () => {
           {/* Card 3: Nấu cháo dinh dưỡng */}
           <div className="bg-gradient-to-br from-teal-50/70 via-white to-teal-50/30 rounded-3xl p-6 border-2 border-teal-200/90 hover:border-teal-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="w-11 h-11 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-teal-600/20">
-                <Users className="w-5 h-5" />
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="w-11 h-11 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold shadow-md shadow-teal-600/20 shrink-0">
+                  <Users className="w-5 h-5" />
+                </div>
+                <span className="text-xs font-extrabold text-teal-900 bg-teal-100/90 border border-teal-200 px-2.5 py-1 rounded-lg uppercase tracking-wide">
+                  Nồi Cháo Bệnh Viện
+                </span>
               </div>
-              <span className="text-xs font-extrabold text-teal-900 bg-teal-100/90 border border-teal-200 px-2.5 py-1 rounded-lg uppercase">
-                Nồi Cháo Bệnh Viện
-              </span>
-              <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
+              <h3 className="text-lg font-black text-stone-900 mb-2">
                 Gạo Tấm Tình Thương
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
@@ -145,8 +153,9 @@ export const CharityGuideAndFAQ: React.FC = () => {
                 <span>Đóng bao:</span>
                 <span className="bg-white px-2.5 py-0.5 rounded-md border border-teal-300 font-extrabold">10kg - 25kg</span>
               </div>
-              <Link href="/chon-gao-cho-bep-an-tu-thien/#bang-gia-bep-an" className="text-xs sm:text-sm font-extrabold text-teal-800 hover:text-teal-950 flex items-center gap-1 group">
-                Xem bảng giá tấm nấu cháo <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <Link href="/chon-gao-cho-bep-an-tu-thien/#bang-gia-bep-an" className="text-xs sm:text-sm font-extrabold text-teal-800 hover:text-teal-950 flex items-center justify-between w-full group">
+                <span>Xem bảng giá tấm nấu cháo</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
               </Link>
             </div>
           </div>
@@ -154,13 +163,15 @@ export const CharityGuideAndFAQ: React.FC = () => {
           {/* Card 4: Cúng dường cao cấp */}
           <div className="bg-gradient-to-br from-purple-50/70 via-white to-purple-50/30 rounded-3xl p-6 border-2 border-purple-200/90 hover:border-purple-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="w-11 h-11 rounded-2xl bg-purple-600 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-purple-600/20">
-                <CheckCircle2 className="w-5 h-5" />
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="w-11 h-11 rounded-2xl bg-purple-600 text-white flex items-center justify-center font-bold shadow-md shadow-purple-600/20 shrink-0">
+                  <CheckCircle2 className="w-5 h-5" />
+                </div>
+                <span className="text-xs font-extrabold text-purple-900 bg-purple-100/90 border border-purple-200 px-2.5 py-1 rounded-lg uppercase tracking-wide">
+                  Cúng Dường & Biếu Tặng
+                </span>
               </div>
-              <span className="text-xs font-extrabold text-purple-900 bg-purple-100/90 border border-purple-200 px-2.5 py-1 rounded-lg uppercase">
-                Cúng Dường & Biếu Tặng
-              </span>
-              <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
+              <h3 className="text-lg font-black text-stone-900 mb-2">
                 Gạo ST25 Thượng Hạng
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
@@ -172,8 +183,9 @@ export const CharityGuideAndFAQ: React.FC = () => {
                 <span>Đóng bao:</span>
                 <span className="bg-white px-2.5 py-0.5 rounded-md border border-purple-300 font-extrabold">5kg - 25kg</span>
               </div>
-              <Link href="/gao-cung-duong-chua/" className="text-xs sm:text-sm font-extrabold text-purple-800 hover:text-purple-950 flex items-center gap-1 group">
-                Gạo ST25 cúng dường chùa <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <Link href="/gao-cung-duong-chua/" className="text-xs sm:text-sm font-extrabold text-purple-800 hover:text-purple-950 flex items-center justify-between w-full group">
+                <span>Gạo ST25 cúng dường chùa</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
               </Link>
             </div>
           </div>
