@@ -5,23 +5,17 @@ import Link from 'next/link';
 import {
   HeartHandshake,
   Phone,
-  MapPin,
   ShieldCheck,
   Heart,
   ExternalLink,
-  Truck,
-  MessageCircle,
   Clock,
   Sparkles,
 } from 'lucide-react';
 import { BRAND_INFO } from '@/data/mockData';
 import {
-  CONTACT_LABEL,
   PHONE_DISPLAY,
   PHONE_TEL,
-  ZALO_URL,
   FACEBOOK_PAGE_URL,
-  GOOGLE_MAPS_PLACE_URL,
 } from '@/data/site';
 
 export const Footer: React.FC = () => {
@@ -29,7 +23,7 @@ export const Footer: React.FC = () => {
     <footer className="bg-[#181109] text-amber-100/80 pt-14 pb-12 border-t border-amber-900/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
-        {/* TẦNG 1: 3 CỘT THÔNG TIN CHÍNH (CÂN ĐỐI 100%, KHÔNG BỊ LỆCH) */}
+        {/* 3 CỘT THÔNG TIN CHÍNH */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
           
           {/* Cột 1 (lg:col-span-5): Thông tin thương hiệu & Hotline */}
@@ -167,111 +161,7 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        {/* TẦNG 2: MẠNG LƯỚI TRỤ SỞ & BÃI XE ĐIỀU PHỐI (DÀN HÀNG NGANG ĐỐI XỨNG CÂN BẰNG) */}
-        <div className="pt-8 border-t border-amber-900/60 space-y-3.5">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5">
-            <div className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider">
-              <Truck className="w-4 h-4 text-emerald-400" />
-              <span>Hệ Thống Trụ Sở & Mạng Lưới Điều Phối Giao Hàng</span>
-            </div>
-            <span className="text-xs text-amber-300/80">
-              Xuất xe tải giao hỏa tốc 2 giờ đến Chùa, Bếp ăn và Điểm phát quà
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            
-            {/* 1. Trụ sở chính Lái Thiêu */}
-            <div className="p-3.5 rounded-2xl bg-amber-950/40 border border-emerald-500/50 flex flex-col justify-between hover:border-emerald-400 transition">
-              <div>
-                <div className="flex items-center justify-between gap-1 mb-1.5">
-                  <span className="text-[11px] font-black uppercase text-amber-300 bg-amber-950 px-2 py-0.5 rounded-full border border-amber-700/60">
-                    Trụ Sở Chính
-                  </span>
-                  <span className="text-[11px] font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-700/60">
-                    Xem mẫu trực tiếp
-                  </span>
-                </div>
-                <div className="font-extrabold text-white text-sm mb-1">Tổng Kho Lái Thiêu</div>
-                <div className="text-xs text-amber-200/80 leading-snug">
-                  Số 11, Lô 2, Đường Lái Thiêu 9, P. Lái Thiêu, TP. Thuận An, Bình Dương
-                </div>
-              </div>
-              <div className="mt-3 pt-2 border-t border-amber-900/60">
-                <a
-                  href={GOOGLE_MAPS_PLACE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-emerald-300 hover:text-white font-bold transition"
-                >
-                  <MapPin className="w-3.5 h-3.5 text-rose-400 shrink-0" />
-                  <span>Bản đồ Google Maps</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-            </div>
-
-            {/* 2. Bãi xe Thủ Đức */}
-            <div className="p-3.5 rounded-2xl bg-amber-950/30 border border-amber-900/60 flex flex-col justify-between hover:border-amber-700/70 transition">
-              <div>
-                <div className="flex items-center justify-between gap-1 mb-1.5">
-                  <span className="text-[11px] font-bold uppercase text-amber-300/80">Khu Đông TP.HCM</span>
-                  <span className="text-[11px] font-semibold text-blue-300 bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-800/40">
-                    Giao hỏa tốc 2H
-                  </span>
-                </div>
-                <div className="font-extrabold text-white text-sm mb-1">Kho Điều Phối Thủ Đức</div>
-                <div className="text-xs text-amber-200/80 leading-snug">
-                  44 Đường Số 7, P. Phước Long, TP. Thủ Đức, TP.HCM
-                </div>
-              </div>
-              <div className="mt-3 pt-2 border-t border-amber-900/40 text-[11px] text-amber-300/70">
-                Bãi xe điều phối xuất hàng tận nơi 24/7
-              </div>
-            </div>
-
-            {/* 3. Bãi xe Quận 7 */}
-            <div className="p-3.5 rounded-2xl bg-amber-950/30 border border-amber-900/60 flex flex-col justify-between hover:border-amber-700/70 transition">
-              <div>
-                <div className="flex items-center justify-between gap-1 mb-1.5">
-                  <span className="text-[11px] font-bold uppercase text-amber-300/80">Khu Nam TP.HCM</span>
-                  <span className="text-[11px] font-semibold text-blue-300 bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-800/40">
-                    Giao hỏa tốc 2H
-                  </span>
-                </div>
-                <div className="font-extrabold text-white text-sm mb-1">Kho Điều Phối Quận 7</div>
-                <div className="text-xs text-amber-200/80 leading-snug">
-                  120 Đường Số 1, P. Tân Kiểng, Q.7, TP.HCM
-                </div>
-              </div>
-              <div className="mt-3 pt-2 border-t border-amber-900/40 text-[11px] text-amber-300/70">
-                Bãi xe điều phối xuất hàng tận nơi 24/7
-              </div>
-            </div>
-
-            {/* 4. Tây Ninh & Nhà máy Đồng Tháp */}
-            <div className="p-3.5 rounded-2xl bg-amber-950/30 border border-amber-900/60 flex flex-col justify-between hover:border-amber-700/70 transition">
-              <div>
-                <div className="flex items-center justify-between gap-1 mb-1.5">
-                  <span className="text-[11px] font-bold uppercase text-amber-300/80">Liên Tỉnh & Nhà Máy</span>
-                  <span className="text-[11px] font-semibold text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-800/60">
-                    Sỉ lớn 10–50T
-                  </span>
-                </div>
-                <div className="font-extrabold text-white text-sm mb-1">Tây Ninh & Đồng Tháp</div>
-                <div className="text-xs text-amber-200/80 leading-snug">
-                  Hậu Nghĩa (Tây Ninh) & Nhà máy Hội Cư (Đồng Tháp)
-                </div>
-              </div>
-              <div className="mt-3 pt-2 border-t border-amber-900/40 text-[11px] text-amber-300/70">
-                Xay xát & điều xe tải liên tỉnh trực tiếp
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        {/* TẦNG 3: FOOTER BOTTOM */}
+        {/* FOOTER BOTTOM */}
         <div className="pt-6 border-t border-amber-900/60 flex flex-col sm:flex-row items-center justify-between text-xs text-amber-300/70 gap-3">
           <p>© 2026 {BRAND_INFO.name}. {BRAND_INFO.slogan}.</p>
           <div className="flex items-center gap-1.5 text-amber-200">
