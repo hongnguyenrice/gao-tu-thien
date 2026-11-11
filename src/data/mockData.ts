@@ -240,6 +240,10 @@ export interface BranchLocation {
   area: string;
   phone: string;
   hours?: string;
+  isMain?: boolean;
+  hasMedia?: boolean;
+  googleMapsUrl?: string;
+  mapEmbedUrl?: string;
 }
 
 export const BRAND_INFO = {
@@ -254,11 +258,15 @@ export const BRAND_INFO = {
       id: 'cn-1',
       type: 'branch' as const,
       index: 1,
-      name: 'Chi Nhánh 1 (Lái Thiêu)',
+      name: 'Chi Nhánh 1 (Lái Thiêu - Trụ sở chính)',
       address: 'Số 11, Lô 2, Đường Lái Thiêu 9, P. Lái Thiêu, TP. Thuận An, Bình Dương',
-      area: 'Lái Thiêu',
+      area: 'Lái Thiêu (Trụ sở chính)',
       phone: '0762 234 135',
-      hours: '07:00 – 20:00'
+      hours: '07:00 – 20:00',
+      isMain: true,
+      hasMedia: true,
+      googleMapsUrl: 'https://maps.google.com/?cid=15646541128765690584',
+      mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.5848209705314!2d106.70452261082477!3d10.91912418919353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d7004b311ab3%3A0xd923ae41f79e52d8!2zVuG7sWEgR-G6oW8gU8OzYyBUcsSDbmc!5e0!3m2!1svi!2s!4v1794356110100!5m2!1svi!2s'
     },
     {
       id: 'cn-2',

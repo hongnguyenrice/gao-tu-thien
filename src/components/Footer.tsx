@@ -89,7 +89,7 @@ export const Footer: React.FC = () => {
                       rel="noopener noreferrer"
                       className="block text-[11px] text-amber-300 hover:underline"
                     >
-                      (Xem bản đồ Google Maps)
+                      {b.isMain ? '(Bản đồ Google Maps – Có hình ảnh & video thực tế)' : '(Xem bản đồ Google Maps)'}
                     </a>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 import { BRAND_INFO, RICE_PRODUCTS, RiceProduct } from '@/data/mockData';
-import { FACEBOOK_PAGE_URL, PHONE_E164, QUOTE_PATH, SITE_NAME, SITE_URL } from '@/data/site';
+import { FACEBOOK_PAGE_URL, GOOGLE_MAPS_PLACE_URL, PHONE_E164, QUOTE_PATH, SITE_NAME, SITE_URL } from '@/data/site';
 
 export const ORG_ID = `${SITE_URL}/#organization`;
 const IMAGE = `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`;
@@ -9,6 +9,7 @@ const PRICE_RANGE = `${Math.min(...allPrices).toLocaleString('vi-VN')}đ - ${Mat
 
 const regionOf = (address: string) => {
   if (address.includes('TP.HCM')) return 'TP. Hồ Chí Minh';
+  if (address.includes('Bình Dương')) return 'Bình Dương';
   if (address.includes('Tây Ninh')) return 'Tây Ninh';
   if (address.includes('Đồng Tháp')) return 'Đồng Tháp';
   return undefined;
@@ -33,6 +34,7 @@ export function organizationSchema() {
     priceRange: PRICE_RANGE,
     image: IMAGE,
     url: `${SITE_URL}/`,
+    hasMap: b.googleMapsUrl || undefined,
     parentOrganization: { '@id': ORG_ID },
   }));
   const factory = {
@@ -65,7 +67,8 @@ export function organizationSchema() {
         description:
           'Cung cấp gạo từ thiện giá sỉ cho chùa, bếp ăn từ thiện, mái ấm, đoàn thiện nguyện và doanh nghiệp: đóng bao 5kg-10kg, giao tận nơi, xuất hóa đơn VAT.',
         url: `${SITE_URL}/`,
-        sameAs: [FACEBOOK_PAGE_URL],
+        hasMap: GOOGLE_MAPS_PLACE_URL,
+        sameAs: [FACEBOOK_PAGE_URL, GOOGLE_MAPS_PLACE_URL],
         image: IMAGE,
         telephone: PHONE_E164,
         priceRange: PRICE_RANGE,

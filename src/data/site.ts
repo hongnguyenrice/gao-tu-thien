@@ -88,5 +88,14 @@ export const priceFor = (product: RiceProduct, kg: number) => {
 
 export const vnd = (n: number) => n.toLocaleString('vi-VN') + ' đ';
 
-export const mapsSearchUrl = (address: string) =>
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+export const MAIN_BRANCH_MAP_EMBED =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.5848209705314!2d106.70452261082477!3d10.91912418919353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d7004b311ab3%3A0xd923ae41f79e52d8!2zVuG7sWEgR-G6oW8gU8OzYyBUcsSDbmc!5e0!3m2!1svi!2s!4v1794356110100!5m2!1svi!2s';
+
+export const GOOGLE_MAPS_PLACE_URL = 'https://maps.google.com/?cid=15646541128765690584';
+
+export const mapsSearchUrl = (address: string) => {
+  if (address.includes('Lái Thiêu') || address.includes('Bình Dương')) {
+    return GOOGLE_MAPS_PLACE_URL;
+  }
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+};
