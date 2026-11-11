@@ -341,7 +341,7 @@ export const WarehouseNetwork: React.FC = () => {
                   <div className="flex flex-col items-center justify-center p-6 text-center text-stone-500">
                     <MapPin className="w-8 h-8 text-emerald-600 animate-bounce mb-2" />
                     <span className="text-xs font-bold text-stone-700">Bản Đồ Google Maps Vựa Gạo Sóc Trăng</span>
-                    <span className="text-[11px] text-stone-400 mt-1">Đang kết nối vệ tinh và dữ liệu đường đi...</span>
+                    <span className="text-[11px] text-stone-600 mt-1">Đang kết nối vệ tinh và dữ liệu đường đi...</span>
                   </div>
                 )}
               </div>
