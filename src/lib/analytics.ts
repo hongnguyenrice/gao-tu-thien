@@ -3,7 +3,7 @@
  * Giúp theo dõi các chuyển đổi quan trọng: Gọi hotline, Nhắn Zalo, Điền form báo giá, Xem bản đồ.
  */
 
-export const GA_TRACKING_ID = 'G-GBEYDZ8SMF';
+export const GA_TRACKING_ID = 'G-5H4LMYKGW9';
 
 export const trackEvent = (action: string, params: Record<string, any> = {}) => {
   if (typeof window !== 'undefined' && (window as any).gtag) {
