@@ -6,6 +6,7 @@ import {
   MapPin,
   Factory,
   Store,
+  Truck,
   Phone,
   CheckCircle,
   Navigation,
@@ -91,10 +92,10 @@ export const WarehouseNetwork: React.FC = () => {
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-black text-stone-900 tracking-tight">
-            Hệ Thống Chi Nhánh & Nhà Máy
+            Hệ Thống Tổng Kho & Bãi Xe Điều Phối
           </h2>
           <p className="mt-2 text-stone-600 text-xs sm:text-base font-normal">
-            <strong className="text-stone-900 font-bold">{BRAND_INFO.name}</strong> điều xe tải trực tiếp từ kho gần nhất để Quý đoàn nhận gạo nhanh và tiết kiệm cước phí nhất.
+            Trụ sở chính tiếp khách tại Lái Thiêu cùng mạng lưới bãi xe điều phối hỏa tốc, xuất hàng nhanh trong 2 giờ đến các Chùa và điểm trao quà.
           </p>
         </div>
 
@@ -104,7 +105,7 @@ export const WarehouseNetwork: React.FC = () => {
           onScroll={handleScroll}
           className="flex sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-3 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth no-scrollbar"
         >
-          {/* 4 Chi nhánh kho */}
+          {/* 4 Chi nhánh / Bãi xe điều phối */}
           {BRAND_INFO.branches.map((b) => (
             <div
               key={b.id}
@@ -115,15 +116,29 @@ export const WarehouseNetwork: React.FC = () => {
               }`}
             >
               <div>
-                {/* Header card: Icon cửa hàng + Badge khu vực ngắn gọn */}
+                {/* Header card: Icon + Badge khu vực */}
                 <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <span className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-200/80">
-                    <Store className="w-4 h-4 text-emerald-700" />
+                  <span
+                    className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border ${
+                      b.isMain
+                        ? 'bg-emerald-50 text-emerald-800 border-emerald-200/80'
+                        : 'bg-blue-50 text-blue-800 border-blue-200/80'
+                    }`}
+                  >
+                    {b.isMain ? (
+                      <Store className="w-4 h-4 text-emerald-700" />
+                    ) : (
+                      <Truck className="w-4 h-4 text-blue-700" />
+                    )}
                   </span>
                   <div className="flex items-center gap-1 overflow-hidden">
-                    {b.isMain && (
+                    {b.isMain ? (
                       <span className="text-xs font-black text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-full flex items-center gap-0.5 shrink-0">
                         <Star className="w-2.5 h-2.5 fill-amber-500 text-amber-500" /> Trụ sở chính
+                      </span>
+                    ) : (
+                      <span className="text-xs font-bold text-blue-900 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-full shrink-0">
+                        Bãi xe điều phối
                       </span>
                     )}
                     <span className="text-xs sm:text-sm font-extrabold text-emerald-900 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full truncate">
@@ -134,19 +149,43 @@ export const WarehouseNetwork: React.FC = () => {
 
                 <h3 className="font-extrabold text-stone-900 text-sm sm:text-base mb-1.5 leading-snug">{b.name}</h3>
 
-                {/* Địa chỉ bấm được mở Google Maps */}
-                <a
-                  href={mapsSearchUrl(b.address)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-1.5 text-xs sm:text-sm text-stone-600 hover:text-emerald-700 leading-snug mb-2 transition"
-                  title="Bấm để mở bản đồ chỉ đường Google Maps"
-                >
-                  <MapPin className="w-3.5 h-3.5 text-rose-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium group-hover:text-emerald-700 line-clamp-2 sm:line-clamp-none">
-                    {b.address}
-                  </span>
-                </a>
+                {/* Địa chỉ: Trụ sở chính bấm mở Google Maps có thực thể; kho vệ tinh hiển thị dạng văn bản trung thực */}
+                {b.isMain ? (
+                  <a
+                    href={GOOGLE_MAPS_PLACE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-1.5 text-xs sm:text-sm text-stone-600 hover:text-emerald-700 leading-snug mb-2 transition"
+                    title="Bấm để mở bản đồ chỉ đường Google Maps"
+                  >
+                    <MapPin className="w-3.5 h-3.5 text-rose-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                    <span className="font-medium group-hover:text-emerald-700 line-clamp-2 sm:line-clamp-none">
+                      {b.address}
+                    </span>
+                  </a>
+                ) : (
+                  <div className="flex items-start gap-1.5 text-xs sm:text-sm text-stone-600 leading-snug mb-2">
+                    <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                    <span className="font-medium line-clamp-2 sm:line-clamp-none">
+                      {b.address}
+                    </span>
+                  </div>
+                )}
+
+                {/* Ghi chú vai trò minh bạch */}
+                {b.roleNote && (
+                  <div className="mb-2.5">
+                    <div
+                      className={`text-xs px-2.5 py-1.5 rounded-lg border leading-tight ${
+                        b.isMain
+                          ? 'bg-emerald-50 text-emerald-900 border-emerald-200 font-semibold'
+                          : 'bg-amber-50/90 text-amber-950 border-amber-200/90 font-medium'
+                      }`}
+                    >
+                      {b.roleNote}
+                    </div>
+                  </div>
+                )}
 
                 {b.hasMedia && (
                   <div className="mb-3">
@@ -164,36 +203,65 @@ export const WarehouseNetwork: React.FC = () => {
                 )}
               </div>
 
-              {/* Hàng nút tương tác chuẩn: [ Chỉ đường ] [ Zalo ] [ 📞 ] */}
+              {/* Hàng nút tương tác:
+                  - Trụ sở chính: [ Chỉ đường (Google Maps) ] [ Zalo ] [ 📞 ]
+                  - Kho vệ tinh: [ Nhắn Zalo điều xe ] [ Gọi ]
+              */}
               <div className="pt-3 border-t border-stone-100 flex items-center gap-1.5 sm:gap-2">
-                <a
-                  href={mapsSearchUrl(b.address)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 py-2 px-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition shadow-2xs active:scale-95 whitespace-nowrap"
-                  title={`Chỉ đường Google Maps đến ${b.name}`}
-                >
-                  <Navigation className="w-3.5 h-3.5 shrink-0" />
-                  <span>Chỉ đường</span>
-                </a>
-                <a
-                  href={ZALO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="py-2 px-2.5 sm:px-3 bg-blue-50 hover:bg-blue-100 text-blue-800 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition border border-blue-200 active:scale-95 shrink-0 whitespace-nowrap"
-                  title="Nhắn tin Zalo điều xe tải"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                  <span>Zalo</span>
-                </a>
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  className="py-2 px-2.5 bg-amber-50 hover:bg-amber-100 text-amber-900 rounded-xl font-bold text-xs flex items-center justify-center transition border border-amber-200 active:scale-95 shrink-0"
-                  title={`Gọi hotline kho: ${PHONE_DISPLAY}`}
-                  aria-label={`Gọi hotline kho: ${PHONE_DISPLAY}`}
-                >
-                  <Phone className="w-3.5 h-3.5 text-amber-800 shrink-0" />
-                </a>
+                {b.isMain ? (
+                  <>
+                    <a
+                      href={GOOGLE_MAPS_PLACE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 py-2 px-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition shadow-2xs active:scale-95 whitespace-nowrap"
+                      title={`Chỉ đường Google Maps đến ${b.name}`}
+                    >
+                      <Navigation className="w-3.5 h-3.5 shrink-0" />
+                      <span>Chỉ đường</span>
+                    </a>
+                    <a
+                      href={ZALO_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-2 px-2.5 sm:px-3 bg-blue-50 hover:bg-blue-100 text-blue-800 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition border border-blue-200 active:scale-95 shrink-0 whitespace-nowrap"
+                      title="Nhắn tin Zalo tư vấn"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                      <span>Zalo</span>
+                    </a>
+                    <a
+                      href={`tel:${PHONE_TEL}`}
+                      className="py-2 px-2.5 bg-amber-50 hover:bg-amber-100 text-amber-900 rounded-xl font-bold text-xs flex items-center justify-center transition border border-amber-200 active:scale-95 shrink-0"
+                      title={`Gọi hotline kho: ${PHONE_DISPLAY}`}
+                      aria-label={`Gọi hotline kho: ${PHONE_DISPLAY}`}
+                    >
+                      <Phone className="w-3.5 h-3.5 text-amber-800 shrink-0" />
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <a
+                      href={ZALO_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 py-2 px-2.5 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-2xs active:scale-95 whitespace-nowrap"
+                      title={`Nhắn Zalo điều xe tải từ bãi ${b.area}`}
+                    >
+                      <MessageCircle className="w-3.5 h-3.5 text-white shrink-0" />
+                      <span>Nhắn Zalo Điều Xe</span>
+                    </a>
+                    <a
+                      href={`tel:${PHONE_TEL}`}
+                      className="py-2 px-3 bg-amber-50 hover:bg-amber-100 text-amber-950 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition border border-amber-300 active:scale-95 shrink-0"
+                      title={`Gọi hotline điều xe: ${PHONE_DISPLAY}`}
+                      aria-label={`Gọi hotline điều xe: ${PHONE_DISPLAY}`}
+                    >
+                      <Phone className="w-3.5 h-3.5 text-amber-800 shrink-0" />
+                      <span>Gọi</span>
+                    </a>
+                  </>
+                )}
               </div>
             </div>
           ))}
@@ -212,41 +280,33 @@ export const WarehouseNetwork: React.FC = () => {
 
               <h3 className="font-extrabold text-white text-sm sm:text-base mb-1.5 leading-snug">{BRAND_INFO.factory.name}</h3>
 
-              <a
-                href={mapsSearchUrl(BRAND_INFO.factory.address)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-start gap-1.5 text-xs sm:text-sm text-amber-100 hover:text-white leading-snug mb-3.5 transition"
-                title="Bấm để mở bản đồ chỉ đường Google Maps"
-              >
-                <MapPin className="w-3.5 h-3.5 text-amber-300 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                <span className="font-medium group-hover:text-white line-clamp-2 sm:line-clamp-none">
+              <div className="flex items-start gap-1.5 text-xs sm:text-sm text-amber-100 leading-snug mb-2">
+                <MapPin className="w-3.5 h-3.5 text-amber-300 shrink-0 mt-0.5" />
+                <span className="font-medium line-clamp-2 sm:line-clamp-none">
                   {BRAND_INFO.factory.address}
                 </span>
-              </a>
+              </div>
+
+              {BRAND_INFO.factory.roleNote && (
+                <div className="mb-3">
+                  <div className="text-xs px-2.5 py-1.5 rounded-lg bg-amber-400/20 text-amber-200 border border-amber-400/30 leading-tight font-medium">
+                    {BRAND_INFO.factory.roleNote}
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* 3 nút hành động của xưởng */}
+            {/* Nút hành động xưởng: Zalo sỉ lớn & Hotline */}
             <div className="pt-3 border-t border-white/15 flex items-center gap-1.5 sm:gap-2">
-              <a
-                href={mapsSearchUrl(BRAND_INFO.factory.address)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-2 px-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-amber-950 rounded-xl font-black text-xs flex items-center justify-center gap-1 transition shadow-xs active:scale-95 whitespace-nowrap"
-                title="Xem chỉ đường Google Maps đến Nhà máy Đồng Tháp"
-              >
-                <Navigation className="w-3.5 h-3.5 shrink-0" />
-                <span>Chỉ đường</span>
-              </a>
               <a
                 href={ZALO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-2 px-2.5 sm:px-3 bg-white/15 hover:bg-white/25 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition border border-white/20 active:scale-95 shrink-0 whitespace-nowrap"
-                title="Nhắn Zalo xưởng Đồng Tháp"
+                className="flex-1 py-2 px-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-amber-950 rounded-xl font-black text-xs flex items-center justify-center gap-1.5 transition shadow-xs active:scale-95 whitespace-nowrap"
+                title="Nhắn Zalo nhận báo giá sỉ tận xưởng Đồng Tháp"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-                <span>Zalo</span>
+                <MessageCircle className="w-3.5 h-3.5 text-amber-950 shrink-0" />
+                <span>Zalo Báo Giá Xưởng</span>
               </a>
               <a
                 href={`tel:${PHONE_TEL}`}

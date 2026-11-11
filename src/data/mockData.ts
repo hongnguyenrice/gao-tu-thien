@@ -242,6 +242,8 @@ export interface BranchLocation {
   hours?: string;
   isMain?: boolean;
   hasMedia?: boolean;
+  isCustomerFacing?: boolean;
+  roleNote?: string;
   googleMapsUrl?: string;
   mapEmbedUrl?: string;
 }
@@ -249,7 +251,7 @@ export interface BranchLocation {
 export const BRAND_INFO = {
   name: 'VỰA GẠO SÓC TRĂNG',
   slogan: 'Gạo ngon – Giá tốt – Giao tận nhà',
-  subTitle: 'Hệ Thống Chi Nhánh & Nhà Máy Cung Cấp Gạo Từ Thiện',
+  subTitle: 'Hệ Thống Tổng Kho & Bãi Xe Điều Phối Gạo Từ Thiện',
   hotline: '0762 234 135',
   hotlineDisplay: '0762 234 135',
   zalo: '0762234135',
@@ -258,13 +260,15 @@ export const BRAND_INFO = {
       id: 'cn-1',
       type: 'branch' as const,
       index: 1,
-      name: 'Chi Nhánh 1 (Lái Thiêu - Trụ sở chính)',
+      name: 'Chi Nhánh 1 (Lái Thiêu - Trụ sở chính & Điểm xem mẫu)',
       address: 'Số 11, Lô 2, Đường Lái Thiêu 9, P. Lái Thiêu, TP. Thuận An, Bình Dương',
       area: 'Lái Thiêu (Trụ sở chính)',
       phone: '0762 234 135',
       hours: '07:00 – 20:00',
       isMain: true,
       hasMedia: true,
+      isCustomerFacing: true,
+      roleNote: 'Đón tiếp Quý đoàn xem mẫu gạo, thử cơm & cân xe trực tiếp',
       googleMapsUrl: 'https://maps.google.com/?cid=15646541128765690584',
       mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.5848209705314!2d106.70452261082477!3d10.91912418919353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d7004b311ab3%3A0xd923ae41f79e52d8!2zVuG7sWEgR-G6oW8gU8OzYyBUcsSDbmc!5e0!3m2!1svi!2s!4v1794356110100!5m2!1svi!2s'
     },
@@ -272,41 +276,52 @@ export const BRAND_INFO = {
       id: 'cn-2',
       type: 'branch' as const,
       index: 2,
-      name: 'Chi Nhánh 2 (Phước Long)',
+      name: 'Kho Điều Phối Thủ Đức (Vệ tinh)',
       address: '44 Đường Số 7, P. Phước Long, TP. Thủ Đức, TP.HCM',
-      area: 'Thủ Đức',
+      area: 'TP. Thủ Đức',
       phone: '0762 234 135',
-      hours: '07:00 – 20:00'
+      hours: '07:00 – 20:00',
+      isMain: false,
+      isCustomerFacing: false,
+      roleNote: 'Bãi xe điều phối giao hỏa tốc 2H – Không tiếp khách tại bãi'
     },
     {
       id: 'cn-3',
       type: 'branch' as const,
       index: 3,
-      name: 'Chi Nhánh 3 (Tân Kiểng)',
+      name: 'Kho Điều Phối Quận 7 (Vệ tinh)',
       address: '120 Đường Số 1, P. Tân Kiểng, Q.7, TP.HCM',
       area: 'Quận 7',
       phone: '0762 234 135',
-      hours: '07:00 – 20:00'
+      hours: '07:00 – 20:00',
+      isMain: false,
+      isCustomerFacing: false,
+      roleNote: 'Bãi xe điều phối giao hỏa tốc 2H – Không tiếp khách tại bãi'
     },
     {
       id: 'cn-4',
       type: 'branch' as const,
       index: 4,
-      name: 'Chi Nhánh 4 (Hậu Nghĩa)',
+      name: 'Kho Điều Phối Tây Ninh (Vệ tinh)',
       address: 'Ấp Khiêm Cương, Hậu Nghĩa, Tây Ninh',
-      area: 'Hậu Nghĩa',
+      area: 'Hậu Nghĩa - Tây Ninh',
       phone: '0762 234 135',
-      hours: '07:00 – 20:00'
+      hours: '07:00 – 20:00',
+      isMain: false,
+      isCustomerFacing: false,
+      roleNote: 'Bãi xe điều phối giao liên tỉnh – Không tiếp khách tại bãi'
     }
   ],
   factory: {
     id: 'factory-1',
     type: 'factory' as const,
-    name: 'Nhà Máy Xay Xát Đồng Tháp',
+    name: 'Nhà Máy Xay Xát Đồng Tháp (Nguồn sỉ)',
     address: 'Ấp An Thái, Xã Hội Cư, Tỉnh Đồng Tháp',
     area: 'Đồng Tháp',
     phone: '0762 234 135',
-    hours: '06:00 – 21:00'
+    hours: '06:00 – 21:00',
+    isCustomerFacing: false,
+    roleNote: 'Xay xát & đóng bao 10–50 tấn – Điều xe tải trực tiếp'
   }
 };
 

@@ -14,7 +14,7 @@ import {
   QUOTE_PATH,
   REAL_PHOTOS,
   ZALO_URL,
-  mapsSearchUrl,
+  GOOGLE_MAPS_PLACE_URL,
   vnd,
 } from '@/data/site';
 import { breadcrumbSchema, faqSchema, productListSchema } from '@/lib/schema';
@@ -143,18 +143,38 @@ export const DeliveryAreas: React.FC = () => (
   <div className="space-y-4">
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
       {DELIVERY_AREAS.map((d) => (
-        <div key={d.from} className="bg-white rounded-2xl border border-gray-200 p-4">
-          <div className="text-xs font-bold text-emerald-700 uppercase">{d.area}</div>
-          <h3 className="font-bold text-gray-900 text-sm mt-1">{d.from}</h3>
-          <p className="text-xs text-gray-600 mt-1">{d.address}</p>
-          <a
-            href={mapsSearchUrl(d.address)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-2 text-xs font-semibold text-blue-700 underline"
-          >
-            Tìm trên Google Maps
-          </a>
+        <div key={d.from} className="bg-white rounded-2xl border border-gray-200 p-4 flex flex-col justify-between">
+          <div>
+            <div className="text-xs font-bold text-emerald-700 uppercase">{d.area}</div>
+            <h3 className="font-bold text-gray-900 text-sm mt-1">{d.from}</h3>
+            <p className="text-xs text-gray-600 mt-1">{d.address}</p>
+            {d.roleNote && (
+              <p className="text-xs text-amber-800 bg-amber-50 rounded-md p-1.5 mt-2 border border-amber-200/60 font-medium">
+                {d.roleNote}
+              </p>
+            )}
+          </div>
+          <div className="mt-3 pt-2 border-t border-gray-100">
+            {d.isMain ? (
+              <a
+                href={GOOGLE_MAPS_PLACE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-xs font-bold text-emerald-700 hover:underline"
+              >
+                Xem Google Maps (Lái Thiêu) →
+              </a>
+            ) : (
+              <a
+                href={ZALO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-xs font-semibold text-blue-700 hover:underline"
+              >
+                Nhắn Zalo điều xe giao tận nơi →
+              </a>
+            )}
+          </div>
         </div>
       ))}
     </div>

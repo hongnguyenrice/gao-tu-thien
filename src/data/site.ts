@@ -43,8 +43,22 @@ export const DELIVERY = {
 
 /** Khu vực giao — suy ra từ các chi nhánh và nhà máy đang có. */
 export const DELIVERY_AREAS = [
-  ...BRAND_INFO.branches.map((b) => ({ area: b.area, from: b.name, address: b.address })),
-  { area: BRAND_INFO.factory.area, from: BRAND_INFO.factory.name, address: BRAND_INFO.factory.address },
+  ...BRAND_INFO.branches.map((b) => ({
+    area: b.area,
+    from: b.name,
+    address: b.address,
+    isMain: Boolean(b.isMain),
+    roleNote: b.roleNote,
+    googleMapsUrl: b.googleMapsUrl,
+  })),
+  {
+    area: BRAND_INFO.factory.area,
+    from: BRAND_INFO.factory.name,
+    address: BRAND_INFO.factory.address,
+    isMain: false,
+    roleNote: BRAND_INFO.factory.roleNote,
+    googleMapsUrl: undefined,
+  },
 ];
 
 export const ORDER_STEPS = [

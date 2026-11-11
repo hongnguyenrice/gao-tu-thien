@@ -10,7 +10,6 @@ import {
   PHONE_DISPLAY,
   PRICE_UPDATED,
   SITE_URL,
-  mapsSearchUrl,
 } from '@/data/site';
 import {
   CTABox,

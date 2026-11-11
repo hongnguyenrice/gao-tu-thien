@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { HeartHandshake, Phone, MapPin, ShieldCheck, Heart, ExternalLink } from 'lucide-react';
 import { BRAND_INFO } from '@/data/mockData';
-import { CONTACT_LABEL, PHONE_DISPLAY, PHONE_TEL, ZALO_URL, FACEBOOK_PAGE_URL, mapsSearchUrl } from '@/data/site';
+import { CONTACT_LABEL, PHONE_DISPLAY, PHONE_TEL, ZALO_URL, FACEBOOK_PAGE_URL, GOOGLE_MAPS_PLACE_URL } from '@/data/site';
 
 export const Footer: React.FC = () => {
   return (
@@ -83,14 +83,20 @@ export const Footer: React.FC = () => {
                   <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <span><strong>{b.name}:</strong> {b.address}</span>
-                    <a
-                      href={mapsSearchUrl(b.address)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-xs text-amber-300 hover:underline mt-0.5"
-                    >
-                      {b.isMain ? '(Bản đồ Google Maps – Có hình ảnh & video thực tế)' : '(Xem bản đồ Google Maps)'}
-                    </a>
+                    {b.isMain ? (
+                      <a
+                        href={GOOGLE_MAPS_PLACE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-xs text-amber-300 hover:underline mt-0.5 font-bold"
+                      >
+                        (Bản đồ Google Maps – Có hình ảnh & video thực tế)
+                      </a>
+                    ) : (
+                      <span className="block text-xs text-amber-200/70 mt-0.5">
+                        ({b.roleNote || 'Bãi xe điều phối giao hỏa tốc 2H'})
+                      </span>
+                    )}
                   </div>
                 </div>
               ))}
@@ -98,14 +104,9 @@ export const Footer: React.FC = () => {
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <div>
                   <span><strong>{BRAND_INFO.factory.name}:</strong> {BRAND_INFO.factory.address}</span>
-                  <a
-                    href={mapsSearchUrl(BRAND_INFO.factory.address)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-xs text-amber-300 hover:underline mt-0.5"
-                  >
-                    (Xem bản đồ Google Maps)
-                  </a>
+                  <span className="block text-xs text-amber-200/70 mt-0.5">
+                    ({BRAND_INFO.factory.roleNote || 'Nhà máy xay xát & đóng bao 10–50 tấn'})
+                  </span>
                 </div>
               </div>
 
