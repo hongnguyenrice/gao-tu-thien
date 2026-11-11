@@ -32,7 +32,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackZaloClick('mobile_dock')}
-            className="flex-1 h-11 px-3 rounded-xl bg-gradient-to-r from-sky-600 via-sky-600 to-blue-700 hover:from-sky-700 hover:to-blue-800 text-white flex items-center justify-center gap-2 font-black text-xs shadow-md shadow-blue-600/20 border border-white/20 transition active:scale-95"
+            className="flex-1 h-11 px-3 rounded-xl bg-gradient-to-r from-sky-600 via-sky-600 to-blue-700 hover:from-sky-700 hover:to-blue-800 text-white flex items-center justify-center gap-2 font-black text-xs sm:text-sm shadow-md shadow-blue-600/20 border border-white/20 transition active:scale-95"
             aria-label="Báo Giá Qua Zalo: 0762 234 135"
           >
             <MessageCircle className="w-4 h-4 shrink-0 fill-white/20" />
@@ -43,7 +43,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
           <a
             href={`tel:${PHONE_TEL}`}
             onClick={() => trackPhoneCall('mobile_dock')}
-            className="flex-1 h-11 px-3 rounded-xl bg-gradient-to-r from-emerald-700 via-emerald-800 to-teal-900 hover:from-emerald-800 hover:to-teal-950 text-white flex items-center justify-center gap-2 font-black text-xs shadow-md shadow-emerald-800/20 border border-emerald-600/30 transition active:scale-95"
+            className="flex-1 h-11 px-3 rounded-xl bg-gradient-to-r from-emerald-700 via-emerald-800 to-teal-900 hover:from-emerald-800 hover:to-teal-950 text-white flex items-center justify-center gap-2 font-black text-xs sm:text-sm shadow-md shadow-emerald-800/20 border border-emerald-600/30 transition active:scale-95"
             aria-label="Gọi 0762 234 135 - Hotline tư vấn gạo từ thiện"
           >
             <PhoneCall className="w-4 h-4 shrink-0 text-amber-300" />
@@ -66,7 +66,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
             aria-label="Nhận báo giá qua Zalo: 0762 234 135"
           >
             <MessageCircle className="w-5 h-5 shrink-0" />
-            <span className="text-xs font-black whitespace-nowrap">
+            <span className="text-sm font-black whitespace-nowrap">
               Báo giá Zalo: {PHONE_DISPLAY}
             </span>
           </a>
@@ -79,7 +79,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
             aria-label="Gọi tư vấn: 0762 234 135"
           >
             <Phone className="w-5 h-5 shrink-0 text-amber-300 animate-pulse" />
-            <span className="text-xs font-black whitespace-nowrap">
+            <span className="text-sm font-black whitespace-nowrap">
               Gọi tư vấn: {PHONE_DISPLAY}
             </span>
           </a>

@@ -65,26 +65,26 @@ export const CharityPartnerList: React.FC = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     {partner.verified && (
-                      <span className="absolute top-3 left-3 bg-white/95 text-emerald-800 text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs backdrop-blur-xs">
+                      <span className="absolute top-3 left-3 bg-white/95 text-emerald-800 text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs backdrop-blur-xs">
                         <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Đã xác minh địa chỉ
                       </span>
                     )}
-                    <span className="absolute bottom-3 right-3 bg-black/60 text-white text-[10px] font-medium px-2 py-0.5 rounded-md backdrop-blur-xs">
+                    <span className="absolute bottom-3 right-3 bg-black/60 text-white text-xs font-medium px-2 py-0.5 rounded-md backdrop-blur-xs">
                       {partner.province}
                     </span>
                   </div>
 
                   {/* Body Content */}
                   <div className="p-5">
-                    <h3 className="font-bold text-gray-900 text-base leading-snug line-clamp-2 min-h-[44px]">
+                    <h3 className="font-bold text-gray-900 text-base sm:text-lg leading-snug line-clamp-2 min-h-[44px]">
                       {partner.name}
                     </h3>
 
-                    <p className="text-xs text-gray-500 mt-2 line-clamp-3 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-600 mt-2 line-clamp-3 leading-relaxed">
                       {partner.description}
                     </p>
 
-                    <div className="mt-4 pt-3 border-t border-gray-100 space-y-1.5 text-xs text-gray-600">
+                    <div className="mt-4 pt-3 border-t border-gray-100 space-y-1.5 text-xs sm:text-sm text-gray-600">
                       <div className="flex items-start gap-1.5">
                         <MapPin className="w-3.5 h-3.5 text-gray-400 shrink-0 mt-0.5" />
                         <span className="line-clamp-1">{partner.address}</span>
@@ -109,7 +109,7 @@ export const CharityPartnerList: React.FC = () => {
                           style={{ width: `${percentAchieved}%` }}
                         ></div>
                       </div>
-                      <div className="text-[10px] text-right text-gray-400 mt-1">
+                      <div className="text-xs text-right text-gray-500 mt-1">
                         Đã tiếp nhận {percentAchieved}% nhu cầu
                       </div>
                     </div>

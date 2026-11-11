@@ -53,14 +53,14 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3 shrink-0 whitespace-nowrap">
-            <span className="hidden sm:inline-flex items-center gap-1 text-emerald-300 font-semibold text-[11px]">
+            <span className="hidden sm:inline-flex items-center gap-1 text-emerald-300 font-semibold text-xs">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Xuất VAT 5%
             </span>
             <a
               href={ZALO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/30 px-2.5 py-0.5 rounded-full font-bold transition flex items-center gap-1 text-[11px] sm:text-xs shadow-2xs"
+              className="bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/30 px-2.5 py-0.5 rounded-full font-bold transition flex items-center gap-1 text-xs sm:text-sm shadow-2xs"
             >
               <PhoneCall className="w-3 h-3 text-amber-400" /> <span className="hidden xs:inline">Hotline/Zalo:</span> {PHONE_DISPLAY}
             </a>
@@ -79,11 +79,11 @@ export const Navbar: React.FC = () => {
             <div className="shrink-0">
               <div className="font-black text-base sm:text-lg xl:text-xl tracking-tight text-emerald-950 flex items-center gap-1.5 whitespace-nowrap">
                 <span>VỰA GẠO SÓC TRĂNG</span>
-                <span className="text-[9px] sm:text-[10px] font-extrabold px-2 py-0.5 bg-gradient-to-r from-amber-100 to-amber-200 text-amber-900 rounded-full border border-amber-300 shadow-2xs shrink-0">
+                <span className="text-xs font-extrabold px-2 py-0.5 bg-gradient-to-r from-amber-100 to-amber-200 text-amber-900 rounded-full border border-amber-300 shadow-2xs shrink-0">
                   Từ Thiện
                 </span>
               </div>
-              <p className="text-[10px] sm:text-[11px] text-emerald-800 font-semibold tracking-wide whitespace-nowrap">Gạo ngon – Giá tốt – Giao tận nơi</p>
+              <p className="text-xs text-emerald-800 font-semibold tracking-wide whitespace-nowrap">Gạo ngon – Giá tốt – Giao tận nơi</p>
             </div>
           </Link>
 
@@ -123,7 +123,7 @@ export const Navbar: React.FC = () => {
               <ShoppingBag className="w-4 h-4 shrink-0 text-amber-200" />
               <span className="hidden md:inline">Đơn hàng</span>
               {totalItemsCount > 0 && (
-                <span className="bg-amber-300 text-amber-950 font-black text-[11px] px-1.5 py-0.2 rounded-full shadow-2xs">
+                <span className="bg-amber-300 text-amber-950 font-black text-xs px-1.5 py-0.2 rounded-full shadow-2xs">
                   {totalKg.toLocaleString('vi-VN')}kg
                 </span>
               )}
@@ -145,7 +145,7 @@ export const Navbar: React.FC = () => {
       {/* Mobile Menu Drawer (Dropdown khi bấm hamburger) */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-5 space-y-1 shadow-xl animate-in slide-in-from-top-2 duration-200">
-          <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider px-3 pt-2 pb-1">
+          <p className="text-xs font-bold text-gray-500 uppercase tracking-wider px-3 pt-2 pb-1">
             Chuyên mục cẩm nang gạo từ thiện:
           </p>
           {navLinks.map((link) => {

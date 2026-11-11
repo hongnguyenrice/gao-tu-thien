@@ -106,7 +106,7 @@ export const PolicyCommitments: React.FC = () => {
                     </div>
 
                     {item.tag && (
-                      <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full border shadow-2xs ${theme.tagStyle}`}>
+                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full border shadow-2xs ${theme.tagStyle}`}>
                         {item.tag}
                       </span>
                     )}
@@ -125,7 +125,7 @@ export const PolicyCommitments: React.FC = () => {
 
                 {/* Điểm nhấn mấu chốt dưới đáy thẻ */}
                 {item.keyPoint && (
-                  <div className="mt-4 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-gray-700">
+                  <div className="mt-4 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-xs sm:text-sm font-bold text-gray-700">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                     <span>{item.keyPoint}</span>
                   </div>

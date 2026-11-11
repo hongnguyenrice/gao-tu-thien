@@ -82,16 +82,16 @@ export const CharityGuideAndFAQ: React.FC = () => {
               <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
                 Gạo Nghĩa Tình / Thiện Lành
               </h3>
-              <p className="text-xs text-stone-600 leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
                 Cơm dẻo vừa, mềm ngọt, để nguội không bị cứng. Rất phù hợp khẩu vị số đông, người cao tuổi và các em nhỏ dễ ăn.
               </p>
             </div>
             <div>
-              <div className="text-xs text-emerald-900 font-bold border-t border-amber-200/80 pt-3 flex justify-between items-center mb-3">
+              <div className="text-xs sm:text-sm text-emerald-900 font-bold border-t border-amber-200/80 pt-3 flex justify-between items-center mb-3">
                 <span>Đóng bao:</span>
                 <span className="bg-white px-2.5 py-0.5 rounded-md border border-amber-300 font-extrabold">5kg - 10kg</span>
               </div>
-              <Link href="/gao-phat-qua-tu-thien/" className="text-xs font-extrabold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
+              <Link href="/gao-phat-qua-tu-thien/" className="text-xs sm:text-sm font-extrabold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
                 Cẩm nang chọn gạo phát quà <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -109,16 +109,16 @@ export const CharityGuideAndFAQ: React.FC = () => {
               <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
                 Gạo Sẻ Chia (Nở Xốp)
               </h3>
-              <p className="text-xs text-stone-600 leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
                 Đặc tính nở nhiều, rất dôi cơm, hạt cơm khô ráo chan canh không nhão. Tối đa hóa số suất cơm trên từng bao gạo với chi phí rẻ nhất.
               </p>
             </div>
             <div>
-              <div className="text-xs text-emerald-900 font-bold border-t border-emerald-200/80 pt-3 flex justify-between items-center mb-3">
+              <div className="text-xs sm:text-sm text-emerald-900 font-bold border-t border-emerald-200/80 pt-3 flex justify-between items-center mb-3">
                 <span>Đóng bao:</span>
                 <span className="bg-white px-2.5 py-0.5 rounded-md border border-emerald-300 font-extrabold">25kg - 50kg</span>
               </div>
-              <Link href="/chon-gao-cho-bep-an-tu-thien/" className="text-xs font-extrabold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
+              <Link href="/chon-gao-cho-bep-an-tu-thien/" className="text-xs sm:text-sm font-extrabold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 group">
                 Bí quyết nấu dôi cơm 0 đồng <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -136,16 +136,16 @@ export const CharityGuideAndFAQ: React.FC = () => {
               <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
                 Gạo Tấm Tình Thương
               </h3>
-              <p className="text-xs text-stone-600 leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
                 Hạt tấm nguyên phôi dinh dưỡng, nấu nhanh nhừ, nước cháo sánh mịn và ngọt thơm tự nhiên. Tiết kiệm thời gian ninh hầm cho tình nguyện viên.
               </p>
             </div>
             <div>
-              <div className="text-xs text-teal-900 font-bold border-t border-teal-200/80 pt-3 flex justify-between items-center mb-3">
+              <div className="text-xs sm:text-sm text-teal-900 font-bold border-t border-teal-200/80 pt-3 flex justify-between items-center mb-3">
                 <span>Đóng bao:</span>
                 <span className="bg-white px-2.5 py-0.5 rounded-md border border-teal-300 font-extrabold">10kg - 25kg</span>
               </div>
-              <Link href="/chon-gao-cho-bep-an-tu-thien/#bang-gia-bep-an" className="text-xs font-extrabold text-teal-800 hover:text-teal-950 flex items-center gap-1 group">
+              <Link href="/chon-gao-cho-bep-an-tu-thien/#bang-gia-bep-an" className="text-xs sm:text-sm font-extrabold text-teal-800 hover:text-teal-950 flex items-center gap-1 group">
                 Xem bảng giá tấm nấu cháo <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -163,16 +163,16 @@ export const CharityGuideAndFAQ: React.FC = () => {
               <h3 className="text-lg font-black text-stone-900 mt-3 mb-2">
                 Gạo ST25 Thượng Hạng
               </h3>
-              <p className="text-xs text-stone-600 leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
                 Hạt gạo dài bóng ngọc, vị cơm dẻo mềm hảo hạng thơm mùi lá dứa tự nhiên. Thể hiện trọn vẹn lòng thành kính khi dâng cúng Tam Bảo.
               </p>
             </div>
             <div>
-              <div className="text-xs text-purple-900 font-bold border-t border-purple-200/80 pt-3 flex justify-between items-center mb-3">
+              <div className="text-xs sm:text-sm text-purple-900 font-bold border-t border-purple-200/80 pt-3 flex justify-between items-center mb-3">
                 <span>Đóng bao:</span>
                 <span className="bg-white px-2.5 py-0.5 rounded-md border border-purple-300 font-extrabold">5kg - 25kg</span>
               </div>
-              <Link href="/gao-cung-duong-chua/" className="text-xs font-extrabold text-purple-800 hover:text-purple-950 flex items-center gap-1 group">
+              <Link href="/gao-cung-duong-chua/" className="text-xs sm:text-sm font-extrabold text-purple-800 hover:text-purple-950 flex items-center gap-1 group">
                 Gạo ST25 cúng dường chùa <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

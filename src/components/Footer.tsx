@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
             <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
               Chi Nhánh & Nhà Máy
             </h3>
-            <div className="text-xs space-y-2.5">
+            <div className="text-xs sm:text-sm space-y-2.5">
               {BRAND_INFO.branches.map((b) => (
                 <div key={b.id} className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
                       href={mapsSearchUrl(b.address)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block text-[11px] text-amber-300 hover:underline"
+                      className="block text-xs text-amber-300 hover:underline mt-0.5"
                     >
                       {b.isMain ? '(Bản đồ Google Maps – Có hình ảnh & video thực tế)' : '(Xem bản đồ Google Maps)'}
                     </a>
@@ -102,7 +102,7 @@ export const Footer: React.FC = () => {
                     href={mapsSearchUrl(BRAND_INFO.factory.address)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-[11px] text-amber-300 hover:underline"
+                    className="block text-xs text-amber-300 hover:underline mt-0.5"
                   >
                     (Xem bản đồ Google Maps)
                   </a>
@@ -113,10 +113,10 @@ export const Footer: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-amber-400 shrink-0" />
                   <span>
-                    Hotline & Zalo: <strong className="text-white text-sm">{PHONE_DISPLAY}</strong>
+                    Hotline & Zalo: <strong className="text-white text-base">{PHONE_DISPLAY}</strong>
                   </span>
                 </div>
-                <div className="text-[11px] text-amber-300">
+                <div className="text-xs text-amber-300">
                   (Một số duy nhất phụ trách tư vấn, báo giá và tiếp nhận đơn)
                 </div>
               </div>

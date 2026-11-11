@@ -91,7 +91,7 @@ export const PackagingModal: React.FC<PackagingModalProps> = ({
               Bao 10kg Gia Đình ({PACKAGING_MODELS.filter((p) => p.weightCategory === '10kg').length})
             </button>
           </div>
-          <span className="text-[11px] text-emerald-700 font-bold hidden sm:inline-flex items-center gap-1 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+          <span className="text-xs text-emerald-700 font-bold hidden sm:inline-flex items-center gap-1 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
             <Sparkles className="w-3.5 h-3.5" /> Miễn phí đóng gói đơn từ 1 tấn
           </span>
         </div>
@@ -120,10 +120,10 @@ export const PackagingModal: React.FC<PackagingModalProps> = ({
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 640px) 50vw, 25vw"
                     />
-                    <div className="absolute top-2 left-2 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    <div className="absolute top-2 left-2 bg-black/60 backdrop-blur-xs text-white text-xs font-black px-2 py-0.5 rounded-full">
                       {model.weightCategory.toUpperCase()}
                     </div>
-                    <div className="absolute top-2 right-2 bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-xs">
+                    <div className="absolute top-2 right-2 bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-xs">
                       {model.tag}
                     </div>
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -136,10 +136,10 @@ export const PackagingModal: React.FC<PackagingModalProps> = ({
                   {/* Info & action */}
                   <div className="p-3 flex-1 flex flex-col justify-between space-y-2">
                     <div>
-                      <h4 className="font-bold text-gray-900 text-xs leading-snug line-clamp-1">
+                      <h4 className="font-bold text-gray-900 text-sm leading-snug line-clamp-1">
                         {model.name}
                       </h4>
-                      <p className="text-[11px] text-gray-500 line-clamp-2 mt-1">
+                      <p className="text-xs text-gray-600 line-clamp-2 mt-1">
                         {model.suitableFor}
                       </p>
                     </div>

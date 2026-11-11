@@ -87,7 +87,7 @@ export const WarehouseNetwork: React.FC = () => {
             <Clock className="w-3.5 h-3.5 text-emerald-700" />
             <span>Mở cửa toàn hệ thống: <strong>07:00 – 20:00</strong> (Cả CN & Lễ)</span>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse ml-1" />
-            <span className="text-[11px] font-black text-emerald-800 bg-emerald-100/80 px-2 py-0.2 rounded-full">{isOpen ? 'Đang mở' : 'Zalo 24/7'}</span>
+            <span className="text-xs font-black text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full">{isOpen ? 'Đang mở' : 'Zalo 24/7'}</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-black text-stone-900 tracking-tight">
@@ -122,11 +122,11 @@ export const WarehouseNetwork: React.FC = () => {
                   </span>
                   <div className="flex items-center gap-1 overflow-hidden">
                     {b.isMain && (
-                      <span className="text-[10px] font-black text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-full flex items-center gap-0.5 shrink-0">
+                      <span className="text-xs font-black text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-full flex items-center gap-0.5 shrink-0">
                         <Star className="w-2.5 h-2.5 fill-amber-500 text-amber-500" /> Trụ sở chính
                       </span>
                     )}
-                    <span className="text-[11px] sm:text-xs font-extrabold text-emerald-900 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full truncate">
+                    <span className="text-xs sm:text-sm font-extrabold text-emerald-900 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full truncate">
                       {b.area}
                     </span>
                   </div>
@@ -154,7 +154,7 @@ export const WarehouseNetwork: React.FC = () => {
                       href={GOOGLE_MAPS_PLACE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 px-2 py-0.5 rounded-md transition"
+                      className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 px-2.5 py-1 rounded-md transition"
                       title="Xem ảnh và video thực tế cửa hàng trên Google Maps"
                     >
                       <Camera className="w-3 h-3 text-emerald-700" />
@@ -205,7 +205,7 @@ export const WarehouseNetwork: React.FC = () => {
                 <span className="w-8 h-8 rounded-xl bg-white/20 text-white flex items-center justify-center shrink-0 border border-white/20">
                   <Factory className="w-4 h-4 text-amber-300" />
                 </span>
-                <span className="text-[11px] sm:text-xs font-black text-amber-300 bg-white/10 px-2.5 py-0.5 rounded-full truncate border border-white/20">
+                <span className="text-xs sm:text-sm font-black text-amber-300 bg-white/10 px-2.5 py-0.5 rounded-full truncate border border-white/20">
                   {BRAND_INFO.factory.area}
                 </span>
               </div>
@@ -341,11 +341,11 @@ export const WarehouseNetwork: React.FC = () => {
                   <div className="flex flex-col items-center justify-center p-6 text-center text-stone-500">
                     <MapPin className="w-8 h-8 text-emerald-600 animate-bounce mb-2" />
                     <span className="text-xs font-bold text-stone-700">Bản Đồ Google Maps Vựa Gạo Sóc Trăng</span>
-                    <span className="text-[11px] text-stone-600 mt-1">Đang kết nối vệ tinh và dữ liệu đường đi...</span>
+                    <span className="text-xs text-stone-600 mt-1">Đang kết nối vệ tinh và dữ liệu đường đi...</span>
                   </div>
                 )}
               </div>
-              <p className="text-[11px] text-stone-500 mt-2 flex items-center gap-1.5">
+              <p className="text-xs text-stone-600 mt-2 flex items-center gap-1.5">
                 <Navigation className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>Bản đồ tương tác trực tiếp: Phóng to, thu nhỏ hoặc bấm &quot;Chỉ đường&quot; để lái xe đến tận cửa kho.</span>
               </p>
@@ -478,19 +478,19 @@ export const WarehouseNetwork: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-xs text-gray-800">
               <div className="flex items-center gap-1.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-100">
                 <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span className="font-medium text-[11px] sm:text-xs">Giá xuất xưởng 0 qua trung gian</span>
+                <span className="font-semibold text-xs sm:text-sm">Giá xuất xưởng 0 qua trung gian</span>
               </div>
               <div className="flex items-center gap-1.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-100">
                 <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span className="font-medium text-[11px] sm:text-xs">Xe tải hỏa tốc từ kho gần nhất</span>
+                <span className="font-semibold text-xs sm:text-sm">Xe tải hỏa tốc từ kho gần nhất</span>
               </div>
               <div className="flex items-center gap-1.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-100">
                 <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span className="font-medium text-[11px] sm:text-xs">Chở tải từ 500kg – 10 tấn</span>
+                <span className="font-semibold text-xs sm:text-sm">Chở tải từ 500kg – 10 tấn</span>
               </div>
               <div className="flex items-center gap-1.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-100">
                 <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span className="font-medium text-[11px] sm:text-xs">Hỗ trợ khuân vác vào sảnh chùa</span>
+                <span className="font-semibold text-xs sm:text-sm">Hỗ trợ khuân vác vào sảnh chùa</span>
               </div>
             </div>
           </div>

@@ -169,11 +169,11 @@ export const CartDrawer: React.FC = () => {
                       >
                         <div className="flex justify-between items-start">
                           <div>
-                            <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">
+                            <span className="text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">
                               {item.product.category}
                             </span>
-                            <h4 className="font-bold text-gray-900 text-sm mt-1">{item.product.name}</h4>
-                            <span className="text-xs text-gray-500 font-medium block">
+                            <h4 className="font-bold text-gray-900 text-sm sm:text-base mt-1">{item.product.name}</h4>
+                            <span className="text-xs sm:text-sm text-gray-600 font-medium block">
                               Quy cách: {item.packagingChoice} (Miễn phí 100%)
                             </span>
                           </div>
@@ -187,9 +187,9 @@ export const CartDrawer: React.FC = () => {
                         </div>
 
                         {/* Số lượng kg và giá */}
-                        <div className="flex items-center justify-between pt-2 border-t border-gray-50 text-xs">
+                        <div className="flex items-center justify-between pt-2 border-t border-gray-50 text-xs sm:text-sm">
                           <div className="flex items-center gap-2">
-                            <span className="text-gray-500">Số lượng:</span>
+                            <span className="text-gray-600 font-medium">Số lượng:</span>
                             <input
                               type="number"
                               min="10"
@@ -198,12 +198,12 @@ export const CartDrawer: React.FC = () => {
                               onChange={(e) => updateQuantity(item.product.id, Number(e.target.value))}
                               className="w-20 font-bold border border-gray-300 rounded-lg px-2 py-1 text-center"
                             />
-                            <span className="font-semibold text-gray-700">kg</span>
+                            <span className="font-bold text-gray-800">kg</span>
                           </div>
 
                           <div className="text-right">
-                            <div className="text-xs text-gray-400">{pricePerKg.toLocaleString('vi-VN')} đ/kg</div>
-                            <div className="font-black text-amber-700 text-sm">
+                            <div className="text-xs text-gray-500">{pricePerKg.toLocaleString('vi-VN')} đ/kg</div>
+                            <div className="font-black text-amber-700 text-sm sm:text-base">
                               {itemTotal.toLocaleString('vi-VN')} đ
                             </div>
                           </div>
@@ -214,13 +214,13 @@ export const CartDrawer: React.FC = () => {
 
                   {/* Nơi nhận từ thiện nếu đã chọn */}
                   {orderDetails.recipient.isCharityPartner && (
-                    <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-2xl text-xs space-y-1">
+                    <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-2xl text-xs sm:text-sm space-y-1">
                       <div className="flex items-center gap-1.5 font-bold text-rose-900">
                         <Heart className="w-4 h-4 fill-rose-600 text-rose-600" />
                         Đang chọn giao trực tiếp đến điểm từ thiện:
                       </div>
                       <div className="font-semibold text-gray-800">{orderDetails.recipient.partnerName}</div>
-                      <div className="text-gray-500 text-[11px]">{orderDetails.recipient.recipientAddress}</div>
+                      <div className="text-gray-600 text-xs">{orderDetails.recipient.recipientAddress}</div>
                     </div>
                   )}
                 </div>
@@ -402,7 +402,7 @@ export const CartDrawer: React.FC = () => {
                 <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-left text-xs space-y-2">
                   <div className="font-bold text-amber-900 border-b border-amber-200 pb-1.5 flex justify-between items-center">
                     <span>Thông Tin Đơn Vừa Đặt</span>
-                    <span className="text-[11px] text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full font-semibold">Đã gửi Telegram kho</span>
+                    <span className="text-xs text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full font-bold">Đã gửi Telegram kho</span>
                   </div>
                   <div><strong>Người liên hệ:</strong> {lastSubmittedSummary.customerName} ({lastSubmittedSummary.customerPhone})</div>
                   <div><strong>Tổng khối lượng:</strong> {lastSubmittedSummary.totalKg.toLocaleString('vi-VN')} kg</div>

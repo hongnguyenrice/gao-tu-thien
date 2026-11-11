@@ -115,7 +115,7 @@ export const ProductList: React.FC = () => {
               >
                 <TableProperties className="w-3.5 h-3.5 text-amber-400" />
                 <span>Bảng So Sánh Giá</span>
-                <span className="text-[10px] font-black uppercase tracking-wider bg-white/20 text-white px-1.5 py-0.2 rounded-full">
+                <span className="text-xs font-black uppercase tracking-wider bg-white/20 text-white px-2 py-0.5 rounded-full">
                   Mặc định
                 </span>
               </button>
@@ -142,9 +142,9 @@ export const ProductList: React.FC = () => {
           <div>
             {/* 1. BẢNG SO SÁNH GIÁ TRÊN MOBILE (Danh sách tối ưu chạm vuốt) */}
             <div className="md:hidden bg-white rounded-3xl border border-stone-200/90 shadow-luxury overflow-hidden p-4 space-y-3 animate-in fade-in duration-200">
-              <div className="flex items-center justify-between text-xs pb-2 border-b border-stone-100">
+              <div className="flex items-center justify-between text-xs sm:text-sm pb-2 border-b border-stone-100">
                 <span className="font-bold text-stone-800">So sánh 6 dòng gạo từ thiện:</span>
-                <span className="text-[11px] text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/80">
+                <span className="text-xs sm:text-sm text-emerald-800 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200/80">
                   Giá sỉ tự giảm theo số kg
                 </span>
               </div>
@@ -161,14 +161,14 @@ export const ProductList: React.FC = () => {
                       <div className="flex items-start justify-between gap-2">
                         <div>
                           <div className="flex items-center gap-1.5 flex-wrap">
-                            <span className="font-black text-stone-900 text-sm">{p.name}</span>
+                            <span className="font-black text-stone-900 text-base">{p.name}</span>
                             {p.isPopular && (
-                              <span className="bg-rose-100 text-rose-700 text-[10px] font-black px-2 py-0.5 rounded-full shrink-0 border border-rose-200">
+                              <span className="bg-rose-100 text-rose-700 text-xs font-black px-2 py-0.5 rounded-full shrink-0 border border-rose-200">
                                 Bán chạy nhất
                               </span>
                             )}
                           </div>
-                          <div className="text-[11px] text-stone-500 mt-0.5">
+                          <div className="text-xs text-stone-600 mt-0.5">
                             Độ dẻo: <span className="text-amber-500 font-black">{'★'.repeat(p.characteristics.softness)}</span>
                             <span className="text-stone-300 font-normal">{'★'.repeat(5 - p.characteristics.softness)}</span>
                             {' • '}{p.category}
@@ -176,14 +176,14 @@ export const ProductList: React.FC = () => {
                         </div>
 
                         <div className="text-right shrink-0">
-                          <div className="text-xs font-black text-emerald-900">
+                          <div className="text-sm font-black text-emerald-900">
                             {minPrice.toLocaleString('vi-VN')} đ – {maxPrice.toLocaleString('vi-VN')} đ
                           </div>
-                          <span className="text-[10px] text-stone-500 block">VNĐ/kg</span>
+                          <span className="text-xs text-stone-500 block">VNĐ/kg</span>
                         </div>
                       </div>
 
-                      <div className="text-xs text-stone-600 line-clamp-1 bg-white/80 p-2 rounded-xl border border-stone-100">
+                      <div className="text-xs sm:text-sm text-stone-700 line-clamp-1 bg-white/80 p-2 rounded-xl border border-stone-100">
                         🎯 <strong>Khuyên dùng:</strong> {p.characteristics.suitability}
                       </div>
 
@@ -194,7 +194,7 @@ export const ProductList: React.FC = () => {
                             setViewMode('carousel');
                             setTimeout(() => scrollToCard(idx), 80);
                           }}
-                          className="flex-1 py-2 px-3 bg-gradient-to-r from-emerald-700 to-emerald-800 hover:from-emerald-800 hover:to-emerald-900 text-white font-bold text-xs rounded-xl shadow-xs active:scale-95 transition text-center flex items-center justify-center gap-1"
+                          className="flex-1 py-2 px-3 bg-gradient-to-r from-emerald-700 to-emerald-800 hover:from-emerald-800 hover:to-emerald-900 text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs active:scale-95 transition text-center flex items-center justify-center gap-1"
                         >
                           <ShoppingCart className="w-3.5 h-3.5" />
                           <span>Chọn Đặt / Tính Giá</span>
@@ -266,7 +266,7 @@ export const ProductList: React.FC = () => {
                             <div className="font-extrabold text-stone-900 text-base">{p.name}</div>
                             <div className="text-xs text-stone-500">{p.category}</div>
                             {p.isPopular && (
-                              <span className="inline-block mt-1 bg-rose-100 text-rose-700 text-[10px] font-black px-2 py-0.2 rounded-full border border-rose-200">
+                              <span className="inline-block mt-1 bg-rose-100 text-rose-700 text-xs font-black px-2 py-0.5 rounded-full border border-rose-200">
                                 Bán chạy nhất
                               </span>
                             )}
@@ -601,11 +601,11 @@ const ProductCard: React.FC<{
       <div className={`p-3.5 sm:p-4 border-b border-gray-100 ${theme.headerBg}`}>
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className={`text-[11px] font-bold px-2 py-0.5 rounded ${theme.categoryBadge}`}>
+            <span className={`text-xs font-bold px-2 py-0.5 rounded ${theme.categoryBadge}`}>
               {product.category}
             </span>
             {product.isPopular && (
-              <span className="bg-rose-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs flex items-center gap-1 shrink-0">
+              <span className="bg-rose-600 text-white text-xs font-black px-2 py-0.5 rounded-full shadow-xs flex items-center gap-1 shrink-0">
                 <Star className="w-3 h-3 fill-white" /> Đoàn chọn nhiều
               </span>
             )}
@@ -613,7 +613,7 @@ const ProductCard: React.FC<{
           <button
             type="button"
             onClick={onOpenDetails}
-            className={`text-xs font-bold underline flex items-center gap-0.5 shrink-0 ${theme.linkText}`}
+            className={`text-xs sm:text-sm font-bold underline flex items-center gap-0.5 shrink-0 ${theme.linkText}`}
           >
             <span>Chi tiết hạt & cơm</span>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -625,7 +625,7 @@ const ProductCard: React.FC<{
         </h3>
 
         {/* 1 DÒNG GỘP ĐẶC TÍNH: Dẻo, Thơm và mô tả ngắn gọn */}
-        <div className="text-xs text-gray-700 mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 min-h-[20px]">
+        <div className="text-xs sm:text-sm text-gray-700 mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 min-h-[20px]">
           <span className={`font-semibold ${theme.starColor}`}>
             Dẻo: {'★'.repeat(product.characteristics.softness)}{'☆'.repeat(5 - product.characteristics.softness)}
           </span>
@@ -686,12 +686,12 @@ const ProductCard: React.FC<{
           {/* CHỌN KHỐI LƯỢNG: 4 Nút + Ô tự nhập trên 1 hàng */}
           <div className="mt-2.5">
             <div className="flex justify-between items-center mb-1">
-              <label className="text-xs font-bold text-gray-800">Số lượng cần (kg):</label>
+              <label className="text-xs sm:text-sm font-bold text-gray-800">Số lượng cần (kg):</label>
               {upsell && (
                 <button
                   type="button"
                   onClick={() => setSelectedKg(upsell.targetKg)}
-                  className="text-[11px] font-bold text-amber-800 hover:text-amber-950 underline"
+                  className="text-xs font-bold text-amber-800 hover:text-amber-950 underline"
                 >
                   💡 {upsell.text}
                 </button>
@@ -708,7 +708,7 @@ const ProductCard: React.FC<{
                   key={btn.kg}
                   type="button"
                   onClick={() => setSelectedKg(btn.kg)}
-                  className={`flex-1 py-1.5 text-xs font-bold rounded-lg border transition ${
+                  className={`flex-1 py-1.5 text-xs sm:text-sm font-bold rounded-lg border transition ${
                     selectedKg === btn.kg
                       ? tierVisual.activeBtn
                       : 'bg-white text-gray-800 border-gray-300 hover:bg-gray-50'
@@ -724,7 +724,7 @@ const ProductCard: React.FC<{
                   step="10"
                   value={selectedKg}
                   onChange={(e) => setSelectedKg(Math.max(1, Number(e.target.value)))}
-                  className="w-full text-xs font-bold border border-gray-300 rounded-lg py-1.5 px-1.5 text-center focus:outline-none focus:ring-1 focus:ring-amber-500 bg-white"
+                  className="w-full text-xs sm:text-sm font-bold border border-gray-300 rounded-lg py-1.5 px-1.5 text-center focus:outline-none focus:ring-1 focus:ring-amber-500 bg-white"
                   placeholder="Khác"
                   title="Nhập số kg tùy ý"
                 />
@@ -735,13 +735,13 @@ const ProductCard: React.FC<{
           {/* QUY CÁCH BAO BÌ: 1 dòng + dropdown (Xóa hộp xanh thừa) */}
           <div className="mt-2.5">
             <div className="flex justify-between items-center mb-1">
-              <label className="text-xs font-bold text-gray-800">
+              <label className="text-xs sm:text-sm font-bold text-gray-800">
                 Đóng gói <span className="text-emerald-700 font-extrabold">(Miễn phí 100%)</span>:
               </label>
               <button
                 type="button"
                 onClick={() => setIsPackagingModalOpen(true)}
-                className="text-xs font-bold text-amber-800 hover:text-amber-950 underline flex items-center gap-1"
+                className="text-xs sm:text-sm font-bold text-amber-800 hover:text-amber-950 underline flex items-center gap-1"
               >
                 <Package className="w-3.5 h-3.5 text-amber-700" />
                 <span>{chosenPackagingModel ? chosenPackagingModel.name : 'Xem 16 mẫu ➔'}</span>
@@ -754,7 +754,7 @@ const ProductCard: React.FC<{
                 setSelectedPackaging(e.target.value);
                 setChosenPackagingModel(null);
               }}
-              className="w-full text-xs font-medium border border-gray-300 rounded-lg px-2.5 py-1.5 bg-white focus:outline-none focus:ring-1 focus:ring-amber-500"
+              className="w-full text-xs sm:text-sm font-medium border border-gray-300 rounded-lg px-2.5 py-1.5 bg-white focus:outline-none focus:ring-1 focus:ring-amber-500"
             >
               {product.packaging.map((pack) => (
                 <option key={pack} value={pack}>{pack}</option>
@@ -766,14 +766,14 @@ const ProductCard: React.FC<{
         {/* TẠM TÍNH & 2 NÚT HÀNH ĐỘNG TRÊN 1 HÀNG DUY NHẤT */}
         <div className="pt-2.5 border-t border-gray-200 mt-auto space-y-2">
           <div className="flex justify-between items-baseline">
-            <span className="text-xs text-gray-600">
+            <span className="text-xs sm:text-sm text-gray-600">
               Tạm tính ({selectedKg}kg):
             </span>
             <div className="text-right flex items-baseline gap-1.5">
               <span className={`text-xl font-black ${tierVisual.totalColor}`}>
                 {(currentPrice * selectedKg).toLocaleString('vi-VN')} đ
               </span>
-              <span className="text-[11px] text-gray-500">
+              <span className="text-xs text-gray-500">
                 ({currentPrice.toLocaleString('vi-VN')} đ/kg)
               </span>
             </div>
@@ -805,7 +805,7 @@ const ProductCard: React.FC<{
               href={zaloNegotiateUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="col-span-5 py-2.5 px-2 bg-gradient-to-r from-sky-50 to-blue-50 hover:from-sky-100 hover:to-blue-100 text-blue-950 border border-blue-200/90 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition active:scale-95 text-center shadow-2xs"
+              className="col-span-5 py-2.5 px-2 bg-gradient-to-r from-sky-50 to-blue-50 hover:from-sky-100 hover:to-blue-100 text-blue-950 border border-blue-200/90 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1 transition active:scale-95 text-center shadow-2xs"
               title="Nhắn Zalo xin mẫu gạo & đàm phán giá tốt nhất"
             >
               <MessageCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" />
@@ -813,7 +813,7 @@ const ProductCard: React.FC<{
             </a>
           </div>
 
-          <div className="text-[10px] text-gray-500 text-center">
+          <div className="text-xs text-gray-500 text-center">
             * Giá chuẩn bao 25kg tại kho • Hỗ trợ VAT 5% • Miễn phí ship từ 500kg
           </div>
         </div>

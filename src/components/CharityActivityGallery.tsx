@@ -220,7 +220,7 @@ export const CharityActivityGallery: React.FC = () => {
                 
                 {/* Badge Tag góc trên trái */}
                 <div className="absolute top-3 left-3">
-                  <span className="inline-flex items-center gap-1 bg-emerald-700/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-xs backdrop-blur-xs">
+                  <span className="inline-flex items-center gap-1 bg-emerald-700/90 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-xs backdrop-blur-xs">
                     <CheckCircle2 className="w-3 h-3 text-emerald-300" /> {act.tag}
                   </span>
                 </div>
@@ -234,7 +234,7 @@ export const CharityActivityGallery: React.FC = () => {
               {/* Thông tin chuyển xuống dưới ảnh: Thoáng và rõ ràng */}
               <div className="p-4 flex-1 flex flex-col justify-between bg-white space-y-2.5">
                 <div>
-                  <span className="text-[11px] font-semibold text-amber-800 flex items-center gap-1 truncate">
+                  <span className="text-xs sm:text-sm font-bold text-amber-800 flex items-center gap-1 truncate">
                     📍 {act.location}
                   </span>
                   <h3 className="font-black text-sm sm:text-base text-gray-900 mt-1 leading-snug group-hover:text-emerald-800 transition-colors">
@@ -245,17 +245,17 @@ export const CharityActivityGallery: React.FC = () => {
                   </p>
 
                   {/* Nhãn nghiệp vụ thực tế */}
-                  <div className="mt-2.5 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-lg border border-emerald-200/70">
+                  <div className="mt-2.5 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-200/70">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                     <span>{act.spec}</span>
                   </div>
                 </div>
 
                 {/* Chân thẻ */}
-                <div className="pt-2.5 border-t border-gray-100 flex items-center justify-between text-[11px]">
+                <div className="pt-2.5 border-t border-gray-100 flex items-center justify-between text-xs">
                   <span className="font-bold text-emerald-800">Vựa Gạo Sóc Trăng</span>
                   <span className="text-gray-500 flex items-center gap-1 font-medium group-hover:text-emerald-700 transition">
-                    <Camera className="w-3 h-3 text-gray-400" /> Chạm xem ảnh lớn ➔
+                    <Camera className="w-3.5 h-3.5 text-gray-400" /> Chạm xem ảnh lớn ➔
                   </span>
                 </div>
               </div>
@@ -323,7 +323,7 @@ export const CharityActivityGallery: React.FC = () => {
                   Trình duyệt không hỗ trợ xem video.
                 </video>
               </div>
-              <span className="mt-2 text-[11px] text-blue-200 flex items-center gap-1">
+              <span className="mt-2 text-xs text-blue-200 flex items-center gap-1">
                 <Play className="w-3 h-3 fill-blue-300 text-blue-300" /> Bấm để xem clip giao gạo thực tế
               </span>
             </div>

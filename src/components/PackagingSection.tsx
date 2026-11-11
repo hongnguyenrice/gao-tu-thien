@@ -65,7 +65,7 @@ export const PackagingSection: React.FC<PackagingSectionProps> = ({ mode = 'feat
         {/* Thanh cuộn ngang trên Mobile / Lưới 5 ô trên Desktop */}
         <div className="mt-8">
           {/* Gợi ý vuốt ngang trên mobile */}
-          <div className="flex md:hidden items-center justify-between text-[11px] text-gray-500 mb-2 px-1">
+          <div className="flex md:hidden items-center justify-between text-xs text-stone-600 mb-2 px-1">
             <span>4 mẫu tiêu biểu + kho 12 mẫu</span>
             <span className="text-amber-800 font-semibold">Vuốt ngang để xem ➔</span>
           </div>
@@ -86,14 +86,14 @@ export const PackagingSection: React.FC<PackagingSectionProps> = ({ mode = 'feat
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 640px) 70vw, (max-width: 1024px) 33vw, 20vw"
                   />
-                  <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-xs text-white text-[10px] font-black px-2 py-0.5 rounded-full">
+                  <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-xs text-white text-xs font-black px-2 py-0.5 rounded-full">
                     {model.weightCategory.toUpperCase()}
                   </div>
-                  <div className="absolute top-2 right-2 bg-amber-800 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-xs">
+                  <div className="absolute top-2 right-2 bg-amber-800 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-xs">
                     {model.tag}
                   </div>
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <span className="bg-white/95 text-gray-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow-md flex items-center gap-1.5">
+                    <span className="bg-white/95 text-gray-900 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-xl shadow-md flex items-center gap-1.5">
                       <Eye className="w-3.5 h-3.5 text-amber-700" /> Phóng to
                     </span>
                   </div>
@@ -102,15 +102,15 @@ export const PackagingSection: React.FC<PackagingSectionProps> = ({ mode = 'feat
                 {/* Thông tin thẻ */}
                 <div className="p-3 flex-1 flex flex-col justify-between bg-white space-y-1.5">
                   <div>
-                    <h3 className="font-bold text-gray-900 text-xs leading-snug line-clamp-1 group-hover:text-amber-800 transition">
+                    <h3 className="font-bold text-gray-900 text-sm sm:text-base leading-snug line-clamp-1 group-hover:text-amber-800 transition">
                       {model.name}
                     </h3>
-                    <p className="text-[11px] text-gray-500 line-clamp-1 mt-0.5">
+                    <p className="text-xs sm:text-sm text-gray-600 line-clamp-1 mt-0.5">
                       {model.suitableFor}
                     </p>
                   </div>
 
-                  <div className="pt-1.5 border-t border-gray-100 flex items-center justify-between text-[10px]">
+                  <div className="pt-1.5 border-t border-gray-100 flex items-center justify-between text-xs">
                     <span className="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded">
                       Chụp thật tại kho
                     </span>
@@ -131,18 +131,18 @@ export const PackagingSection: React.FC<PackagingSectionProps> = ({ mode = 'feat
                 <div className="w-12 h-12 rounded-2xl bg-amber-600 text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform mb-3">
                   <Package className="w-6 h-6" />
                 </div>
-                <div className="text-xs font-black text-amber-900 uppercase tracking-wide">
+                <div className="text-xs sm:text-sm font-black text-amber-900 uppercase tracking-wide">
                   +12 Mẫu Sẵn Kho
                 </div>
-                <h3 className="text-sm font-extrabold text-gray-900 mt-1">
+                <h3 className="text-sm sm:text-base font-extrabold text-gray-900 mt-1">
                   Xem Trọn Bộ 16 Mẫu
                 </h3>
-                <p className="text-[11px] text-gray-600 mt-1 leading-relaxed line-clamp-2">
+                <p className="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed line-clamp-2">
                   Bao Thần Tài, Mai Vàng Tứ Quý, Long Lài, Bồ Câu Hòa Bình...
                 </p>
                 <button
                   type="button"
-                  className="mt-3 px-3.5 py-1.5 bg-amber-700 group-hover:bg-amber-800 text-white text-xs font-bold rounded-xl shadow-xs transition"
+                  className="mt-3 px-3.5 py-1.5 bg-amber-700 group-hover:bg-amber-800 text-white text-xs sm:text-sm font-bold rounded-xl shadow-xs transition"
                 >
                   Mở Bộ Sưu Tập ➔
                 </button>

@@ -45,22 +45,22 @@ export const Hero: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 py-1">
               <div className="bg-white/90 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-emerald-200/70 shadow-xs hover:border-emerald-400 hover:shadow-md transition-all duration-300 text-center">
                 <div className="text-lg sm:text-xl font-black text-emerald-800">4 Chi Nhánh</div>
-                <div className="text-[11px] sm:text-xs text-stone-600 font-semibold mt-0.5">Bình Dương, TP.HCM, Tây Ninh</div>
+                <div className="text-xs sm:text-sm text-stone-700 font-semibold mt-0.5">Bình Dương, TP.HCM, Tây Ninh</div>
               </div>
 
               <div className="bg-white/90 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-amber-200/70 shadow-xs hover:border-amber-400 hover:shadow-md transition-all duration-300 text-center">
                 <div className="text-lg sm:text-xl font-black text-amber-700">Nhà Máy</div>
-                <div className="text-[11px] sm:text-xs text-stone-600 font-semibold mt-0.5">Hội Cư, Đồng Tháp</div>
+                <div className="text-xs sm:text-sm text-stone-700 font-semibold mt-0.5">Hội Cư, Đồng Tháp</div>
               </div>
 
               <div className="bg-white/90 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-emerald-200/70 shadow-xs hover:border-emerald-400 hover:shadow-md transition-all duration-300 text-center">
                 <div className="text-lg sm:text-xl font-black text-emerald-800">Bao Bì 0đ</div>
-                <div className="text-[11px] sm:text-xs text-stone-600 font-semibold mt-0.5">Bao 10-25kg & đơn 1 tấn</div>
+                <div className="text-xs sm:text-sm text-stone-700 font-semibold mt-0.5">Bao 10-25kg & đơn 1 tấn</div>
               </div>
 
               <div className="bg-white/90 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-amber-200/70 shadow-xs hover:border-amber-400 hover:shadow-md transition-all duration-300 text-center">
                 <div className="text-lg sm:text-xl font-black text-amber-700">VAT 5%</div>
-                <div className="text-[11px] sm:text-xs text-stone-600 font-semibold mt-0.5">Xuất hoá đơn đoàn thể</div>
+                <div className="text-xs sm:text-sm text-stone-700 font-semibold mt-0.5">Xuất hoá đơn đoàn thể</div>
               </div>
             </div>
 
@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Bằng chứng tín nhiệm nhanh ngay dưới nút bấm */}
-            <div className="pt-1 flex items-center justify-center lg:justify-start gap-2 text-xs text-stone-600">
+            <div className="pt-1 flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm text-stone-700">
               <span className="flex text-amber-500 font-bold tracking-widest">★★★★★</span>
               <span>Được hơn <strong className="text-stone-900 font-bold">350+ Chùa & Nhóm Thiện Nguyện</strong> tin chọn</span>
             </div>
@@ -108,8 +108,8 @@ export const Hero: React.FC = () => {
                     <ShieldCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-stone-900 text-xs sm:text-sm">Chất lượng không pha trộn</h3>
-                    <p className="text-[11px] sm:text-xs text-stone-600 leading-snug mt-0.5">Tuyệt đối không pha gạo cũ mốc, không chất tạo mùi, không hóa chất bảo quản.</p>
+                    <h3 className="font-bold text-stone-900 text-sm sm:text-base">Chất lượng không pha trộn</h3>
+                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mt-1">Tuyệt đối không pha gạo cũ mốc, không chất tạo mùi, không hóa chất bảo quản.</p>
                   </div>
                 </li>
 
@@ -118,8 +118,8 @@ export const Hero: React.FC = () => {
                     <Package className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-stone-900 text-xs sm:text-sm">Đóng bao từ thiện chuyên nghiệp</h3>
-                    <p className="text-[11px] sm:text-xs text-stone-600 leading-snug mt-0.5">Bao bì đỏ/vàng trang nhã mang dòng chữ chúc phúc hoặc in decal tên Đoàn theo yêu cầu.</p>
+                    <h3 className="font-bold text-stone-900 text-sm sm:text-base">Đóng bao từ thiện chuyên nghiệp</h3>
+                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mt-1">Bao bì đỏ/vàng trang nhã mang dòng chữ chúc phúc hoặc in decal tên Đoàn theo yêu cầu.</p>
                   </div>
                 </li>
 
@@ -128,8 +128,8 @@ export const Hero: React.FC = () => {
                     <Truck className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-stone-900 text-xs sm:text-sm">Vận chuyển đúng hẹn & Bốc vác tận nơi</h3>
-                    <p className="text-[11px] sm:text-xs text-stone-600 leading-snug mt-0.5">Tài xế và phụ xe hỗ trợ khiêng vác vào tận sảnh chùa, bếp ăn, Quý Phật tử không phải bận tâm.</p>
+                    <h3 className="font-bold text-stone-900 text-sm sm:text-base">Vận chuyển đúng hẹn & Bốc vác tận nơi</h3>
+                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mt-1">Tài xế và phụ xe hỗ trợ khiêng vác vào tận sảnh chùa, bếp ăn, Quý Phật tử không phải bận tâm.</p>
                   </div>
                 </li>
 
@@ -138,8 +138,8 @@ export const Hero: React.FC = () => {
                     <FileText className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-stone-900 text-xs sm:text-sm">Đầy đủ hợp đồng & Hóa đơn VAT 5%</h3>
-                    <p className="text-[11px] sm:text-xs text-stone-600 leading-snug mt-0.5">Hỗ trợ đầy đủ hóa đơn VAT điện tử và chứng từ nguồn gốc cho doanh nghiệp, công đoàn, quỹ từ thiện.</p>
+                    <h3 className="font-bold text-stone-900 text-sm sm:text-base">Đầy đủ hợp đồng & Hóa đơn VAT 5%</h3>
+                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mt-1">Hỗ trợ đầy đủ hóa đơn VAT điện tử và chứng từ nguồn gốc cho doanh nghiệp, công đoàn, quỹ từ thiện.</p>
                   </div>
                 </li>
               </ul>

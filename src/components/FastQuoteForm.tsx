@@ -90,7 +90,7 @@ export const FastQuoteForm: React.FC = () => {
               <div className="mt-8 space-y-6">
                 {/* Chọn loại gạo */}
                 <div>
-                  <label htmlFor="select-rice-type" className="block text-xs font-bold text-stone-800 mb-2">
+                  <label htmlFor="select-rice-type" className="block text-sm font-bold text-stone-800 mb-2">
                     1. Loại Gạo Dự Kiến Sử Dụng:
                   </label>
                   <select
@@ -99,7 +99,7 @@ export const FastQuoteForm: React.FC = () => {
                     aria-label="1. Loại Gạo Dự Kiến Sử Dụng"
                     value={selectedRiceId}
                     onChange={(e) => setSelectedRiceId(e.target.value)}
-                    className="w-full text-sm font-bold border border-stone-300 rounded-xl p-3 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-2xs"
+                    className="w-full text-sm sm:text-base font-bold border border-stone-300 rounded-xl p-3 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-2xs"
                   >
                     {RICE_PRODUCTS.map((rice) => (
                       <option key={rice.id} value={rice.id}>
@@ -112,10 +112,10 @@ export const FastQuoteForm: React.FC = () => {
                 {/* Chọn số lượng kg */}
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <label htmlFor="volume-slider" className="text-xs font-bold text-stone-800">
+                    <label htmlFor="volume-slider" className="text-sm font-bold text-stone-800">
                       2. Tổng Số Lượng Cần (Kg):
                     </label>
-                    <span className="text-sm font-black text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-lg">
+                    <span className="text-sm sm:text-base font-black text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-lg">
                       {volumeKg.toLocaleString('vi-VN')} kg ({volumeKg >= 1000 ? `${(volumeKg/1000).toFixed(1)} tấn` : `${volumeKg} kg`})
                     </span>
                   </div>
@@ -139,7 +139,7 @@ export const FastQuoteForm: React.FC = () => {
                         key={v}
                         type="button"
                         onClick={() => setVolumeKg(v)}
-                        className={`text-xs px-3 py-1.5 rounded-xl border font-bold transition ${
+                        className={`text-xs sm:text-sm px-3.5 py-1.5 rounded-xl border font-bold transition ${
                           volumeKg === v
                             ? 'bg-gradient-to-r from-amber-600 to-amber-700 text-white border-amber-700 shadow-xs'
                             : 'bg-white text-stone-700 border-stone-200 hover:bg-stone-50'
@@ -154,7 +154,7 @@ export const FastQuoteForm: React.FC = () => {
                 {/* Quy cách đóng gói & Khu vực giao */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="select-packaging" className="block text-xs font-bold text-stone-800 mb-2">
+                    <label htmlFor="select-packaging" className="block text-sm font-bold text-stone-800 mb-2">
                       3. Quy Cách Đóng Bao:
                     </label>
                     <select
@@ -163,7 +163,7 @@ export const FastQuoteForm: React.FC = () => {
                       aria-label="3. Quy Cách Đóng Bao"
                       value={packagingType}
                       onChange={(e) => setPackagingType(e.target.value)}
-                      className="w-full text-xs font-semibold border border-stone-300 rounded-xl p-3 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-2xs"
+                      className="w-full text-xs sm:text-sm font-semibold border border-stone-300 rounded-xl p-3 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-2xs"
                     >
                       <option value="Bao 5kg">Túi 5kg (Thích hợp chia hộ gia đình)</option>
                       <option value="Bao 10kg">Bao 10kg (Phổ biến nhất)</option>
@@ -173,7 +173,7 @@ export const FastQuoteForm: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="select-delivery" className="block text-xs font-bold text-stone-800 mb-2">
+                    <label htmlFor="select-delivery" className="block text-sm font-bold text-stone-800 mb-2">
                       4. Khu Vực Giao Hàng:
                     </label>
                     <select
@@ -182,7 +182,7 @@ export const FastQuoteForm: React.FC = () => {
                       aria-label="4. Khu Vực Giao Hàng"
                       value={deliveryLocation}
                       onChange={(e) => setDeliveryLocation(e.target.value)}
-                      className="w-full text-xs font-semibold border border-stone-300 rounded-xl p-3 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-2xs"
+                      className="w-full text-xs sm:text-sm font-semibold border border-stone-300 rounded-xl p-3 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-2xs"
                     >
                       <option value="TP. Hồ Chí Minh">Nội thành TP. Hồ Chí Minh (Giao hỏa tốc)</option>
                       <option value="Bình Dương / Đồng Nai">Bình Dương / Đồng Nai / Long An</option>
@@ -201,7 +201,7 @@ export const FastQuoteForm: React.FC = () => {
                     onChange={(e) => setNeedVat(e.target.checked)}
                     className="w-4 h-4 text-emerald-600 rounded-sm focus:ring-emerald-500"
                   />
-                  <label htmlFor="vat-calc" className="text-xs font-semibold text-stone-700 cursor-pointer">
+                  <label htmlFor="vat-calc" className="text-xs sm:text-sm font-semibold text-stone-700 cursor-pointer">
                     Cần xuất hoá đơn tài chính VAT 5% (để quyết toán với công ty / quỹ từ thiện)
                   </label>
                 </div>
@@ -209,7 +209,7 @@ export const FastQuoteForm: React.FC = () => {
 
               {/* Bảng tổng kết dự toán cao cấp */}
               <div className="mt-8 bg-gradient-to-br from-amber-50/80 via-white to-amber-50/50 p-6 rounded-2xl border border-amber-200/90 shadow-xs">
-                <div className="space-y-2.5 text-xs text-stone-600">
+                <div className="space-y-2.5 text-xs sm:text-sm text-stone-700">
                   <div className="flex justify-between">
                     <span className="font-medium">Đơn giá áp dụng:</span>
                     <span className="font-bold text-stone-900">{unitPrice.toLocaleString('vi-VN')} đ/kg</span>
@@ -278,7 +278,7 @@ export const FastQuoteForm: React.FC = () => {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+                  <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
                     <div>
                       <label htmlFor="customer-name" className="block text-emerald-100 font-bold mb-1">
                         Họ và tên người đại diện liên hệ *:
