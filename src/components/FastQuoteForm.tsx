@@ -369,7 +369,7 @@ export const FastQuoteForm: React.FC = () => {
                   href="tel:0762234135"
                   className="mt-1 flex items-center justify-center gap-2 text-base sm:text-lg font-black text-amber-300 hover:underline"
                 >
-                  <PhoneCall className="w-4 h-4" /> 0762 234 135 (24/7)
+                  <PhoneCall className="w-4 h-4" /> 0762 234 135 (07:00 – 21:00 / Zalo 24/7)
                 </a>
               </div>
             </div>

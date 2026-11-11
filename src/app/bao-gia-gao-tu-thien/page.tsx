@@ -28,16 +28,31 @@ const CANONICAL = `${SITE_URL}/bao-gia-gao-tu-thien/`;
 export const metadata: Metadata = {
   title: 'Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc',
   description:
-    'Bảng báo giá 6 dòng gạo từ thiện độc quyền Vựa Gạo Sóc Trăng: Gạo Sẻ Chia, Gạo Nghĩa Tình, Gạo Thiện Lành, Gạo Thành Ý, Gạo ST25 Thượng Hạng, Gạo Tấm Tình Thương. Giá sỉ giảm theo nấc 300kg, 500kg, 1 tấn. Đóng túi 5kg-10kg miễn phí, giao tận nơi, xuất hóa đơn VAT.',
+    'Bảng báo giá gạo từ thiện giá sỉ tận gốc hôm nay: Gạo Sẻ Chia, Nghĩa Tình, ST25. Đóng bao 5kg-10kg miễn phí, giao xe tải tận nơi, xuất hóa đơn VAT 5%.',
   alternates: {
     canonical: CANONICAL,
   },
   openGraph: {
     title: 'Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng',
     description:
-      'Bảng giá sỉ gạo từ thiện tận xưởng Đồng Tháp và 4 chi nhánh kho. Đóng bao 5kg, 10kg, giao tận nơi, hóa đơn VAT 5%.',
+      'Bảng báo giá gạo từ thiện giá sỉ tận gốc hôm nay: Gạo Sẻ Chia, Nghĩa Tình, ST25. Đóng bao 5kg-10kg miễn phí, giao xe tải tận nơi, xuất hóa đơn VAT 5%.',
     url: CANONICAL,
     type: 'article',
+    images: [
+      {
+        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Bảng báo giá gạo từ thiện giá sỉ tận gốc',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng',
+    description:
+      'Bảng báo giá gạo từ thiện giá sỉ tận gốc hôm nay: Gạo Sẻ Chia, Nghĩa Tình, ST25. Đóng bao 5kg-10kg miễn phí, giao xe tải tận nơi, xuất hóa đơn VAT 5%.',
+    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
   },
 };
 

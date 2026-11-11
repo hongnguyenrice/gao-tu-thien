@@ -21,16 +21,31 @@ const CANONICAL = `${SITE_URL}/gao-phat-qua-tu-thien/`;
 export const metadata: Metadata = {
   title: 'Gạo Phát Quà Từ Thiện – Gạo Dẻo Mềm Đóng Bao 5kg, 10kg',
   description:
-    'Cẩm nang chọn gạo phát quà từ thiện cho hộ nghèo, người già neo đơn, trẻ em mái ấm. Gạo Nghĩa Tình, Gạo Thiện Lành, Gạo Thành Ý, Gạo ST25 dẻo ngọt, dễ ăn, để nguội không khô. Đóng bao 5kg, 10kg miễn phí, giao xe tải tận nơi.',
+    'Cẩm nang chọn gạo phát quà từ thiện cho hộ nghèo, người già, trẻ nhỏ: Gạo dẻo vừa, dễ ăn, đóng túi 5kg-10kg. Bảng dự toán chi phí 100-1.000 suất quà chi tiết.',
   alternates: {
     canonical: CANONICAL,
   },
   openGraph: {
     title: 'Gạo Phát Quà Từ Thiện – Gạo Dẻo Mềm Đóng Bao 5kg, 10kg | Vựa Gạo Sóc Trăng',
     description:
-      'Gạo Nghĩa Tình, Gạo Thiện Lành, Gạo Thành Ý, ST25 chuyên dụng chia phần phát quà tận tay bà con nghèo. Hỗ trợ đóng bao 5kg, 10kg, xe tải giao tận nơi.',
+      'Cẩm nang chọn gạo phát quà từ thiện cho hộ nghèo, người già, trẻ nhỏ: Gạo dẻo vừa, dễ ăn, đóng túi 5kg-10kg. Bảng dự toán chi phí 100-1.000 suất quà chi tiết.',
     url: CANONICAL,
     type: 'article',
+    images: [
+      {
+        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Gạo phát quà từ thiện đóng bao 5kg, 10kg',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gạo Phát Quà Từ Thiện – Gạo Dẻo Mềm Đóng Bao 5kg, 10kg | Vựa Gạo Sóc Trăng',
+    description:
+      'Cẩm nang chọn gạo phát quà từ thiện cho hộ nghèo, người già, trẻ nhỏ: Gạo dẻo vừa, dễ ăn, đóng túi 5kg-10kg. Bảng dự toán chi phí 100-1.000 suất quà chi tiết.',
+    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
   },
 };
 

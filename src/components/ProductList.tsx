@@ -170,7 +170,7 @@ export const ProductList: React.FC = () => {
                           </div>
                           <div className="text-xs text-stone-600 mt-0.5">
                             Độ dẻo: <span className="text-amber-500 font-black">{'★'.repeat(p.characteristics.softness)}</span>
-                            <span className="text-stone-300 font-normal">{'★'.repeat(5 - p.characteristics.softness)}</span>
+                            <span className="text-stone-400 font-normal">{'☆'.repeat(5 - p.characteristics.softness)}</span>
                             {' • '}{p.category}
                           </div>
                         </div>
@@ -274,11 +274,11 @@ export const ProductList: React.FC = () => {
                           <td className="py-4 px-4">
                             <div className="text-xs text-stone-600">
                               Độ dẻo: <span className="text-amber-500 font-bold">{'★'.repeat(p.characteristics.softness)}</span>
-                              <span className="text-stone-300">{'★'.repeat(5 - p.characteristics.softness)}</span>
+                              <span className="text-stone-400">{'☆'.repeat(5 - p.characteristics.softness)}</span>
                             </div>
                             <div className="text-xs text-stone-500 mt-0.5">
                               Hương thơm: <span className="text-amber-500 font-bold">{'★'.repeat(p.characteristics.fragrance)}</span>
-                              <span className="text-stone-300">{'★'.repeat(5 - p.characteristics.fragrance)}</span>
+                              <span className="text-stone-400">{'☆'.repeat(5 - p.characteristics.fragrance)}</span>
                             </div>
                           </td>
                           <td className="py-4 px-4">

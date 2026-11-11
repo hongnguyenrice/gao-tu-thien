@@ -24,32 +24,33 @@ export const metadata: Metadata = {
     template: "%s | Vựa Gạo Sóc Trăng",
   },
   description:
-    "Tổng kho chuyên cung cấp 6 dòng gạo từ thiện độc quyền Vựa Gạo Sóc Trăng: Gạo Sẻ Chia, Gạo Nghĩa Tình, Gạo Thiện Lành, Gạo Thành Ý, Gạo ST25 Thượng Hạng, Gạo Tấm Tình Thương. Giá sỉ xuất xưởng, hỗ trợ đóng bao 5kg-10kg miễn phí, giao tận nơi, xuất hóa đơn VAT.",
+    "Vựa Gạo Sóc Trăng cung cấp gạo từ thiện giá sỉ tận gốc cho chùa, bếp ăn, đoàn thiện nguyện. Đóng bao 5kg-10kg miễn phí, giao tận nơi, hóa đơn VAT 5%.",
   alternates: {
     canonical: `${SITE_URL}/`,
   },
-  keywords: [
-    "gạo từ thiện",
-    "gạo từ thiện giá sỉ",
-    "kho gạo từ thiện tphcm",
-    "đại lý gạo từ thiện bình dương",
-    "gạo từ thiện đóng bao 5kg",
-    "gạo từ thiện bao 10kg",
-    "gạo 504 làm từ thiện",
-    "gạo lài sữa từ thiện",
-    "gạo st25 từ thiện",
-    "báo giá gạo làm từ thiện",
-    "kinh nghiệm mua gạo từ thiện",
-    "gạo từ thiện xuất hóa đơn vat",
-  ],
   openGraph: {
-    title: "Gạo Từ Thiện Giá Sỉ Tận Gốc - Vựa Gạo Sóc Trăng",
+    title: "Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng",
     description:
-      "Nhà máy Đồng Tháp & 4 chi nhánh TP.HCM, Bình Dương, Tây Ninh. Đóng bao 5kg-10kg miễn phí, giao xe tải tận nơi, xuất hóa đơn VAT.",
+      "Vựa Gạo Sóc Trăng cung cấp gạo từ thiện giá sỉ tận gốc cho chùa, bếp ăn, đoàn thiện nguyện. Đóng bao 5kg-10kg miễn phí, giao tận nơi, hóa đơn VAT 5%.",
     url: `${SITE_URL}/`,
     type: "website",
     locale: "vi_VN",
     siteName: SITE_NAME,
+    images: [
+      {
+        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Vựa Gạo Sóc Trăng - Kho gạo từ thiện giá sỉ tận gốc",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng",
+    description:
+      "Vựa Gạo Sóc Trăng cung cấp gạo từ thiện giá sỉ tận gốc cho chùa, bếp ăn, đoàn thiện nguyện. Đóng bao 5kg-10kg miễn phí, giao tận nơi, hóa đơn VAT 5%.",
+    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
   },
   robots: {
     index: true,

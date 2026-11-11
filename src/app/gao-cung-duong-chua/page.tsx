@@ -21,16 +21,31 @@ const CANONICAL = `${SITE_URL}/gao-cung-duong-chua/`;
 export const metadata: Metadata = {
   title: 'Gạo Cúng Dường Chùa & Tự Viện – Gạo Thơm Thuần Khiết',
   description:
-    'Cung cấp gạo cúng dường Tam Bảo, tự viện, tịnh xá dịp lễ Vu Lan, Phật Đản, mùa An Cư Kiết Hạ. Gạo ST25 Thượng Hạng, Gạo Thành Ý, Gạo Thiện Lành dẻo thơm thuần khiết. Đóng bao 5kg, 10kg, 25kg trang nghiêm, giao tận chùa.',
+    'Gạo ST25, Jasmine cúng dường Tam Bảo, trai tăng, lễ Vu Lan, Phật Đản. Hạt gạo thơm dẻo thanh khiết, hỗ trợ kiều bào gửi gạo cúng dường giao tận cửa chùa.',
   alternates: {
     canonical: CANONICAL,
   },
   openGraph: {
     title: 'Gạo Cúng Dường Chùa & Tự Viện – Gạo Thơm Thuần Khiết | Vựa Gạo Sóc Trăng',
     description:
-      'Gạo ST25 Thượng Hạng, Gạo Thành Ý hảo hạng dâng cúng chư Tăng Ni, bổn tự. Xe tải chở giao tận sảnh chùa, hỗ trợ khuân vác chu đáo.',
+      'Gạo ST25, Jasmine cúng dường Tam Bảo, trai tăng, lễ Vu Lan, Phật Đản. Hạt gạo thơm dẻo thanh khiết, hỗ trợ kiều bào gửi gạo cúng dường giao tận cửa chùa.',
     url: CANONICAL,
     type: 'article',
+    images: [
+      {
+        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Gạo cúng dường chùa và tự viện',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gạo Cúng Dường Chùa & Tự Viện – Gạo Thơm Thuần Khiết | Vựa Gạo Sóc Trăng',
+    description:
+      'Gạo ST25, Jasmine cúng dường Tam Bảo, trai tăng, lễ Vu Lan, Phật Đản. Hạt gạo thơm dẻo thanh khiết, hỗ trợ kiều bào gửi gạo cúng dường giao tận cửa chùa.',
+    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
   },
 };
 

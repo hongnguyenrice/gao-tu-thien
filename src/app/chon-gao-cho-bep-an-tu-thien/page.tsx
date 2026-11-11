@@ -21,16 +21,31 @@ const CANONICAL = `${SITE_URL}/chon-gao-cho-bep-an-tu-thien/`;
 export const metadata: Metadata = {
   title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện, Quán Cơm 0 Đồng',
   description:
-    'Cẩm nang chọn gạo cho bếp ăn từ thiện bệnh viện, quán cơm 0 đồng, bếp chùa nấu hàng trăm suất. Gạo Sẻ Chia (IR504) nở xốp dôi cơm; Gạo Tấm Tình Thương nấu cháo sánh mịn, giá sỉ tốt nhất.',
+    'Bí quyết chọn gạo nấu bếp ăn từ thiện 0 đồng, quán cơm xã hội, cháo viện: Gạo 504 nở xốp dôi cơm, gạo tấm sánh mịn, giá sỉ tận xưởng tiết kiệm ngân sách.',
   alternates: {
     canonical: CANONICAL,
   },
   openGraph: {
     title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện, Quán Cơm 0 Đồng | Vựa Gạo Sóc Trăng',
     description:
-      'Gạo Sẻ Chia và Gạo Tấm Tình Thương sỉ tận gốc cho bếp ăn tình thương, quán cơm chay miễn phí. Giao hàng xe tải định kỳ, đóng bao 25kg, 50kg.',
+      'Bí quyết chọn gạo nấu bếp ăn từ thiện 0 đồng, quán cơm xã hội, cháo viện: Gạo 504 nở xốp dôi cơm, gạo tấm sánh mịn, giá sỉ tận xưởng tiết kiệm ngân sách.',
     url: CANONICAL,
     type: 'article',
+    images: [
+      {
+        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Chọn gạo nấu bếp ăn từ thiện, quán cơm 0 đồng',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện, Quán Cơm 0 Đồng | Vựa Gạo Sóc Trăng',
+    description:
+      'Bí quyết chọn gạo nấu bếp ăn từ thiện 0 đồng, quán cơm xã hội, cháo viện: Gạo 504 nở xốp dôi cơm, gạo tấm sánh mịn, giá sỉ tận xưởng tiết kiệm ngân sách.',
+    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
   },
 };
 

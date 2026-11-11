@@ -87,7 +87,7 @@ export const WarehouseNetwork: React.FC = () => {
             <Clock className="w-3.5 h-3.5 text-emerald-700" />
             <span>Mở cửa toàn hệ thống: <strong>07:00 – 20:00</strong> (Cả CN & Lễ)</span>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse ml-1" />
-            <span className="text-xs font-black text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full">{isOpen ? 'Đang mở' : 'Zalo 24/7'}</span>
+            <span className="text-xs font-black text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full">{isOpen ? 'Đang mở cửa' : 'Zalo tư vấn 24/7'}</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-black text-stone-900 tracking-tight">
