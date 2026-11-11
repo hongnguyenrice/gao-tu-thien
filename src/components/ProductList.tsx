@@ -13,7 +13,7 @@ export const ProductList: React.FC = () => {
   const [selectedProductForModal, setSelectedProductForModal] = useState<RiceProduct | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [mobileViewMode, setMobileViewMode] = useState<'carousel' | 'table'>('carousel');
+  const [viewMode, setViewMode] = useState<'table' | 'carousel'>('table');
 
   const categories: { id: string; name: string; match?: (p: RiceProduct) => boolean }[] = [
     { id: 'all', name: 'Tất Cả 6 Loại Gạo' },
@@ -101,105 +101,243 @@ export const ProductList: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile view switch & counter */}
-          <div className="flex md:hidden items-center justify-between mt-6 bg-white p-1.5 rounded-2xl border border-gray-200 shadow-xs">
-            <div className="flex gap-1">
+          {/* Switch chế độ xem: Bảng So Sánh Giá (Mặc định) – Thẻ Vuốt Ngang (Thì sau) */}
+          <div className="flex items-center justify-center mt-6 sm:mt-8">
+            <div className="inline-flex items-center bg-white p-1.5 rounded-2xl border border-stone-200/90 shadow-xs gap-1 max-w-full">
               <button
                 type="button"
-                onClick={() => setMobileViewMode('carousel')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition ${
-                  mobileViewMode === 'carousel'
-                    ? 'bg-amber-700 text-white shadow-xs'
-                    : 'text-gray-600 hover:bg-gray-100'
+                onClick={() => setViewMode('table')}
+                className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 transition ${
+                  viewMode === 'table'
+                    ? 'bg-gradient-to-r from-emerald-800 via-emerald-800 to-teal-900 text-white shadow-sm ring-1 ring-emerald-700/50'
+                    : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
                 }`}
               >
-                <LayoutGrid className="w-3.5 h-3.5" /> Thẻ Vuốt Ngang
+                <TableProperties className="w-3.5 h-3.5 text-amber-400" />
+                <span>Bảng So Sánh Giá</span>
+                <span className="text-[10px] font-black uppercase tracking-wider bg-white/20 text-white px-1.5 py-0.2 rounded-full">
+                  Mặc định
+                </span>
               </button>
+
               <button
                 type="button"
-                onClick={() => setMobileViewMode('table')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition ${
-                  mobileViewMode === 'table'
-                    ? 'bg-amber-700 text-white shadow-xs'
-                    : 'text-gray-600 hover:bg-gray-100'
+                onClick={() => setViewMode('carousel')}
+                className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 transition ${
+                  viewMode === 'carousel'
+                    ? 'bg-gradient-to-r from-emerald-800 via-emerald-800 to-teal-900 text-white shadow-sm ring-1 ring-emerald-700/50'
+                    : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
                 }`}
               >
-                <TableProperties className="w-3.5 h-3.5" /> Bảng So Sánh Giá
+                <LayoutGrid className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="md:hidden">Thẻ Vuốt Ngang</span>
+                <span className="hidden md:inline">Lưới Thẻ Chi Tiết</span>
               </button>
             </div>
-
-            {mobileViewMode === 'carousel' && (
-              <div className="flex items-center gap-1 pr-2 text-xs font-black text-amber-800">
-                <span>{activeSlide + 1}</span>
-                <span className="text-gray-400 font-normal">/</span>
-                <span className="text-gray-500 font-normal">{totalCards}</span>
-              </div>
-            )}
           </div>
         </div>
 
-        {/* Nội dung danh sách sản phẩm: Mobile thông minh + Desktop lưới 2x3 */}
-        {mobileViewMode === 'table' ? (
-          /* Bảng so sánh giá nhanh dạng danh sách trên Mobile */
-          <div className="md:hidden bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden p-4 space-y-3 animate-in fade-in duration-200">
-            <div className="flex items-center justify-between text-xs pb-2 border-b border-gray-100">
-              <span className="font-bold text-gray-800">So sánh 6 dòng gạo từ thiện thương hiệu:</span>
-              <span className="text-[11px] text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-md">
-                Giá sỉ tự giảm theo số kg
-              </span>
-            </div>
+        {/* Nội dung danh sách sản phẩm theo chế độ xem (Bảng so sánh mặc định hoặc Thẻ chi tiết) */}
+        {viewMode === 'table' ? (
+          <div>
+            {/* 1. BẢNG SO SÁNH GIÁ TRÊN MOBILE (Danh sách tối ưu chạm vuốt) */}
+            <div className="md:hidden bg-white rounded-3xl border border-stone-200/90 shadow-luxury overflow-hidden p-4 space-y-3 animate-in fade-in duration-200">
+              <div className="flex items-center justify-between text-xs pb-2 border-b border-stone-100">
+                <span className="font-bold text-stone-800">So sánh 6 dòng gạo từ thiện:</span>
+                <span className="text-[11px] text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/80">
+                  Giá sỉ tự giảm theo số kg
+                </span>
+              </div>
 
-            <div className="space-y-2.5">
-              {RICE_PRODUCTS.map((p, idx) => {
-                const minPrice = p.tiers[p.tiers.length - 1].pricePerKg;
-                const maxPrice = p.pricePerKg;
-                return (
-                  <div
-                    key={p.id}
-                    className="p-3 rounded-2xl border border-gray-200 bg-gray-50/70 hover:bg-amber-50/50 transition flex items-center justify-between gap-2.5"
-                  >
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5">
-                        <span className="font-bold text-gray-900 text-xs truncate">{p.name}</span>
-                        {p.isPopular && (
-                          <span className="bg-rose-100 text-rose-700 text-[9px] font-bold px-1.5 py-0.2 rounded-full shrink-0">Hot</span>
-                        )}
+              <div className="space-y-3">
+                {filteredProducts.map((p, idx) => {
+                  const minPrice = p.tiers[p.tiers.length - 1].pricePerKg;
+                  const maxPrice = p.pricePerKg;
+                  return (
+                    <div
+                      key={p.id}
+                      className="p-3.5 rounded-2xl border border-stone-200/90 bg-stone-50/70 hover:bg-amber-50/40 transition flex flex-col gap-2.5"
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          <div className="flex items-center gap-1.5 flex-wrap">
+                            <span className="font-black text-stone-900 text-sm">{p.name}</span>
+                            {p.isPopular && (
+                              <span className="bg-rose-100 text-rose-700 text-[10px] font-black px-2 py-0.5 rounded-full shrink-0 border border-rose-200">
+                                Bán chạy nhất
+                              </span>
+                            )}
+                          </div>
+                          <div className="text-[11px] text-stone-500 mt-0.5">
+                            Độ dẻo: <span className="text-amber-500 font-black">{'★'.repeat(p.characteristics.softness)}</span>
+                            <span className="text-stone-300 font-normal">{'★'.repeat(5 - p.characteristics.softness)}</span>
+                            {' • '}{p.category}
+                          </div>
+                        </div>
+
+                        <div className="text-right shrink-0">
+                          <div className="text-xs font-black text-emerald-900">
+                            {minPrice.toLocaleString('vi-VN')} đ – {maxPrice.toLocaleString('vi-VN')} đ
+                          </div>
+                          <span className="text-[10px] text-stone-500 block">VNĐ/kg</span>
+                        </div>
                       </div>
-                      <div className="text-[11px] text-gray-500 mt-0.5 truncate">
-                        Độ dẻo: {'★'.repeat(p.characteristics.softness)}{'☆'.repeat(5 - p.characteristics.softness)} • {p.category}
+
+                      <div className="text-xs text-stone-600 line-clamp-1 bg-white/80 p-2 rounded-xl border border-stone-100">
+                        🎯 <strong>Khuyên dùng:</strong> {p.characteristics.suitability}
                       </div>
-                      <div className="text-xs font-black text-amber-800 mt-1">
-                        Sỉ từ {minPrice.toLocaleString('vi-VN')} đ – {maxPrice.toLocaleString('vi-VN')} đ<span className="text-[10px] font-normal text-gray-500">/kg</span>
+
+                      <div className="flex items-center gap-2 pt-1 border-t border-stone-200/60">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setViewMode('carousel');
+                            setTimeout(() => scrollToCard(idx), 80);
+                          }}
+                          className="flex-1 py-2 px-3 bg-gradient-to-r from-emerald-700 to-emerald-800 hover:from-emerald-800 hover:to-emerald-900 text-white font-bold text-xs rounded-xl shadow-xs active:scale-95 transition text-center flex items-center justify-center gap-1"
+                        >
+                          <ShoppingCart className="w-3.5 h-3.5" />
+                          <span>Chọn Đặt / Tính Giá</span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => setSelectedProductForModal(p)}
+                          className="py-2 px-3 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs rounded-xl active:scale-95 transition text-center"
+                        >
+                          Chi Tiết
+                        </button>
                       </div>
                     </div>
+                  );
+                })}
+              </div>
 
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setMobileViewMode('carousel');
-                        setTimeout(() => scrollToCard(idx), 80);
-                      }}
-                      className="px-3.5 py-2 bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs rounded-xl shadow-xs shrink-0"
-                    >
-                      Chọn Đặt
-                    </button>
-                  </div>
-                );
-              })}
+              <div className="pt-2 text-center">
+                <button
+                  type="button"
+                  onClick={() => setViewMode('carousel')}
+                  className="text-xs font-bold text-emerald-800 hover:text-emerald-950 underline inline-flex items-center gap-1"
+                >
+                  <span>Chuyển sang xem dạng thẻ vuốt ngang →</span>
+                </button>
+              </div>
             </div>
 
-            <div className="pt-2 text-center">
-              <button
-                type="button"
-                onClick={() => setMobileViewMode('carousel')}
-                className="text-xs font-bold text-amber-800 hover:text-amber-950 underline"
-              >
-                Quay lại dạng thẻ vuốt ngang ➔
-              </button>
+            {/* 2. BẢNG SO SÁNH GIÁ TRÊN DESKTOP (Bảng đối chiếu ngang chuyên nghiệp) */}
+            <div className="hidden md:block bg-white rounded-3xl border border-stone-200 shadow-luxury overflow-hidden animate-in fade-in duration-200">
+              <div className="p-6 bg-gradient-to-r from-emerald-950 via-emerald-900 to-stone-900 text-white flex items-center justify-between border-b border-emerald-800/40">
+                <div>
+                  <span className="text-xs font-black text-amber-300 uppercase tracking-wider block mb-1">
+                    Bảng So Sánh Giá Gạo Sỉ Tận Gốc
+                  </span>
+                  <h3 className="text-xl font-black text-white">
+                    Đối Chiếu Toàn Bộ 6 Dòng Gạo Từ Thiện
+                  </h3>
+                </div>
+                <div className="text-right text-xs text-stone-300">
+                  <span className="inline-block bg-white/10 px-3 py-1 rounded-full border border-white/15">
+                    ✅ Miễn phí đóng túi 5kg quai xách, bao 10kg, 25kg, 50kg
+                  </span>
+                </div>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-stone-50/90 text-stone-700 text-xs font-black uppercase tracking-wider border-b border-stone-200">
+                      <th className="py-4 px-6">Loại Gạo</th>
+                      <th className="py-4 px-4">Đặc Tính Cơm</th>
+                      <th className="py-4 px-4">Khuyên Dùng Cho</th>
+                      <th className="py-4 px-4 text-right">Dưới 300kg</th>
+                      <th className="py-4 px-4 text-right">Từ 500kg</th>
+                      <th className="py-4 px-4 text-right">Từ 1.000kg (1T)</th>
+                      <th className="py-4 px-6 text-center">Thao Tác</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-stone-100 text-sm">
+                    {filteredProducts.map((p, idx) => {
+                      const priceUnder300 = p.pricePerKg;
+                      const tier500 = p.tiers.find((t) => t.minKg === 500)?.pricePerKg || p.tiers[0]?.pricePerKg;
+                      const tier1000 = p.tiers.find((t) => t.minKg >= 1000)?.pricePerKg || p.tiers[p.tiers.length - 1].pricePerKg;
+                      return (
+                        <tr key={p.id} className="hover:bg-amber-50/30 transition-colors">
+                          <td className="py-4 px-6">
+                            <div className="font-extrabold text-stone-900 text-base">{p.name}</div>
+                            <div className="text-xs text-stone-500">{p.category}</div>
+                            {p.isPopular && (
+                              <span className="inline-block mt-1 bg-rose-100 text-rose-700 text-[10px] font-black px-2 py-0.2 rounded-full border border-rose-200">
+                                Bán chạy nhất
+                              </span>
+                            )}
+                          </td>
+                          <td className="py-4 px-4">
+                            <div className="text-xs text-stone-600">
+                              Độ dẻo: <span className="text-amber-500 font-bold">{'★'.repeat(p.characteristics.softness)}</span>
+                              <span className="text-stone-300">{'★'.repeat(5 - p.characteristics.softness)}</span>
+                            </div>
+                            <div className="text-xs text-stone-500 mt-0.5">
+                              Hương thơm: <span className="text-amber-500 font-bold">{'★'.repeat(p.characteristics.fragrance)}</span>
+                              <span className="text-stone-300">{'★'.repeat(5 - p.characteristics.fragrance)}</span>
+                            </div>
+                          </td>
+                          <td className="py-4 px-4">
+                            <span className="text-xs text-stone-700 line-clamp-2 max-w-[220px]">
+                              {p.characteristics.suitability}
+                            </span>
+                          </td>
+                          <td className="py-4 px-4 text-right font-medium text-stone-600 whitespace-nowrap">
+                            {priceUnder300.toLocaleString('vi-VN')} đ/kg
+                          </td>
+                          <td className="py-4 px-4 text-right font-bold text-amber-900 whitespace-nowrap">
+                            {tier500.toLocaleString('vi-VN')} đ/kg
+                          </td>
+                          <td className="py-4 px-4 text-right font-black text-emerald-800 whitespace-nowrap text-base">
+                            {tier1000.toLocaleString('vi-VN')} đ/kg
+                          </td>
+                          <td className="py-4 px-6 text-center whitespace-nowrap">
+                            <div className="flex items-center justify-center gap-2">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setViewMode('carousel');
+                                  setTimeout(() => scrollToCard(idx), 80);
+                                }}
+                                className="px-3.5 py-1.5 bg-gradient-to-r from-emerald-700 to-emerald-800 hover:from-emerald-800 hover:to-emerald-900 text-white font-bold text-xs rounded-xl shadow-xs transition"
+                              >
+                                Chọn Đặt
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => setSelectedProductForModal(p)}
+                                className="px-2.5 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs rounded-xl transition"
+                                title="Xem chi tiết & hình ảnh bao bì"
+                              >
+                                Chi Tiết
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="p-4 bg-stone-50 border-t border-stone-200/80 flex items-center justify-between text-xs text-stone-500">
+                <span>Đơn giá trên áp dụng chuẩn đóng bao 25kg, miễn phí 100% công đóng túi 5kg-10kg.</span>
+                <button
+                  type="button"
+                  onClick={() => setViewMode('carousel')}
+                  className="font-bold text-emerald-800 hover:underline"
+                >
+                  Chuyển sang xem dạng thẻ chi tiết ➔
+                </button>
+              </div>
             </div>
           </div>
         ) : (
-          /* Mobile Vuốt Ngang (Snap Carousel) + Desktop Grid 2x3 */
+          /* CHẾ ĐỘ THẺ VUỐT NGANG (MOBILE) & LƯỚI THẺ CHI TIẾT (DESKTOP) */
           <div>
             <div
               ref={scrollRef}
@@ -239,7 +377,7 @@ export const ProductList: React.FC = () => {
                     onClick={() => scrollToCard(idx)}
                     className={`h-2 rounded-full transition-all ${
                       activeSlide === idx
-                        ? 'w-6 bg-amber-700'
+                        ? 'w-6 bg-emerald-700'
                         : 'w-2 bg-gray-300 hover:bg-gray-400'
                     }`}
                     aria-label={`Chuyển đến thẻ gạo ${idx + 1}`}
