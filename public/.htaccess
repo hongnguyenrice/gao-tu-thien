@@ -1,0 +1,51 @@
+# Bật nén GZIP / Brotli cho toàn bộ tài nguyên văn bản
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Cấu hình Cache-Control & Expires tối ưu hóa bộ nhớ đệm trình duyệt
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Next.js static chunks (có hash bất biến): cache 1 năm
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  
+  # Web fonts (woff2): cache 1 năm
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  
+  # Hình ảnh (WebP, JPG, SVG, ICO): cache 1 năm
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  
+  # HTML: Không lưu đệm để luôn nhận bản cập nhật mới nhất
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Assets tĩnh của Next.js có hash vĩnh viễn
+  <FilesMatch "\.(js|css|woff2|webp|jpg|jpeg|png|svg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  
+  # File HTML luôn kiểm tra cập nhật
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  
+  # Bảo mật
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# Kích hoạt LiteSpeed Cache
+<IfModule LiteSpeed>
+  CacheLookup on
+</IfModule>

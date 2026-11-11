@@ -26,7 +26,7 @@ echo "🗜️ [4/4] Đóng gói zip lưu trữ chuẩn YYYYMMDD-HHMM..."
 ZIP_NAME="hostinger-gaotuthien-${TIMESTAMP}.zip"
 cd "$PROJECT_DIR/out"
 rm -f "$SCRATCH_DIR"/hostinger-gaotuthien-*.zip
-zip -r -q "$SCRATCH_DIR/$ZIP_NAME" . -x ".*" -x "__MACOSX"
+zip -r -q "$SCRATCH_DIR/$ZIP_NAME" . -x ".git*" -x ".DS_Store" -x "__MACOSX*"
 
 echo "✅ Hoàn tất deploy!"
 echo "   - GitHub repo gốc: https://github.com/leutdu156-a11y/gao-tu-thien (nhánh deploy)"
