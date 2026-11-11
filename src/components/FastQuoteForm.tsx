@@ -90,10 +90,13 @@ export const FastQuoteForm: React.FC = () => {
               <div className="mt-8 space-y-6">
                 {/* Chọn loại gạo */}
                 <div>
-                  <label className="block text-xs font-bold text-stone-800 mb-2">
+                  <label htmlFor="select-rice-type" className="block text-xs font-bold text-stone-800 mb-2">
                     1. Loại Gạo Dự Kiến Sử Dụng:
                   </label>
                   <select
+                    id="select-rice-type"
+                    name="riceType"
+                    aria-label="1. Loại Gạo Dự Kiến Sử Dụng"
                     value={selectedRiceId}
                     onChange={(e) => setSelectedRiceId(e.target.value)}
                     className="w-full text-sm font-bold border border-stone-300 rounded-xl p-3 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-2xs"
@@ -109,7 +112,7 @@ export const FastQuoteForm: React.FC = () => {
                 {/* Chọn số lượng kg */}
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <label className="text-xs font-bold text-stone-800">
+                    <label htmlFor="volume-slider" className="text-xs font-bold text-stone-800">
                       2. Tổng Số Lượng Cần (Kg):
                     </label>
                     <span className="text-sm font-black text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-lg">
@@ -118,12 +121,15 @@ export const FastQuoteForm: React.FC = () => {
                   </div>
 
                   <input
+                    id="volume-slider"
+                    name="volumeKg"
                     type="range"
                     min="50"
                     max="5000"
                     step="50"
                     value={volumeKg}
                     onChange={(e) => setVolumeKg(Number(e.target.value))}
+                    aria-label="2. Tổng Số Lượng Cần (Kg)"
                     className="w-full accent-amber-600 h-2 bg-stone-200 rounded-lg cursor-pointer"
                   />
 
@@ -148,10 +154,13 @@ export const FastQuoteForm: React.FC = () => {
                 {/* Quy cách đóng gói & Khu vực giao */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-stone-800 mb-2">
+                    <label htmlFor="select-packaging" className="block text-xs font-bold text-stone-800 mb-2">
                       3. Quy Cách Đóng Bao:
                     </label>
                     <select
+                      id="select-packaging"
+                      name="packaging"
+                      aria-label="3. Quy Cách Đóng Bao"
                       value={packagingType}
                       onChange={(e) => setPackagingType(e.target.value)}
                       className="w-full text-xs font-semibold border border-stone-300 rounded-xl p-3 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-2xs"
@@ -164,10 +173,13 @@ export const FastQuoteForm: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-stone-800 mb-2">
+                    <label htmlFor="select-delivery" className="block text-xs font-bold text-stone-800 mb-2">
                       4. Khu Vực Giao Hàng:
                     </label>
                     <select
+                      id="select-delivery"
+                      name="delivery"
+                      aria-label="4. Khu Vực Giao Hàng"
                       value={deliveryLocation}
                       onChange={(e) => setDeliveryLocation(e.target.value)}
                       className="w-full text-xs font-semibold border border-stone-300 rounded-xl p-3 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-2xs"
@@ -268,10 +280,12 @@ export const FastQuoteForm: React.FC = () => {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4 text-xs">
                     <div>
-                      <label className="block text-emerald-100 font-bold mb-1">
+                      <label htmlFor="customer-name" className="block text-emerald-100 font-bold mb-1">
                         Họ và tên người đại diện liên hệ *:
                       </label>
                       <input
+                        id="customer-name"
+                        name="customerName"
                         type="text"
                         required
                         value={customerName}
@@ -282,10 +296,12 @@ export const FastQuoteForm: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-emerald-100 font-bold mb-1">
+                      <label htmlFor="customer-phone" className="block text-emerald-100 font-bold mb-1">
                         Số điện thoại / Zalo *:
                       </label>
                       <input
+                        id="customer-phone"
+                        name="customerPhone"
                         type="tel"
                         required
                         value={customerPhone}
@@ -296,10 +312,12 @@ export const FastQuoteForm: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-emerald-100 font-bold mb-1">
+                      <label htmlFor="delivery-date" className="block text-emerald-100 font-bold mb-1">
                         Thời gian cần hàng dự kiến:
                       </label>
                       <input
+                        id="delivery-date"
+                        name="deliveryDate"
                         type="text"
                         value={deliveryDate}
                         onChange={(e) => setDeliveryDate(e.target.value)}
@@ -309,10 +327,12 @@ export const FastQuoteForm: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-emerald-100 font-bold mb-1">
+                      <label htmlFor="customer-org" className="block text-emerald-100 font-bold mb-1">
                         Tên Đoàn Từ Thiện / Công Ty / Chùa (Nếu có):
                       </label>
                       <input
+                        id="customer-org"
+                        name="customerOrg"
                         type="text"
                         value={customerOrg}
                         onChange={(e) => setCustomerOrg(e.target.value)}

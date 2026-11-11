@@ -31,13 +31,31 @@ export const WarehouseNetwork: React.FC = () => {
   // Trạng thái mở cửa tính an toàn phía Client sau khi mount (tránh Hydration mismatch)
   const [isOpen, setIsOpen] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const currentHour = new Date().getHours();
     // Giờ mở cửa kho: 7h00 - 20h00
     setIsOpen(currentHour >= 7 && currentHour < 20);
   }, []);
+
+  // Trì hoãn nạp iframe Google Maps cho đến khi người dùng cuộn gần tới khối này (giảm TBT & tiết kiệm CPU)
+  useEffect(() => {
+    if (!mapContainerRef.current || isMapLoaded) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsMapLoaded(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px' }
+    );
+    observer.observe(mapContainerRef.current);
+    return () => observer.disconnect();
+  }, [isMapLoaded]);
 
   // Lắng nghe scroll để cập nhật chấm định vị (Dots indicator) trên mobile
   const handleScroll = () => {
@@ -243,18 +261,22 @@ export const WarehouseNetwork: React.FC = () => {
         </div>
 
         {/* 3. Chấm định vị Dots Indicator trên Mobile (5 điểm: 4 kho + 1 nhà máy) */}
-        <div className="flex sm:hidden items-center justify-center gap-2 mt-2 mb-6">
+        <div className="flex sm:hidden items-center justify-center gap-1 mt-2 mb-6">
           {[0, 1, 2, 3, 4].map((idx) => (
             <button
               key={idx}
               onClick={() => scrollToCard(idx)}
               aria-label={`Xem kho hoặc nhà máy vị trí ${idx + 1}`}
-              className={`transition-all duration-300 rounded-full ${
-                activeIndex === idx
-                  ? 'w-6 h-2 bg-emerald-600'
-                  : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
-              }`}
-            />
+              className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center"
+            >
+              <span
+                className={`transition-all duration-300 rounded-full ${
+                  activeIndex === idx
+                    ? 'w-6 h-2 bg-emerald-600'
+                    : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            </button>
           ))}
         </div>
 
@@ -290,25 +312,38 @@ export const WarehouseNetwork: React.FC = () => {
 
           {/* Thân khối: Bản đồ bên trái, Thông tin & Bằng chứng thực tế bên phải */}
           <div className="p-4 sm:p-6 lg:p-8 grid lg:grid-cols-12 gap-6 items-center">
-            {/* Cột bản đồ Embed Google Maps (7 cols) */}
+            {/* Cột bản đồ Embed Google Maps (7 cols) - Tự động nạp khi cuộn đến */}
             <div className="lg:col-span-7">
-              <div className="relative w-full h-[320px] sm:h-[420px] rounded-2xl overflow-hidden border border-stone-200/90 shadow-inner bg-stone-100">
-                <iframe
-                  src={MAIN_BRANCH_MAP_EMBED}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  title="Bản đồ vị trí Vựa Gạo Sóc Trăng - Chi nhánh chính Lái Thiêu"
-                  className="w-full h-full"
-                />
-                {/* Floating badge trên bản đồ */}
-                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-stone-200 flex items-center gap-2 pointer-events-none">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse" />
-                  <span className="text-xs font-bold text-stone-900">Chi Nhánh Chính Lái Thiêu</span>
-                </div>
+              <div
+                ref={mapContainerRef}
+                className="relative w-full h-[320px] sm:h-[420px] rounded-2xl overflow-hidden border border-stone-200/90 shadow-inner bg-stone-100 flex items-center justify-center"
+              >
+                {isMapLoaded ? (
+                  <>
+                    <iframe
+                      src={MAIN_BRANCH_MAP_EMBED}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      title="Bản đồ vị trí Vựa Gạo Sóc Trăng - Chi nhánh chính Lái Thiêu"
+                      className="w-full h-full"
+                    />
+                    {/* Floating badge trên bản đồ */}
+                    <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-stone-200 flex items-center gap-2 pointer-events-none">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse" />
+                      <span className="text-xs font-bold text-stone-900">Chi Nhánh Chính Lái Thiêu</span>
+                    </div>
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center justify-center p-6 text-center text-stone-500">
+                    <MapPin className="w-8 h-8 text-emerald-600 animate-bounce mb-2" />
+                    <span className="text-xs font-bold text-stone-700">Bản Đồ Google Maps Vựa Gạo Sóc Trăng</span>
+                    <span className="text-[11px] text-stone-400 mt-1">Đang kết nối vệ tinh và dữ liệu đường đi...</span>
+                  </div>
+                )}
               </div>
               <p className="text-[11px] text-stone-500 mt-2 flex items-center gap-1.5">
                 <Navigation className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
@@ -406,11 +441,18 @@ export const WarehouseNetwork: React.FC = () => {
         <div className="mt-4 sm:mt-10 bg-white rounded-3xl border border-amber-200/90 shadow-sm overflow-hidden grid lg:grid-cols-12 items-center">
           <div className="lg:col-span-4 p-4 sm:p-6 bg-emerald-950 flex items-center justify-center">
             <div className="relative rounded-2xl overflow-hidden border border-emerald-500/30 shadow-inner max-w-sm w-full">
-              <img
-                src="/he-thong-kho-vua-gao-soc-trang.jpg"
-                alt="Nhà máy xay xát & hệ thống chi nhánh kho Vựa Gạo Sóc Trăng"
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-              />
+              <picture>
+                <source srcSet="/he-thong-kho-vua-gao-soc-trang.webp" type="image/webp" />
+                <img
+                  src="/he-thong-kho-vua-gao-soc-trang.jpg"
+                  alt="Nhà máy xay xát & hệ thống chi nhánh kho Vựa Gạo Sóc Trăng"
+                  width={720}
+                  height={720}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </picture>
             </div>
           </div>
 

@@ -45,9 +45,9 @@ export const Footer: React.FC = () => {
 
           {/* Cột 2: Các chuyên trang từ thiện */}
           <div>
-            <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
+            <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
               Chuyên Trang Từ Thiện
-            </h4>
+            </h3>
             <ul className="space-y-2.5 text-xs text-amber-200/80">
               <li><Link href="/bao-gia-gao-tu-thien/" className="hover:text-white transition">Báo giá gạo từ thiện mới nhất</Link></li>
               <li><Link href="/gao-phat-qua-tu-thien/" className="hover:text-white transition">Gạo phát quà hộ gia đình & người già</Link></li>
@@ -60,9 +60,9 @@ export const Footer: React.FC = () => {
 
           {/* Cột 3: Chính sách & Cam kết */}
           <div>
-            <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
+            <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
               Hỗ Trợ Quý Đoàn
-            </h4>
+            </h3>
             <ul className="space-y-2.5 text-xs text-amber-200/80">
               <li><Link href="/quy-cach-dong-bao-va-giao-hang/" className="hover:text-white transition">Đóng túi nhỏ 5kg, 10kg theo yêu cầu</Link></li>
               <li><Link href="/#he-thong-kho" className="hover:text-white transition">Xe tải giao tận nơi từ chi nhánh gần nhất</Link></li>
@@ -74,9 +74,9 @@ export const Footer: React.FC = () => {
 
           {/* Cột 4: Hệ thống chi nhánh & Hotline */}
           <div className="space-y-3">
-            <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
+            <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">
               Chi Nhánh & Nhà Máy
-            </h4>
+            </h3>
             <div className="text-xs space-y-2.5">
               {BRAND_INFO.branches.map((b) => (
                 <div key={b.id} className="flex items-start gap-2">

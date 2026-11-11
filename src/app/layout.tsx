@@ -99,15 +99,19 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Microsoft Clarity */}
+        {/* Microsoft Clarity - Tải trễ để tối ưu điểm hiệu năng Mobile */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "zbs6s6lg7p");
+              window.addEventListener('load', function() {
+                setTimeout(function() {
+                  (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                  })(window, document, "clarity", "script", "zbs6s6lg7p");
+                }, 1500);
+              });
             `,
           }}
         />

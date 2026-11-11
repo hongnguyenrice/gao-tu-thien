@@ -192,7 +192,7 @@ export const CharityActivityGallery: React.FC = () => {
                 href={ZALO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md transition text-xs sm:text-sm active:scale-95"
+                className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-2.5 rounded-xl shadow-md transition text-xs sm:text-sm active:scale-95"
               >
                 <MessageCircle className="w-4 h-4" />
                 Nhắn Zalo Nhận Tư Vấn Đóng Bao Quà
@@ -302,7 +302,7 @@ export const CharityActivityGallery: React.FC = () => {
                   href={ZALO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-sm active:scale-95"
+                  className="py-3 px-4 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-sm active:scale-95"
                 >
                   <span>Nhắn Zalo Báo Giá</span>
                 </a>
@@ -403,7 +403,7 @@ export const CharityActivityGallery: React.FC = () => {
           >
             <div className="flex items-center justify-between gap-2 flex-wrap mb-1">
               <div className="flex items-center gap-2">
-                <span className="bg-emerald-600 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">
+                <span className="bg-emerald-700 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">
                   {currentItem.tag}
                 </span>
                 <span className="bg-amber-400 text-amber-950 text-xs font-black px-2.5 py-0.5 rounded-full">

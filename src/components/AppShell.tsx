@@ -33,7 +33,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
             rel="noopener noreferrer"
             onClick={() => trackZaloClick('mobile_dock')}
             className="flex-1 h-11 px-3 rounded-xl bg-gradient-to-r from-sky-600 via-sky-600 to-blue-700 hover:from-sky-700 hover:to-blue-800 text-white flex items-center justify-center gap-2 font-black text-xs shadow-md shadow-blue-600/20 border border-white/20 transition active:scale-95"
-            aria-label="Nhận báo giá qua Zalo: 0762 234 135"
+            aria-label="Báo Giá Qua Zalo: 0762 234 135"
           >
             <MessageCircle className="w-4 h-4 shrink-0 fill-white/20" />
             <span className="truncate">Báo Giá Qua Zalo</span>
@@ -44,7 +44,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
             href={`tel:${PHONE_TEL}`}
             onClick={() => trackPhoneCall('mobile_dock')}
             className="flex-1 h-11 px-3 rounded-xl bg-gradient-to-r from-emerald-700 via-emerald-800 to-teal-900 hover:from-emerald-800 hover:to-teal-950 text-white flex items-center justify-center gap-2 font-black text-xs shadow-md shadow-emerald-800/20 border border-emerald-600/30 transition active:scale-95"
-            aria-label="Gọi hotline tư vấn: 0762 234 135"
+            aria-label="Gọi 0762 234 135 - Hotline tư vấn gạo từ thiện"
           >
             <PhoneCall className="w-4 h-4 shrink-0 text-amber-300" />
             <span className="truncate">Gọi {PHONE_DISPLAY}</span>
