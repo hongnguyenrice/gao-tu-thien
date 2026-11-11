@@ -82,6 +82,23 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
+        {/* Google Analytics 4 (GA4) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-GBEYDZ8SMF"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-GBEYDZ8SMF', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col">
         <AppShell>{children}</AppShell>

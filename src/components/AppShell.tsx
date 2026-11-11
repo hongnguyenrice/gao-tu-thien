@@ -7,6 +7,7 @@ import { CartDrawer } from '@/components/CartDrawer';
 import { CartProvider } from '@/context/CartContext';
 import { Phone, MessageCircle, PhoneCall, Sparkles } from 'lucide-react';
 import { PHONE_DISPLAY, PHONE_TEL, ZALO_URL } from '@/data/site';
+import { trackPhoneCall, trackZaloClick } from '@/lib/analytics';
 
 export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -30,6 +31,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
             href={ZALO_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackZaloClick('mobile_dock')}
             className="flex-1 h-11 px-3 rounded-xl bg-gradient-to-r from-sky-600 via-sky-600 to-blue-700 hover:from-sky-700 hover:to-blue-800 text-white flex items-center justify-center gap-2 font-black text-xs shadow-md shadow-blue-600/20 border border-white/20 transition active:scale-95"
             aria-label="Nhận báo giá qua Zalo: 0762 234 135"
           >
@@ -40,6 +42,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
           {/* Nút Gọi Điện Hotline */}
           <a
             href={`tel:${PHONE_TEL}`}
+            onClick={() => trackPhoneCall('mobile_dock')}
             className="flex-1 h-11 px-3 rounded-xl bg-gradient-to-r from-emerald-700 via-emerald-800 to-teal-900 hover:from-emerald-800 hover:to-teal-950 text-white flex items-center justify-center gap-2 font-black text-xs shadow-md shadow-emerald-800/20 border border-emerald-600/30 transition active:scale-95"
             aria-label="Gọi hotline tư vấn: 0762 234 135"
           >
@@ -58,6 +61,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
             href={ZALO_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackZaloClick('desktop_float')}
             className="h-12 px-4 rounded-full bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-700 hover:to-blue-800 text-white flex items-center gap-2 shadow-xl shadow-blue-600/25 hover:scale-105 transition transform group border border-white/30 ring-2 ring-blue-500/20"
             aria-label="Nhận báo giá qua Zalo: 0762 234 135"
           >
@@ -70,6 +74,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
           {/* Nút Gọi tư vấn */}
           <a
             href={`tel:${PHONE_TEL}`}
+            onClick={() => trackPhoneCall('desktop_float')}
             className="h-12 px-4 rounded-full bg-gradient-to-r from-emerald-700 via-emerald-800 to-teal-900 hover:from-emerald-800 hover:to-teal-950 text-white flex items-center gap-2 shadow-xl shadow-emerald-800/25 hover:scale-105 transition transform group border border-emerald-500/40 ring-2 ring-emerald-500/20"
             aria-label="Gọi tư vấn: 0762 234 135"
           >

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { RICE_PRODUCTS } from '@/data/mockData';
 import { Calculator, CheckCircle2, Send, PhoneCall, MessageCircle, Loader2, Sparkles, ShieldCheck } from 'lucide-react';
 import { sendQuoteToTelegram } from '@/lib/telegram';
+import { trackLeadSubmit } from '@/lib/analytics';
 
 export const FastQuoteForm: React.FC = () => {
   const [selectedRiceId, setSelectedRiceId] = useState<string>(RICE_PRODUCTS[0].id);
@@ -47,6 +48,7 @@ export const FastQuoteForm: React.FC = () => {
 
     setIsSubmitting(true);
     try {
+      trackLeadSubmit(selectedProduct.name, volumeKg);
       await sendQuoteToTelegram({
         customerName: customerName || 'Khách hỏi báo giá',
         customerPhone,
