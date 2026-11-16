@@ -47,8 +47,8 @@ AddCharset utf-8 .md .txt
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
   
-  # File HTML luôn kiểm tra cập nhật
-  <FilesMatch "\.(html|htm)$">
+  # File HTML, TXT, Markdown, XML, JSON luôn kiểm tra cập nhật
+  <FilesMatch "\.(html|htm|txt|md|xml|json)$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
 
