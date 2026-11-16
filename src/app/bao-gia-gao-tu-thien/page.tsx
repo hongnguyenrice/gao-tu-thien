@@ -21,6 +21,7 @@ import {
   Section,
 } from '@/components/content';
 import { FastQuoteForm } from '@/components/FastQuoteForm';
+import { GoogleReviews } from '@/components/GoogleReviews';
 
 const CANONICAL = `${SITE_URL}/bao-gia-gao-tu-thien/`;
 
@@ -127,6 +128,9 @@ export default function BaoGiaPage() {
       <div id="form-bao-gia" className="scroll-mt-24">
         <FastQuoteForm />
       </div>
+
+      {/* Đánh giá thực tế từ Google Maps */}
+      <GoogleReviews />
 
       {/* Quy trình đặt hàng */}
       <Section title="Quy Trình Nhận Báo Giá & Đặt Hàng Gạo Từ Thiện" muted>

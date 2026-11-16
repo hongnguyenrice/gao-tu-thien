@@ -24,11 +24,13 @@ git push -f https://github.com/hongnguyenrice/gao-tu-thien.git deploy:deploy -q
 
 echo "🗜️ [4/4] Đóng gói zip lưu trữ chuẩn YYYYMMDD-HHMM..."
 ZIP_NAME="hostinger-gaotuthien-${TIMESTAMP}.zip"
+DOWNLOADS_DIR="/Users/leutdu/Downloads"
 cd "$PROJECT_DIR/out"
+rm -f "$DOWNLOADS_DIR"/hostinger-gaotuthien-*.zip
 rm -f "$SCRATCH_DIR"/hostinger-gaotuthien-*.zip
-zip -r -q "$SCRATCH_DIR/$ZIP_NAME" . -x ".git*" -x ".DS_Store" -x "__MACOSX*"
+zip -r -q "$DOWNLOADS_DIR/$ZIP_NAME" . -x ".git*" -x ".DS_Store" -x "__MACOSX*"
 
 echo "✅ Hoàn tất deploy!"
 echo "   - GitHub repo gốc: https://github.com/leutdu156-a11y/gao-tu-thien (nhánh deploy)"
 echo "   - GitHub Hostinger: https://github.com/hongnguyenrice/gao-tu-thien (nhánh deploy)"
-echo "   - File zip dự phòng: $SCRATCH_DIR/$ZIP_NAME"
+echo "   - File zip dự phòng trong Downloads: $DOWNLOADS_DIR/$ZIP_NAME"
