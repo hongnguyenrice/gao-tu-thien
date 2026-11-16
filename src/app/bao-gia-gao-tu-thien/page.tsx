@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     type: 'article',
     images: [
       {
-        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        url: `${SITE_URL}/og-gao-tu-thien.jpg`,
         width: 1200,
         height: 630,
-        alt: 'Bảng báo giá gạo từ thiện giá sỉ tận gốc',
+        alt: 'Bảng báo giá gạo từ thiện giá sỉ tận gốc – Vựa Gạo Sóc Trăng',
       },
     ],
   },
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: 'Báo Giá Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng',
     description:
       'Bảng báo giá gạo từ thiện giá sỉ tận gốc hôm nay: Gạo Sẻ Chia, Nghĩa Tình, ST25. Đóng bao 5kg-10kg miễn phí, giao xe tải tận nơi, xuất hóa đơn VAT 5%.',
-    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
+    images: [`${SITE_URL}/og-gao-tu-thien.jpg`],
   },
 };
 

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: 'article',
     images: [
       {
-        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        url: `${SITE_URL}/og-gao-tu-thien.jpg`,
         width: 1200,
         height: 630,
         alt: 'Gạo phát quà từ thiện đóng bao 5kg, 10kg',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: 'Gạo Phát Quà Từ Thiện – Gạo Dẻo Mềm Đóng Bao 5kg, 10kg | Vựa Gạo Sóc Trăng',
     description:
       'Cẩm nang chọn gạo phát quà từ thiện cho hộ nghèo, người già, trẻ nhỏ: Gạo dẻo vừa, dễ ăn, đóng túi 5kg-10kg. Bảng dự toán chi phí 100-1.000 suất quà chi tiết.',
-    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
+    images: [`${SITE_URL}/og-gao-tu-thien.jpg`],
   },
 };
 

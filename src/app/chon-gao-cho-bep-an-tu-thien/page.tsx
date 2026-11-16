@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: 'article',
     images: [
       {
-        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        url: `${SITE_URL}/og-gao-tu-thien.jpg`,
         width: 1200,
         height: 630,
         alt: 'Chọn gạo nấu bếp ăn từ thiện, quán cơm 0 đồng',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: 'Chọn Gạo Cho Bếp Ăn Từ Thiện, Quán Cơm 0 Đồng | Vựa Gạo Sóc Trăng',
     description:
       'Bí quyết chọn gạo nấu bếp ăn từ thiện 0 đồng, quán cơm xã hội, cháo viện: Gạo 504 nở xốp dôi cơm, gạo tấm sánh mịn, giá sỉ tận xưởng tiết kiệm ngân sách.',
-    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
+    images: [`${SITE_URL}/og-gao-tu-thien.jpg`],
   },
 };
 

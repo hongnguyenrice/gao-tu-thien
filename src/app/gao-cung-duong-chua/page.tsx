@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: 'article',
     images: [
       {
-        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        url: `${SITE_URL}/og-gao-tu-thien.jpg`,
         width: 1200,
         height: 630,
         alt: 'Gạo cúng dường chùa và tự viện',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: 'Gạo Cúng Dường Chùa & Tự Viện – Gạo Thơm Thuần Khiết | Vựa Gạo Sóc Trăng',
     description:
       'Gạo ST25, Jasmine cúng dường Tam Bảo, trai tăng, lễ Vu Lan, Phật Đản. Hạt gạo thơm dẻo thanh khiết, hỗ trợ kiều bào gửi gạo cúng dường giao tận cửa chùa.',
-    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
+    images: [`${SITE_URL}/og-gao-tu-thien.jpg`],
   },
 };
 

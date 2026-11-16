@@ -38,10 +38,10 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        url: `${SITE_URL}/og-gao-tu-thien.jpg`,
         width: 1200,
         height: 630,
-        alt: "Vựa Gạo Sóc Trăng - Kho gạo từ thiện giá sỉ tận gốc",
+        alt: "Vựa Gạo Sóc Trăng - Hoạt động trao tặng gạo từ thiện Tết Sẻ Chia",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Gạo Từ Thiện Giá Sỉ Tận Gốc | Vựa Gạo Sóc Trăng",
     description:
       "Vựa Gạo Sóc Trăng cung cấp gạo từ thiện giá sỉ tận gốc cho chùa, bếp ăn, đoàn thiện nguyện. Đóng bao 5kg-10kg miễn phí, giao tận nơi, hóa đơn VAT 5%.",
-    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
+    images: [`${SITE_URL}/og-gao-tu-thien.jpg`],
   },
   robots: {
     index: true,

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: 'article',
     images: [
       {
-        url: `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`,
+        url: `${SITE_URL}/og-gao-tu-thien.jpg`,
         width: 1200,
         height: 630,
         alt: 'Quy cách đóng bao và giao hàng gạo từ thiện',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: 'Quy Cách Đóng Bao & Giao Hàng Gạo Từ Thiện | Vựa Gạo Sóc Trăng',
     description:
       'Quy cách đóng bao gạo từ thiện 5kg, 10kg, 25kg, 50kg: May chỉ đôi chắc chắn, in decal tên đoàn thiện nguyện. Đội xe tải giao nhanh và bốc vác tận sảnh chùa.',
-    images: [`${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`],
+    images: [`${SITE_URL}/og-gao-tu-thien.jpg`],
   },
 };
 

@@ -2,7 +2,7 @@ import { BRAND_INFO, RICE_PRODUCTS, RiceProduct } from '@/data/mockData';
 import { FACEBOOK_PAGE_URL, GOOGLE_MAPS_PLACE_URL, PHONE_E164, QUOTE_PATH, SITE_NAME, SITE_URL } from '@/data/site';
 
 export const ORG_ID = `${SITE_URL}/#organization`;
-const IMAGE = `${SITE_URL}/he-thong-kho-vua-gao-soc-trang.jpg`;
+const IMAGE = `${SITE_URL}/og-gao-tu-thien.jpg`;
 
 const allPrices = RICE_PRODUCTS.flatMap((p) => [p.pricePerKg, ...p.tiers.map((t) => t.pricePerKg)]);
 const PRICE_RANGE = `${Math.min(...allPrices).toLocaleString('vi-VN')}đ - ${Math.max(...allPrices).toLocaleString('vi-VN')}đ/kg`;
