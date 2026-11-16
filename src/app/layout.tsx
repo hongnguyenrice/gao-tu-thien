@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AppShell } from "@/components/AppShell";
+import { WebMcpTools } from "@/components/WebMcpTools";
 import { organizationSchema } from "@/lib/schema";
 import { SITE_NAME, SITE_URL } from "@/data/site";
 
@@ -122,6 +123,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <WebMcpTools />
         <AppShell>{children}</AppShell>
       </body>
     </html>

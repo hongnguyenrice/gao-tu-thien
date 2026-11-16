@@ -278,7 +278,15 @@ export const FastQuoteForm: React.FC = () => {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 text-xs sm:text-sm"
+                    {...({
+                      toolname: 'request_charity_rice_quote',
+                      tooldescription:
+                        'Gửi yêu cầu nhận bảng báo giá gạo từ thiện giá sỉ tận gốc (bao 5kg, 10kg, 25kg, 50kg) từ Vựa Gạo Sóc Trăng.',
+                    } as Record<string, string>)}
+                  >
                     <div>
                       <label htmlFor="customer-name" className="block text-emerald-100 font-bold mb-1">
                         Họ và tên người đại diện liên hệ *:

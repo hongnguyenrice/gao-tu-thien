@@ -162,8 +162,15 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* FOOTER BOTTOM */}
-        <div className="pt-6 border-t border-amber-900/60 flex flex-col sm:flex-row items-center justify-between text-xs text-amber-300/70 gap-3">
+        <div className="pt-6 border-t border-amber-900/60 flex flex-col md:flex-row items-center justify-between text-xs text-amber-300/70 gap-3">
           <p>© 2026 {BRAND_INFO.name}. {BRAND_INFO.slogan}.</p>
+          <nav aria-label="Thông tin doanh nghiệp" className="flex flex-wrap items-center justify-center gap-4 text-amber-200/90">
+            <Link href="/gioi-thieu/" className="hover:text-white underline-offset-4 hover:underline">Giới thiệu</Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/lien-he/" className="hover:text-white underline-offset-4 hover:underline">Liên hệ</Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/dieu-khoan-va-chinh-sach/" className="hover:text-white underline-offset-4 hover:underline">Điều khoản &amp; Chính sách</Link>
+          </nav>
           <div className="flex items-center gap-1.5 text-amber-200">
             <span>Đồng hành gieo duyên lành cùng các đoàn thiện nguyện</span>
             <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />

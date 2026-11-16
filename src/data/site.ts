@@ -113,3 +113,30 @@ export const mapsSearchUrl = (address: string) => {
   }
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 };
+
+export const HOME_FAQS = [
+  {
+    q: 'Kho gạo có hỗ trợ đóng túi nhỏ 5kg, 10kg miễn phí không?',
+    a: 'Hoàn toàn miễn phí 100%. Vựa Gạo Sóc Trăng có sẵn các loại bao bì 5kg, 10kg in sẵn chữ "Gạo Từ Thiện / Gạo Nghĩa Tình" trang trọng và sạch đẹp. Toàn bộ chi phí bao bì, nhân công chia bao và may miệng túi chắc chắn đều được kho tài trợ 0 đồng cho Quý đoàn.',
+  },
+  {
+    q: 'Doanh nghiệp, công ty mua làm từ thiện có xuất hóa đơn đỏ (VAT) không?',
+    a: 'Có đầy đủ. Chúng tôi cung cấp hóa đơn điện tử VAT hợp pháp (thuế suất 5% đối với gạo sơ chế), hợp đồng mua bán và giấy chứng nhận kiểm nghiệm An toàn Vệ sinh Thực phẩm để doanh nghiệp quyết toán chi phí công đoàn, quỹ phúc lợi minh bạch.',
+  },
+  {
+    q: 'Chi phí vận chuyển và hỗ trợ bốc xếp đến Chùa, Mái ấm như thế nào?',
+    a: 'Với hệ thống 4 chi nhánh tại TP.HCM, Bình Dương, Tây Ninh và nhà máy xay xát Đồng Tháp, chúng tôi có đội xe tải chuyên dụng giao hàng tận nơi. Hỗ trợ miễn phí hoặc trợ giá tối đa cước xe, đồng thời tài xế và nhân viên phụ trách khuân vác, sắp xếp gạo gọn gàng vào tận kho hoặc sảnh chùa/bếp ăn.',
+  },
+  {
+    q: 'Nên chọn loại gạo nào để vừa ngon vừa tiết kiệm ngân sách nhất?',
+    a: 'Nếu phát quà hộ gia đình/người già: Nên chọn Gạo Nghĩa Tình, Gạo Thiện Lành hoặc Gạo Thành Ý (hạt dẻo vừa, thơm ngọt, để nguội vẫn mềm cơm, giá chỉ từ 14.200đ - 16.000đ/kg). Nếu tài trợ cho bếp ăn 0 đồng hoặc chùa nấu cơm số lượng lớn: Nên chọn Gạo Sẻ Chia (nở xốp nhiều, dôi cơm, chan canh không bị nhão, giá tiết kiệm chỉ từ 13.500đ/kg).',
+  },
+  {
+    q: 'Mạnh Thường Quân ở xa hoặc ở nước ngoài, kho có hỗ trợ quay video, chụp ảnh bàn giao không?',
+    a: 'Chúng tôi có quy trình hỗ trợ riêng cho nhà hảo tâm kiều bào và người bận rộn: Giao đúng giờ đến tận cơ sở bảo trợ/chùa, cân ký minh bạch, quay video và chụp ảnh lễ trao tặng cùng đại diện điểm nhận và gửi báo cáo chi tiết qua Zalo.',
+  },
+  {
+    q: 'Làm thế nào để cam kết gạo mới, không pha trộn và đúng số ký?',
+    a: 'Vựa Gạo Sóc Trăng cam kết bằng văn bản: Gạo mới xay xát trực tiếp từ nhà máy Đồng Tháp, 100% không đấu trộn gạo cũ, không hương liệu hóa chất và không chất bảo quản. Quý khách được quyền kiểm tra chất lượng và cân thử từng bao trước khi thanh toán. Nếu phát hiện sai sót, đổi trả 100% ngay lập tức.',
+  },
+];

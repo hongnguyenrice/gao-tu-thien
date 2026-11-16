@@ -61,7 +61,7 @@ export function organizationSchema() {
         publisher: { '@id': ORG_ID },
       },
       {
-        '@type': 'WholesaleStore',
+        '@type': ['WholesaleStore', 'LocalBusiness', 'Organization'],
         '@id': ORG_ID,
         name: BRAND_INFO.name,
         alternateName: 'Vựa Gạo Sóc Trăng – Gạo Từ Thiện Giá Sỉ',
@@ -171,5 +171,19 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       name: it.name,
       item: `${SITE_URL}${it.path}`,
     })),
+  };
+}
+
+export function serviceSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Cung Cấp Gạo Từ Thiện Giá Sỉ & Đóng Bao 5kg-10kg Miễn Phí',
+    serviceType: 'Wholesale Charity Rice Supply & Packaging',
+    provider: { '@id': ORG_ID },
+    areaServed: [...BRAND_INFO.branches.map((b) => b.area), BRAND_INFO.factory.area],
+    description:
+      'Cung cấp gạo từ thiện giá sỉ tận gốc cho chùa, bếp ăn 0 đồng, mái ấm và đoàn thiện nguyện. Miễn phí đóng bao 5kg-10kg, giao xe tải tận nơi, xuất hóa đơn VAT 5%.',
+    url: `${SITE_URL}/`,
   };
 }
