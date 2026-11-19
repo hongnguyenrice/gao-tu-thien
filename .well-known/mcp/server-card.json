@@ -1,0 +1,27 @@
+{
+  "name": "vua-gao-soc-trang-charity-rice",
+  "version": "1.0.0",
+  "description": "Cung cấp gạo từ thiện giá sỉ tận gốc, bảng giá bậc thang, quy cách đóng bao 5kg-10kg và thông tin hệ thống kho bãi Vựa Gạo Sóc Trăng.",
+  "endpoint": "https://tuthien.gaosoctrang.com/",
+  "documentation": "https://tuthien.gaosoctrang.com/llms.txt",
+  "serverInfo": {
+    "name": "vua-gao-soc-trang-charity-rice",
+    "title": "Vựa Gạo Sóc Trăng – Gạo Từ Thiện Giá Sỉ",
+    "version": "1.0.0",
+    "endpoint": "https://tuthien.gaosoctrang.com/"
+  },
+  "transport": {
+    "type": "webmcp",
+    "endpoint": "https://tuthien.gaosoctrang.com/",
+    "url": "https://tuthien.gaosoctrang.com/"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    }
+  }
+}
