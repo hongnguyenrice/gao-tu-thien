@@ -33,9 +33,12 @@
 AddType text/markdown .md
 AddCharset utf-8 .md .txt
 
-# Điều hướng 301 các đường dẫn alias tiếng Anh cũ về URL chính tắc tiếng Việt & phục vụ Markdown cho AI Agents
+# Điều hướng 301 www -> non-www, alias tiếng Anh cũ -> URL chính tắc tiếng Việt & phục vụ Markdown cho AI Agents
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.tuthien\.gaosoctrang\.com$ [NC]
+  RewriteRule ^(.*)$ https://tuthien.gaosoctrang.com/$1 [R=301,L]
+
   RewriteRule ^about/?$ /gioi-thieu/ [R=301,L]
   RewriteRule ^contact/?$ /lien-he/ [R=301,L]
   RewriteRule ^terms/?$ /dieu-khoan-va-chinh-sach/ [R=301,L]
@@ -56,10 +59,10 @@ AddCharset utf-8 .md .txt
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
 
-  # Quảng bá llms.txt & bản Markdown qua RFC 8288 Link header
+  # Quảng bá llms.txt & bản Markdown qua RFC 8288 Link header (dùng nháy đơn cho LiteSpeed)
   <FilesMatch "^index\.html$">
-    Header add Link "</llms.txt>; rel=\"alternate\"; type=\"text/plain\""
-    Header add Link "</index.md>; rel=\"alternate\"; type=\"text/markdown\""
+    Header add Link '</llms.txt>; rel="alternate"; type="text/plain"'
+    Header add Link '</index.md>; rel="alternate"; type="text/markdown"'
     Header merge Vary "Accept"
   </FilesMatch>
   
