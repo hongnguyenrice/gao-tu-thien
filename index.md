@@ -9,7 +9,7 @@
 ## Dịch Vụ Hỗ Trợ Đặc Biệt Cho Đoàn Thiện Nguyện
 
 1. **Đóng bao nhỏ 5kg – 10kg miễn phí 100%**: Bao bì sạch đẹp, may chỉ đôi chắc chắn, hỗ trợ in decal tên đoàn theo yêu cầu.
-2. **Giao xe tải tận nơi**: Giao đúng giờ đến chùa, mái ấm, bếp ăn hoặc điểm phát quà; tài xế hỗ trợ bốc xếp vào kho.
+2. **Giao xe tải & bốc xếp tận nơi**: Miễn phí 100% xe tải giao tận nơi và phụ xe bốc xếp vào tận kho/sảnh Chùa tại TP.HCM & Bình Dương cho đơn từ **300kg** trở lên; giao đúng giờ đoàn làm lễ hoặc phát quà.
 3. **Xuất hóa đơn VAT 5% đầy đủ**: Kèm hợp đồng mua bán và giấy chứng nhận ATVSTP cho doanh nghiệp, tổ chức.
 4. **Cam kết gạo mới nguyên chất**: Xay xát trực tiếp tại nhà máy Đồng Tháp, không đấu trộn gạo cũ, kiểm tra và cân ký trước khi thanh toán.
 
